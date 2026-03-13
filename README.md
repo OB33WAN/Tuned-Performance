@@ -1,6 +1,10 @@
 # Tuned Performance Website
 
+<<<<<<< HEAD
 Marketing site for Tuned Performance, a weekend-only mobile automotive service covering TW postcodes and Kingston.
+=======
+Website for **Tuned Performance**, a weekend-only mobile automotive service covering TW postcodes and Kingston.
+>>>>>>> 10c7f9bb894be78b04058df174f111901bccae42
 
 ## Overview
 
