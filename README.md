@@ -26,6 +26,8 @@ Configured contact details:
 
 - Phone: `+44 07933 705124`
 - Email: `tunedperformanceuk@gmail.com`
+- Instagram: `@tuned.performance.uk` (`https://www.instagram.com/tuned.performance.uk/`)
+- Gumtree: `https://www.gumtree.com/profile/account/621010e54c249814e0b84f3513176f56`
 
 Form submission is configured through FormSubmit:
 
@@ -83,5 +85,4 @@ Repository: `https://github.com/OB33WAN/Tuned-Performance.git`
 
 Main branch: `main`
 
-Link:
-'https://ob33wan.github.io/Tuned-Performance/'
+Link: 'https://tunedperformance.co.uk/'

@@ -884,6 +884,50 @@ h1 {
   color: var(--text-soft);
 }
 
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.social-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.05rem;
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
+
+.social-icon-instagram {
+  background: linear-gradient(140deg, #d62976, #fa7e1e);
+}
+
+.social-icon-gumtree {
+  background: linear-gradient(140deg, #31b57d, #1a8d5f);
+}
+
+.social-btn {
+  width: 100%;
+}
+
 .contact {
   background:
     linear-gradient(140deg, rgba(0, 22, 122, 0.08), transparent 40%),
@@ -902,6 +946,47 @@ h1 {
   display: grid;
   gap: 0.4rem;
   font-weight: 600;
+}
+
+.contact-actions {
+  margin-top: 1.1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.contact-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.62rem 0.75rem;
+  background: #f8fbff;
+  font-weight: 700;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.contact-action:hover,
+.contact-action:focus-visible {
+  transform: translateY(-2px);
+  border-color: #9fb0ff;
+  background: #eef3ff;
+}
+
+.contact-action-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-action-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--accent);
 }
 
 .contact-form {
@@ -966,6 +1051,195 @@ h1 {
   flex-wrap: wrap;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-link-button:hover,
+.footer-link-button:focus-visible {
+  color: var(--brand-dark);
+}
+
+.footer-link-button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cookie-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.cookie-banner.is-hidden {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+
+.cookie-banner-inner {
+  width: min(100%, 980px);
+  margin-inline: auto;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 0.95rem 1rem;
+}
+
+.cookie-title {
+  margin: 0;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.cookie-text {
+  margin: 0.3rem 0 0;
+  color: var(--text-soft);
+}
+
+.cookie-actions {
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.cookie-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+}
+
+.cookie-modal[hidden] {
+  display: none;
+}
+
+.cookie-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 17, 70, 0.45);
+}
+
+.cookie-modal-card {
+  position: relative;
+  width: min(calc(100% - 1.5rem), 560px);
+  margin: 7vh auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.cookie-modal-card h2 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+}
+
+.cookie-modal-card > p {
+  margin: 0.45rem 0 0.65rem;
+  color: var(--text-soft);
+}
+
+.cookie-toggle {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8fbff;
+  padding: 0.7rem;
+  margin-top: 0.55rem;
+}
+
+.cookie-toggle strong,
+.cookie-toggle small {
+  display: block;
+}
+
+.cookie-toggle small {
+  margin-top: 0.12rem;
+  color: var(--text-soft);
+}
+
+.cookie-toggle input {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.16rem;
+}
+
+.cookie-toggle-locked {
+  border-color: #ffcca8;
+  background: #fff6ef;
+}
+
+.cookie-modal-open {
+  overflow: hidden;
+}
+
+.legal-page {
+  min-height: 100vh;
+}
+
+.legal-main {
+  width: min(calc(100% - 2.5rem), 960px);
+  margin: 0 auto;
+  padding: 2.1rem 0 3rem;
+}
+
+.legal-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.3rem;
+}
+
+.legal-card h1 {
+  max-width: none;
+  margin: 0.25rem 0 0.45rem;
+}
+
+.legal-card h2 {
+  margin-top: 1.1rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+}
+
+.legal-card p,
+.legal-card li {
+  color: var(--text-soft);
+}
+
+.legal-meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: #5a6797;
+}
+
+.legal-list {
+  margin: 0.45rem 0 0;
+  padding-left: 1.15rem;
+}
+
 .reveal {
   opacity: 1;
   transform: none;
@@ -1025,6 +1299,7 @@ h1 {
   .coverage-grid,
   .process-grid,
   .review-grid,
+  .social-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -1085,6 +1360,10 @@ h1 {
     width: min(calc(100% - 1.5rem), var(--container));
   }
 
+  .legal-main {
+    width: min(calc(100% - 1.5rem), 960px);
+  }
+
   .nav-wrap {
     min-height: 4.1rem;
   }
@@ -1126,6 +1405,16 @@ h1 {
   .service-quick-list h3,
   .service-card h3 {
     line-height: 1.25;
+  }
+
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-banner {
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
   }
 }
 
@@ -1169,6 +1458,20 @@ h1 {
   .estimate-columns,
   .part-row {
     grid-template-columns: 1fr;
+  }
+
+  .cookie-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-actions .btn {
+    width: 100%;
+  }
+
+  .footer-links {
+    width: 100%;
+    gap: 0.6rem 0.9rem;
   }
 }
 
