@@ -533,6 +533,12 @@ h1 {
   padding: 1rem;
 }
 
+.benksy-widget-frame {
+  border: 0;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
 .stage-form {
   display: grid;
   gap: 0.7rem;
