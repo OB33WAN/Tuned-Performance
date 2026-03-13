@@ -507,9 +507,13 @@ h1 {
   border-block: 1px solid var(--line);
 }
 
+#figures .container {
+  width: min(calc(100% - 1.2rem), 1680px);
+}
+
 .stage-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 0.75fr 1.25fr;
   gap: 1rem;
   align-items: start;
 }
@@ -534,9 +538,12 @@ h1 {
 }
 
 .benksy-widget-frame {
+  display: block;
+  width: 100%;
   border: 0;
   border-radius: 12px;
   background: #ffffff;
+  height: clamp(820px, 88vh, 1100px);
 }
 
 .stage-form {
@@ -1720,6 +1727,10 @@ h1 {
   .quote-summary-grid,
   .quote-submit-actions {
     grid-template-columns: 1fr;
+  }
+
+  .benksy-widget-frame {
+    height: clamp(920px, 110vh, 1300px);
   }
 }
 
