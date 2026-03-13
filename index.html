@@ -42,15 +42,133 @@
             "@type": "AutomotiveBusiness",
             "@id": "https://tunedperformance.co.uk/#business",
             "name": "Tuned Performance",
+            "description": "Tuned Performance provides mobile car repairs, fitment services, diagnostics, and tuning support across Feltham, Hounslow, TW postcodes, and Kingston.",
             "url": "https://tunedperformance.co.uk/",
+            "image": "https://tunedperformance.co.uk/images/Tuned%20Performance%20Logo.png",
+            "logo": "https://tunedperformance.co.uk/images/Tuned%20Performance%20Logo.png",
             "telephone": "+44 07933 705124",
             "email": "tunedperformanceuk@gmail.com",
+            "priceRange": "GBP",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Feltham",
+              "addressRegion": "London",
               "addressCountry": "GB"
             },
-            "areaServed": ["Feltham", "TW Postcodes", "Kingston"],
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Feltham"
+              },
+              {
+                "@type": "City",
+                "name": "Hounslow"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "TW Postcodes"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "Kingston upon Thames"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "18:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "09:00",
+                "closes": "18:00"
+              }
+            ],
+            "serviceType": [
+              "ECU remapping waitlist",
+              "Bumper and scratch spot repairs",
+              "Small scratch repairs",
+              "Front and rear diffuser fitting",
+              "Side skirt fitting",
+              "Mirror cap fitting",
+              "Exhaust tip fitting",
+              "Air filter and intake fitting",
+              "OBD diagnostics",
+              "MOT pickup and drop-off"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Mobile Automotive Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "ECU Remapping (Waitlist Open)"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Bumper and Scratch Spot Repairs"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Small Scratch Repairs"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Front and Rear Diffuser, Side Skirts and Mirror Caps"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Exhaust Tips (Slip-On, No Welding)"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Air Filters and Intakes"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "OBD Diagnosis"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Pickup and Drop off Services for MOT"
+                  }
+                }
+              ]
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "telephone": "+44 07933 705124",
+              "email": "tunedperformanceuk@gmail.com",
+              "areaServed": "GB",
+              "availableLanguage": ["en-GB", "en"]
+            },
             "sameAs": [
               "https://www.instagram.com/tuned.performance.uk/",
               "https://www.gumtree.com/profile/account/621010e54c249814e0b84f3513176f56"
@@ -65,6 +183,65 @@
               "@id": "https://tunedperformance.co.uk/#business"
             },
             "inLanguage": "en-GB"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://tunedperformance.co.uk/#webpage",
+            "url": "https://tunedperformance.co.uk/",
+            "name": "Tuned Performance | Mobile Car Services in Feltham, London",
+            "isPartOf": {
+              "@id": "https://tunedperformance.co.uk/#website"
+            },
+            "about": {
+              "@id": "https://tunedperformance.co.uk/#business"
+            },
+            "inLanguage": "en-GB"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://tunedperformance.co.uk/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Which areas does Tuned Performance cover?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We are based in Feltham and cover Hounslow, TW postcodes, and Kingston (KT) with weekend mobile appointments."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When are appointments available?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tuned Performance currently operates on weekends, with Saturday and Sunday appointment slots."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What services do you provide?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We provide mobile bumper and scratch repairs, small scratch repairs, diffuser and trim fitting, exhaust tip fitting, air filter and intake fitting, OBD diagnostics, and MOT pickup and drop-off support."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you take ECU remap bookings right now?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ECU remapping is currently waitlist-only. You can submit your details and we will contact you when booking slots open."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I get a quote?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Use the estimate and quote form on the website or send a general enquiry with your reg, vehicle model, postcode, and required service."
+                }
+              }
+            ]
           }
         ]
       }
@@ -101,6 +278,7 @@
           <a href="#estimate">Estimate Tool</a>
           <a href="#services">Services</a>
           <a href="#coverage">Coverage</a>
+          <a href="#faq">FAQ</a>
           <a href="#process">Process</a>
           <a href="#reviews">Reviews</a>
           <a href="#contact" class="btn btn-nav">Get Quote</a>
@@ -556,6 +734,37 @@
                 to detail."
               </p>
               <h3>- M. Taylor, TW7</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">FAQs</p>
+            <h2>Common Questions</h2>
+          </div>
+          <div class="faq-grid">
+            <article class="faq-card reveal">
+              <h3>Which areas do you cover?</h3>
+              <p>We are based in Feltham and cover Hounslow, TW postcodes, and Kingston (KT) for mobile appointments.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>When are you available?</h3>
+              <p>We currently run weekend-only slots. Saturday and Sunday appointments are available depending on route and service type.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>Do you offer ECU remap bookings?</h3>
+              <p>Remapping is currently waitlist-only. You can join the waitlist and we will contact you as soon as booking windows open.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>What services can be booked mobile?</h3>
+              <p>We provide scratch and bumper repairs, diffuser and trim fitting, exhaust tip fitting, air filter/intake fitting, OBD diagnosis, and MOT pickup and drop-off support.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>How do I get a quote quickly?</h3>
+              <p>Use the estimate tool and final quote form, or send your reg, vehicle model, postcode, and required service through the enquiry form.</p>
             </article>
           </div>
         </div>

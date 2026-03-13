@@ -908,6 +908,30 @@ h1 {
   color: var(--text-soft);
 }
 
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.faq-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.faq-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.faq-card p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
 .social-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1605,6 +1629,7 @@ h1 {
   .coverage-grid,
   .process-grid,
   .review-grid,
+  .faq-grid,
   .social-grid,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -1703,6 +1728,7 @@ h1 {
   .coverage-panel,
   .process-step,
   .review-card,
+  .faq-card,
   .contact-form,
   .quote-modal-card,
   .thank-you-card {
