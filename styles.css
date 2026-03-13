@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -35,6 +36,11 @@ body {
 }
 
 img {
+  max-width: 100%;
+  display: block;
+}
+
+iframe {
   max-width: 100%;
   display: block;
 }
@@ -58,6 +64,22 @@ a {
   border: 0;
   overflow: hidden;
   clip: rect(0 0 0 0);
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  background: #0d1c2e;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.skip-link:focus-visible {
+  top: 0.75rem;
 }
 
 .site-header {
@@ -545,21 +567,19 @@ h1 {
   font-weight: 600;
 }
 
-.remap-cta {
-  font-size: 1.05rem;
-  padding: 0.85rem 1.6rem;
-}
-
 /* ── Branded Remap Widget Card ──────────────────────────── */
 .remap-widget-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(14, 25, 42, 0.22), 0 0 0 1px rgba(14, 25, 42, 0.1);
+  min-width: 0;
 }
 
 .remap-widget-header {
   background: linear-gradient(135deg, #0d1c2e 55%, #173a63);
-  padding: 1.1rem 1.4rem 1rem;
+  padding: 1rem 1.15rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -624,23 +644,27 @@ h1 {
 
 .remap-widget-body {
   background: #f8fafc;
+  padding: 0;
+  min-width: 0;
 }
 
 .remap-widget-body .benksy-widget-frame {
   border-radius: 0;
+  border: 0;
 }
 
 .remap-widget-disclaimer {
   background: var(--card);
   border-top: 1px solid var(--line);
-  padding: 0.75rem 1.2rem;
+  padding: 0.85rem 1rem;
   margin: 0;
+  line-height: 1.45;
   font-size: 0.82rem;
 }
 
 .stage-form-wrap {
   display: grid;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
 .stage-form,
@@ -655,6 +679,7 @@ h1 {
 .benksy-widget-frame {
   display: block;
   width: 100%;
+  max-width: 100%;
   border: 0;
   border-radius: 12px;
   background: #ffffff;
@@ -1529,6 +1554,7 @@ h1 {
   right: 1rem;
   bottom: 1rem;
   z-index: 60;
+  max-width: 100%;
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
@@ -1546,6 +1572,7 @@ h1 {
   border-radius: 14px;
   box-shadow: var(--shadow);
   padding: 0.95rem 1rem;
+  overflow-wrap: anywhere;
 }
 
 .cookie-title {
@@ -1587,6 +1614,7 @@ h1 {
 .cookie-modal-card {
   position: relative;
   width: min(calc(100% - 1.5rem), 560px);
+  max-width: 100%;
   margin: 7vh auto;
   background: #ffffff;
   border: 1px solid var(--line);
@@ -1683,6 +1711,50 @@ h1 {
 .legal-list {
   margin: 0.45rem 0 0;
   padding-left: 1.15rem;
+}
+
+.definition-list,
+.comparison-list {
+  margin: 0;
+  padding: 0;
+}
+
+.definition-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.definition-list > div {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f7fafd;
+  padding: 0.7rem;
+}
+
+.definition-list dt {
+  font-family: "Rajdhani", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.definition-list dd {
+  margin: 0.25rem 0 0;
+  color: var(--text-soft);
+}
+
+.comparison-list {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.comparison-list li {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f7fafd;
+  color: var(--text-soft);
+  padding: 0.65rem;
 }
 
 .reveal {
@@ -1786,6 +1858,27 @@ h1 {
     max-height: 380px;
   }
 
+  .legal-page .main-nav {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.6rem;
+    max-height: none;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .legal-page .main-nav a {
+    border: 0;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .legal-page .btn-nav {
+    border-radius: 999px;
+    background: #eef2f7;
+  }
+
   .btn-nav {
     border-radius: 0;
     background: #eaf1f8;
@@ -1860,9 +1953,21 @@ h1 {
   }
 
   .cookie-banner {
-    left: 0.6rem;
-    right: 0.6rem;
+    left: max(0.6rem, env(safe-area-inset-left));
+    right: max(0.6rem, env(safe-area-inset-right));
     bottom: 0.6rem;
+  }
+
+  .remap-widget-header {
+    padding: 0.9rem;
+  }
+
+  .remap-widget-badges {
+    width: 100%;
+  }
+
+  .remap-widget-body {
+    padding: 0;
   }
 
   .quote-summary-grid,
@@ -1925,6 +2030,18 @@ h1 {
 
   .cookie-actions .btn {
     width: 100%;
+  }
+
+  .remap-widget-badges li {
+    white-space: normal;
+  }
+
+  .remap-widget-body {
+    padding: 0;
+  }
+
+  .remap-widget-disclaimer {
+    padding: 0.7rem 0.9rem;
   }
 
   .footer-links {

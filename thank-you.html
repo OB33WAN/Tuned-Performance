@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="robots" content="noindex, nofollow" />
     <meta
       name="description"
@@ -30,13 +31,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="thank-you-page">
-    <main class="thank-you-main">
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+    <main class="thank-you-main" id="mainContent">
       <section class="thank-you-card reveal visible">
         <p class="eyebrow">Enquiry Sent</p>
         <h1>Thanks, We Have Received Your Message</h1>
@@ -65,6 +75,6 @@
         </div>
       </div>
     </footer>
-    <script src="consent.js"></script>
+    <script src="consent.js" defer></script>
   </body>
 </html>

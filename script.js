@@ -10,6 +10,9 @@ const estimateClearSelectionBtn = document.getElementById("estimateClearSelectio
 const estimateSelectedCountEl = document.getElementById("estimateSelectedCount");
 const addPartBtn = document.getElementById("addPartBtn");
 const partsRows = document.getElementById("partsRows");
+const scratchPanelField = document.getElementById("scratchPanelField");
+const scratchPanelHint = document.getElementById("scratchPanelHint");
+const scratchPanelCountInput = document.getElementById("scratchPanelCount");
 const labourPrice = document.getElementById("labourPrice");
 const estimateDuration = document.getElementById("estimateDuration");
 const estimateFormNote = document.getElementById("estimateFormNote");
@@ -67,7 +70,7 @@ const serviceProfiles = {
   diffuser: { labourPrice: 50, duration: "Typical duration: 1-2 hours for diffuser, side skirt, and mirror cap fitting" },
   tips: { labourPrice: 20, duration: "Typical duration: roughly 30 minutes" },
   intake: { labourPrice: 50, duration: "Typical duration: roughly 30 minutes" },
-  "small-scratch": { labourPrice: 60, duration: "Typical duration: 30-90 minutes" },
+  "small-scratch": { labourPrice: 100, duration: "Typical duration: 30-90 minutes" },
   "obd-diagnosis": { labourPrice: 50, duration: "Typical duration: 30-60 minutes" },
   "mot-pickup-dropoff": {
     labourPrice: 0,
@@ -245,14 +248,22 @@ function getEstimateSnapshot() {
     return null;
   }
 
+  const panelCount = getScratchPanelCount();
   const parts = getSelectedParts();
   const partsSubtotal = parts.reduce((total, item) => total + item.subtotal, 0);
-  const labourSubtotal = profiles.reduce((total, item) => total + Number(item.profile.labourPrice || 0), 0);
+  const labourSubtotal = profiles.reduce((total, item) => {
+    const baseLabour = Number(item.profile.labourPrice || 0);
+    if (item.value === "scratch" || item.value === "small-scratch") {
+      return total + baseLabour * panelCount;
+    }
+    return total + baseLabour;
+  }, 0);
   const durations = profiles.map((item) => item.profile.duration).filter((duration) => Boolean(duration));
 
   return {
     serviceValue: serviceValues,
     serviceLabel: getSelectedServiceLabel(),
+    panelCount,
     parts,
     partsText: getPartsSummaryText(parts),
     partsSubtotal,
@@ -262,10 +273,46 @@ function getEstimateSnapshot() {
   };
 }
 
+function hasPerPanelScratchService(serviceValues) {
+  return serviceValues.includes("scratch") || serviceValues.includes("small-scratch");
+}
+
+function getScratchPanelCount() {
+  if (!scratchPanelCountInput) {
+    return 1;
+  }
+
+  const parsed = Number(scratchPanelCountInput.value);
+  if (!Number.isFinite(parsed) || parsed < 1) {
+    return 1;
+  }
+
+  return Math.floor(parsed);
+}
+
+function toggleScratchPanelUi(serviceValues) {
+  const shouldShow = hasPerPanelScratchService(serviceValues);
+
+  if (scratchPanelField) {
+    scratchPanelField.hidden = !shouldShow;
+  }
+
+  if (scratchPanelHint) {
+    scratchPanelHint.hidden = !shouldShow;
+  }
+
+  if (!shouldShow && scratchPanelCountInput) {
+    scratchPanelCountInput.value = "1";
+  }
+}
+
 function updateEstimateOutputs(statusMessage = "") {
   if (!labourPrice) {
     return null;
   }
+
+  const selectedServiceValues = getSelectedServiceValues();
+  toggleScratchPanelUi(selectedServiceValues);
 
   const snapshot = getEstimateSnapshot();
   const partsSubtotal = calculatePartsSubtotal();
@@ -296,7 +343,10 @@ function updateEstimateOutputs(statusMessage = "") {
   labourPrice.value = String(snapshot.labourSubtotal);
 
   if (estimateDuration) {
-    estimateDuration.textContent = snapshot.duration;
+    const panelNote = hasPerPanelScratchService(snapshot.serviceValue)
+      ? ` Scratch service labour is charged per panel using ${snapshot.panelCount} panel${snapshot.panelCount === 1 ? "" : "s"}.`
+      : "";
+    estimateDuration.textContent = `${snapshot.duration}${panelNote}`;
     estimateDuration.classList.remove("is-error");
   }
   if (estimateParts) {
@@ -318,14 +368,21 @@ function updateEstimateOutputs(statusMessage = "") {
 }
 
 function buildQuoteMessage(snapshot) {
+  const perPanelNote = hasPerPanelScratchService(snapshot.serviceValue)
+    ? `For scratch services, labour is charged per panel and this estimate currently uses ${snapshot.panelCount} panel${snapshot.panelCount === 1 ? "" : "s"}.`
+    : "";
+
   return [
     `Hello Tuned Performance,`,
     `I would like a final quote for ${snapshot.serviceLabel}.`,
     `Selected parts:`,
     snapshot.partsText,
     `Labour estimate: ${formatMoney(snapshot.labourSubtotal)}. Parts will be sourced and priced at booking.`,
+    perPanelNote,
     `Please confirm availability and next steps.`,
-  ].join("\n\n");
+  ]
+    .filter(Boolean)
+    .join("\n\n");
 }
 
 function populateQuoteModal() {
@@ -654,6 +711,14 @@ if (addPartBtn) {
 
 if (partsRows && partsRows.children.length === 0) {
   updateEstimateOutputs();
+}
+
+if (scratchPanelCountInput) {
+  scratchPanelCountInput.addEventListener("input", () => {
+    const panelCount = getScratchPanelCount();
+    scratchPanelCountInput.value = String(panelCount);
+    updateEstimateOutputs("Labour updated for selected panel count.");
+  });
 }
 
 updateEstimateSelectedCount();
