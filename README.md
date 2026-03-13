@@ -13,11 +13,11 @@ This is a static website built with plain HTML, CSS, and JavaScript.
 
 ## Services Listed
 
-- ECU Remapping (BMW B46/B48/B58) - from GBP245
+- ECU Remapping (Waitlist Open)
+- Bumper Scuff and Scratch Repairs - from GBP60
 - Rear Diffuser + Mirror Caps - GBP120 labour + parts
 - Exhaust Tips (Slip-On, No Welding) - GBP60 labour + parts
 - Air Filters and Intakes - GBP100 labour + parts
-- Interior Button Swaps - GBP80 labour + parts
 - Small Scratch Repairs - GBP60-GBP120
 
 ## Contact Settings
@@ -33,6 +33,29 @@ Form submission is configured through FormSubmit:
 - Redirect URL: `https://tunedperformance.co.uk/thank-you.html`
 
 Important: FormSubmit requires one-time email activation for the destination inbox before live submissions are delivered.
+
+## Remap Widget (Benksy)
+
+The registration lookup feature has been removed.
+
+The Stage/Remap section now embeds a Benksy widget directly in `index.html`.
+
+If Benksy provides a different script URL or setup snippet, replace the current embed block in the `#figures` section.
+
+## Works Estimate Tool
+
+The homepage includes a customer estimate calculator for:
+
+- Parts subtotal
+- Labour subtotal (hours x hourly rate)
+- Service charge
+- Estimated total
+
+Configuration notes:
+
+- Parts catalog is defined in `script.js` under `partsCatalog`.
+- Default labour and service charge presets per service are in `script.js` under `serviceProfiles`.
+- You can replace these with your exact products and pricing when ready.
 
 ## Local Development
 
@@ -52,7 +75,7 @@ Required files for production:
 - `thank-you.html`
 - `styles.css`
 - `script.js`
-- logo assets (`Tuned Performance Logo.*`)
+- logo assets (`images/Tuned Performance Logo.*`)
 
 ## Git
 
