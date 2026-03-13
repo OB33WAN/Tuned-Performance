@@ -1,83 +1,92 @@
 # Tuned Performance Website
 
-Marketing site for **Tuned Performance**, a weekend-only mobile automotive service covering TW postcodes and Kingston.
+Marketing site for Tuned Performance, a weekend-only mobile automotive service covering TW postcodes and Kingston.
 
 ## Overview
 
 This is a static website built with plain HTML, CSS, and JavaScript.
 
-- `index.html`: Main homepage with services, contact form, and booking information
-- `thank-you.html`: Redirect confirmation page after successful enquiry submission
+- `index.html`: Main homepage with services, estimate tool, general enquiry form, and quote modal
+- `thank-you.html`: Redirect confirmation page after successful submission
 - `styles.css`: Global styles, responsive layout, branding, and animations
-- `script.js`: Mobile nav behavior, reveal animations, and utility interactions
+- `script.js`: Mobile nav behavior, estimate logic, quote modal flow, and Web3Forms submissions
 
 ## Services Listed
 
 - ECU Remapping (Waitlist Open)
-- Bumper Scuff and Scratch Repairs - from GBP60
-- Rear Diffuser + Mirror Caps - GBP120 labour + parts
-- Exhaust Tips (Slip-On, No Welding) - GBP60 labour + parts
-- Air Filters and Intakes - GBP100 labour + parts
-- Small Scratch Repairs - GBP60-GBP120
+- Bumper Scuff and Scratch Repairs
+- Front & Rear Diffuser, Side Skirts & Mirror Caps
+- Exhaust Tips (Slip-On, No Welding)
+- Air Filters and Intakes
+- Small Scratch Repairs
+- OBD Diagnosis
 
-## Contact Settings
+## Static Forms
 
-Configured contact details:
+The site uses Web3Forms so it stays fully static.
+
+Current static submission flows:
+
+- General enquiry form with optional PNG/JPG upload
+- ECU remap waitlist form
+- Final quote request modal pre-filled from the estimate tool
+- Online quote acceptance from the same quote modal
+
+Important tradeoff:
+
+- Web3Forms keeps hosting simple, but email branding and template control are more limited than a custom backend.
+- The quote workflow still works, but deeply custom HTML transactional emails depend on Web3Forms features and plan limits rather than custom site code.
+
+## Web3Forms Setup
+
+1. Create a Web3Forms access key.
+2. Replace every `YOUR_WEB3FORMS_ACCESS_KEY` placeholder in `index.html` with your live key.
+3. Configure any autoresponder options you want inside Web3Forms.
+
+Configured business contact details:
 
 - Phone: `+44 07933 705124`
 - Email: `tunedperformanceuk@gmail.com`
-- Instagram: `@tuned.performance.uk` (`https://www.instagram.com/tuned.performance.uk/`)
+- Instagram: `@tuned.performance.uk`
 - Gumtree: `https://www.gumtree.com/profile/account/621010e54c249814e0b84f3513176f56`
 
-Form submission is configured through FormSubmit:
+## Local Development
 
-- Endpoint: `https://formsubmit.co/tunedperformanceuk@gmail.com`
-- Redirect URL: `https://tunedperformance.co.uk/thank-you.html`
+No build tools are required.
 
-Important: FormSubmit requires one-time email activation for the destination inbox before live submissions are delivered.
+1. Replace the Web3Forms access key placeholders.
+2. Open `index.html` in a browser.
+3. For best local testing, use a simple static server if needed.
+
+## Deployment
+
+Deploy as a static site again, for example on GitHub Pages, Netlify, Vercel static hosting, or traditional hosting.
+
+Production checklist:
+
+- Replace all Web3Forms access key placeholders with the live key
+- Test general enquiry, waitlist, quote request, and quote acceptance on the live domain
+- Confirm your thank-you flow works as expected after submission
 
 ## Remap Widget (Benksy)
 
 The registration lookup feature has been removed.
 
-The Stage/Remap section now embeds a Benksy widget directly in `index.html`.
-
-If Benksy provides a different script URL or setup snippet, replace the current embed block in the `#figures` section.
+The Stage/Remap section embeds a Benksy widget directly in `index.html`.
 
 ## Works Estimate Tool
 
 The homepage includes a customer estimate calculator for:
 
 - Parts subtotal
-- Labour subtotal (hours x hourly rate)
-- Service charge
+- Labour subtotal by selected service
 - Estimated total
 
 Configuration notes:
 
 - Parts catalog is defined in `script.js` under `partsCatalog`.
-- Default labour and service charge presets per service are in `script.js` under `serviceProfiles`.
+- Default labour presets per service are in `script.js` under `serviceProfiles`.
 - You can replace these with your exact products and pricing when ready.
-
-## Local Development
-
-No build tools required.
-
-1. Open the project folder in VS Code.
-2. Open `index.html` in a browser.
-3. For best local testing, use a simple static server (optional), e.g. VS Code Live Server.
-
-## Deployment
-
-Deploy as a static site (GitHub Pages, Netlify, Vercel static output, or traditional hosting).
-
-Required files for production:
-
-- `index.html`
-- `thank-you.html`
-- `styles.css`
-- `script.js`
-- logo assets (`images/Tuned Performance Logo.*`)
 
 ## Git
 
@@ -85,4 +94,4 @@ Repository: `https://github.com/OB33WAN/Tuned-Performance.git`
 
 Main branch: `main`
 
-Link: 'https://tunedperformance.co.uk/'
+Live site: `https://tunedperformance.co.uk/`

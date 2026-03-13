@@ -6,10 +6,14 @@
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta
       name="description"
-      content="Tuned Performance provides mobile car repairs, fitment services, and tuning support in Feltham, TW postcodes, and Kingston including scratch repairs, intake installs, diffuser and mirror cap fitting, and exhaust tips."
+      content="Tuned Performance provides mobile car repairs, fitment services, and tuning support in Feltham, TW postcodes, and Kingston including scratch repairs, intake installs, front and rear diffuser, side skirt and mirror cap fitting, and exhaust tips."
     />
+    <meta name="author" content="Tuned Performance" />
     <link rel="canonical" href="https://tunedperformance.co.uk/" />
+    <link rel="alternate" hreflang="en-GB" href="https://tunedperformance.co.uk/" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="Tuned Performance" />
     <meta property="og:title" content="Tuned Performance | Mobile Car Services in Feltham, London" />
     <meta
       property="og:description"
@@ -18,6 +22,7 @@
     <meta property="og:url" content="https://tunedperformance.co.uk/" />
     <meta property="og:image" content="https://tunedperformance.co.uk/images/Tuned%20Performance%20Logo.png" />
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@tunedperformanceuk" />
     <meta name="twitter:title" content="Tuned Performance | Mobile Car Services in Feltham, London" />
     <meta
       name="twitter:description"
@@ -32,26 +37,42 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "AutomotiveBusiness",
-        "name": "Tuned Performance",
-        "url": "https://tunedperformance.co.uk/",
-        "telephone": "+44 07933 705124",
-        "email": "tunedperformanceuk@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Feltham",
-          "addressCountry": "GB"
-        },
-        "sameAs": [
-          "https://www.instagram.com/tuned.performance.uk/",
-          "https://www.gumtree.com/profile/account/621010e54c249814e0b84f3513176f56"
+        "@graph": [
+          {
+            "@type": "AutomotiveBusiness",
+            "@id": "https://tunedperformance.co.uk/#business",
+            "name": "Tuned Performance",
+            "url": "https://tunedperformance.co.uk/",
+            "telephone": "+44 07933 705124",
+            "email": "tunedperformanceuk@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Feltham",
+              "addressCountry": "GB"
+            },
+            "areaServed": ["Feltham", "TW Postcodes", "Kingston"],
+            "sameAs": [
+              "https://www.instagram.com/tuned.performance.uk/",
+              "https://www.gumtree.com/profile/account/621010e54c249814e0b84f3513176f56"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://tunedperformance.co.uk/#website",
+            "url": "https://tunedperformance.co.uk/",
+            "name": "Tuned Performance",
+            "publisher": {
+              "@id": "https://tunedperformance.co.uk/#business"
+            },
+            "inLanguage": "en-GB"
+          }
         ]
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -61,7 +82,7 @@
       <div class="container nav-wrap">
         <a href="index.html" class="brand" aria-label="Tuned Performance home">
           <img
-            src="images/Tuned%20Performance%20Logo.png"
+            src="images/Tuned%20Performance%20Transparent%20Logo.png"
             alt="Tuned Performance logo"
             class="brand-logo"
           />
@@ -106,6 +127,7 @@
             <ul class="hero-points">
               <li>1:1 service directly with us from quote to completion</li>
               <li>Current focus: small repairs and fitment jobs</li>
+              <li>MOT pickup and drop-off service available on request</li>
               <li>Home and workplace visits across TW + Kingston</li>
               <li>Clear advice and honest pricing before any work starts</li>
             </ul>
@@ -128,7 +150,7 @@
                 <p>£100 labour per panel + parts.</p>
               </article>
               <article>
-                <h3>Rear Diffuser + Mirror Caps</h3>
+                <h3>Front &amp; Rear Diffuser, Side Skirts &amp; Mirror Caps</h3>
                 <p>Supply and fit option - £50 labour + parts.</p>
               </article>
               <article>
@@ -142,6 +164,14 @@
               <article>
                 <h3>Air Filters and Intakes</h3>
                 <p>Supply and fit service - £50 labour + parts.</p>
+              </article>
+              <article>
+                <h3>OBD Diagnosis</h3>
+                <p>Fault code scan and first-line diagnosis - £50 per diagnosis.</p>
+              </article>
+              <article>
+                <h3>Pickup and Drop off Services for MOT</h3>
+                <p>Charged once MOT is complete and your vehicle is dropped back.</p>
               </article>
             </div>
           </div>
@@ -163,11 +193,9 @@
 
           <div class="stage-form-wrap reveal">
             <article class="stage-result" aria-live="polite">
-              <h3>Benksy Remap Widget</h3>
               <div id="benksy-remap-widget"></div>
               <script
-                src="https://cdn.benksy.com/widgets/remap-calculator.js"
-                data-widget-target="#benksy-remap-widget"
+                src="https://portal.bensky.co.uk/w.php?id=1794&js=1&theme=light&color=e33a2f&differencecolor=007aff"
                 async
               ></script>
               <p class="stage-disclaimer">
@@ -184,25 +212,61 @@
             <p class="eyebrow">Quick Costing</p>
             <h2>Estimate Parts and Labour</h2>
             <p>
-              Build a quick estimate before booking. Choose a service type, add parts, and use the fixed labour price
+              Build a quick estimate before booking. Choose one or multiple service types, add parts if needed, and use the fixed labour price
               for that job to get an instant total.
             </p>
           </div>
 
           <div class="estimate-grid">
             <form class="estimate-form reveal" id="worksEstimateForm" novalidate>
-              <label>
-                Service Type
-                <select id="estimateService" name="estimateService" required>
-                  <option value="">Select service</option>
-                  <option value="scratch">Bumper Scuff and Scratch Repairs</option>
-                  <option value="diffuser">Rear Diffuser + Mirror Caps</option>
-                  <option value="tips">Exhaust Tips (Slip-On, No Welding)</option>
-                  <option value="intake">Air Filters and Intakes</option>
-                  <option value="ecu-stage1">ECU Remapping Stage 1</option>
-                  <option value="custom">Custom Work</option>
-                </select>
-              </label>
+              <fieldset class="service-picker-fieldset">
+                <legend class="service-picker-legend">Service Type(s)</legend>
+                <div class="service-picker-grid" id="servicePicker">
+                  <button type="button" class="service-tile" data-value="scratch" data-label="Bumper Scuff and Scratch Repairs" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">Bumper Scuff and Scratch Repairs</span>
+                  </button>
+                  <button type="button" class="service-tile" data-value="small-scratch" data-label="Small Scratch Repairs" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">Small Scratch Repairs</span>
+                  </button>
+                  <button type="button" class="service-tile" data-value="diffuser" data-label="Front &amp; Rear Diffuser, Side Skirts &amp; Mirror Caps" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">Front &amp; Rear Diffuser, Side Skirts &amp; Mirror Caps</span>
+                  </button>
+                  <button type="button" class="service-tile" data-value="tips" data-label="Exhaust Tips (Slip-On, No Welding)" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">Exhaust Tips (Slip-On, No Welding)</span>
+                  </button>
+                  <button type="button" class="service-tile" data-value="intake" data-label="Air Filters and Intakes" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">Air Filters and Intakes</span>
+                  </button>
+                  <button type="button" class="service-tile" data-value="obd-diagnosis" data-label="OBD Diagnosis" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">OBD Diagnosis</span>
+                  </button>
+                  <button type="button" class="service-tile" data-value="mot-pickup-dropoff" data-label="Pickup and Drop off Services for MOT" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">Pickup and Drop off Services for MOT</span>
+                  </button>
+                  <button type="button" class="service-tile" data-value="ecu-stage1" data-label="ECU Remapping Stage 1" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">ECU Remapping Stage 1</span>
+                  </button>
+                  <button type="button" class="service-tile" data-value="custom" data-label="Custom Work" aria-pressed="false">
+                    <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="service-tile-name">Custom Work</span>
+                  </button>
+                </div>
+                <div class="service-picker-footer">
+                  <span class="service-selected-count" id="estimateSelectedCount" aria-live="polite">0 selected</span>
+                  <div class="multi-select-actions">
+                    <button type="button" class="btn btn-ghost btn-inline" id="estimateSelectAll">Select all</button>
+                    <button type="button" class="btn btn-ghost btn-inline" id="estimateClearSelection">Clear</button>
+                  </div>
+                </div>
+              </fieldset>
 
               <div class="parts-block">
                 <div class="parts-head">
@@ -210,6 +274,7 @@
                   <button type="button" class="btn btn-ghost" id="addPartBtn">Add Part</button>
                 </div>
                 <div id="partsRows"></div>
+                <p class="field-hint">Parts are optional. Leave empty if you want labour-only estimate.</p>
               </div>
 
               <div class="estimate-columns">
@@ -219,9 +284,9 @@
                 </label>
               </div>
 
+              <p class="form-note">Estimate updates automatically as you change service and parts.</p>
               <p class="form-note" id="estimateDuration" role="status" aria-live="polite"></p>
 
-              <button type="submit" class="btn btn-primary btn-block">Calculate Estimate</button>
               <p class="form-note" id="estimateFormNote" role="status" aria-live="polite"></p>
             </form>
 
@@ -229,8 +294,8 @@
               <h3>Estimated Cost Summary</h3>
               <div class="estimate-result-grid">
                 <div>
-                  <p class="stage-label">Parts</p>
-                  <p class="stage-value" id="estimateParts">GBP0.00</p>
+                  <p class="stage-label">Parts Needed</p>
+                  <p class="stage-value" id="estimateParts">None added</p>
                 </div>
                 <div>
                   <p class="stage-label">Labour</p>
@@ -238,13 +303,14 @@
                 </div>
               </div>
               <div class="estimate-total">
-                <p>Total Estimate</p>
+                <p>Labour Estimate</p>
                 <p id="estimateTotal">GBP0.00</p>
               </div>
               <p class="stage-disclaimer">
-                This is an estimate only. Final quote may vary after inspection and exact parts selection.
+                Labour rate is fixed by service type. Parts are sourced to order and priced separately at booking.
               </p>
-              <a href="#contact" class="btn btn-primary btn-block">Request Final Quote</a>
+              <button type="button" class="btn btn-primary btn-block" id="openQuoteModal">Open Final Quote Form</button>
+              <a href="#contact" class="btn btn-ghost btn-block">Send General Enquiry Instead</a>
             </article>
           </div>
         </div>
@@ -288,22 +354,27 @@
               <form
                 class="notify-form"
                 id="ecuWaitlist"
-                action="https://formsubmit.co/tunedperformanceuk@gmail.com"
+                action="https://api.web3forms.com/submit"
                 method="POST"
+                autocomplete="on"
+                data-success-redirect="thank-you.html"
               >
-                <input type="hidden" name="_subject" value="ECU Remap Waitlist - Tuned Performance Website" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_next" value="https://tunedperformance.co.uk/thank-you.html" />
+                <input type="hidden" name="access_key" value="4f7ab378-e677-4b67-b382-d548236a7160" />
+                <input type="hidden" name="subject" value="ECU Remap Waitlist - Tuned Performance Website" />
                 <input type="hidden" name="service_interest" value="ECU Remapping Waitlist" />
+                <label class="sr-only" aria-hidden="true">
+                  Leave this field empty
+                  <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+                </label>
                 <label>
                   Name
-                  <input type="text" name="name" required />
+                  <input type="text" name="name" autocomplete="name" required />
                 </label>
                 <label>
                   Email
-                  <input type="email" name="email" required />
+                  <input type="email" name="email" autocomplete="email" required />
                 </label>
+                <p class="form-note" id="waitlistNote" role="status" aria-live="polite"></p>
                 <button type="submit" class="btn btn-primary">Join Waitlist</button>
               </form>
             </article>
@@ -321,10 +392,10 @@
               <img
                 class="service-media"
                 src="images/Mirror%20Caps.jpg"
-                alt="Performance rear diffuser fitting"
+                alt="Performance diffuser, side skirt, and mirror cap fitting"
                 loading="lazy"
               />
-              <h3>Rear Diffuser + Mirror Caps</h3>
+              <h3>Front &amp; Rear Diffuser, Side Skirts &amp; Mirror Caps</h3>
               <p>£50 labour + parts. Supply and fit available on appointment.</p>
             </article>
             <article class="service-card reveal">
@@ -357,6 +428,30 @@
               <h3>Small Scratch Repairs</h3>
               <p>£100 per panel. Buff, paint, and clearcoat blend repair.</p>
             </article>
+            <article class="service-card reveal">
+              <img
+                class="service-media"
+                src="images/Dyno%20mapping.jpg"
+                alt="Vehicle connected for onboard diagnostics"
+                loading="lazy"
+              />
+              <h3>OBD Diagnosis</h3>
+              <p>£50 per diagnosis. Fault code readout and practical next-step advice.</p>
+            </article>
+            <article class="service-card service-card-mot reveal">
+              <img
+                class="service-media"
+                src="images/Dyno%20mapping.jpg"
+                alt="Vehicle pickup and return support for MOT appointment"
+                loading="lazy"
+              />
+              <h3>Pickup and Drop off Services for MOT</h3>
+              <p>Charged once MOT is completed and your vehicle is dropped back to you.</p>
+              <div class="service-card-actions">
+                <button type="button" class="btn btn-primary btn-block" data-open-quote-service="mot-pickup-dropoff">Request MOT Pickup Quote</button>
+                <a href="tel:+447933705124" class="btn btn-ghost btn-block">Call for MOT Pickup</a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -384,7 +479,8 @@
               <li>Receive service options and clear quote</li>
               <li>Book a weekend mobile visit at your home or workplace</li>
             </ul>
-            <a href="#contact" class="btn btn-primary btn-block">Request Your Quote</a>
+            <a href="#estimate" class="btn btn-primary btn-block">Go to Estimate + Quote</a>
+            <a href="tel:+447933705124" class="btn btn-ghost btn-block">Call for MOT Pickup and Drop off</a>
           </aside>
         </div>
       </section>
@@ -431,7 +527,7 @@
             </article>
             <article class="review-card reveal">
               <p>
-                "Had rear diffuser, mirror caps, and slip-on tips fitted at home. Clean finish and no hassle at
+                "Had front and rear diffuser trim, mirror caps, and slip-on tips fitted at home. Clean finish and no hassle at
                 all."
               </p>
               <h3>- J. Patel, Kingston</h3>
@@ -451,9 +547,10 @@
         <div class="container contact-grid">
           <div class="reveal">
             <p class="eyebrow">Get Started</p>
-            <h2>Request a Quote</h2>
+            <h2>Send a General Enquiry</h2>
             <p>
-              Send your details and we will come back with the best options for your vehicle, location, and budget.
+              Use this form for general questions and non-estimate enquiries.
+              If you already know the service and want a direct quote request, use the final quote form from the estimate section or the MOT service card.
             </p>
             <div class="contact-actions" aria-label="Contact options">
               <a class="contact-action" href="tel:+447933705124" aria-label="Call Tuned Performance">
@@ -493,56 +590,253 @@
 
           <form
             class="contact-form reveal"
-            id="quoteForm"
-            action="https://formsubmit.co/tunedperformanceuk@gmail.com"
+            id="contactForm"
+            action="https://api.web3forms.com/submit"
             method="POST"
+            enctype="multipart/form-data"
+            autocomplete="on"
+            data-success-redirect="thank-you.html"
           >
-            <input type="hidden" name="_subject" value="New Enquiry - Tuned Performance Website" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://tunedperformance.co.uk/thank-you.html" />
-            <label>
-              Full Name
-              <input type="text" name="name" required />
+            <input type="hidden" name="access_key" value="4f7ab378-e677-4b67-b382-d548236a7160" />
+            <input type="hidden" name="subject" value="New Enquiry - Tuned Performance Website" />
+            <label class="sr-only" aria-hidden="true">
+              Leave this field empty
+              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
             </label>
+            <div class="form-row">
+              <label>
+                Name
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Phone Number
+                <input type="tel" name="phone" autocomplete="tel" required />
+              </label>
+              <label>
+                Postcode
+                <input type="text" name="postcode" placeholder="e.g. TW14" autocomplete="postal-code" required />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Vehicle Make
+                <input type="text" name="vehicle_make" placeholder="e.g. BMW, VW, Ford" required />
+              </label>
+              <label>
+                Vehicle Model
+                <input type="text" name="vehicle_model" placeholder="e.g. 3 Series, Golf" required />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Year
+                <input type="number" name="vehicle_year" placeholder="e.g. 2019" min="1980" max="2026" />
+              </label>
+              <label>
+                Engine Size
+                <input type="text" name="engine_size" placeholder="e.g. 2.0L, 1.5T" />
+              </label>
+            </div>
+            <fieldset class="service-picker-fieldset service-picker-compact">
+              <legend class="service-picker-legend">Service Needed</legend>
+              <div class="service-picker-grid" id="contactServicePicker">
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="ECU Remapping (Waitlist Open)" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">ECU Remapping (Waitlist Open)</span>
+                </label>
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="Bumper Scuff and Scratch Repairs" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">Bumper Scuff and Scratch Repairs</span>
+                </label>
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="Small Scratch Repairs" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">Small Scratch Repairs</span>
+                </label>
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="Front &amp; Rear Diffuser, Side Skirts &amp; Mirror Caps" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">Front &amp; Rear Diffuser, Side Skirts &amp; Mirror Caps</span>
+                </label>
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="Exhaust Tips (Slip-On, No Welding)" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">Exhaust Tips (Slip-On, No Welding)</span>
+                </label>
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="Air Filters and Intakes" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">Air Filters and Intakes</span>
+                </label>
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="OBD Diagnosis" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">OBD Diagnosis</span>
+                </label>
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="Pickup and Drop off Services for MOT" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">Pickup and Drop off Services for MOT</span>
+                </label>
+                <label class="service-tile">
+                  <input type="checkbox" name="service[]" value="General Advice" class="sr-only">
+                  <span class="service-tile-check" aria-hidden="true"><svg viewBox="0 0 10 8" width="10" height="8" fill="none"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="service-tile-name">General Advice</span>
+                </label>
+              </div>
+              <div class="service-picker-footer">
+                <span class="service-selected-count" id="contactSelectedCount" aria-live="polite">0 selected</span>
+                <div class="multi-select-actions">
+                  <button type="button" class="btn btn-ghost btn-inline" id="contactSelectAllServices">Select all</button>
+                  <button type="button" class="btn btn-ghost btn-inline" id="contactClearServices">Clear</button>
+                </div>
+              </div>
+            </fieldset>
             <label>
-              Phone Number
-              <input type="tel" name="phone" required />
+              Upload Image <span class="form-label-hint">(Optional)</span>
+              <input type="file" name="image" accept="image/png,image/jpeg,.png,.jpg,.jpeg" />
             </label>
-            <label>
-              Email Address
-              <input type="email" name="email" required />
-            </label>
-            <label>
-              Vehicle Details
-              <input type="text" name="vehicle" placeholder="e.g. VW Golf GTD 2.0 2019" required />
-            </label>
-            <label>
-              Postcode
-              <input type="text" name="postcode" placeholder="e.g. TW14" required />
-            </label>
-            <label>
-              Service Needed
-              <select name="service" required>
-                <option value="">Select service</option>
-                <option>ECU Remapping (Waitlist Open)</option>
-                <option>Bumper Scuff and Scratch Repairs</option>
-                <option>Rear Diffuser + Mirror Caps</option>
-                <option>Exhaust Tips (Slip-On, No Welding)</option>
-                <option>Air Filters and Intakes</option>
-                <option>Small Scratch Repairs</option>
-                <option>General Advice</option>
-              </select>
-            </label>
+            <p class="field-hint">Attach a photo of the issue — helps us quote more accurately.</p>
             <label>
               Message
-              <textarea name="message" rows="4" placeholder="Tell us your goals or current issue"></textarea>
+              <textarea name="message" rows="4" placeholder="Tell us your goals, describe the issue, or ask any questions"></textarea>
             </label>
             <button type="submit" class="btn btn-primary btn-block">Send Enquiry</button>
             <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>
+
+      <div class="quote-modal" id="quoteModal" hidden>
+        <div class="quote-modal-backdrop" data-close-quote-modal></div>
+        <div class="quote-modal-card" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+          <button type="button" class="quote-modal-close" id="closeQuoteModal" aria-label="Close quote form">×</button>
+          <p class="eyebrow">Final Quote</p>
+          <h2 id="quoteModalTitle">Request or Accept Your Quote Online</h2>
+          <p class="quote-modal-intro">
+            This form is for final quote requests and quote acceptance. Service, pricing, and parts are pre-filled from your estimate or service quick-action.
+            Add your details, upload photos if needed, then send your request.
+          </p>
+
+          <section class="quote-summary" aria-label="Quote summary">
+            <div class="quote-summary-grid">
+              <div>
+                <p class="quote-summary-label">Service</p>
+                <p class="quote-summary-value" id="quoteSummaryService">Not selected</p>
+              </div>
+              <div>
+                <p class="quote-summary-label">Parts</p>
+                <p class="quote-summary-value" id="quoteSummaryPartsTotal">Sourced to order</p>
+              </div>
+              <div>
+                <p class="quote-summary-label">Labour</p>
+                <p class="quote-summary-value" id="quoteSummaryLabour">GBP0.00</p>
+              </div>
+              <div>
+                <p class="quote-summary-label">Labour Estimate</p>
+                <p class="quote-summary-value quote-summary-total" id="quoteSummaryTotal">GBP0.00</p>
+              </div>
+            </div>
+          </section>
+
+          <form
+            class="contact-form quote-modal-form"
+            id="finalQuoteForm"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            enctype="multipart/form-data"
+            autocomplete="on"
+            data-success-redirect="thank-you.html"
+          >
+            <input type="hidden" name="access_key" value="4f7ab378-e677-4b67-b382-d548236a7160" />
+            <input type="hidden" name="subject" id="quoteSubject" value="Final Quote Request - Tuned Performance Website" />
+            <input type="hidden" name="quote_action" id="quoteAction" value="request" />
+            <input type="hidden" name="quote_service" id="quoteServiceHidden" value="" />
+            <input type="hidden" name="quote_parts" id="quotePartsHidden" value="" />
+            <input type="hidden" name="quote_parts_total" id="quotePartsTotalHidden" value="" />
+            <input type="hidden" name="quote_labour_total" id="quoteLabourHidden" value="" />
+            <input type="hidden" name="quote_total" id="quoteTotalHidden" value="" />
+            <input type="hidden" name="quote_duration" id="quoteDurationHidden" value="" />
+            <label class="sr-only" aria-hidden="true">
+              Leave this field empty
+              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <label>
+              Service
+              <input type="text" id="quoteServiceDisplay" readonly />
+            </label>
+
+            <label>
+              Selected Parts
+              <textarea id="quotePartsDisplay" rows="3" readonly></textarea>
+            </label>
+
+            <div class="form-row">
+              <label>
+                Name
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Number
+                <input type="tel" name="phone" autocomplete="tel" required />
+              </label>
+              <label>
+                Year
+                <input type="number" name="vehicle_year" placeholder="e.g. 2019" min="1980" max="2026" />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Vehicle Make
+                <input type="text" name="vehicle_make" placeholder="e.g. BMW, VW, Ford" required />
+              </label>
+              <label>
+                Model
+                <input type="text" name="vehicle_model" placeholder="e.g. 3 Series, Golf" required />
+              </label>
+            </div>
+
+            <label>
+              Engine Size
+              <input type="text" name="engine_size" placeholder="e.g. 2.0L, 1.5T" />
+            </label>
+
+            <label>
+              Upload Image <span class="form-label-hint">(Optional PNG or JPG)</span>
+              <input type="file" name="image" accept="image/png,image/jpeg,.png,.jpg,.jpeg" />
+            </label>
+            <p class="field-hint">Attach close-up images if you want us to confirm the instant quote against the vehicle condition.</p>
+
+            <label>
+              Message
+              <textarea id="quoteMessage" name="message" rows="5" placeholder="Add any extra notes about the job, finish, parts, or preferred times"></textarea>
+            </label>
+
+            <div class="quote-submit-actions">
+              <button type="submit" class="btn btn-primary" data-quote-action="request">Send Quote Request</button>
+              <button type="submit" class="btn btn-ghost" data-quote-action="accept">Accept Quote Online</button>
+            </div>
+            <p class="form-note" id="quoteModalNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
 
     </main>
 
@@ -551,7 +845,9 @@
         <p>© <span id="year"></span> Tuned Performance. All rights reserved.</p>
         <div class="footer-links" aria-label="Legal and utility links">
           <a href="privacy.html">Privacy</a>
+          <a href="gdpr.html">GDPR</a>
           <a href="terms.html">Terms</a>
+          <a href="cookies.html">Cookies</a>
           <button type="button" class="footer-link-button" data-open-cookie-settings>Cookie Settings</button>
           <a href="#top">Back to top</a>
         </div>
@@ -560,5 +856,109 @@
 
     <script src="consent.js"></script>
     <script src="script.js"></script>
+    <script>
+      (function () {
+        function normalizeMessageData(rawData) {
+          if (!rawData) {
+            return null;
+          }
+
+          if (typeof rawData === "string") {
+            try {
+              return JSON.parse(rawData);
+            } catch (error) {
+              return null;
+            }
+          }
+
+          if (typeof rawData === "object") {
+            return rawData;
+          }
+
+          return null;
+        }
+
+        function setFieldValue(form, fieldName, value) {
+          if (!form || value == null) {
+            return;
+          }
+
+          var field = form.elements.namedItem(fieldName);
+          if (!field || typeof field.value !== "string") {
+            return;
+          }
+
+          field.value = String(value).trim();
+          field.dispatchEvent(new Event("input", { bubbles: true }));
+          field.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+
+        function upsertVehicleLineInMessage(form, summary) {
+          if (!form || !summary) {
+            return;
+          }
+
+          var field = form.elements.namedItem("message");
+          if (!field || typeof field.value !== "string") {
+            return;
+          }
+
+          var prefix = "Vehicle selected:";
+          var nextLine = prefix + " " + summary;
+          var current = field.value || "";
+
+          if (current.indexOf(prefix) !== -1) {
+            field.value = current.replace(/^Vehicle selected:.*$/m, nextLine);
+          } else if (current.trim()) {
+            field.value = nextLine + "\n\n" + current;
+          } else {
+            field.value = nextLine;
+          }
+
+          field.dispatchEvent(new Event("input", { bubbles: true }));
+          field.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+
+        window.addEventListener("message", function (event) {
+          var payload = normalizeMessageData(event && event.data);
+          if (!payload) {
+            return;
+          }
+
+          var dataType = payload.dataType || payload.type || payload.event;
+          if (dataType !== "vehicle-data") {
+            return;
+          }
+
+          var contactForm = document.getElementById("contactForm");
+          var quoteForm = document.getElementById("finalQuoteForm");
+          var forms = [contactForm, quoteForm].filter(Boolean);
+
+          var vehicleName = payload.vehicleName || payload.vehicle_name || "";
+          var make = payload.vehicleMake || payload.make || payload.vehicle_make || "";
+          var model = payload.vehicleModel || payload.model || payload.vehicle_model || vehicleName;
+          var year = payload.vehicleYear || payload.year || payload.vehicle_year || "";
+          var engine = payload.engineSize || payload.engine || payload.engine_size || payload.capacity || "";
+          var vehicleSummary = [year, make, model, engine].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+
+          window.selectedVehicleData = {
+            raw: payload,
+            vehicleName: vehicleName,
+            make: make,
+            model: model,
+            year: year,
+            engine: engine,
+          };
+
+          forms.forEach(function (form) {
+            setFieldValue(form, "vehicle_make", make);
+            setFieldValue(form, "vehicle_model", model);
+            setFieldValue(form, "vehicle_year", year);
+            setFieldValue(form, "engine_size", engine);
+            upsertVehicleLineInMessage(form, vehicleSummary);
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

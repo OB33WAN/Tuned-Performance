@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you.html
+Crawl-delay: 5
 
 Sitemap: https://tunedperformance.co.uk/sitemap.xml
