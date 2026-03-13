@@ -82,3 +82,6 @@ Required files for production:
 Repository: `https://github.com/OB33WAN/Tuned-Performance.git`
 
 Main branch: `main`
+
+Link:
+'https://ob33wan.github.io/Tuned-Performance/'
