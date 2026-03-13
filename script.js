@@ -4,7 +4,6 @@ const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 const yearEl = document.getElementById("year");
 const worksEstimateForm = document.getElementById("worksEstimateForm");
-const ecuWaitlistForm = document.getElementById("ecuWaitlist");
 const servicePicker = document.getElementById("servicePicker");
 const estimateSelectAllBtn = document.getElementById("estimateSelectAll");
 const estimateClearSelectionBtn = document.getElementById("estimateClearSelection");
@@ -24,7 +23,6 @@ const closeQuoteModalBtn = document.getElementById("closeQuoteModal");
 const contactForm = document.getElementById("contactForm");
 const finalQuoteForm = document.getElementById("finalQuoteForm");
 const formNote = document.getElementById("formNote");
-const waitlistNote = document.getElementById("waitlistNote");
 const quoteModalNote = document.getElementById("quoteModalNote");
 const quoteSubject = document.getElementById("quoteSubject");
 const quoteAction = document.getElementById("quoteAction");
@@ -757,24 +755,6 @@ if (contactForm) {
   });
 }
 
-if (ecuWaitlistForm) {
-  ecuWaitlistForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    submitFormWithFetch(
-      ecuWaitlistForm,
-      waitlistNote,
-      "Joining waitlist...",
-      "You are on the waitlist. Redirecting..."
-    ).then((result) => {
-      if (!result) {
-        return;
-      }
-
-      window.location.href = result.redirectTo || ecuWaitlistForm.dataset.successRedirect || "thank-you.html";
-    });
-  });
-}
 
 if (finalQuoteForm) {
   finalQuoteForm.addEventListener("submit", (event) => {
