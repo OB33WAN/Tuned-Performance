@@ -522,29 +522,41 @@
               <p class="form-note" id="estimateFormNote" role="status" aria-live="polite"></p>
             </form>
 
-            <article class="estimate-result reveal" aria-live="polite">
-              <h3>Estimated Cost Summary</h3>
-              <div class="estimate-result-grid">
-                <div>
-                  <p class="stage-label">Parts Needed</p>
-                  <p class="stage-value" id="estimateParts">None added</p>
+            <div class="estimate-side reveal">
+              <article class="estimate-result" aria-live="polite">
+                <h3>Estimated Cost Summary</h3>
+                <div class="estimate-result-grid">
+                  <div>
+                    <p class="stage-label">Parts Needed</p>
+                    <p class="stage-value" id="estimateParts">None added</p>
+                  </div>
+                  <div>
+                    <p class="stage-label">Labour</p>
+                    <p class="stage-value" id="estimateLabour">GBP0.00</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="stage-label">Labour</p>
-                  <p class="stage-value" id="estimateLabour">GBP0.00</p>
+                <div class="estimate-total">
+                  <p>Labour Estimate</p>
+                  <p id="estimateTotal">GBP0.00</p>
                 </div>
-              </div>
-              <div class="estimate-total">
-                <p>Labour Estimate</p>
-                <p id="estimateTotal">GBP0.00</p>
-              </div>
-              <p class="stage-disclaimer">
-                Scratch services are charged per panel using the selected panel count.
-                Other service labour is fixed by service type. Parts are sourced to order and priced separately at booking.
-              </p>
-              <button type="button" class="btn btn-primary btn-block" id="openQuoteModal">Open Final Quote Form</button>
-              <a href="#contact" class="btn btn-ghost btn-block">Send General Enquiry Instead</a>
-            </article>
+                <p class="stage-disclaimer">
+                  Scratch services are charged per panel using the selected panel count.
+                  Other service labour is fixed by service type. Parts are sourced to order and priced separately at booking.
+                </p>
+                <button type="button" class="btn btn-primary btn-block" id="openQuoteModal">Open Quote Form</button>
+                <a href="#contact" class="btn btn-ghost btn-block">Send Enquiry</a>
+              </article>
+
+              <aside class="estimate-help" aria-label="Pricing guide">
+                <h3>How Pricing Works</h3>
+                <ul>
+                  <li>Scratch repairs use per-panel labour.</li>
+                  <li>Fitment and diagnostic jobs use fixed labour by service type.</li>
+                  <li>Parts are sourced to order and confirmed before booking.</li>
+                </ul>
+                <p>Use the enquiry form if you want us to confirm panel count, parts, or service suitability before booking.</p>
+              </aside>
+            </div>
           </div>
         </div>
       </section>
@@ -626,7 +638,7 @@
             <article class="service-card reveal">
               <img
                 class="service-media"
-                src="images/Dyno%20mapping.jpg"
+                  src="images/OBD%20Scanning.jpg"
                 alt="Vehicle connected for onboard diagnostics"
                 loading="lazy"
               />
@@ -636,7 +648,7 @@
             <article class="service-card service-card-mot reveal">
               <img
                 class="service-media"
-                src="images/Dyno%20mapping.jpg"
+                  src="images/MOT.jpg"
                 alt="Vehicle pickup and return support for MOT appointment"
                 loading="lazy"
               />
