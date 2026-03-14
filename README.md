@@ -51,7 +51,7 @@ Configured business contact details:
 
 - Phone: `+44 07933 705124`
 - Email: `info@tunedperformance.co.uk`
-- Instagram: `@tuned.performance.uk`
+- Instagram: `@tuned.uk`
 - Gumtree: `https://www.gumtree.com/profile/account/621010e54c249814e0b84f3513176f56`
 
 ## Local Development
