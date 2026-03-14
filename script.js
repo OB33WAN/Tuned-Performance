@@ -8,6 +8,7 @@ const servicePicker = document.getElementById("servicePicker");
 const estimateSelectAllBtn = document.getElementById("estimateSelectAll");
 const estimateClearSelectionBtn = document.getElementById("estimateClearSelection");
 const estimateSelectedCountEl = document.getElementById("estimateSelectedCount");
+const estimateServiceFilterButtons = document.querySelectorAll("[data-estimate-filter]");
 const addPartBtn = document.getElementById("addPartBtn");
 const partsRows = document.getElementById("partsRows");
 const scratchPanelField = document.getElementById("scratchPanelField");
@@ -48,7 +49,21 @@ const contactSelectAllServicesBtn = document.getElementById("contactSelectAllSer
 const contactClearServicesBtn = document.getElementById("contactClearServices");
 const contactImageInput = contactForm ? contactForm.querySelector('input[type="file"]') : null;
 const quoteImageInput = finalQuoteForm ? finalQuoteForm.querySelector('input[type="file"]') : null;
+const serviceSearchInput = document.getElementById("serviceSearch");
+const serviceFilterButtons = document.querySelectorAll("[data-service-filter]");
+const serviceCards = document.querySelectorAll(".service-grid .service-card[data-service-category]");
+const serviceEmptyState = document.getElementById("serviceEmptyState");
+const vehicleUse = document.getElementById("vehicleUse");
+const recommendServiceBtn = document.getElementById("recommendServiceBtn");
+const serviceRecommendationNote = document.getElementById("serviceRecommendationNote");
+const bookingSteps = contactForm ? contactForm.querySelectorAll("[data-book-step]") : [];
+const bookingStepIndicators = contactForm ? contactForm.querySelectorAll("[data-step-indicator]") : [];
+const bookingNextButtons = contactForm ? contactForm.querySelectorAll("[data-book-next]") : [];
+const bookingPrevButtons = contactForm ? contactForm.querySelectorAll("[data-book-prev]") : [];
 let lastQuoteTrigger = null;
+let activeServiceFilter = "all";
+let activeEstimateFilter = "all";
+let currentBookingStep = 0;
 
 const partsCatalog = [
   { id: "scratch-kit", label: "Scratch Repair Kit (Colour Code Required)", unitPrice: 0 },
@@ -184,6 +199,35 @@ function updateEstimateSelectedCount() {
   estimateSelectedCountEl.textContent = count === 0 ? "0 selected" : `${count} selected`;
 }
 
+function applyEstimateServiceFilters() {
+  if (!servicePicker) {
+    return;
+  }
+
+  const tiles = servicePicker.querySelectorAll(".service-tile");
+  tiles.forEach((tile) => {
+    if (!(tile instanceof HTMLElement)) {
+      return;
+    }
+
+    const category = (tile.dataset.estimateCategory || "other").toLowerCase();
+    const visible = activeEstimateFilter === "all" || category === activeEstimateFilter;
+    tile.hidden = !visible;
+  });
+}
+
+function setActiveEstimateFilter(filterValue) {
+  activeEstimateFilter = filterValue;
+  estimateServiceFilterButtons.forEach((button) => {
+    if (!(button instanceof HTMLElement)) {
+      return;
+    }
+
+    button.classList.toggle("is-active", button.dataset.estimateFilter === filterValue);
+  });
+  applyEstimateServiceFilters();
+}
+
 function updateContactSelectedCount() {
   if (!contactSelectedCountEl || !contactPicker) {
     return;
@@ -191,6 +235,131 @@ function updateContactSelectedCount() {
 
   const count = contactPicker.querySelectorAll('input[type="checkbox"]:checked').length;
   contactSelectedCountEl.textContent = count === 0 ? "0 selected" : `${count} selected`;
+}
+
+function applyServiceFilters() {
+  if (!serviceCards.length) {
+    return;
+  }
+
+  const searchValue = serviceSearchInput ? serviceSearchInput.value.trim().toLowerCase() : "";
+  let visibleCount = 0;
+
+  serviceCards.forEach((card) => {
+    if (!(card instanceof HTMLElement)) {
+      return;
+    }
+
+    const category = (card.dataset.serviceCategory || "").toLowerCase();
+    const keywords = (card.dataset.serviceKeywords || "").toLowerCase();
+    const text = card.textContent ? card.textContent.toLowerCase() : "";
+    const matchesFilter = activeServiceFilter === "all" || category === activeServiceFilter;
+    const matchesSearch = !searchValue || keywords.includes(searchValue) || text.includes(searchValue);
+    const isVisible = matchesFilter && matchesSearch;
+
+    card.hidden = !isVisible;
+    if (isVisible) {
+      visibleCount += 1;
+    }
+  });
+
+  if (serviceEmptyState) {
+    serviceEmptyState.hidden = visibleCount !== 0;
+  }
+}
+
+function setActiveServiceFilter(filterValue) {
+  activeServiceFilter = filterValue;
+  serviceFilterButtons.forEach((button) => {
+    if (!(button instanceof HTMLElement)) {
+      return;
+    }
+
+    button.classList.toggle("is-active", button.dataset.serviceFilter === filterValue);
+  });
+  applyServiceFilters();
+}
+
+function applyServiceRecommendation() {
+  if (!vehicleUse || !serviceRecommendationNote) {
+    return;
+  }
+
+  const selectedUse = vehicleUse.value;
+  let message = "Tip: choose \"Fault or warning light\" to jump to diagnostics services.";
+  let targetFilter = "all";
+
+  if (selectedUse === "fault") {
+    targetFilter = "diagnostics";
+    message = "Recommended: OBD Diagnosis first, then repair or fitment based on fault data.";
+  } else if (selectedUse === "performance") {
+    targetFilter = "tuning";
+    message = "Recommended: ECU Remapping Stage 1 and intake setup for measurable gains.";
+  } else if (selectedUse === "appearance") {
+    targetFilter = "fitment";
+    message = "Recommended: Diffuser and trim fitment, then tips for a complete rear look.";
+  } else {
+    targetFilter = "repair";
+    message = "Recommended: Start with scratch/spot repair for fast visual improvement and value.";
+  }
+
+  setActiveServiceFilter(targetFilter);
+  serviceRecommendationNote.textContent = message;
+}
+
+function setBookingStep(stepIndex) {
+  if (!bookingSteps.length) {
+    return;
+  }
+
+  const boundedStep = Math.max(0, Math.min(stepIndex, bookingSteps.length - 1));
+  currentBookingStep = boundedStep;
+
+  bookingSteps.forEach((step, index) => {
+    if (!(step instanceof HTMLElement)) {
+      return;
+    }
+
+    const isActive = index === boundedStep;
+    step.hidden = !isActive;
+  });
+
+  bookingStepIndicators.forEach((indicator, index) => {
+    if (indicator instanceof HTMLElement) {
+      indicator.classList.toggle("is-active", index === boundedStep);
+    }
+  });
+}
+
+function validateBookingStep(stepIndex) {
+  if (!bookingSteps.length) {
+    return true;
+  }
+
+  const step = bookingSteps[stepIndex];
+  if (!(step instanceof HTMLElement)) {
+    return true;
+  }
+
+  const requiredFields = step.querySelectorAll("input[required], select[required], textarea[required]");
+  for (const field of requiredFields) {
+    if (field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement) {
+      if (!field.reportValidity()) {
+        return false;
+      }
+    }
+  }
+
+  if (stepIndex === 1 && contactPicker) {
+    const checkedServices = contactPicker.querySelectorAll('input[type="checkbox"]:checked').length;
+    if (checkedServices === 0) {
+      setNote(formNote, "Select at least one service before continuing.", true);
+      return false;
+    }
+  }
+
+  setNote(formNote, "");
+  return true;
 }
 
 function getSelectedParts() {
@@ -723,6 +892,64 @@ if (scratchPanelCountInput) {
 
 updateEstimateSelectedCount();
 updateContactSelectedCount();
+applyEstimateServiceFilters();
+applyServiceFilters();
+setBookingStep(0);
+
+if (estimateServiceFilterButtons.length > 0) {
+  estimateServiceFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!(button instanceof HTMLElement)) {
+        return;
+      }
+
+      setActiveEstimateFilter(button.dataset.estimateFilter || "all");
+    });
+  });
+}
+
+if (serviceSearchInput) {
+  serviceSearchInput.addEventListener("input", () => {
+    applyServiceFilters();
+  });
+}
+
+if (serviceFilterButtons.length > 0) {
+  serviceFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!(button instanceof HTMLElement)) {
+        return;
+      }
+
+      setActiveServiceFilter(button.dataset.serviceFilter || "all");
+    });
+  });
+}
+
+if (recommendServiceBtn) {
+  recommendServiceBtn.addEventListener("click", applyServiceRecommendation);
+}
+
+if (bookingNextButtons.length > 0) {
+  bookingNextButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!validateBookingStep(currentBookingStep)) {
+        return;
+      }
+
+      setBookingStep(currentBookingStep + 1);
+    });
+  });
+}
+
+if (bookingPrevButtons.length > 0) {
+  bookingPrevButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setNote(formNote, "");
+      setBookingStep(currentBookingStep - 1);
+    });
+  });
+}
 
 if (
   worksEstimateForm &&
@@ -800,6 +1027,25 @@ if (quoteImageInput) {
 if (contactForm) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    const firstStepValid = validateBookingStep(0);
+    const secondStepValid = validateBookingStep(1);
+    const finalStepValid = validateBookingStep(2);
+
+    if (!firstStepValid) {
+      setBookingStep(0);
+      return;
+    }
+
+    if (!secondStepValid) {
+      setBookingStep(1);
+      return;
+    }
+
+    if (!finalStepValid) {
+      setBookingStep(2);
+      return;
+    }
 
     if (!validateImageInput(contactImageInput, formNote)) {
       return;
