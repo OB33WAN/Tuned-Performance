@@ -4,7 +4,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'self'; img-src 'self' data: https: https://www.google-analytics.com https://stats.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://portal.bensky.co.uk https://www.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://portal.bensky.co.uk https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net; frame-src https://portal.bensky.co.uk; form-action 'self' https://api.web3forms.com;
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'self'; img-src 'self' data: https: https://www.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://*.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://portal.bensky.co.uk https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://api.web3forms.com https://portal.bensky.co.uk https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.g.doubleclick.net; frame-src https://portal.bensky.co.uk; form-action 'self' https://api.web3forms.com;
 
 /llms-full.txt
   X-Robots-Tag: noindex, follow
