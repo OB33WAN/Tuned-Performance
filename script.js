@@ -7,7 +7,9 @@ const worksEstimateForm = document.getElementById("worksEstimateForm");
 const servicePicker = document.getElementById("servicePicker");
 const estimateSelectAllBtn = document.getElementById("estimateSelectAll");
 const estimateClearSelectionBtn = document.getElementById("estimateClearSelection");
+const estimateResetAllBtn = document.getElementById("estimateResetAll");
 const estimateSelectedCountEl = document.getElementById("estimateSelectedCount");
+const selectedServicesPreview = document.getElementById("selectedServicesPreview");
 const estimateServiceFilterButtons = document.querySelectorAll("[data-estimate-filter]");
 const addPartBtn = document.getElementById("addPartBtn");
 const partsRows = document.getElementById("partsRows");
@@ -197,6 +199,11 @@ function updateEstimateSelectedCount() {
 
   const count = servicePicker.querySelectorAll('.service-tile[aria-pressed="true"]').length;
   estimateSelectedCountEl.textContent = count === 0 ? "0 selected" : `${count} selected`;
+
+  if (selectedServicesPreview) {
+    const labels = getSelectedServiceLabel();
+    selectedServicesPreview.textContent = labels ? `Selected: ${labels}` : "No services selected yet.";
+  }
 }
 
 function applyEstimateServiceFilters() {
@@ -502,6 +509,10 @@ function updateEstimateOutputs(statusMessage = "") {
       estimateTotal.textContent = formatMoney(0);
     }
 
+    if (openQuoteModalBtn) {
+      openQuoteModalBtn.disabled = true;
+    }
+
     if (statusMessage) {
       setNote(estimateFormNote, statusMessage, true);
     }
@@ -527,6 +538,10 @@ function updateEstimateOutputs(statusMessage = "") {
   }
   if (estimateTotal) {
     estimateTotal.textContent = formatMoney(snapshot.labourSubtotal);
+  }
+
+  if (openQuoteModalBtn) {
+    openQuoteModalBtn.disabled = false;
   }
 
   if (statusMessage) {
@@ -834,6 +849,28 @@ if (estimateClearSelectionBtn && servicePicker) {
       }
     });
     updateEstimateOutputs("Service selection cleared.");
+    updateEstimateSelectedCount();
+  });
+}
+
+if (estimateResetAllBtn && servicePicker) {
+  estimateResetAllBtn.addEventListener("click", () => {
+    servicePicker.querySelectorAll(".service-tile").forEach((tile) => {
+      if (tile instanceof HTMLButtonElement) {
+        tile.setAttribute("aria-pressed", "false");
+      }
+    });
+
+    if (partsRows) {
+      partsRows.innerHTML = "";
+    }
+
+    if (scratchPanelCountInput) {
+      scratchPanelCountInput.value = "1";
+    }
+
+    setActiveEstimateFilter("all");
+    updateEstimateOutputs("Estimator reset. Choose a service to begin again.");
     updateEstimateSelectedCount();
   });
 }
