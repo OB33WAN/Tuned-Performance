@@ -1,6 +1,25 @@
 (function () {
   const CONSENT_KEY = "tp_cookie_consent_v1";
 
+  function ensureGtagShim() {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+  }
+
+  function applyConsentMode(consent, mode) {
+    ensureGtagShim();
+    window.gtag("consent", mode, {
+      analytics_storage: consent.analytics ? "granted" : "denied",
+      ad_storage: consent.marketing ? "granted" : "denied",
+      ad_user_data: consent.marketing ? "granted" : "denied",
+      ad_personalization: consent.marketing ? "granted" : "denied",
+      functionality_storage: "granted",
+      security_storage: "granted",
+    });
+  }
+
   function safeReadConsent() {
     try {
       const raw = window.localStorage.getItem(CONSENT_KEY);
@@ -33,6 +52,7 @@
   function applyConsentState(consent) {
     document.documentElement.dataset.cookieAnalytics = consent.analytics ? "granted" : "denied";
     document.documentElement.dataset.cookieMarketing = consent.marketing ? "granted" : "denied";
+    applyConsentMode(consent, "update");
 
     window.dispatchEvent(
       new CustomEvent("tp:cookie-consent-updated", {
@@ -55,9 +75,9 @@
       <div class="cookie-banner-inner">
         <p class="cookie-title">Privacy and Cookies</p>
         <p class="cookie-text">
-          We use essential cookies for site functionality and optional cookies to improve our services.
+          We use essential cookies for site functionality and optional cookies for analytics and marketing.
           You can accept all, reject optional cookies, or manage preferences.
-          See our <a href="cookies.html">Cookie Policy</a> and <a href="privacy.html">Privacy Policy</a>.
+          See our <a href="cookies.html">Cookie Policy</a>, <a href="privacy.html">Privacy Policy</a>, and <a href="gdpr.html">UK GDPR page</a>.
         </p>
         <div class="cookie-actions">
           <button type="button" class="btn btn-primary" data-cookie-action="accept-all">Accept All</button>
@@ -115,6 +135,15 @@
   }
 
   function initConsent() {
+    applyConsentMode(
+      {
+        essential: true,
+        analytics: false,
+        marketing: false,
+      },
+      "default"
+    );
+
     const existingConsent = safeReadConsent();
     const ui = createConsentUi();
     const analyticsToggle = document.getElementById("cookieAnalyticsToggle");

@@ -1,21 +1,55 @@
 # Security Policy
 
-## Supported Versions
+This policy describes how to report security vulnerabilities affecting the Tuned Performance website.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Scope
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+In scope:
+
+- `tunedperformance.co.uk` website content and static assets.
+- Contact and booking form flow.
+- Cookie consent and analytics controls.
+
+Out of scope:
+
+- Third-party services and infrastructure operated by external providers.
+- Social media accounts or marketplace profiles not hosted on this domain.
+
+## Supported Version
+
+Only the latest deployed site is supported for security updates.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+Please report vulnerabilities privately:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- Email: `info@tunedperformance.co.uk`
+- Subject: `Security Vulnerability Report`
+
+Include:
+
+- A clear description of the issue and impact.
+- Affected URL(s) and steps to reproduce.
+- Proof-of-concept details where possible.
+
+## Response Expectations
+
+- Initial acknowledgement target: within 5 business days.
+- Triage and remediation timing depends on severity and complexity.
+
+## Safe Reporting Guidance
+
+- Do not access, alter, or exfiltrate customer data.
+- Do not perform denial-of-service testing.
+- Keep testing lawful and limited to your own traffic.
+
+## Coordinated Disclosure
+
+Please allow reasonable remediation time before public disclosure.
+When appropriate, validated findings may be acknowledged by name or alias.
+
+## security.txt
+
+Machine-readable policy:
+
+- `https://tunedperformance.co.uk/.well-known/security.txt`

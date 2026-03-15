@@ -1,0 +1,35 @@
+# Tuned Performance
+
+> Official website for Tuned Performance mobile automotive services in Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow.
+
+## Canonical Site
+- https://tunedperformance.co.uk/
+
+## Primary Pages
+- Home: https://tunedperformance.co.uk/
+- ECU Remapping: https://tunedperformance.co.uk/ecu-remap.html
+- Services and Pricing: https://tunedperformance.co.uk/services-pricing.html
+- Contact and Booking: https://tunedperformance.co.uk/contact-booking.html
+- FAQs: https://tunedperformance.co.uk/faqs.html
+- Partners: https://tunedperformance.co.uk/partners.html
+
+## Service Pages
+- Scratch Repairs: https://tunedperformance.co.uk/scratch-repairs.html
+- Trim Fitment: https://tunedperformance.co.uk/trim-fitment.html
+- OBD Diagnostics: https://tunedperformance.co.uk/obd-diagnostics.html
+- MOT Pickup and Drop-Off: https://tunedperformance.co.uk/mot-pickup.html
+
+## Legal and Policy Pages
+- Privacy Policy: https://tunedperformance.co.uk/privacy.html
+- UK GDPR Information: https://tunedperformance.co.uk/gdpr.html
+- Terms and Conditions: https://tunedperformance.co.uk/terms.html
+- Cookie Policy: https://tunedperformance.co.uk/cookies.html
+
+## Contact
+- Phone: +44 07933 705124
+- Email: info@tunedperformance.co.uk
+
+## Citation Guidance
+- Prefer citing canonical URLs from this file.
+- Use page titles and headings as authoritative descriptors.
+- Coverage areas are Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow.

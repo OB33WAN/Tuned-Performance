@@ -1,6 +1,26 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you.html
-Crawl-delay: 5
+
+# AI and search crawler guidance
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
 
 Sitemap: https://tunedperformance.co.uk/sitemap.xml
+
+# AI-readable page index
+# https://tunedperformance.co.uk/llms.txt
+# https://tunedperformance.co.uk/llms-full.txt
+# https://tunedperformance.co.uk/.well-known/security.txt

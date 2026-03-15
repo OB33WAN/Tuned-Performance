@@ -10,7 +10,11 @@
       content="Mobile ECU remapping in Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow, plus scratch repairs, trim fitment, OBD diagnostics, and MOT support from Tuned Performance."
     />
     <meta name="author" content="Tuned Performance" />
+    <meta name="geo.region" content="GB-LND" />
+    <meta name="geo.placename" content="Feltham, Bedfont, Ashford, Sunbury, Kingston, Hounslow" />
+    <meta name="ICBM" content="51.4497, -0.4083" />
     <link rel="canonical" href="https://tunedperformance.co.uk/" />
+    <link rel="alternate" type="text/markdown" href="https://tunedperformance.co.uk/llms.txt" title="LLMs Reference" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Tuned Performance" />
@@ -50,7 +54,9 @@
             "@type": "AutomotiveBusiness",
             "@id": "https://tunedperformance.co.uk/#business",
             "name": "Tuned Performance",
+            "description": "Weekend mobile ECU remapping, repairs, fitment, diagnostics, and MOT support across Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow.",
             "url": "https://tunedperformance.co.uk/",
+            "image": "https://tunedperformance.co.uk/images/ECU%20Remapping.jpg",
             "telephone": "+44 07933 705124",
             "email": "info@tunedperformance.co.uk",
             "address": {
@@ -58,7 +64,26 @@
               "addressLocality": "Feltham",
               "addressCountry": "GB"
             },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "telephone": "+44 07933 705124",
+              "email": "info@tunedperformance.co.uk",
+              "availableLanguage": ["en-GB"]
+            },
             "areaServed": ["Feltham", "Bedfont", "Ashford", "Sunbury", "Kingston upon Thames", "Hounslow"],
+            "knowsAbout": ["ECU remapping", "OBD diagnostics", "scratch repairs", "trim fitment", "MOT pickup and drop-off"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Automotive Services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ECU Remapping Stage 1", "url": "https://tunedperformance.co.uk/ecu-remap.html" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Scratch Repairs", "url": "https://tunedperformance.co.uk/scratch-repairs.html" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trim Fitment", "url": "https://tunedperformance.co.uk/trim-fitment.html" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "OBD Diagnostics", "url": "https://tunedperformance.co.uk/obd-diagnostics.html" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MOT Pickup and Drop-Off", "url": "https://tunedperformance.co.uk/mot-pickup.html" } }
+              ]
+            },
             "sameAs": [
               "https://www.instagram.com/tuned.uk/",
               "https://www.gumtree.com/profile/account/621010e54c249814e0b84f3513176f56"
@@ -69,10 +94,24 @@
             "@id": "https://tunedperformance.co.uk/#website",
             "url": "https://tunedperformance.co.uk/",
             "name": "Tuned Performance",
+            "description": "Mobile car services and booking hub for ECU remapping, diagnostics, repairs, and fitment.",
             "publisher": {
               "@id": "https://tunedperformance.co.uk/#business"
             },
+            "about": {
+              "@id": "https://tunedperformance.co.uk/#business"
+            },
             "inLanguage": "en-GB"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://tunedperformance.co.uk/#webpage",
+            "url": "https://tunedperformance.co.uk/",
+            "name": "Mobile ECU Remapping and Car Services in Feltham | Tuned Performance",
+            "isPartOf": { "@id": "https://tunedperformance.co.uk/#website" },
+            "about": { "@id": "https://tunedperformance.co.uk/#business" },
+            "inLanguage": "en-GB",
+            "dateModified": "2026-03-15"
           }
         ]
       }

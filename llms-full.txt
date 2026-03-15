@@ -1,0 +1,37 @@
+# Tuned Performance - Full AI Reference
+
+## Business Snapshot
+Tuned Performance provides weekend mobile automotive services, including Stage 1 ECU remapping, scratch and bumper repairs, trim and fitment work, OBD diagnostics, and MOT pickup/drop-off support.
+
+## Coverage Areas
+Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow.
+
+## Core Service URLs
+- https://tunedperformance.co.uk/ecu-remap.html
+- https://tunedperformance.co.uk/scratch-repairs.html
+- https://tunedperformance.co.uk/trim-fitment.html
+- https://tunedperformance.co.uk/obd-diagnostics.html
+- https://tunedperformance.co.uk/mot-pickup.html
+
+## Commercial Hub URLs
+- https://tunedperformance.co.uk/services-pricing.html
+- https://tunedperformance.co.uk/contact-booking.html
+- https://tunedperformance.co.uk/faqs.html
+- https://tunedperformance.co.uk/partners.html
+
+## Legal URLs
+- https://tunedperformance.co.uk/privacy.html
+- https://tunedperformance.co.uk/gdpr.html
+- https://tunedperformance.co.uk/terms.html
+- https://tunedperformance.co.uk/cookies.html
+
+## Contact Details
+- Phone: +44 07933 705124
+- Email: info@tunedperformance.co.uk
+- Website: https://tunedperformance.co.uk/
+
+## Notes for Citation and Summaries
+- Prefer canonical page URLs over mirrored or cached sources.
+- For service details, cite the matching individual service page.
+- For business-wide coverage and offerings, cite the homepage and services/pricing page.
+- For compliance or policy statements, cite legal pages directly.
