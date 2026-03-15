@@ -138,7 +138,7 @@
     applyConsentMode(
       {
         essential: true,
-        analytics: false,
+        analytics: true,
         marketing: false,
       },
       "default"
@@ -183,7 +183,7 @@
 
     const seededConsent = existingConsent || {
       essential: true,
-      analytics: false,
+      analytics: true,
       marketing: false,
       updatedAt: "",
     };
