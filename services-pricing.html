@@ -94,6 +94,7 @@
           <a href="index.html">Home</a>
           <a href="services-pricing.html#oil-filter-service">Oil and Filter Changes</a>
           <a href="services-pricing.html" aria-current="page">Services and Pricing</a>
+          <a href="pricing.html">Full Price List</a>
           <a href="partners.html">Partners</a>
           <a href="faqs.html">FAQs</a>
           <a href="contact-booking.html">Contact and Booking</a>
@@ -110,15 +111,14 @@
             <p class="eyebrow">Services, Pricing and Quick Costing | Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow</p>
             <h1>See Real Starting Prices and Build Your Quote in Under a Minute</h1>
             <p class="hero-text">
-              Use this page to compare service types, check starting figures, and build quick costing for
-              scratch repairs, trim fitment, diagnostics, and MOT support.
-              Oil and filter changes are available as part of our mobile vehicle repair services.
+              Use this page to compare service types, check starting prices, and build a quick cost estimate for
+              scratch repairs, brake pads, battery replacement, oil changes, diagnostics, fitment, and MOT support.
             </p>
             <ul class="hero-keywords" aria-label="Key pricing categories">
-              <li>Fitment labour from £20</li>
-              <li>OBD diagnosis from £50</li>
-              <li>Scratch repairs from £60</li>
-              <li>Oil and filter changes available for routine servicing</li>
+              <li>Scratch and bumper repairs from &pound;60</li>
+              <li>Brake pads from &pound;50 labour + parts &middot; battery from &pound;35 labour</li>
+              <li>OBD diagnosis &pound;45 &middot; oil change from &pound;35 labour + oil</li>
+              <li>Fitment labour from &pound;20 &middot; undertray fix &pound;35&ndash;&pound;55</li>
             </ul>
             <div class="hero-cta">
               <a href="#estimate" class="btn btn-primary">Get Instant Price Estimate</a>
@@ -162,7 +162,7 @@
             <p class="stat-label">Fitment labour start point</p>
           </div>
           <div class="stat-card">
-            <p class="stat-value">£50</p>
+            <p class="stat-value">£45</p>
             <p class="stat-label">OBD diagnosis</p>
           </div>
           <div class="stat-card">
@@ -192,13 +192,14 @@
               <button type="button" class="chip" data-service-filter="fitment">Fitment</button>
               <button type="button" class="chip" data-service-filter="diagnostics">Diagnostics</button>
               <button type="button" class="chip" data-service-filter="tuning">Oil and Filter</button>
+              <button type="button" class="chip" data-service-filter="other">Other</button>
             </div>
           </div>
           <div class="service-grid">
             <article class="service-card reveal" data-service-category="repair" data-service-keywords="scratch bumper scuff paint repair">
               <img class="service-media" src="images/Bumper%20and%20Scratch%20Spot%20Repairs.jpg" alt="Small bumper scratch repair and paint correction" loading="lazy" />
               <h3>Bumper Scuff and Scratch Repairs</h3>
-              <p>From 60 GBP. Mobile spot repairs for minor scuffs, scratches, and paint marks.</p>
+              <p>From &pound;60. Mobile spot repairs for minor scuffs, scratches, and paint marks.</p>
               <div class="service-card-actions">
                 <a href="scratch-repairs.html" class="btn btn-ghost btn-block">View scratch repair page</a>
                 <button type="button" class="btn btn-primary btn-block" data-open-quote-service="scratch">Check Availability and Book</button>
@@ -207,7 +208,7 @@
             <article class="service-card reveal" data-service-category="fitment" data-service-keywords="diffuser side skirts mirror caps styling">
               <img class="service-media" src="images/Mirror%20Caps.jpg" alt="Performance diffuser, side skirt, and mirror cap fitting" loading="lazy" />
               <h3>Diffuser, Side Skirts and Mirror Caps</h3>
-              <p>50 GBP labour plus parts. Supply and fit available on appointment.</p>
+              <p>&pound;50 labour plus parts. Supply and fit available on appointment.</p>
               <div class="service-card-actions">
                 <a href="trim-fitment.html" class="btn btn-ghost btn-block">See trim fitment options</a>
                 <button type="button" class="btn btn-primary btn-block" data-open-quote-service="diffuser">Check Availability and Book</button>
@@ -216,7 +217,7 @@
             <article class="service-card reveal" data-service-category="fitment" data-service-keywords="exhaust tips slip on no welding">
               <img class="service-media" src="images/Exhaust%20Tips.png" alt="Exhaust tip upgrade installation" loading="lazy" />
               <h3>Exhaust Tips (Slip-On, No Welding)</h3>
-              <p>20 GBP labour plus parts. Non-weld installation for a clean finished look.</p>
+              <p>&pound;20 labour plus parts. Non-weld installation for a clean finished look.</p>
               <div class="service-card-actions">
                 <a href="trim-fitment.html" class="btn btn-ghost btn-block">Trim fitment overview</a>
                 <button type="button" class="btn btn-primary btn-block" data-open-quote-service="tips">Check Availability and Book</button>
@@ -225,7 +226,7 @@
             <article class="service-card reveal" data-service-category="diagnostics" data-service-keywords="obd diagnosis engine light fault code">
               <img class="service-media" src="images/OBD%20Scanning.jpg" alt="Vehicle connected for onboard diagnostics" loading="lazy" />
               <h3>OBD Diagnosis</h3>
-              <p>50 GBP per diagnosis. Fault code readout and practical next-step advice.</p>
+              <p>£45 per diagnosis. Fault code readout and practical next-step advice.</p>
               <div class="service-card-actions">
                 <a href="obd-diagnostics.html" class="btn btn-ghost btn-block">Read OBD diagnostics guide</a>
                 <button type="button" class="btn btn-primary btn-block" data-open-quote-service="obd-diagnosis">Check Availability and Book</button>
@@ -240,13 +241,95 @@
                 <button type="button" class="btn btn-primary btn-block" data-open-quote-service="mot-pickup-dropoff">Get MOT Pickup Availability</button>
               </div>
             </article>
-            <article class="service-card reveal" id="oil-filter-service" data-service-category="tuning" data-service-keywords="oil filter service maintenance mobile vehicle repair">
-              <img class="service-media" src="images/Air%20Filters%20and%20Intakes.jpg" alt="Oil and filter change service" loading="lazy" />
-              <h3>Oil and Filter Changes</h3>
-              <p>Mobile routine servicing support for cleaner running, better long-term reliability, and planned maintenance.</p>
+            <article class="service-card reveal" data-service-category="repair" data-service-keywords="undertray clips fix rattle loose under body">
+              <img class="service-media" src="images/Bumper%20and%20Scratch%20Spot%20Repairs.jpg" alt="Undertray and underbody fixing service" loading="lazy" />
+              <h3>Undertray and Underbody Fix</h3>
+              <p>Labour &pound;35&ndash;&pound;55 plus &pound;2&ndash;&pound;4 for clips and fixings. Covers loose, cracked, or missing undertray panels.</p>
               <div class="service-card-actions">
                 <a href="contact-booking.html" class="btn btn-ghost btn-block">Service booking guide</a>
-                <button type="button" class="btn btn-primary btn-block" data-open-quote-service="ecu-stage1">Book Oil and Filter Service</button>
+                <button type="button" class="btn btn-primary btn-block" data-open-quote-service="undertray">Check Availability and Book</button>
+              </div>
+            </article>
+            <article class="service-card reveal" data-service-category="other" data-service-keywords="bundle small fix jobs multi repair value">
+              <img class="service-media" src="images/Bumper%20and%20Scratch%20Spot%20Repairs.jpg" alt="Small fix bundle combining multiple minor jobs" loading="lazy" />
+              <h3>Small Fix Bundle (3 Jobs)</h3>
+              <p>&pound;75 labour covering any three minor repair jobs in a single visit. Parts extra at cost. Ideal for stacking small fixes efficiently.</p>
+              <div class="service-card-actions">
+                <a href="contact-booking.html" class="btn btn-ghost btn-block">Service booking guide</a>
+                <button type="button" class="btn btn-primary btn-block" data-open-quote-service="small-fix-bundle">Check Availability and Book</button>
+              </div>
+            </article>
+            <article class="service-card reveal" id="oil-filter-service" data-service-category="tuning" data-service-keywords="oil filter service maintenance mobile vehicle repair synthetic top up semi fully">
+              <img class="service-media" src="images/Air%20Filters%20and%20Intakes.jpg" alt="Oil and filter change service" loading="lazy" />
+              <h3>Engine Oil Change</h3>
+              <p>Mobile oil service &mdash; labour is flat rate, oil and filter priced separately based on your vehicle.</p>
+
+              <p style="margin:0.6rem 0 0.25rem;"><strong>Oil Change (Filter Optional)</strong></p>
+              <ul style="margin:0 0 0.5rem;padding-left:1.2rem;font-size:0.92rem;line-height:1.8;">
+                <li>Labour &mdash; <strong>&pound;35</strong> <span style="color:var(--text-soft);">(drain, refill &amp; top-up check)</span></li>
+                <li>Oil &mdash; you supply, or we supply at market rate per litre <span style="color:var(--text-soft);">(fully synthetic available)</span></li>
+                <li>Filter &mdash; <strong>&pound;8&ndash;&pound;15 parts extra</strong> <span style="color:var(--text-soft);">(changed only if easily accessible)</span></li>
+                <li>Sump washer &amp; consumables &mdash; <strong>&pound;2&ndash;&pound;3</strong></li>
+              </ul>
+              <p class="field-hint">Filter accessibility is confirmed at booking. Some vehicles require bumper or radiator removal to reach the filter &mdash; in those cases we change oil only and advise on filter replacement. Full filter change is available at a partnered garage; we can recommend one.</p>
+
+              <p style="margin:0.75rem 0 0.25rem;"><strong>Oil Top-Up Only</strong></p>
+              <ul style="margin:0 0 0.5rem;padding-left:1.2rem;font-size:0.92rem;line-height:1.8;">
+                <li>Minimum charge &mdash; <strong>&pound;25</strong> <span style="color:var(--text-soft);">(covers labour &amp; travel)</span></li>
+                <li>Oil &mdash; <strong>&pound;8&ndash;&pound;15/L</strong> <span style="color:var(--text-soft);">(depending on synthetic grade)</span></li>
+                <li>Includes level check, top-up to correct mark, dipstick verification</li>
+              </ul>
+              <p class="field-hint">Top-up does not include a filter change. Prices include a 12-month guarantee on work carried out with our supplied oil.</p>
+
+              <div class="service-card-actions">
+                <a href="contact-booking.html" class="btn btn-ghost btn-block">Service booking guide</a>
+                <button type="button" class="btn btn-primary btn-block" data-open-quote-service="ecu-stage1">Book Oil Service</button>
+              </div>
+            </article>
+            <article class="service-card reveal" data-service-category="repair" data-service-keywords="brake pads discs axle front rear wear sensor replacement brakes">
+              <img class="service-media" src="images/Bumper%20and%20Scratch%20Spot%20Repairs.jpg" alt="Mobile brake pad and disc replacement service" loading="lazy" />
+              <h3>Brake Pad Replacement</h3>
+              <p>Mobile brake pad fitting for front and rear axles. Labour is fixed; pads and discs priced to your vehicle spec.</p>
+              <p style="margin:0.6rem 0 0.25rem;"><strong>Labour</strong></p>
+              <ul style="margin:0 0 0.5rem;padding-left:1.2rem;font-size:0.92rem;line-height:1.8;">
+                <li>Front or rear axle &mdash; <strong>&pound;50&ndash;&pound;65</strong></li>
+                <li>Front + rear same visit &mdash; <strong>&pound;85&ndash;&pound;110</strong></li>
+              </ul>
+              <p style="margin:0.6rem 0 0.25rem;"><strong>Parts (per axle unless stated)</strong></p>
+              <ul style="margin:0 0 0.5rem;padding-left:1.2rem;font-size:0.92rem;line-height:1.8;">
+                <li>Economy pads &mdash; <strong>&pound;40&ndash;&pound;70</strong></li>
+                <li>Mid-range pads &mdash; <strong>&pound;50&ndash;&pound;100</strong></li>
+                <li>Premium / performance pads &mdash; <strong>&pound;80&ndash;&pound;180+</strong></li>
+                <li>Brake discs &mdash; <strong>&pound;35&ndash;&pound;80 per disc</strong></li>
+                <li>Wear sensor (if needed) &mdash; <strong>&pound;15&ndash;&pound;35</strong></li>
+              </ul>
+              <p class="field-hint">Disc inspection included at no extra charge. If discs are worn we quote pads and discs together. Customer-supplied parts accepted &mdash; labour only from &pound;50. Provide make, model, year, and engine at booking for exact part spec.</p>
+              <div class="service-card-actions">
+                <a href="contact-booking.html" class="btn btn-ghost btn-block">Service booking guide</a>
+                <button type="button" class="btn btn-primary btn-block" data-open-quote-service="brake-pads">Book Brake Service</button>
+              </div>
+            </article>
+            <article class="service-card reveal" data-service-category="other" data-service-keywords="battery replacement 12v agm efb start stop coding programming car battery">
+              <img class="service-media" src="images/OBD%20Scanning.jpg" alt="Mobile car battery replacement service" loading="lazy" />
+              <h3>Battery Replacement</h3>
+              <p>Mobile battery fitting for standard, AGM, and EFB types. AGM and EFB vehicles require OBD programming after fitment.</p>
+              <p style="margin:0.6rem 0 0.25rem;"><strong>Labour</strong></p>
+              <ul style="margin:0 0 0.5rem;padding-left:1.2rem;font-size:0.92rem;line-height:1.8;">
+                <li>Standard replacement &mdash; <strong>&pound;35&ndash;&pound;45</strong></li>
+                <li>AGM / EFB + OBD coding &mdash; <strong>&pound;55&ndash;&pound;75</strong></li>
+              </ul>
+              <p style="margin:0.6rem 0 0.25rem;"><strong>Battery (typical wholesale)</strong></p>
+              <ul style="margin:0 0 0.5rem;padding-left:1.2rem;font-size:0.92rem;line-height:1.8;">
+                <li>Standard 12V &mdash; <strong>&pound;55&ndash;&pound;90</strong></li>
+                <li>AGM start-stop &mdash; <strong>&pound;120&ndash;&pound;190</strong></li>
+                <li>EFB start-stop &mdash; <strong>&pound;90&ndash;&pound;130</strong></li>
+                <li>Premium brand (BMW, Audi) &mdash; <strong>&pound;160&ndash;&pound;240</strong></li>
+                <li>Old battery disposal &mdash; included</li>
+              </ul>
+              <p class="field-hint">OBD programming is required for AGM and EFB vehicles. Confirm at booking by providing make, model, year, and engine size. BMW B-series engines typically require coding; older models may not.</p>
+              <div class="service-card-actions">
+                <a href="contact-booking.html" class="btn btn-ghost btn-block">Service booking guide</a>
+                <button type="button" class="btn btn-primary btn-block" data-open-quote-service="battery">Book Battery Replacement</button>
               </div>
             </article>
           </div>
@@ -299,27 +382,51 @@
               <tbody>
                 <tr>
                   <td>Bumper/Scratch Spot Repair</td>
-                  <td>60 GBP</td>
+                  <td>&pound;60</td>
                   <td>1 to 4 hours</td>
                   <td>Minor scuffs and paint marks</td>
                 </tr>
                 <tr>
                   <td>Small Scratch Repair</td>
-                  <td>100 GBP per panel</td>
+                  <td>&pound;100 per panel</td>
                   <td>30 to 90 minutes</td>
                   <td>Localised paint correction</td>
                 </tr>
                 <tr>
                   <td>OBD Diagnosis</td>
-                  <td>50 GBP</td>
+                  <td>&pound;45</td>
                   <td>30 to 60 minutes</td>
                   <td>Warning lights and fault finding</td>
                 </tr>
                 <tr>
-                  <td>Oil and Filter Changes</td>
-                  <td>From 70 GBP</td>
+                  <td>Undertray and Underbody Fix</td>
+                  <td>&pound;35&ndash;&pound;55 labour + fixings</td>
+                  <td>30 to 60 minutes</td>
+                  <td>Loose or missing undertray panels</td>
+                </tr>
+                <tr>
+                  <td>Small Fix Bundle (3 Jobs)</td>
+                  <td>&pound;75 labour + parts</td>
+                  <td>1 to 2 hours</td>
+                  <td>Stack three minor jobs in one visit</td>
+                </tr>
+                <tr>
+                  <td>Engine Oil Change</td>
+                  <td>From &pound;35 labour + oil</td>
                   <td>45 to 90 minutes</td>
                   <td>Routine maintenance and engine care</td>
+                </tr>
+                <tr>
+                  <td>Brake Pad Replacement</td>
+                  <td>&pound;50&ndash;&pound;65 labour + pads</td>
+                  <td>45 to 90 minutes per axle</td>
+                  <td>Front or rear axle pad and disc work</td>
+                </tr>
+                <tr>
+                  <td>Battery Replacement</td>
+                  <td>&pound;35&ndash;&pound;75 labour + battery</td>
+                  <td>30 to 60 minutes</td>
+                  <td>Standard, AGM, and EFB fitment</td>
                 </tr>
               </tbody>
             </table>
@@ -365,42 +472,56 @@
                         <span class="service-tile-check" aria-hidden="true"></span>
                         <span class="service-tile-name">Bumper Scuff and Scratch Repairs</span>
                       </span>
-                      <span class="service-tile-meta">From 60 GBP</span>
+                      <span class="service-tile-meta">From &pound;60</span>
                     </button>
                     <button type="button" class="service-tile" data-value="small-scratch" data-label="Small Scratch Repairs" data-estimate-category="repair" aria-pressed="false">
                       <span class="service-tile-main">
                         <span class="service-tile-check" aria-hidden="true"></span>
                         <span class="service-tile-name">Small Scratch Repairs</span>
                       </span>
-                      <span class="service-tile-meta">From 100 GBP per panel</span>
+                      <span class="service-tile-meta">From &pound;100 per panel</span>
                     </button>
                     <button type="button" class="service-tile" data-value="diffuser" data-label="Front and Rear Diffuser, Side Skirts and Mirror Caps" data-estimate-category="fitment" aria-pressed="false">
                       <span class="service-tile-main">
                         <span class="service-tile-check" aria-hidden="true"></span>
                         <span class="service-tile-name">Front and Rear Diffuser, Side Skirts and Mirror Caps</span>
                       </span>
-                      <span class="service-tile-meta">Labour 50 GBP</span>
+                      <span class="service-tile-meta">&pound;50 labour</span>
                     </button>
                     <button type="button" class="service-tile" data-value="tips" data-label="Exhaust Tips (Slip-On, No Welding)" data-estimate-category="fitment" aria-pressed="false">
                       <span class="service-tile-main">
                         <span class="service-tile-check" aria-hidden="true"></span>
                         <span class="service-tile-name">Exhaust Tips (Slip-On, No Welding)</span>
                       </span>
-                      <span class="service-tile-meta">Labour 20 GBP</span>
+                      <span class="service-tile-meta">&pound;20 labour</span>
                     </button>
                     <button type="button" class="service-tile" data-value="intake" data-label="Air Filters and Intakes" data-estimate-category="fitment" aria-pressed="false">
                       <span class="service-tile-main">
                         <span class="service-tile-check" aria-hidden="true"></span>
                         <span class="service-tile-name">Air Filters and Intakes</span>
                       </span>
-                      <span class="service-tile-meta">Labour 50 GBP</span>
+                      <span class="service-tile-meta">&pound;50 labour</span>
                     </button>
                     <button type="button" class="service-tile" data-value="obd-diagnosis" data-label="OBD Diagnosis" data-estimate-category="diagnostics" aria-pressed="false">
                       <span class="service-tile-main">
                         <span class="service-tile-check" aria-hidden="true"></span>
                         <span class="service-tile-name">OBD Diagnosis</span>
                       </span>
-                      <span class="service-tile-meta">50 GBP</span>
+                      <span class="service-tile-meta">&pound;45</span>
+                    </button>
+                    <button type="button" class="service-tile" data-value="undertray" data-label="Undertray and Underbody Fix" data-estimate-category="repair" aria-pressed="false">
+                      <span class="service-tile-main">
+                        <span class="service-tile-check" aria-hidden="true"></span>
+                        <span class="service-tile-name">Undertray and Underbody Fix</span>
+                      </span>
+                      <span class="service-tile-meta">&pound;35&ndash;&pound;55 labour</span>
+                    </button>
+                    <button type="button" class="service-tile" data-value="small-fix-bundle" data-label="Small Fix Bundle (3 Jobs)" data-estimate-category="other" aria-pressed="false">
+                      <span class="service-tile-main">
+                        <span class="service-tile-check" aria-hidden="true"></span>
+                        <span class="service-tile-name">Small Fix Bundle (3 Jobs)</span>
+                      </span>
+                      <span class="service-tile-meta">&pound;75 labour</span>
                     </button>
                     <button type="button" class="service-tile" data-value="mot-pickup-dropoff" data-label="Pickup and Drop off Services for MOT" data-estimate-category="diagnostics" aria-pressed="false">
                       <span class="service-tile-main">
@@ -409,12 +530,12 @@
                       </span>
                       <span class="service-tile-meta">Route-based pricing</span>
                     </button>
-                    <button type="button" class="service-tile" data-value="ecu-stage1" data-label="Oil and Filter Changes" data-estimate-category="tuning" aria-pressed="false">
+                    <button type="button" class="service-tile" data-value="ecu-stage1" data-label="Engine Oil Change" data-estimate-category="tuning" aria-pressed="false">
                       <span class="service-tile-main">
                         <span class="service-tile-check" aria-hidden="true"></span>
-                        <span class="service-tile-name">Oil and Filter Changes</span>
+                        <span class="service-tile-name">Engine Oil Change</span>
                       </span>
-                      <span class="service-tile-meta">From 70 GBP</span>
+                      <span class="service-tile-meta">From £35 labour + oil</span>
                     </button>
                     <button type="button" class="service-tile" data-value="custom" data-label="Custom Work" data-estimate-category="other" aria-pressed="false">
                       <span class="service-tile-main">
@@ -422,6 +543,20 @@
                         <span class="service-tile-name">Custom Work</span>
                       </span>
                       <span class="service-tile-meta">Quote required</span>
+                    </button>
+                    <button type="button" class="service-tile" data-value="brake-pads" data-label="Brake Pad Replacement" data-estimate-category="repair" aria-pressed="false">
+                      <span class="service-tile-main">
+                        <span class="service-tile-check" aria-hidden="true"></span>
+                        <span class="service-tile-name">Brake Pad Replacement</span>
+                      </span>
+                      <span class="service-tile-meta">&pound;50&ndash;&pound;65 labour + pads</span>
+                    </button>
+                    <button type="button" class="service-tile" data-value="battery" data-label="Battery Replacement" data-estimate-category="other" aria-pressed="false">
+                      <span class="service-tile-main">
+                        <span class="service-tile-check" aria-hidden="true"></span>
+                        <span class="service-tile-name">Battery Replacement</span>
+                      </span>
+                      <span class="service-tile-meta">&pound;35&ndash;&pound;75 labour + battery</span>
                     </button>
                   </div>
                   <div class="service-picker-footer">
@@ -452,7 +587,7 @@
 
                 <div class="estimate-columns">
                   <label>
-                    Labour (GBP)
+                    Labour (&pound;)
                     <input type="number" id="labourPrice" name="labourPrice" min="0" step="1" value="0" readonly required aria-label="Labour estimate" />
                   </label>
                 </div>
@@ -471,12 +606,12 @@
                     </div>
                     <div>
                       <p class="stage-label">Labour</p>
-                      <p class="stage-value" id="estimateLabour">GBP0.00</p>
+                      <p class="stage-value" id="estimateLabour">&pound;0.00</p>
                     </div>
                   </div>
                   <div class="estimate-total">
                     <p>Labour Estimate</p>
-                    <p id="estimateTotal">GBP0.00</p>
+                    <p id="estimateTotal">&pound;0.00</p>
                   </div>
                   <p class="field-hint">When this looks right, open the quote form and send your details.</p>
                   <button type="button" class="btn btn-primary btn-block" id="openQuoteModal">Open Quote Form</button>
@@ -498,8 +633,8 @@
             <div class="quote-summary-grid">
               <div><p class="quote-summary-label">Service</p><p class="quote-summary-value" id="quoteSummaryService">Not selected</p></div>
               <div><p class="quote-summary-label">Parts</p><p class="quote-summary-value" id="quoteSummaryPartsTotal">Sourced to order</p></div>
-              <div><p class="quote-summary-label">Labour</p><p class="quote-summary-value" id="quoteSummaryLabour">GBP0.00</p></div>
-              <div><p class="quote-summary-label">Labour Estimate</p><p class="quote-summary-value quote-summary-total" id="quoteSummaryTotal">GBP0.00</p></div>
+              <div><p class="quote-summary-label">Labour</p><p class="quote-summary-value" id="quoteSummaryLabour">&pound;0.00</p></div>
+              <div><p class="quote-summary-label">Labour Estimate</p><p class="quote-summary-value quote-summary-total" id="quoteSummaryTotal">&pound;0.00</p></div>
             </div>
           </section>
 

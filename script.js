@@ -83,22 +83,26 @@ const partsCatalog = [
 ];
 
 const serviceProfiles = {
-  scratch: { labourPrice: 100, duration: "Typical duration: 1-4 hours depending on bumper scuff vs scratch repair" },
+  scratch: { labourPrice: 60, duration: "Typical duration: 1-4 hours depending on bumper scuff vs scratch repair" },
   diffuser: { labourPrice: 50, duration: "Typical duration: 1-2 hours for diffuser, side skirt, and mirror cap fitting" },
   tips: { labourPrice: 20, duration: "Typical duration: roughly 30 minutes" },
   intake: { labourPrice: 50, duration: "Typical duration: roughly 30 minutes" },
   "small-scratch": { labourPrice: 100, duration: "Typical duration: 30-90 minutes" },
-  "obd-diagnosis": { labourPrice: 50, duration: "Typical duration: 30-60 minutes" },
+  "obd-diagnosis": { labourPrice: 45, duration: "Typical duration: 30-60 minutes" },
+  "undertray": { labourPrice: 45, duration: "Typical duration: 30-60 minutes" },
+  "small-fix-bundle": { labourPrice: 75, duration: "Typical duration: 1-2 hours (3 jobs bundled)" },
+  "brake-pads": { labourPrice: 50, duration: "Typical duration: 45-90 minutes per axle" },
+  "battery": { labourPrice: 35, duration: "Typical duration: 30-60 minutes" },
   "mot-pickup-dropoff": {
     labourPrice: 0,
     duration: "Charged once MOT is completed and vehicle is dropped back to the client.",
   },
-  "ecu-stage1": { labourPrice: 70, duration: "Typical duration: 45-90 minutes" },
+  "ecu-stage1": { labourPrice: 35, duration: "Typical duration: 45-90 minutes" },
   custom: { labourPrice: 50, duration: "Typical duration: varies by job" },
 };
 
 function formatMoney(value) {
-  return `GBP${value.toFixed(2)}`;
+  return `\u00A3${value.toFixed(2)}`;
 }
 
 function setNote(noteEl, message, isError = false) {
