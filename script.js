@@ -93,7 +93,7 @@ const serviceProfiles = {
     labourPrice: 0,
     duration: "Charged once MOT is completed and vehicle is dropped back to the client.",
   },
-  "ecu-stage1": { labourPrice: 250, duration: "Typical duration: 1-2 hours" },
+  "ecu-stage1": { labourPrice: 70, duration: "Typical duration: 45-90 minutes" },
   custom: { labourPrice: 50, duration: "Typical duration: varies by job" },
 };
 
@@ -175,7 +175,7 @@ const serviceAutoPartMap = {
   "small-scratch": ["scratch-kit"],
   diffuser: ["diffuser-front-lip", "diffuser-rear", "diffuser-side-skirts", "diffuser-mirror-caps"],
   intake: ["intake-kyostar"],
-  "ecu-stage1": ["chargepipe", "downpipe"],
+  "ecu-stage1": [],
 };
 
 function autoAddPartsForService(serviceValue) {
@@ -301,7 +301,7 @@ function applyServiceRecommendation() {
     message = "Recommended: OBD Diagnosis first, then repair or fitment based on fault data.";
   } else if (selectedUse === "performance") {
     targetFilter = "tuning";
-    message = "Recommended: ECU Remapping Stage 1 and intake setup for measurable gains.";
+    message = "Recommended: Oil and Filter Changes and intake service check for routine maintenance.";
   } else if (selectedUse === "appearance") {
     targetFilter = "fitment";
     message = "Recommended: Diffuser and trim fitment, then tips for a complete rear look.";
@@ -803,6 +803,110 @@ function closeMenu() {
 if (yearEl) {
   yearEl.textContent = String(new Date().getFullYear());
 }
+
+function injectConversionRibbon() {
+  if (document.querySelector(".conversion-ribbon")) {
+    return;
+  }
+
+  const header = document.querySelector(".site-header");
+  const main = document.querySelector("main");
+  if (!header || !main) {
+    return;
+  }
+
+  const reviewsHref = window.location.pathname.endsWith("index.html") || window.location.pathname === "/"
+    ? "#reviews"
+    : "index.html#reviews";
+
+  const ribbon = document.createElement("section");
+  ribbon.className = "conversion-ribbon";
+  ribbon.setAttribute("aria-label", "Quick actions");
+  ribbon.innerHTML = `
+    <div class="container conversion-ribbon-wrap">
+      <p class="conversion-ribbon-title">Start Here</p>
+      <div class="conversion-ribbon-links">
+        <a href="services-pricing.html">Services</a>
+        <a href="contact-booking.html#contactForm">Book</a>
+        <a href="contact-booking.html">Enquire</a>
+        <a href="tel:+447933705124">Call</a>
+        <a href="https://www.instagram.com/tuned.uk/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="${reviewsHref}">Standards</a>
+      </div>
+    </div>
+  `;
+
+  header.insertAdjacentElement("afterend", ribbon);
+}
+
+function injectMobileActionBar() {
+  if (document.querySelector(".mobile-action-bar")) {
+    return;
+  }
+
+  const bar = document.createElement("div");
+  bar.className = "mobile-action-bar";
+  bar.setAttribute("aria-label", "Mobile quick actions");
+  bar.innerHTML = `
+    <a href="tel:+447933705124">Call</a>
+    <a href="https://wa.me/447933705124?text=Hi%20Tuned%20Performance,%20I%20need%20help%20with%20a%20booking." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="contact-booking.html#contactForm">Book</a>
+  `;
+
+  document.body.appendChild(bar);
+}
+
+function injectGlobalReviewsSection() {
+  if (document.getElementById("reviews") || document.querySelector(".service-reviews") || document.getElementById("services-reviews") || document.getElementById("scratch-reviews") || document.getElementById("fitment-reviews") || document.getElementById("obd-reviews") || document.getElementById("mot-reviews")) {
+    return;
+  }
+
+  const main = document.querySelector("main");
+  const footer = document.querySelector("footer.site-footer");
+  if (!main || !footer) {
+    return;
+  }
+
+  const section = document.createElement("section");
+  section.id = "reviews";
+  section.className = "section section-soft global-reviews";
+  section.innerHTML = `
+    <div class="container">
+      <div class="section-head reveal visible">
+        <p class="eyebrow">Service Standards</p>
+        <h2>What You Can Expect From The Booking Process</h2>
+        <p>This section outlines the communication, pricing, and service standards we work to on every booking.</p>
+      </div>
+      <div class="review-grid">
+        <article class="review-card reveal visible">
+          <p class="review-metric">Communication</p>
+          <h3>Fast replies and clear next steps</h3>
+          <p>Enquiries are handled with practical guidance so you can choose the right service path quickly.</p>
+        </article>
+        <article class="review-card reveal visible">
+          <p class="review-metric">Delivery</p>
+          <h3>Structured mobile service flow</h3>
+          <p>Appointments are planned with clear timing, scope confirmation, and straightforward handover.</p>
+        </article>
+        <article class="review-card reveal visible">
+          <p class="review-metric">Transparency</p>
+          <h3>Quote-before-commit pricing</h3>
+          <p>Pricing and service scope are confirmed before work starts so expectations stay clear.</p>
+        </article>
+      </div>
+      <div class="hero-cta reveal visible">
+        <a href="contact-booking.html" class="btn btn-primary">Book or Enquire Now</a>
+        <a href="https://www.instagram.com/tuned.uk/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View Instagram</a>
+      </div>
+    </div>
+  `;
+
+  footer.insertAdjacentElement("beforebegin", section);
+}
+
+injectConversionRibbon();
+injectMobileActionBar();
+injectGlobalReviewsSection();
 
 
 if (servicePicker) {

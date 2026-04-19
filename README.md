@@ -17,7 +17,7 @@ This is a static website built with plain HTML, CSS, and JavaScript.
 
 ## Services Listed
 
-- ECU Remapping (Waitlist Open)
+- Oil and Filter Changes
 - Bumper Scuff and Scratch Repairs
 - Front & Rear Diffuser, Side Skirts & Mirror Caps
 - Exhaust Tips (Slip-On, No Welding)
@@ -32,7 +32,7 @@ The site uses Web3Forms so it stays fully static.
 Current static submission flows:
 
 - General enquiry form with optional PNG/JPG upload
-- ECU remap waitlist form
+- Oil and filter booking option
 - Final quote request modal pre-filled from the estimate tool
 - Online quote acceptance from the same quote modal
 
@@ -72,11 +72,11 @@ Production checklist:
 - Test general enquiry, waitlist, quote request, and quote acceptance on the live domain
 - Confirm your thank-you flow works as expected after submission
 
-## Remap Widget (Benksy)
+## Service Widget
 
 The registration lookup feature has been removed.
 
-The Stage/Remap section embeds a Benksy widget directly in `index.html`.
+The homepage service section now focuses on current mobile repair services.
 
 ## Works Estimate Tool
 
