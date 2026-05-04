@@ -77,7 +77,7 @@
         <p class="cookie-text">
           We use essential cookies for site functionality and optional cookies for analytics and marketing.
           You can accept all, reject optional cookies, or manage preferences.
-          See our <a href="cookies.html">Cookie Policy</a>, <a href="privacy.html">Privacy Policy</a>, and <a href="gdpr.html">UK GDPR page</a>.
+          See our <a href="/cookies">Cookie Policy</a>, <a href="/privacy">Privacy Policy</a>, and <a href="/gdpr">UK GDPR page</a>.
         </p>
         <div class="cookie-actions">
           <button type="button" class="btn btn-primary" data-cookie-action="accept-all">Accept All</button>

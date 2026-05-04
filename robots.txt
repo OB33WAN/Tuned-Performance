@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /thank-you.html
+Disallow: /thank-you
 
 # AI and search crawler guidance
 User-agent: GPTBot

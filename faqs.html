@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta
       name="description"
-      content="Quick answers on price, coverage, availability, and booking for mobile services in Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow."
+      content="Answers to common questions about mobile vehicle repair across Feltham, Hounslow, Twickenham, Richmond, and surrounding areas. Pricing, booking, availability, and service scope explained."
     />
     <meta name="author" content="Tuned Performance" />
     <link rel="canonical" href="https://tunedperformance.co.uk/faqs.html" />
@@ -45,17 +45,60 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://tunedperformance.co.uk/faqs.html#webpage",
-        "url": "https://tunedperformance.co.uk/faqs.html",
-        "name": "Frequently Asked Questions | Tuned Performance",
-        "description": "Answers to common questions about oil and filter changes, repairs, bookings, timelines, and service coverage areas.",
-        "inLanguage": "en-GB",
-        "dateModified": "2026-03-15",
-        "isPartOf": {
-          "@type": "WebSite",
-          "url": "https://tunedperformance.co.uk/"
-        }
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://tunedperformance.co.uk/faqs.html#webpage",
+            "url": "https://tunedperformance.co.uk/faqs.html",
+            "name": "FAQs for Mobile Vehicle Repair | Tuned Performance",
+            "description": "Answers to common questions about oil and filter changes, repairs, bookings, timelines, and service coverage areas.",
+            "inLanguage": "en-GB",
+            "dateModified": "2026-05-04",
+            "isPartOf": { "@type": "WebSite", "url": "https://tunedperformance.co.uk/" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tunedperformance.co.uk/" },
+              { "@type": "ListItem", "position": 2, "name": "FAQs", "item": "https://tunedperformance.co.uk/faqs.html" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Which areas do you cover?",
+                "acceptedAnswer": { "@type": "Answer", "text": "We are based in Feltham and cover Bedfont, Ashford, Sunbury, Kingston, and Hounslow for mobile appointments." }
+              },
+              {
+                "@type": "Question",
+                "name": "When are you available?",
+                "acceptedAnswer": { "@type": "Answer", "text": "We currently run weekend-only slots. Saturday and Sunday appointments are available depending on route and service type." }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer oil and filter changes?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Oil and filter changes are available as a mobile service. Labour is £35 flat rate with oil priced to your vehicle." }
+              },
+              {
+                "@type": "Question",
+                "name": "What services can be booked mobile?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Scratch repair services, trim fitment, exhaust tip and intake fitting, OBD diagnostics, brake pad and disc replacement, battery replacement, engine oil changes, and MOT pickup and drop-off can all be booked mobile." }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I get a quote quickly?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Use the quick costing tool on the Services and Pricing page, check the full price list, or send your reg and service need on WhatsApp for a fast reply." }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you help with large workshop jobs?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can route suitable jobs to partner garages in Feltham, including Sky Tyres and MOT and Cams Car Care." }
+              }
+            ]
+          }
+        ]
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,7 +121,7 @@
     <a class="skip-link" href="#mainContent">Skip to main content</a>
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a href="index.html" class="brand" aria-label="Tuned Performance home">
+        <a href="/" class="brand" aria-label="Tuned Performance home">
           <img src="images/Tuned%20Performance%20Transparent%20Logo.png" alt="Tuned Performance logo" class="brand-logo" />
           <span class="brand-text"><span class="brand-tuned">Tuned</span> <span class="brand-performance">Performance</span></span>
         </a>
@@ -91,13 +134,14 @@
         </button>
 
         <nav id="mainNav" class="main-nav">
-          <a href="index.html">Home</a>
-          <a href="services-pricing.html#oil-filter-service">Oil and Filter Changes</a>
-          <a href="services-pricing.html">Services and Pricing</a>
-          <a href="pricing.html">Full Price List</a>
-          <a href="partners.html">Partners</a>
-          <a href="faqs.html" aria-current="page">FAQs</a>
-          <a href="contact-booking.html">Contact and Booking</a>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/areas-covered">Areas Covered</a>
+          <a href="/socials">Recent Work</a>
+          <a href="/faqs" aria-current="page">FAQs</a>
+          <a href="/contact-booking">Contact and Booking</a>
         </nav>
       </div>
     </header>
@@ -120,8 +164,8 @@
               <li>Mobile scope and workshop routing</li>
             </ul>
             <div class="hero-cta">
-              <a href="contact-booking.html" class="btn btn-primary">Open Contact and Booking</a>
-              <a href="services-pricing.html" class="btn btn-ghost">Open Services and Pricing</a>
+              <a href="/contact-booking" class="btn btn-primary">Open Contact and Booking</a>
+              <a href="/services-pricing" class="btn btn-ghost">Open Services and Pricing</a>
             </div>
           </div>
           <div class="hero-showcase reveal" aria-label="FAQ help highlights">
@@ -192,15 +236,15 @@
             </article>
             <article class="faq-card reveal">
               <h3>Do you offer oil and filter changes?</h3>
-              <p>Yes. Oil and filter changes are available as a mobile service. See the <a class="inline-link" href="services-pricing.html#oil-filter-service">service details</a> and send your booking request through the contact page.</p>
+              <p>Yes. Oil and filter changes are available as a mobile service. See the <a class="inline-link" href="/services-pricing#oil-filter-service">service details</a> and send your booking request through the contact page.</p>
             </article>
             <article class="faq-card reveal">
               <h3>What services can be booked mobile?</h3>
-              <p><a class="inline-link" href="scratch-repairs.html">Scratch repair services</a>, <a class="inline-link" href="trim-fitment.html">trim fitment options</a>, exhaust tip and intake fitting, <a class="inline-link" href="obd-diagnostics.html">OBD diagnostics support</a>, and <a class="inline-link" href="mot-pickup.html">MOT pickup and drop-off help</a> can all be booked mobile.</p>
+              <p><a class="inline-link" href="/scratch-repairs">Scratch repair services</a>, <a class="inline-link" href="/trim-fitment">trim fitment options</a>, exhaust tip and intake fitting, <a class="inline-link" href="/obd-diagnostics">OBD diagnostics support</a>, and <a class="inline-link" href="/mot-pickup">MOT pickup and drop-off help</a> can all be booked mobile.</p>
             </article>
             <article class="faq-card reveal">
               <h3>How do I get a quote quickly?</h3>
-              <p>Use the quick costing tool on the <a class="inline-link" href="services-pricing.html#estimate">Services and Pricing page</a>, then open the quote form or submit the contact form.</p>
+              <p>Use the quick costing tool on the <a class="inline-link" href="/services-pricing#estimate">Services and Pricing page</a>, then open the quote form or submit the contact form.</p>
             </article>
             <article class="faq-card reveal">
               <h3>Can you help with large workshop jobs?</h3>
@@ -255,18 +299,59 @@
       </section>
     </main>
 
+    <div class="sticky-mobile-cta active">
+      <a href="tel:+447933705124" class="btn btn-call">☎ Call</a>
+      <a href="https://wa.me/447933705124?text=Hi%20Tuned%20Performance,%20I%20want%20to%20check%20if%20you%20cover%20my%20area." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">💬 WhatsApp</a>
+      <a href="/contact-booking" class="btn btn-primary">📝 Book Now</a>
+    </div>
+
     <footer class="site-footer">
-      <div class="container footer-wrap">
-        <p>© <span id="year"></span> Tuned Performance. All rights reserved.</p>
-        <p>Serving Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow | Call +44 07933 705124</p>
-        <div class="footer-links" aria-label="Legal and utility links">
-          <a href="index.html">Home</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="gdpr.html">GDPR</a>
-          <a href="terms.html">Terms</a>
-          <a href="cookies.html">Cookies</a>
-          <button type="button" class="footer-link-button" data-open-cookie-settings>Cookie Settings</button>
-          <a href="#top">Back to top</a>
+      <div class="container footer-grid">
+        <div class="footer-brand-col">
+          <a href="/" class="footer-logo-link" aria-label="Tuned Performance Home">
+            <img src="images/Tuned%20Performance%20Transparent%20Logo.png" alt="Tuned Performance" width="72" height="72" loading="lazy">
+          </a>
+          <p class="footer-tagline">Mobile vehicle repairs, servicing &amp; diagnostics. Weekend appointments across West &amp; South-West London.</p>
+          <address class="footer-contact">
+            <a href="tel:+447933705124">&#9990; +44 07933 705124</a>
+            <a href="mailto:info@tunedperformance.co.uk">&#9993; info@tunedperformance.co.uk</a>
+            <span>&#128336; Sat&ndash;Sun 08:00&ndash;18:00</span>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Services</h3>
+          <ul class="footer-col-list">
+            <li><a href="/scratch-repairs">Scratch Repairs</a></li>
+            <li><a href="/obd-diagnostics">OBD Diagnostics</a></li>
+            <li><a href="/trim-fitment">Trim &amp; Fitment</a></li>
+            <li><a href="/mot-pickup">MOT Pickup</a></li>
+            <li><a href="/ecu-remap">ECU Remap</a></li>
+            <li><a href="/services-pricing">All Services &amp; Pricing</a></li>
+            <li><a href="/pricing">Full Price List</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Company</h3>
+          <ul class="footer-col-list">
+            <li><a href="/areas-covered">Areas Covered</a></li>
+            <li><a href="/faqs">FAQs</a></li>
+            <li><a href="/contact-booking">Book a Service</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/partners">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-wrap">
+          <p class="footer-copy">&copy; <span id="year"></span> Tuned Performance UK. All rights reserved.</p>
+          <nav class="footer-legal" aria-label="Legal links">
+            <a href="/privacy">Privacy</a>
+            <a href="/gdpr">GDPR</a>
+            <a href="/terms">Terms</a>
+            <a href="/cookies">Cookies</a>
+            <button type="button" class="footer-link-button" data-open-cookie-settings>Cookie Settings</button>
+            <a href="#top">&#8593; Top</a>
+          </nav>
         </div>
       </div>
     </footer>

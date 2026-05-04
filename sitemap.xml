@@ -2,78 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tunedperformance.co.uk/</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/services-pricing.html</loc>
-    <lastmod>2026-03-15</lastmod>
+    <loc>https://tunedperformance.co.uk/about</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/services</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/socials</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/services-pricing</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/contact-booking.html</loc>
-    <lastmod>2026-03-15</lastmod>
+    <loc>https://tunedperformance.co.uk/contact-booking</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.88</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/scratch-repairs.html</loc>
+    <loc>https://tunedperformance.co.uk/pricing</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/scratch-repairs</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.84</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/trim-fitment.html</loc>
+    <loc>https://tunedperformance.co.uk/trim-fitment</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.84</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/obd-diagnostics.html</loc>
+    <loc>https://tunedperformance.co.uk/obd-diagnostics</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.84</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/mot-pickup.html</loc>
+    <loc>https://tunedperformance.co.uk/mot-pickup</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.84</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/faqs.html</loc>
-    <lastmod>2026-03-15</lastmod>
+    <loc>https://tunedperformance.co.uk/faqs</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/partners.html</loc>
+    <loc>https://tunedperformance.co.uk/partners</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.78</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/privacy.html</loc>
+    <loc>https://tunedperformance.co.uk/privacy</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/terms.html</loc>
+    <loc>https://tunedperformance.co.uk/terms</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/gdpr.html</loc>
+    <loc>https://tunedperformance.co.uk/gdpr</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://tunedperformance.co.uk/cookies.html</loc>
+    <loc>https://tunedperformance.co.uk/cookies</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -83,5 +107,83 @@
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/areas-covered</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-feltham</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-hounslow</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-kingston</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-sunbury</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-ashford</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-bedfont</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-brentford</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-hampton</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-hampton-hill</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-hampton-court</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.81</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-twickenham</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
+    <loc>https://tunedperformance.co.uk/mobile-mechanic-richmond</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
   </url>
 </urlset>

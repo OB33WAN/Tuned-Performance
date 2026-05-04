@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta
       name="description"
-      content="Mobile vehicle repairs in Feltham &mdash; scratch repairs, brake pads, battery replacement, oil changes, OBD diagnostics, trim fitment, and MOT support across Bedfont, Ashford, Sunbury, Kingston, and Hounslow."
+      content="Mobile vehicle repairs, servicing, diagnostics and upgrades in Feltham and 11 surrounding areas. Scratch repairs from £65, oil change from £90, brakes from £160, battery from £90, diagnostics £45. Weekend service, simple pricing, no hidden fees."
     />
     <meta name="author" content="Tuned Performance UK" />
     <meta name="trustpilot-one-time-domain-verification-id" content="daa92f3a-711e-4b06-a49c-34e6ffcce290"/>
@@ -19,10 +19,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Tuned Performance UK" />
-    <meta property="og:title" content="Mobile Vehicle Repair Services in Feltham | Tuned Performance UK" />
+    <meta property="og:title" content="Mobile Vehicle Repairs, Servicing &amp; Diagnostics in Feltham | Tuned Performance UK" />
     <meta
       property="og:description"
-      content="Mobile repairs, brake pads, battery replacement, oil changes, OBD diagnostics, trim fitment, and MOT support across Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow."
+      content="Weekend mobile service for scratches, brakes, batteries, oil changes, diagnostics, trim fitment, and selected upgrades across Feltham and 11 surrounding areas. Simple pricing, no hidden fees."
     />
     <meta property="og:url" content="https://tunedperformance.co.uk/" />
     <meta property="og:image" content="https://tunedperformance.co.uk/images/20251108_150615.jpg" />
@@ -30,14 +30,14 @@
     <meta name="twitter:title" content="Mobile Vehicle Repair Services in Feltham | Tuned Performance UK" />
     <meta
       name="twitter:description"
-      content="Mobile repairs, brake pads, battery replacement, oil changes, OBD diagnostics, trim fitment, and MOT support across Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow."
+      content="Mobile mechanic in Feltham serving 11 areas. Scratch repairs from £60, diagnostics £45, fitment labour from £20. Weekends. Fair pricing."
     />
     <meta name="twitter:image" content="https://tunedperformance.co.uk/images/20251108_150615.jpg" />
     <link rel="icon" type="image/png" href="images/Tuned%20Performance%20Logo.png" />
     <link rel="shortcut icon" href="images/Tuned%20Performance%20Logo.png" />
     <link rel="apple-touch-icon" href="images/Tuned%20Performance%20Logo.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <title>Mobile Vehicle Repair Services in Feltham | Tuned Performance UK</title>
+    <title>Mobile Vehicle Repairs, Servicing &amp; Diagnostics in Feltham | Tuned Performance UK</title>
     <!-- Google tag (gtag.js) -->
     <script async data-cfasync="false" src="https://www.googletagmanager.com/gtag/js?id=G-Z6M09GYPFY"></script>
     <script data-cfasync="false">
@@ -72,7 +72,28 @@
               "email": "info@tunedperformance.co.uk",
               "availableLanguage": ["en-GB"]
             },
-            "areaServed": ["Feltham", "Bedfont", "Ashford", "Sunbury", "Kingston upon Thames", "Hounslow"],
+            "areaServed": [
+              { "@type": "City", "name": "Feltham" },
+              { "@type": "City", "name": "Bedfont" },
+              { "@type": "City", "name": "Brentford" },
+              { "@type": "City", "name": "Hounslow" },
+              { "@type": "City", "name": "Twickenham" },
+              { "@type": "City", "name": "Richmond" },
+              { "@type": "City", "name": "Hampton" },
+              { "@type": "City", "name": "Hampton Hill" },
+              { "@type": "City", "name": "Hampton Court" },
+              { "@type": "City", "name": "Ashford" },
+              { "@type": "City", "name": "Sunbury-on-Thames" },
+              { "@type": "City", "name": "Kingston upon Thames" }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday", "Sunday"],
+                "opens": "08:00",
+                "closes": "18:00"
+              }
+            ],
             "knowsAbout": ["brake pad replacement", "battery replacement", "oil changes", "OBD diagnostics", "scratch repairs", "trim fitment", "MOT pickup and drop-off", "undertray repair"],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
@@ -135,14 +156,14 @@
     </noscript>
     <link rel="stylesheet" href="styles.css" />
     <!-- TrustBox script -->
-    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
     <!-- End TrustBox script -->
   </head>
   <body class="home-page">
     <a class="skip-link" href="#mainContent">Skip to main content</a>
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a href="index.html" class="brand" aria-label="Tuned Performance UK home">
+        <a href="/" class="brand" aria-label="Tuned Performance UK home">
           <img src="images/Tuned%20Performance%20Transparent%20Logo.png" alt="Tuned Performance UK logo" class="brand-logo" />
           <span class="brand-text"><span class="brand-tuned">Tuned</span> <span class="brand-performance">Performance UK</span></span>
         </a>
@@ -155,13 +176,14 @@
         </button>
 
         <nav id="mainNav" class="main-nav">
-          <a href="index.html" aria-current="page">Home</a>
-          <a href="services-pricing.html#oil-filter-service">Oil and Filter Changes</a>
-          <a href="services-pricing.html">Services and Pricing</a>
-          <a href="pricing.html">Full Price List</a>
-          <a href="partners.html">Partners</a>
-          <a href="faqs.html">FAQs</a>
-          <a href="contact-booking.html">Contact and Booking</a>
+          <a href="/" aria-current="page">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/areas-covered">Areas Covered</a>
+          <a href="/socials">Recent Work</a>
+          <a href="/faqs">FAQs</a>
+          <a href="/contact-booking">Contact and Booking</a>
         </nav>
       </div>
     </header>
@@ -172,21 +194,21 @@
         <div class="hero-bg-shape hero-bg-shape-b"></div>
         <div class="container hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow">Mobile Repairs, Servicing &amp; Diagnostics | Feltham and Surrounding Areas</p>
-            <h1>Mobile Vehicle Repairs &mdash; Brakes, Oil, Battery, Diagnostics and More</h1>
+            <p class="eyebrow">Mobile Vehicle Services | Feltham and Surrounding Areas</p>
+            <h1>Mobile Vehicle Repairs, Servicing, Diagnostics and Upgrades in Feltham</h1>
             <p class="hero-text">
-              Tuned Performance UK handles mobile repairs, servicing, and diagnostics at your location across Feltham and nearby areas. No garage visit required &mdash; just book a weekend slot and we come to you.
+              Weekend mobile service for scratches, brakes, batteries, oil changes, diagnostics, trim fitment, and selected upgrades &mdash; with simple pricing and direct quote support.
             </p>
             <ul class="hero-keywords" aria-label="Core services">
-              <li>Brake pad and disc replacement from &pound;50 labour</li>
-              <li>Battery replacement &mdash; standard, AGM, and EFB</li>
-              <li>Scratch and bumper repairs from &pound;60</li>
-              <li>Engine oil change from &pound;35 labour + oil</li>
-              <li>OBD diagnostics from &pound;45 &middot; trim fitment &middot; MOT support</li>
+              <li>Scratch and bumper repairs from &pound;65</li>
+              <li>Brake pads from &pound;50 labour &middot; battery from &pound;90 supplied &amp; fitted</li>
+              <li>Engine oil change from &pound;90 (typical 4&ndash;5L car)</li>
+              <li>OBD diagnostics &pound;45 &middot; trim fitment from &pound;35</li>
+              <li>Undertray fix, small fix bundles, MOT pickup support</li>
             </ul>
             <div class="hero-cta">
-              <a href="contact-booking.html" class="btn btn-primary">Book a Service</a>
-              <a href="pricing.html" class="btn btn-ghost">See Full Price List</a>
+              <a href="/contact-booking" class="btn btn-primary">Book a Service</a>
+              <a href="/pricing" class="btn btn-ghost">See Full Price List</a>
               <a href="https://wa.me/447933705124?text=Hi%20Tuned%20Performance,%20I%20need%20help%20choosing%20the%20right%20service." class="btn btn-ghost" target="_blank" rel="noopener noreferrer">WhatsApp for Fast Help</a>
             </div>
             <div class="hero-trust" aria-label="Trust highlights">
@@ -207,14 +229,14 @@
             </div>
             <div class="hero-showcase-grid">
               <article class="hero-showcase-card">
-                <img src="images/Bumper%20and%20Scratch%20Spot%20Repairs.jpg" alt="Mobile bumper and scratch repair work" loading="lazy" />
+                <img src="images/Bumper%20and%20Scratch%20Spot%20Repairs.jpg" alt="Professional mobile bumper and scratch spot repair work on a vehicle panel" loading="lazy" />
                 <div>
                   <h3>Scratch and Bumper Repairs</h3>
                   <p>From &pound;60. Panel-by-panel assessment before you commit.</p>
                 </div>
               </article>
               <article class="hero-showcase-card">
-                <img src="images/OBD%20Scanning.jpg" alt="OBD diagnostic scan on a vehicle" loading="lazy" />
+                <img src="images/OBD%20Scanning.jpg" alt="OBD diagnostic scanner connected to vehicle for fault code reading" loading="lazy" />
                 <div>
                   <h3>Brakes, Battery &amp; Diagnostics</h3>
                   <p>Brake pads from &pound;50 labour &middot; battery from &pound;35 &middot; OBD from &pound;45.</p>
@@ -223,8 +245,29 @@
             </div>
             <div class="hero-workshop-link">
               <p>Need workshop-level support for larger jobs?</p>
-              <a href="partners.html" class="btn btn-ghost">View Partner Garage Options</a>
+              <a href="/partners" class="btn btn-ghost">View Partner Garage Options</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip reveal" aria-label="Key service guarantees">
+        <div class="container trust-strip-grid">
+          <div class="trust-strip-item">
+            <span class="trust-strip-icon" aria-hidden="true">✓</span>
+            <span>12-month labour guarantee</span>
+          </div>
+          <div class="trust-strip-item">
+            <span class="trust-strip-icon" aria-hidden="true">✓</span>
+            <span>Weekend mobile appointments</span>
+          </div>
+          <div class="trust-strip-item">
+            <span class="trust-strip-icon" aria-hidden="true">✓</span>
+            <span>Customer-supplied parts accepted</span>
+          </div>
+          <div class="trust-strip-item">
+            <span class="trust-strip-icon" aria-hidden="true">✓</span>
+            <span>No hidden fees &mdash; confirmed before work starts</span>
           </div>
         </div>
       </section>
@@ -241,25 +284,25 @@
               <p class="review-metric">Prices</p>
               <h3>See the full price list</h3>
               <p>Every service broken down by parts, labour, and total cost.</p>
-              <div class="hero-cta"><a href="pricing.html" class="btn btn-primary">View Full Price List</a></div>
+              <div class="hero-cta"><a href="/pricing" class="btn btn-primary">View Full Price List</a></div>
             </article>
             <article class="review-card reveal">
               <p class="review-metric">Estimator</p>
               <h3>Build a quick estimate</h3>
               <p>Select services and get a labour estimate in under a minute.</p>
-              <div class="hero-cta"><a href="services-pricing.html#estimate" class="btn btn-primary">Open Estimator</a></div>
+              <div class="hero-cta"><a href="/services-pricing#estimate" class="btn btn-primary">Open Estimator</a></div>
             </article>
             <article class="review-card reveal">
               <p class="review-metric">Booking</p>
               <h3>Reserve your slot now</h3>
               <p>Use the booking form and confirm your weekend appointment.</p>
-              <div class="hero-cta"><a href="contact-booking.html#contactForm" class="btn btn-primary">Book Appointment</a></div>
+              <div class="hero-cta"><a href="/contact-booking#contactForm" class="btn btn-primary">Book Appointment</a></div>
             </article>
             <article class="review-card reveal">
               <p class="review-metric">Enquiry</p>
               <h3>Ask before you commit</h3>
               <p>Send photos or a description &mdash; we confirm scope and price before you book.</p>
-              <div class="hero-cta"><a href="contact-booking.html" class="btn btn-ghost">Send Enquiry</a></div>
+              <div class="hero-cta"><a href="/contact-booking" class="btn btn-ghost">Send Enquiry</a></div>
             </article>
             <article class="review-card reveal">
               <p class="review-metric">Call</p>
@@ -291,8 +334,8 @@
               <li>12-month guarantee on work carried out with our supplied oil</li>
             </ul>
             <div class="hero-cta">
-              <a href="contact-booking.html" class="btn btn-primary">Book Oil Change</a>
-              <a href="services-pricing.html#oil-filter-service" class="btn btn-ghost">See Full Oil Pricing</a>
+              <a href="/contact-booking" class="btn btn-primary">Book Oil Change</a>
+              <a href="/services-pricing#oil-filter-service" class="btn btn-ghost">See Full Oil Pricing</a>
             </div>
           </div>
           <div class="stage-form-wrap reveal">
@@ -315,7 +358,7 @@
                 <img class="hero-showcase-main" src="images/Air%20Filters%20and%20Intakes.jpg" alt="Oil and filter and intake service support" loading="lazy" />
               </div>
               <p class="stage-disclaimer remap-widget-disclaimer">
-                Need a same-week slot? <a href="contact-booking.html" class="inline-link">Send a message</a> and we will confirm availability.
+                Need a same-week slot? <a href="/contact-booking" class="inline-link">Send a message</a> and we will confirm availability.
               </p>
             </div>
           </div>
@@ -337,7 +380,7 @@
             <p class="stat-label">Brake pad labour per axle</p>
           </div>
           <div class="stat-card">
-            <p class="stat-value">6 Areas</p>
+            <p class="stat-value">11 Areas</p>
             <p class="stat-label">Weekend mobile coverage</p>
           </div>
         </div>
@@ -354,91 +397,148 @@
             <article class="service-card service-card-featured reveal">
               <img class="service-media" src="images/Bumper%20and%20Scratch%20Spot%20Repairs.jpg" alt="Mobile brake pad replacement service" loading="lazy" />
               <h3>Brake Pad and Disc Replacement</h3>
-              <p>Mobile brake pad and disc fitting. Disc inspection included at no extra charge.</p>
+              <p>From &pound;50 + parts. Mobile brake pad and disc fitting at your location. Disc inspection included at no extra charge.</p>
               <ul class="comparison-list">
-                <li>Labour &pound;50&ndash;&pound;65 per axle (front or rear)</li>
-                <li>Front + rear same visit &pound;85&ndash;&pound;110</li>
+                <li>Single axle from &pound;160 (pads + discs, economy)</li>
+                <li>Front + rear same visit from &pound;85 labour</li>
                 <li>Economy, mid-range, and performance pads available</li>
               </ul>
               <div class="service-card-actions">
-                <a href="pricing.html#pricing-list" class="btn btn-ghost btn-block">See Brake Pricing</a>
-                <a href="contact-booking.html" class="btn btn-primary btn-block">Book Brake Service</a>
+                <a href="/pricing#pricing-list" class="btn btn-ghost btn-block">See Brake Pricing</a>
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book Brake Service</a>
               </div>
             </article>
             <article class="service-card reveal">
               <img class="service-media" src="images/OBD%20Scanning.jpg" alt="Mobile car battery replacement" loading="lazy" />
               <h3>Battery Replacement</h3>
-              <p>Standard, AGM, and EFB batteries fitted at your location. OBD coding included where required.</p>
+              <p>From &pound;90 supplied and fitted. Standard, AGM, and EFB batteries fitted at your location. OBD coding included where required.</p>
               <ul class="comparison-list">
-                <li>Labour &pound;35&ndash;&pound;75 (standard or AGM/EFB + coding)</li>
+                <li>AGM / EFB start-stop from &pound;175 supplied &amp; fitted</li>
                 <li>Standard 12V, AGM start-stop, EFB start-stop available</li>
-                <li>Old battery disposal included at no extra charge</li>
+                <li>Old battery disposal included</li>
               </ul>
               <div class="service-card-actions">
-                <a href="pricing.html#pricing-list" class="btn btn-ghost btn-block">See Battery Pricing</a>
-                <a href="contact-booking.html" class="btn btn-primary btn-block">Book Battery Replacement</a>
+                <a href="/pricing#pricing-list" class="btn btn-ghost btn-block">See Battery Pricing</a>
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book Battery Replacement</a>
               </div>
             </article>
             <article class="service-card reveal">
               <img class="service-media" src="images/Air%20Filters%20and%20Intakes.jpg" alt="Mobile engine oil change service" loading="lazy" />
               <h3>Engine Oil Change</h3>
-              <p>Flat-rate labour with oil priced to your vehicle. Filter changed if accessible.</p>
+              <p>From &pound;90 (typical 4&ndash;5L car). Flat-rate labour with oil priced to your vehicle. Filter changed if accessible.</p>
               <ul class="comparison-list">
-                <li>Labour &pound;35 &mdash; drain, refill &amp; top-up check</li>
+                <li>Labour &pound;35 flat rate (drain, refill &amp; top-up check)</li>
                 <li>Oil supplied at market rate, or you supply your own</li>
-                <li>Filter &pound;8&ndash;&pound;15 extra if accessible</li>
+                <li>Oil top-up only from &pound;33</li>
               </ul>
               <div class="service-card-actions">
-                <a href="services-pricing.html#oil-filter-service" class="btn btn-ghost btn-block">Oil Service Details</a>
-                <a href="contact-booking.html" class="btn btn-primary btn-block">Book Oil Change</a>
+                <a href="/services-pricing#oil-filter-service" class="btn btn-ghost btn-block">Oil Service Details</a>
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book Oil Change</a>
               </div>
             </article>
             <article class="service-card reveal">
               <img class="service-media" src="images/Bumper%20and%20Scratch%20Spot%20Repairs.jpg" alt="Bumper and scratch repair work on a vehicle panel" loading="lazy" />
               <h3>Scratch and Bumper Repairs</h3>
-              <p>Mobile paint spot repairs for bumper scuffs, panel scratches, and paint marks. Colour-matched to your vehicle on site.</p>
+              <p>From &pound;65. Mobile paint spot repairs for bumper scuffs, panel scratches, and paint marks. Colour-matched on site.</p>
               <ul class="comparison-list">
-                <li>Bumper spot repairs from &pound;60 &mdash; panel scratch repairs from &pound;100</li>
-                <li>Colour-code matched paint applied on site, 30 minutes to 4 hours</li>
-                <li>Send 1&ndash;3 daylight photos with your postcode for a faster scope estimate</li>
+                <li>Bumper spot repair from &pound;65 &middot; panel scratch from &pound;105</li>
+                <li>Larger / multi-panel repair from &pound;110</li>
+                <li>Send 1&ndash;3 daylight photos for a faster scope estimate</li>
               </ul>
               <div class="service-card-actions">
-                <a href="scratch-repairs.html" class="btn btn-ghost btn-block">Scratch Repair Details</a>
-                <a href="contact-booking.html" class="btn btn-primary btn-block">Book Repair</a>
+                <a href="/scratch-repairs" class="btn btn-ghost btn-block">Scratch Repair Details</a>
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book Repair</a>
               </div>
             </article>
             <article class="service-card reveal">
               <img class="service-media" src="images/Mirror%20Caps.jpg" alt="Trim fitment including mirror caps and styling parts" loading="lazy" />
               <h3>Trim and Fitment</h3>
-              <p>Mobile fitment for diffusers, side skirts, mirror caps, exhaust tips, and intake upgrades. Clear labour guidance given before you commit.</p>
+              <p>Exhaust tips from &pound;35 fitted. Diffusers, side skirts, mirror caps, and intakes supply and fit available on appointment.</p>
               <ul class="comparison-list">
-                <li>Exhaust tips from &pound;20 labour &mdash; diffusers, skirts &amp; mirror caps &pound;50 labour</li>
-                <li>Air filter and intake fitment &pound;50 labour plus parts</li>
-                <li>Supply your own parts or sourced to order; 30 minutes to 2 hours on site</li>
+                <li>Diffuser + mirror caps from &pound;80 fitted</li>
+                <li>Side skirts from &pound;90 fitted</li>
+                <li>Air filter / intake kit from &pound;75 fitted</li>
               </ul>
               <div class="service-card-actions">
-                <a href="trim-fitment.html" class="btn btn-ghost btn-block">Fitment Details</a>
-                <a href="contact-booking.html" class="btn btn-primary btn-block">Book Fitment</a>
+                <a href="/trim-fitment" class="btn btn-ghost btn-block">Fitment Details</a>
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book Fitment</a>
               </div>
             </article>
             <article class="service-card service-card-mot reveal">
               <img class="service-media" src="images/MOT.jpg" alt="OBD diagnostics and MOT pickup support" loading="lazy" />
               <h3>OBD Diagnostics and MOT Support</h3>
-              <p>Mobile OBD fault-code scan with plain-language interpretation. MOT pickup and drop-off arranged separately to route when needed.</p>
+              <p>OBD diagnosis &pound;45. Mobile fault-code scan with plain-language interpretation. MOT pickup and drop-off also available.</p>
               <ul class="comparison-list">
-                <li>OBD diagnostic session &pound;45 &mdash; fault codes read and explained clearly</li>
-                <li>30&ndash;60 minutes on site; practical next-step advice before any parts spend</li>
-                <li>MOT pickup and return to route &mdash; advance booking preferred for weekend slots</li>
+                <li>OBD diagnostic session &pound;45 &mdash; 30&ndash;60 minutes on site</li>
+                <li>Practical next-step advice before any parts spend</li>
+                <li>MOT pickup and return &mdash; quote at booking</li>
               </ul>
               <div class="service-card-actions">
-                <a href="obd-diagnostics.html" class="btn btn-ghost btn-block">OBD Diagnostics</a>
-                <a href="mot-pickup.html" class="btn btn-ghost btn-block">MOT Support</a>
+                <a href="/obd-diagnostics" class="btn btn-ghost btn-block">OBD Diagnostics</a>
+                <a href="/mot-pickup" class="btn btn-ghost btn-block">MOT Support</a>
               </div>
             </article>
           </div>
           <div class="hero-cta reveal">
-            <a href="pricing.html" class="btn btn-primary">See Full Price List</a>
-            <a href="services-pricing.html" class="btn btn-ghost">Open Estimator</a>
+            <a href="/pricing" class="btn btn-primary">See Full Price List</a>
+            <a href="/services-pricing" class="btn btn-ghost">Open Estimator</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="bundles">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Service Bundles</p>
+            <h2>Stack Jobs in a Single Visit and Save Time</h2>
+            <p>Common job combinations that work well together in one weekend slot.</p>
+          </div>
+          <div class="home-service-grid">
+            <article class="service-card reveal">
+              <h3>Essentials Service Visit</h3>
+              <p>Oil change + battery check + basic visual inspection. From &pound;90 + oil cost. Best for routine maintenance in one visit.</p>
+              <div class="service-card-actions">
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book This Bundle</a>
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <h3>Brake Refresh</h3>
+              <p>Pads or pads + discs on one axle. From &pound;160 (economy parts, front axle). Best for common maintenance and MOT prep.</p>
+              <div class="service-card-actions">
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book This Bundle</a>
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <h3>MOT Prep Support</h3>
+              <p>Brake check + OBD diagnostics + undertray or minor issue check. Priced per service. Best before your MOT test day.</p>
+              <div class="service-card-actions">
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book This Bundle</a>
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <h3>Styling Starter Pack</h3>
+              <p>Exhaust tips + diffuser / mirror caps. From &pound;115 fitted. Best for simple visual upgrades in one appointment.</p>
+              <div class="service-card-actions">
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book This Bundle</a>
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <h3>Small Fix Callout</h3>
+              <p>Any three minor repair jobs in one visit &mdash; &pound;75 labour + parts at cost. Best for convenience and stacking small fixes.</p>
+              <div class="service-card-actions">
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book This Bundle</a>
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <h3>Intake and Setup</h3>
+              <p>Intake fitting + OBD check. From &pound;95 labour + parts. Best for simple performance-focused upgrades with a diagnostic baseline.</p>
+              <div class="service-card-actions">
+                <a href="/contact-booking" class="btn btn-primary btn-block">Book This Bundle</a>
+              </div>
+            </article>
+          </div>
+          <div class="hero-cta reveal">
+            <p class="pricing-note">Simple pricing shown online. Final quotes are confirmed before work starts, based on vehicle, parts, and job scope.</p>
           </div>
         </div>
       </section>
@@ -480,23 +580,23 @@
           <div class="faq-grid">
             <article class="faq-card reveal">
               <h3>Which areas do you cover?</h3>
-              <p>Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow. Route confirmed at booking based on your postcode.</p>
+              <p>Feltham, Bedfont, Hounslow, Twickenham, Richmond, Hampton, Hampton Hill, Hampton Court, Brentford, Ashford, Sunbury-on-Thames, and Kingston upon Thames. Route confirmed at booking based on your postcode.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>What services do you offer?</h3>
+              <p>Scratch and bumper repairs, brake pads and discs, battery replacement, engine oil changes, OBD diagnostics, trim and styling fitment, undertray repair, small fix bundles, and MOT pickup and drop-off support.</p>
             </article>
             <article class="faq-card reveal">
               <h3>Do I need to provide my own parts?</h3>
-              <p>No. We source parts from Euro Car Parts, Autodoc, or GSF Car Parts. You can supply your own but our wear guarantee only applies to parts we supply.</p>
+              <p>No. Parts are sourced from Euro Car Parts, Autodoc, or GSF Car Parts. You can supply your own but the 12-month wear guarantee only applies to parts we supply.</p>
             </article>
             <article class="faq-card reveal">
               <h3>How do I get a price quickly?</h3>
-              <p>Use the estimator on the services page, check the full price list, or send photos and your reg on WhatsApp for a fast reply.</p>
-            </article>
-            <article class="faq-card reveal">
-              <h3>What if my car needs workshop-level work?</h3>
-              <p>If the job is outside mobile scope we route it to trusted partner garages in the Feltham area.</p>
+              <p>Use the estimator, check the full price list, or send your reg, postcode, service needed, and photos if relevant &mdash; we confirm scope and price before work starts.</p>
             </article>
           </div>
           <div class="hero-cta reveal">
-            <a href="faqs.html" class="btn btn-ghost">Open Full FAQs</a>
+            <a href="/faqs" class="btn btn-ghost">Open Full FAQs</a>
           </div>
         </div>
       </section>
@@ -559,17 +659,59 @@
       </section>
     </main>
 
+    <div class="sticky-mobile-cta active">
+      <a href="tel:+447933705124" class="btn btn-call">☎ Call</a>
+      <a href="https://wa.me/447933705124?text=Hi%20Tuned%20Performance,%20I%20want%20to%20check%20if%20you%20cover%20my%20area." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">💬 WhatsApp</a>
+      <a href="/contact-booking" class="btn btn-quote">📝 Quote</a>
+    </div>
+
     <footer class="site-footer">
-      <div class="container footer-wrap">
-        <p>© <span id="year"></span> Tuned Performance UK. All rights reserved.</p>
-        <p>Serving Feltham, Bedfont, Ashford, Sunbury, Kingston, and Hounslow | Call +44 07933 705124</p>
-        <div class="footer-links" aria-label="Legal and utility links">
-          <a href="privacy.html">Privacy</a>
-          <a href="gdpr.html">GDPR</a>
-          <a href="terms.html">Terms</a>
-          <a href="cookies.html">Cookies</a>
-          <button type="button" class="footer-link-button" data-open-cookie-settings>Cookie Settings</button>
-          <a href="#top">Back to top</a>
+      <div class="container footer-grid">
+        <div class="footer-brand-col">
+          <a href="/" class="footer-logo-link" aria-label="Tuned Performance Home">
+            <img src="images/Tuned%20Performance%20Transparent%20Logo.png" alt="Tuned Performance" width="72" height="72" loading="lazy">
+          </a>
+          <p class="footer-tagline">Mobile vehicle repairs, servicing &amp; diagnostics. Weekend appointments across West &amp; South-West London.</p>
+          <address class="footer-contact">
+            <a href="tel:+447933705124">&#9990; +44 07933 705124</a>
+            <a href="mailto:info@tunedperformance.co.uk">&#9993; info@tunedperformance.co.uk</a>
+            <span>&#128336; Sat&ndash;Sun 08:00&ndash;18:00</span>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Services</h3>
+          <ul class="footer-col-list">
+            <li><a href="/scratch-repairs">Scratch Repairs</a></li>
+            <li><a href="/obd-diagnostics">OBD Diagnostics</a></li>
+            <li><a href="/trim-fitment">Trim &amp; Fitment</a></li>
+            <li><a href="/mot-pickup">MOT Pickup</a></li>
+            <li><a href="/ecu-remap">ECU Remap</a></li>
+            <li><a href="/services-pricing">All Services &amp; Pricing</a></li>
+            <li><a href="/pricing">Full Price List</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Company</h3>
+          <ul class="footer-col-list">
+            <li><a href="/areas-covered">Areas Covered</a></li>
+            <li><a href="/faqs">FAQs</a></li>
+            <li><a href="/contact-booking">Book a Service</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/partners">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-wrap">
+          <p class="footer-copy">&copy; <span id="year"></span> Tuned Performance UK. All rights reserved.</p>
+          <nav class="footer-legal" aria-label="Legal links">
+            <a href="/privacy">Privacy</a>
+            <a href="/gdpr">GDPR</a>
+            <a href="/terms">Terms</a>
+            <a href="/cookies">Cookies</a>
+            <button type="button" class="footer-link-button" data-open-cookie-settings>Cookie Settings</button>
+            <a href="#top">&#8593; Top</a>
+          </nav>
         </div>
       </div>
     </footer>

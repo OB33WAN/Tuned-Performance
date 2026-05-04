@@ -819,9 +819,9 @@ function injectConversionRibbon() {
     return;
   }
 
-  const reviewsHref = window.location.pathname.endsWith("index.html") || window.location.pathname === "/"
+  const reviewsHref = window.location.pathname.endsWith("/") || window.location.pathname === "/"
     ? "#reviews"
-    : "index.html#reviews";
+    : "/#reviews";
 
   const ribbon = document.createElement("section");
   ribbon.className = "conversion-ribbon";
@@ -830,9 +830,9 @@ function injectConversionRibbon() {
     <div class="container conversion-ribbon-wrap">
       <p class="conversion-ribbon-title">Start Here</p>
       <div class="conversion-ribbon-links">
-        <a href="services-pricing.html">Services</a>
-        <a href="contact-booking.html#contactForm">Book</a>
-        <a href="contact-booking.html">Enquire</a>
+        <a href="/services-pricing">Services</a>
+        <a href="/contact-booking#contactForm">Book</a>
+        <a href="/contact-booking">Enquire</a>
         <a href="tel:+447933705124">Call</a>
         <a href="https://www.instagram.com/tuned.uk/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="${reviewsHref}">Standards</a>
@@ -854,7 +854,7 @@ function injectMobileActionBar() {
   bar.innerHTML = `
     <a href="tel:+447933705124">Call</a>
     <a href="https://wa.me/447933705124?text=Hi%20Tuned%20Performance,%20I%20need%20help%20with%20a%20booking." target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a href="contact-booking.html#contactForm">Book</a>
+    <a href="/contact-booking#contactForm">Book</a>
   `;
 
   document.body.appendChild(bar);
@@ -899,7 +899,7 @@ function injectGlobalReviewsSection() {
         </article>
       </div>
       <div class="hero-cta reveal visible">
-        <a href="contact-booking.html" class="btn btn-primary">Book or Enquire Now</a>
+        <a href="/contact-booking" class="btn btn-primary">Book or Enquire Now</a>
         <a href="https://www.instagram.com/tuned.uk/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">View Instagram</a>
       </div>
     </div>
@@ -1206,7 +1206,7 @@ if (contactForm) {
         return;
       }
 
-      window.location.href = result.redirectTo || contactForm.dataset.successRedirect || "thank-you.html";
+      window.location.href = result.redirectTo || contactForm.dataset.successRedirect || "/thank-you";
     });
   });
 }
@@ -1248,7 +1248,7 @@ if (finalQuoteForm) {
         return;
       }
 
-      window.location.href = result.redirectTo || finalQuoteForm.dataset.successRedirect || "thank-you.html";
+      window.location.href = result.redirectTo || finalQuoteForm.dataset.successRedirect || "/thank-you";
     });
   });
 }
