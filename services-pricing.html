@@ -73,6 +73,7 @@
       />
     </noscript>
     <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
   </head>
   <body>
     <a class="skip-link" href="#mainContent">Skip to main content</a>
@@ -98,6 +99,7 @@
           <a href="/areas-covered">Areas Covered</a>
           <a href="/socials">Recent Work</a>
           <a href="/faqs">FAQs</a>
+          <a href="/loyalty">Loyalty</a>
           <a href="/contact-booking">Contact and Booking</a>
         </nav>
       </div>
@@ -639,7 +641,7 @@
             </div>
           </section>
 
-          <form class="contact-form quote-modal-form" id="finalQuoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" autocomplete="on" data-success-redirect="thank-you.html">
+          <form class="contact-form quote-modal-form" id="finalQuoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" autocomplete="on" data-success-redirect="/thank-you">
             <input type="hidden" name="access_key" value="4f7ab378-e677-4b67-b382-d548236a7160" />
             <input type="hidden" name="subject" id="quoteSubject" value="Final Quote Request - Tuned Performance Website" />
             <input type="hidden" name="quote_action" id="quoteAction" value="request" />
@@ -674,6 +676,43 @@
           </form>
         </div>
       </div>
+
+      <section class="section" id="services-reviews-links">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Customer Reviews</p>
+            <h2>Check Trustpilot and Google Reviews</h2>
+          </div>
+          <div class="social-grid">
+            <article class="social-card reveal">
+              <h3>Trustpilot</h3>
+              <p>Read independent reviews from previous bookings and services.</p>
+              <div class="trustpilot-widget" data-locale="en-GB" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69e550b7d60e2d4008b2cfea" data-style-height="52px" data-style-width="100%" data-token="58d844b8-c0b9-42c6-8ae2-8673b5aa1ef5">
+                <a href="https://uk.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+              <a class="btn btn-ghost social-btn" href="https://uk.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener noreferrer">Read Trustpilot Reviews</a>
+            </article>
+            <article class="social-card reveal">
+              <h3>Google Reviews</h3>
+              <p>View our Google Business profile and leave a review after your service.</p>
+              <div class="google-review-widget" aria-label="Google review widget">
+                <div class="google-review-frame">
+                  <iframe
+                    src="https://www.google.com/maps?q=Tuned+Performance+UK+Feltham&output=embed"
+                    title="Tuned Performance UK on Google Maps"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="mini-links">
+                  <a href="https://www.google.com/search?q=Tuned+Performance+UK+Feltham+reviews" target="_blank" rel="noopener noreferrer">Read Reviews</a>
+                  <a href="https://www.google.com/search?q=Tuned+Performance+UK+Feltham+leave+a+review" target="_blank" rel="noopener noreferrer">Leave Review</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
 
     <div class="sticky-mobile-cta active">
@@ -720,7 +759,7 @@
       </div>
       <div class="footer-bottom">
         <div class="container footer-bottom-wrap">
-          <p class="footer-copy">&copy; <span id="year"></span> Tuned Performance UK. All rights reserved.</p>
+          <p class="footer-copy">&copy; <span id="year"></span> Tuned Performance UK. All rights reserved. | Company No. 17180730</p>
           <nav class="footer-legal" aria-label="Legal links">
             <a href="/privacy">Privacy</a>
             <a href="/gdpr">GDPR</a>

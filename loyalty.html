@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta
+      name="description"
+      content="Tuned Performance Loyalty Card — earn 1 stamp per qualifying job (min £50). 5 stamps = free oil change. 10 stamps = free labour up to 3 hours. Physical card handed out at your first service."
+    />
+    <meta name="author" content="Tuned Performance" />
+    <link rel="canonical" href="https://tunedperformance.co.uk/loyalty" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="Tuned Performance UK" />
+    <meta property="og:title" content="Loyalty Program | Tuned Performance UK" />
+    <meta property="og:description" content="Earn 1 stamp per qualifying job (min £50) with the Tuned Performance Loyalty Card. 5 stamps = free oil change (up to £80). 10 stamps = free labour up to 3 hours. Real physical cards, handed out at your first service." />
+    <meta property="og:url" content="https://tunedperformance.co.uk/loyalty" />
+    <meta property="og:image" content="https://tunedperformance.co.uk/images/20251108_150615.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Loyalty Program | Tuned Performance UK" />
+    <meta name="twitter:description" content="Earn stamps on every qualifying job (min £50). 5 stamps = free oil change. 10 stamps = free labour up to 3 hours. Real physical stamp cards handed out at your first service — no app required." />
+    <meta name="twitter:image" content="https://tunedperformance.co.uk/images/20251108_150615.jpg" />
+    <link rel="icon" type="image/png" href="images/Tuned%20Performance%20Logo.png" />
+    <link rel="shortcut icon" href="images/Tuned%20Performance%20Logo.png" />
+    <link rel="apple-touch-icon" href="images/Tuned%20Performance%20Logo.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <title>Loyalty Program | Tuned Performance UK</title>
+    <!-- Google tag (gtag.js) -->
+    <script async data-cfasync="false" src="https://www.googletagmanager.com/gtag/js?id=G-Z6M09GYPFY"></script>
+    <script data-cfasync="false">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z6M09GYPFY');
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://tunedperformance.co.uk/loyalty#webpage",
+        "url": "https://tunedperformance.co.uk/loyalty",
+        "name": "Loyalty Program | Tuned Performance UK",
+        "description": "Register your interest in the Tuned Performance Loyalty Program — rewards and perks for returning customers.",
+        "inLanguage": "en-GB",
+        "dateModified": "2026-05-04",
+        "isPartOf": {
+          "@type": "WebSite",
+          "url": "https://tunedperformance.co.uk/"
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ── Loyalty page extras ───────────────────────── */
+
+      /* Milestone cards */
+      .loyalty-milestone-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin-top: 1.5rem;
+      }
+
+      .loyalty-milestone-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 1.6rem 1.4rem;
+        display: grid;
+        gap: 0.6rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .loyalty-milestone-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+      }
+
+      .loyalty-milestone-card.milestone-5::before  { background: var(--brand); }
+      .loyalty-milestone-card.milestone-10::before { background: var(--accent); }
+
+      .loyalty-milestone-count {
+        font-family: "Rajdhani", "Arial Narrow", sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      .milestone-5  .loyalty-milestone-count { color: var(--brand); }
+      .milestone-10 .loyalty-milestone-count { color: var(--accent); }
+
+      .loyalty-milestone-count sub {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-soft);
+        vertical-align: middle;
+        letter-spacing: 0;
+      }
+
+      .loyalty-milestone-name {
+        font-family: "Rajdhani", "Arial Narrow", sans-serif;
+        font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+        font-weight: 700;
+        color: var(--text);
+        margin: 0;
+        line-height: 1.15;
+      }
+
+      .loyalty-milestone-detail {
+        color: var(--text-soft);
+        font-size: 0.93rem;
+        margin: 0;
+        line-height: 1.55;
+      }
+
+      .loyalty-milestone-or {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--text-soft);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 0.1rem 0;
+      }
+
+      .loyalty-milestone-or::before,
+      .loyalty-milestone-or::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
+      .loyalty-milestone-alt-name {
+        font-weight: 700;
+        color: var(--text);
+        font-size: 0.93rem;
+        margin: 0;
+      }
+
+      .loyalty-milestone-alt-detail {
+        color: var(--text-soft);
+        font-size: 0.88rem;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      /* Check-mark perk list (reused) */
+      .loyalty-tier-perks {
+        list-style: none;
+        margin: 0.3rem 0 0;
+        padding: 0;
+        display: grid;
+        gap: 0.32rem;
+      }
+
+      .loyalty-tier-perks li {
+        color: var(--text-soft);
+        font-size: 0.9rem;
+        padding-left: 1.2rem;
+        position: relative;
+      }
+
+      .loyalty-tier-perks li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--brand);
+        font-weight: 700;
+      }
+
+      /* ── Stamp card visual ─────────────────────────── */
+      .loyalty-stamp-card-wrap {
+        max-width: 580px;
+        margin-inline: auto;
+        margin-top: 2rem;
+      }
+
+      .loyalty-stamp-card {
+        background: linear-gradient(135deg, #111111 0%, #1d1d1d 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1.8rem 1.6rem;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.75);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .loyalty-stamp-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--brand) 0%, var(--accent) 100%);
+      }
+
+      .loyalty-stamp-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.4rem;
+      }
+
+      .loyalty-stamp-card-brand {
+        font-family: "Rajdhani", "Arial Narrow", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #fff;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .loyalty-stamp-card-tagline {
+        font-size: 0.74rem;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 0.05em;
+        margin-top: 0.22rem;
+        text-transform: uppercase;
+      }
+
+      .loyalty-stamp-card-qr-badge {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: rgba(255, 255, 255, 0.28);
+        flex-shrink: 0;
+      }
+
+      .loyalty-stamp-track {
+        display: flex;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding-bottom: 0.4rem;
+      }
+
+      .loyalty-stamp-wrap {
+        position: relative;
+      }
+
+      .loyalty-stamp-wrap.milestone-wrap {
+        padding-bottom: 1.5rem;
+      }
+
+      .loyalty-stamp {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.18);
+      }
+
+      .loyalty-stamp.filled {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+        box-shadow: 0 0 10px rgba(232, 112, 26, 0.45);
+      }
+
+      .loyalty-stamp.milestone {
+        border-color: rgba(245, 184, 0, 0.42);
+        background: rgba(245, 184, 0, 0.05);
+        color: rgba(245, 184, 0, 0.5);
+        font-size: 1.1rem;
+      }
+
+      .loyalty-stamp.milestone.filled {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #0c1829;
+        box-shadow: 0 0 14px rgba(245, 184, 0, 0.55);
+      }
+
+      .loyalty-stamp-milestone-label {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.59rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+
+      .loyalty-stamp-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 1.4rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .loyalty-stamp-card-customer {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.42);
+        line-height: 1.5;
+      }
+
+      .loyalty-stamp-card-customer strong {
+        display: block;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .loyalty-stamp-card-validity {
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.28);
+        text-align: right;
+        line-height: 1.5;
+      }
+
+      /* ── Bonus perks grid ──────────────────────────── */
+      .loyalty-perks-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.85rem;
+        margin-top: 1.5rem;
+      }
+
+      .loyalty-perk-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.2rem 1rem;
+        display: grid;
+        gap: 0.4rem;
+        text-align: center;
+      }
+
+      .loyalty-perk-icon {
+        font-size: 1.9rem;
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .loyalty-perk-title {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: var(--text);
+        margin: 0;
+      }
+
+      .loyalty-perk-desc {
+        color: var(--text-soft);
+        font-size: 0.85rem;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      /* ── Program terms ─────────────────────────────── */
+      .loyalty-terms-box {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.2rem 1.4rem;
+        margin-top: 1.4rem;
+      }
+
+      .loyalty-terms-box h3 {
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--text-soft);
+        margin: 0 0 0.65rem;
+      }
+
+      .loyalty-terms-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.28rem;
+      }
+
+      .loyalty-terms-list li {
+        font-size: 0.83rem;
+        color: var(--text-soft);
+        line-height: 1.55;
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .loyalty-terms-list li::before {
+        content: "\2014";
+        position: absolute;
+        left: 0;
+        color: var(--line);
+      }
+
+      /* ── How it works ──────────────────────────────── */
+      .loyalty-how-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        counter-reset: loyalty-step;
+        margin-top: 1.5rem;
+      }
+
+      .loyalty-how-step {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.2rem 1rem;
+        display: grid;
+        gap: 0.5rem;
+        counter-increment: loyalty-step;
+      }
+
+      .loyalty-how-step::before {
+        content: counter(loyalty-step);
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: var(--brand);
+        color: #fff;
+        font-family: "Rajdhani", "Arial Narrow", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .loyalty-how-step h3 {
+        color: var(--text);
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .loyalty-how-step p {
+        color: var(--text-soft);
+        font-size: 0.91rem;
+        margin: 0;
+        line-height: 1.55;
+      }
+
+      /* ── Interest form ─────────────────────────────── */
+      .loyalty-interest-card {
+        background: linear-gradient(135deg, var(--card) 0%, #1a2d45 100%);
+        border: 1px solid rgba(232, 112, 26, 0.32);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 2.2rem 2rem;
+        max-width: 620px;
+        margin-inline: auto;
+      }
+
+      .loyalty-interest-card h2 {
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        margin-bottom: 0.4rem;
+        color: var(--text);
+      }
+
+      .loyalty-interest-card > p {
+        color: var(--text-soft);
+        margin-bottom: 1.2rem;
+      }
+
+      .loyalty-interest-form {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .loyalty-interest-form label {
+        display: grid;
+        gap: 0.3rem;
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.94rem;
+      }
+
+      .loyalty-interest-form input,
+      .loyalty-interest-form select {
+        width: 100%;
+        background: #0e1e30;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 0.65rem 0.85rem;
+        font: inherit;
+        color: var(--text);
+      }
+
+      .loyalty-interest-form input:focus,
+      .loyalty-interest-form select:focus {
+        outline: 2px solid var(--brand);
+        outline-offset: 1px;
+        border-color: var(--brand);
+      }
+
+      .loyalty-interest-form .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+
+      .loyalty-note {
+        font-size: 0.84rem;
+        color: var(--text-soft);
+        margin-top: 0.5rem;
+      }
+
+      /* ── Responsive ────────────────────────────────── */
+      @media (max-width: 980px) {
+        .loyalty-milestone-grid { grid-template-columns: 1fr; }
+        .loyalty-how-grid        { grid-template-columns: 1fr 1fr; }
+        .loyalty-perks-grid      { grid-template-columns: 1fr 1fr; }
+        .loyalty-interest-card   { padding: 1.4rem 1.1rem; }
+      }
+
+      @media (max-width: 560px) {
+        .loyalty-how-grid               { grid-template-columns: 1fr; }
+        .loyalty-interest-form .form-row { grid-template-columns: 1fr; }
+        .loyalty-stamp-track            { gap: 0.42rem; }
+        .loyalty-stamp                  { width: 40px; height: 40px; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a href="/" class="brand" aria-label="Tuned Performance UK home">
+          <img src="images/Tuned%20Performance%20Transparent%20Logo.png" alt="Tuned Performance UK logo" class="brand-logo" />
+          <span class="brand-text"><span class="brand-tuned">Tuned</span> <span class="brand-performance">Performance</span></span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Toggle menu</span>
+        </button>
+        <nav id="mainNav" class="main-nav">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/areas-covered">Areas Covered</a>
+          <a href="/faqs">FAQs</a>
+          <a href="/loyalty" aria-current="page">Loyalty</a>
+          <a href="/contact-booking">Contact and Booking</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="mainContent">
+      <div class="container breadcrumb-trail" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Loyalty Program</span>
+      </div>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-bg-shape hero-bg-shape-a"></div>
+        <div class="hero-bg-shape hero-bg-shape-b"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Loyalty Card | Stamp &amp; Reward Program</p>
+            <h1>Get Rewarded Every Time You Book with Tuned Performance</h1>
+            <p class="hero-text">
+              The Tuned Performance Loyalty Card gives you 1 stamp for every qualifying job (minimum &pound;50 spend). Hit 5 stamps and unlock a free oil change. Hit 10 and earn free labour. Real rewards &mdash; no app, no fuss.
+            </p>
+            <ul class="hero-keywords" aria-label="Program highlights">
+              <li>1 stamp per qualifying service &mdash; minimum &pound;50 spend</li>
+              <li>5 stamps = free oil change, parts included up to &pound;80</li>
+              <li>10 stamps = free labour up to 3 hours on any job</li>
+              <li>Your physical card is handed out at your first service</li>
+              <li>Refer a friend who books &mdash; earn a bonus stamp</li>
+            </ul>
+            <div class="hero-cta">
+              <a href="#register-interest" class="btn btn-primary">Get Your Card</a>
+              <a href="/contact-booking" class="btn btn-ghost">Book a Service</a>
+            </div>
+            <div class="hero-trust" aria-label="Program trust points">
+              <span>No app required</span>
+              <span>Physical card &mdash; no app required</span>
+              <span>Existing booking history counts from day one</span>
+            </div>
+          </div>
+          <div class="hero-showcase reveal" aria-label="Loyalty stamp card preview">
+            <div class="hero-showcase-frame">
+              <img class="hero-showcase-main" src="images/20251108_150615.jpg" alt="Tuned Performance mobile vehicle service" loading="eager" />
+              <div class="hero-showcase-overlay"></div>
+              <div class="hero-showcase-badge">
+                <p class="hero-showcase-label">Loyalty Card Program</p>
+                <h2>Built for Performance. Rewarded for Loyalty.</h2>
+                <p>Stamp your card with every qualifying job. Two reward milestones &mdash; real value, not points that go nowhere.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stamp Card Visual -->
+      <section class="section section-soft" id="your-card">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Your Card</p>
+            <h2>Built for Performance. Rewarded for Loyalty.</h2>
+            <p>We have real, physical stamp cards ready to hand out. Your card is given to you at your first service &mdash; your progress to two reward milestones is always with you, visible every time you open your glovebox.</p>
+          </div>
+          <div class="loyalty-stamp-card-wrap reveal" role="img" aria-label="Tuned Performance loyalty stamp card showing 10 stamp slots, first 5 filled, milestone labels at stamp 5 (Free Service) and stamp 10 (Free Labour)">
+            <div class="loyalty-stamp-card">
+              <div class="loyalty-stamp-card-header">
+                <div>
+                  <div class="loyalty-stamp-card-brand">Tuned Performance</div>
+                  <div class="loyalty-stamp-card-tagline">Built for Performance. Rewarded for Loyalty.</div>
+                </div>
+                <div class="loyalty-stamp-card-qr-badge" aria-hidden="true" title="QR code links to booking page">&#9707;</div>
+              </div>
+              <div class="loyalty-stamp-track">
+                <div class="loyalty-stamp-wrap"><div class="loyalty-stamp filled" aria-label="Stamp 1 earned">&#10003;</div></div>
+                <div class="loyalty-stamp-wrap"><div class="loyalty-stamp filled" aria-label="Stamp 2 earned">&#10003;</div></div>
+                <div class="loyalty-stamp-wrap"><div class="loyalty-stamp filled" aria-label="Stamp 3 earned">&#10003;</div></div>
+                <div class="loyalty-stamp-wrap"><div class="loyalty-stamp filled" aria-label="Stamp 4 earned">&#10003;</div></div>
+                <div class="loyalty-stamp-wrap milestone-wrap">
+                  <div class="loyalty-stamp milestone filled" aria-label="Stamp 5 — milestone reached">&#9733;</div>
+                  <span class="loyalty-stamp-milestone-label">Free Service</span>
+                </div>
+                <div class="loyalty-stamp-wrap"><div class="loyalty-stamp" aria-label="Stamp 6 empty"></div></div>
+                <div class="loyalty-stamp-wrap"><div class="loyalty-stamp" aria-label="Stamp 7 empty"></div></div>
+                <div class="loyalty-stamp-wrap"><div class="loyalty-stamp" aria-label="Stamp 8 empty"></div></div>
+                <div class="loyalty-stamp-wrap"><div class="loyalty-stamp" aria-label="Stamp 9 empty"></div></div>
+                <div class="loyalty-stamp-wrap milestone-wrap">
+                  <div class="loyalty-stamp milestone" aria-label="Stamp 10 — milestone not yet reached">&#9733;</div>
+                  <span class="loyalty-stamp-milestone-label">Free Labour</span>
+                </div>
+              </div>
+              <div class="loyalty-stamp-card-footer">
+                <div class="loyalty-stamp-card-customer">
+                  <strong>Your Name</strong>
+                  Vehicle Reg: XX00 XXX
+                </div>
+                <div class="loyalty-stamp-card-validity">
+                  Valid 12 months<br />from first stamp
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reward Milestones -->
+      <section class="section" id="loyalty-tiers">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Reward Milestones</p>
+            <h2>Two Milestones. Real Value.</h2>
+            <p>No vague discounts or points that expire quietly. Hit the milestone, pick your reward, and we honour it at your next booking.</p>
+          </div>
+          <div class="loyalty-milestone-grid reveal">
+
+            <article class="loyalty-milestone-card milestone-5">
+              <div class="loyalty-milestone-count">5 <sub>stamps</sub></div>
+              <h3 class="loyalty-milestone-name">Free Oil Change</h3>
+              <p class="loyalty-milestone-detail">We cover the full labour and parts up to <strong>&pound;80 in value</strong>. This covers a standard oil and filter for most cars. If parts exceed &pound;80, you pay only the difference above the cap.</p>
+              <div class="loyalty-milestone-or">or</div>
+              <p class="loyalty-milestone-alt-name">50% Off Scratch Repair or Panel Detail</p>
+              <p class="loyalty-milestone-alt-detail">Choose 50% off a scratch repair or panel detail service instead. Applied to the standard listed price at the time of redemption. Your choice at booking.</p>
+            </article>
+
+            <article class="loyalty-milestone-card milestone-10">
+              <div class="loyalty-milestone-count">10 <sub>stamps</sub></div>
+              <h3 class="loyalty-milestone-name">Free Labour &mdash; Up to 3 Hours</h3>
+              <p class="loyalty-milestone-detail">We cover up to <strong>3 hours of labour</strong> on any qualifying service. Book brakes, a remap, scratch repair, diagnostics &mdash; any job you need. Parts are always paid by the customer.</p>
+              <ul class="loyalty-tier-perks">
+                <li>Applies to any standard qualifying service</li>
+                <li>Labour capped at 3 hours per redemption</li>
+                <li>Parts always paid by customer &mdash; no exceptions</li>
+                <li>One redemption per completed 10-stamp card</li>
+              </ul>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="section section-soft" id="loyalty-how">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">How It Works</p>
+            <h2>Simple to Join. Simple to Use.</h2>
+            <p>No points cards, no app, no complicated tracking. Just book qualifying jobs, collect stamps, and redeem your reward when you hit a milestone.</p>
+          </div>
+          <div class="loyalty-how-grid reveal">
+            <article class="loyalty-how-step">
+              <h3>Collect Your Card at Your First Service</h3>
+              <p>Register below so we know you are in. Your physical card is handed to you when you attend your first booking &mdash; your first stamp is added right there and then.</p>
+            </article>
+            <article class="loyalty-how-step">
+              <h3>Book Qualifying Services</h3>
+              <p>Each paid job worth &pound;50 or more earns one stamp. Any service counts &mdash; oil changes, brakes, diagnostics, remaps, scratch repairs, trim fitment, and more.</p>
+            </article>
+            <article class="loyalty-how-step">
+              <h3>Hit 5 Stamps &mdash; First Reward</h3>
+              <p>Choose a free oil change (parts up to &pound;80 included) or 50% off a scratch repair or panel detail. Just tell us at your next booking.</p>
+            </article>
+            <article class="loyalty-how-step">
+              <h3>Hit 10 Stamps &mdash; Premium Reward</h3>
+              <p>We cover up to 3 hours of labour on any qualifying job of your choice. Parts are on you, but the time is on us.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bonus Perks -->
+      <section class="section" id="loyalty-extras">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Extras</p>
+            <h2>More Ways to Earn</h2>
+            <p>The stamp card is the foundation. These extras make the program even more worthwhile.</p>
+          </div>
+          <div class="loyalty-perks-grid reveal">
+            <article class="loyalty-perk-card">
+              <span class="loyalty-perk-icon" aria-hidden="true">&#9733;</span>
+              <h3 class="loyalty-perk-title">First Stamp at Your First Service</h3>
+              <p class="loyalty-perk-desc">Your physical card is handed to you when you arrive for your first booking. Stamp one goes on immediately &mdash; you leave already on your way to a reward.</p>
+            </article>
+            <article class="loyalty-perk-card">
+              <span class="loyalty-perk-icon" aria-hidden="true">&#128101;</span>
+              <h3 class="loyalty-perk-title">Refer a Friend</h3>
+              <p class="loyalty-perk-desc">Bring a friend who completes a qualifying paid booking and earn one bonus stamp. No limit on referrals.</p>
+            </article>
+            <article class="loyalty-perk-card">
+              <span class="loyalty-perk-icon" aria-hidden="true">&#9707;</span>
+              <h3 class="loyalty-perk-title">QR Code on Every Card</h3>
+              <p class="loyalty-perk-desc">Each physical card includes a QR code linking directly to our booking page. Scan and book in seconds.</p>
+            </article>
+            <article class="loyalty-perk-card">
+              <span class="loyalty-perk-icon" aria-hidden="true">&#128197;</span>
+              <h3 class="loyalty-perk-title">12-Month Validity</h3>
+              <p class="loyalty-perk-desc">Cards are valid for 12 months from your first stamp. Keep booking regularly and your rewards stay within reach.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Register Interest Form -->
+      <section class="section section-soft" id="register-interest">
+        <div class="container">
+          <div class="loyalty-interest-card reveal">
+            <p class="eyebrow">Join the Program</p>
+            <h2>Register &mdash; Your Card Will Be Ready at Your First Service</h2>
+            <p>
+              Fill in your details below so we have you on the list. When you attend your first booking, your physical stamp card is ready and waiting &mdash; stamp one goes on straight away. Existing customers who register will have their previous bookings reviewed from day one.
+            </p>
+            <form
+              class="loyalty-interest-form"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+              id="loyaltyInterestForm"
+            >
+              <input type="hidden" name="access_key" value="4f7ab378-e677-4b67-b382-d548236a7160" />
+              <input type="hidden" name="subject" value="Loyalty Card Registration - Tuned Performance" />
+              <input type="hidden" name="redirect" value="https://tunedperformance.co.uk/thank-you" />
+
+              <div class="form-row">
+                <label>
+                  Name
+                  <input type="text" name="name" autocomplete="name" required placeholder="Your full name" aria-label="Name" />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="email" autocomplete="email" required placeholder="your@email.com" aria-label="Email" />
+                </label>
+              </div>
+
+              <label>
+                Phone <span class="form-label-hint">(Optional)</span>
+                <input type="tel" name="phone" autocomplete="tel" placeholder="+44 7700 000000" aria-label="Phone number" />
+              </label>
+
+              <label>
+                Vehicle Reg <span class="form-label-hint">(Optional)</span>
+                <input type="text" name="vehicle_reg" placeholder="e.g. XX00 XXX" aria-label="Vehicle registration" />
+              </label>
+
+              <label>
+                How many times have you used our services?
+                <select name="booking_history" aria-label="Previous bookings">
+                  <option value="">Select an option</option>
+                  <option value="Not yet booked">Not yet booked</option>
+                  <option value="1-2 times">1&ndash;2 times</option>
+                  <option value="3-5 times">3&ndash;5 times</option>
+                  <option value="More than 5 times">More than 5 times (history will be reviewed)</option>
+                </select>
+              </label>
+
+              <label>
+                Anything else to add? <span class="form-label-hint">(Optional)</span>
+                <input type="text" name="message" placeholder="e.g. I was referred by a friend, vehicle details..." aria-label="Additional information" />
+              </label>
+
+              <button type="submit" class="btn btn-primary">Register for My Card</button>
+              <p class="loyalty-note">
+                We will only use your details to contact you about the loyalty program and your bookings. See our <a class="inline-link" href="/privacy">Privacy Policy</a>.
+              </p>
+              <p class="form-note" id="loyaltyFormNote" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Preview -->
+      <section class="section section-soft" id="loyalty-faqs">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Questions</p>
+            <h2>Common Questions About the Program</h2>
+          </div>
+          <div class="faq-grid">
+            <article class="faq-card reveal">
+              <h3>How do I get my card and first stamp?</h3>
+              <p>Register below with your name and vehicle details. When you attend your first qualifying booking, your physical stamp card is handed to you and stamp one is added right away. Every paid qualifying job of &pound;50 or more after that earns another stamp.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>What counts as a qualifying job?</h3>
+              <p>Any paid service worth &pound;50 or more qualifies. Oil changes, brakes, diagnostics, remaps, scratch repairs, trim fitment, battery replacement &mdash; all count. MOT pickups and general consultations do not qualify.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>How does the 5-stamp free oil change work?</h3>
+              <p>We cover the full labour and parts up to &pound;80 in value. If your oil and filter exceed &pound;80, you pay only the difference. Alternatively, choose 50% off a scratch repair or panel detail instead &mdash; your call at the time of redemption.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>What does the 10-stamp free labour mean?</h3>
+              <p>We cover up to 3 hours of labour on any qualifying service of your choice. Parts are always paid by the customer. Book whatever job you need &mdash; the labour hours are on us up to the cap.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>How does the referral stamp work?</h3>
+              <p>Refer a friend and they complete a paid qualifying booking of &pound;50 or more, and you earn one bonus stamp. Just make sure your name is mentioned at the time of their booking. There is no limit on how many friends you can refer.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>Does my existing booking history count?</h3>
+              <p>Yes. Customers who have already used Tuned Performance can register and have their previous bookings reviewed from day one. The more you have already booked, the closer you may already be to a milestone.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>Do stamps or cards expire?</h3>
+              <p>Cards are valid for 12 months from the date of your first stamp. After 12 months, a fresh card is issued. Keeping up regular bookings is the best way to protect your progress.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>Can I use rewards as cash or transfer them?</h3>
+              <p>No. Rewards are non-transferable and have no cash value. Only one stamp is issued per qualifying invoice, even if multiple jobs are completed on the same visit. Rewards must be redeemed directly with Tuned Performance.</p>
+            </article>
+          </div>
+
+          <div class="loyalty-terms-box">
+            <h3>Program Terms &amp; Conditions</h3>
+            <ul class="loyalty-terms-list">
+              <li>1 stamp per qualifying job. Minimum spend &pound;50 per invoice. One stamp per invoice regardless of number of jobs completed.</li>
+              <li>5-stamp reward: free oil change up to &pound;80 parts value (customer pays difference above cap), or 50% off a scratch repair / panel detail at standard listed price.</li>
+              <li>10-stamp reward: free labour up to 3 hours maximum. Parts always paid by customer. One redemption per completed 10-stamp card.</li>
+              <li>Referral bonus: 1 stamp awarded when referred customer completes a qualifying paid booking. Referral must be declared at time of referred customer&rsquo;s booking.</li>
+              <li>Cards valid for 12 months from date of first stamp. Stamps and rewards have no cash value and are non-transferable.</li>
+              <li>Tuned Performance reserves the right to amend or withdraw the loyalty program with reasonable notice. All rewards subject to availability.</li>
+            </ul>
+          </div>
+          <div class="hero-cta reveal">
+            <a href="/faqs" class="btn btn-ghost">Read Full FAQs</a>
+            <a href="#register-interest" class="btn btn-primary">Register Interest</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="sticky-mobile-cta active">
+      <a href="tel:+447933705124" class="btn btn-call">&#9990; Call</a>
+      <a href="https://wa.me/447933705124?text=Hi%20Tuned%20Performance,%20I%20want%20to%20ask%20about%20the%20loyalty%20program." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">&#128172; WhatsApp</a>
+      <a href="/contact-booking" class="btn btn-quote">&#128221; Quote</a>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand-col">
+          <a href="/" class="footer-logo-link" aria-label="Tuned Performance Home">
+            <img src="images/Tuned%20Performance%20Transparent%20Logo.png" alt="Tuned Performance" width="72" height="72" loading="lazy">
+          </a>
+          <p class="footer-tagline">Mobile vehicle repairs, servicing &amp; diagnostics. Weekend appointments across West &amp; South-West London.</p>
+          <address class="footer-contact">
+            <a href="tel:+447933705124">&#9990; +44 07933 705124</a>
+            <a href="mailto:info@tunedperformance.co.uk">&#9993; info@tunedperformance.co.uk</a>
+            <span>&#128336; Sat&ndash;Sun 08:00&ndash;18:00</span>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Services</h3>
+          <ul class="footer-col-list">
+            <li><a href="/scratch-repairs">Scratch Repairs</a></li>
+            <li><a href="/obd-diagnostics">OBD Diagnostics</a></li>
+            <li><a href="/trim-fitment">Trim &amp; Fitment</a></li>
+            <li><a href="/mot-pickup">MOT Pickup</a></li>
+            <li><a href="/ecu-remap">ECU Remap</a></li>
+            <li><a href="/services-pricing">All Services &amp; Pricing</a></li>
+            <li><a href="/pricing">Full Price List</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Company</h3>
+          <ul class="footer-col-list">
+            <li><a href="/areas-covered">Areas Covered</a></li>
+            <li><a href="/faqs">FAQs</a></li>
+            <li><a href="/contact-booking">Book a Service</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/loyalty">Loyalty Program</a></li>
+            <li><a href="/partners">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-wrap">
+          <p class="footer-copy">&copy; <span id="year"></span> Tuned Performance UK. All rights reserved. | Company No. 17180730</p>
+          <nav class="footer-legal" aria-label="Legal links">
+            <a href="/privacy">Privacy</a>
+            <a href="/gdpr">GDPR</a>
+            <a href="/terms">Terms</a>
+            <a href="/cookies">Cookies</a>
+            <button type="button" class="footer-link-button" data-open-cookie-settings>Cookie Settings</button>
+            <a href="#top">&#8593; Top</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script src="consent.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

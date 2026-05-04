@@ -130,19 +130,25 @@ a {
 }
 
 .brand {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.42rem;
 }
 
 .brand-logo {
-  width: 54px;
-  height: 54px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35)) brightness(1.2);
+  width: 68px;
+  height: 38px;
+  object-fit: cover;
+  object-position: 50% 7%;
+  filter: brightness(1.1) contrast(1.06) saturate(1.04) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.32));
+  position: relative;
+  z-index: 1;
 }
 
 .brand-text {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: baseline;
   gap: 0.14rem;
@@ -278,8 +284,8 @@ a {
   }
 
   .brand-logo {
-    width: 48px;
-    height: 48px;
+    width: 62px;
+    height: 35px;
   }
 
   .brand-text {
@@ -2182,6 +2188,58 @@ h1 {
   justify-items: center;
 }
 
+.social-card .trustpilot-widget,
+.social-card .google-review-widget {
+  width: 100%;
+}
+
+.google-review-widget {
+  display: grid;
+  gap: 0.62rem;
+}
+
+.google-review-frame {
+  width: 100%;
+  min-height: 148px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0e1e30;
+}
+
+.google-review-frame iframe {
+  width: 100%;
+  height: 148px;
+  border: 0;
+  display: block;
+}
+
+.social-card .mini-links {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.52rem;
+}
+
+.social-card .mini-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.social-card .mini-links a:hover,
+.social-card .mini-links a:focus-visible {
+  border-color: var(--brand);
+  color: #ffffff;
+}
+
 .social-icon {
   width: 42px;
   height: 42px;
@@ -3424,8 +3482,8 @@ h1 {
   }
 
   .brand-logo {
-    width: 44px;
-    height: 44px;
+    width: 58px;
+    height: 32px;
   }
 
   .brand-text {
