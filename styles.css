@@ -1040,6 +1040,31 @@ h1 {
   color: var(--text-soft);
 }
 
+.coverage-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.coverage-chip {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(232, 112, 26, 0.12);
+  border: 1px solid rgba(232, 112, 26, 0.3);
+  border-radius: 20px;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: all 150ms ease;
+}
+
+.coverage-chip:hover {
+  background: rgba(232, 112, 26, 0.22);
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+
 .section {
   padding: 4.4rem 0;
 }
@@ -2169,6 +2194,67 @@ h1 {
 .faq-card p {
   margin: 0;
   color: var(--text-soft);
+}
+
+/* ── Testimonials ────────────────────────────────────── */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.testimonial-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-rating .star {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.testimonial-text {
+  margin: 0 0 0.75rem;
+  color: var(--text-soft);
+  font-style: italic;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.testimonial-author {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.testimonial-cta {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.testimonial-cta a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.testimonial-cta a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .social-grid {
