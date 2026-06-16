@@ -23,7 +23,7 @@ Only the latest deployed site is supported for security updates.
 
 Please report vulnerabilities privately:
 
-- Email: `info@tunedperformance.co.uk`
+- Email: `tunedperformanceuk@gmail.com`
 - Subject: `Security Vulnerability Report`
 
 Include:
