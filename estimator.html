@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Service Estimator | Tuned Performance Feltham</title>
+    <meta name="description" content="Use the Tuned Performance estimator for mobile bumper repair, single panel repair and re-spray, diagnostics, fitment and MOT support guide pricing.">
+    <link rel="canonical" href="https://tunedperformance.co.uk/estimator.html">
+    <meta name="theme-color" content="#101214">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Tuned Performance">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true"><span><strong>Tuned Performance</strong><small>Mobile car care - Feltham</small></span></a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+        <nav class="site-nav" aria-label="Primary navigation" data-nav><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="gallery.html">Gallery</a><a href="areas.html">Areas</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a></nav>
+        <a class="header-cta" href="tel:+447933705124">Call 07933 705124</a>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Estimator</span></nav>
+          <p class="eyebrow">Interactive quote guide</p>
+          <h1>Build a guide estimate before you message</h1>
+          <p>This estimator helps customers understand the likely starting point and sends Tuned Performance the details needed for a faster quote.</p>
+        </div>
+      </section>
+      <section class="section section-light">
+        <div class="container full-estimator" data-full-estimator>
+          <form id="estimate-email-form" action="https://api.web3forms.com/submit" method="POST" data-estimate-email-form>
+            <input type="hidden" name="access_key" value="4f7ab378-e677-4b67-b382-d548236a7160">
+            <input type="hidden" name="subject" value="New Tuned Performance estimator enquiry">
+            <input type="hidden" name="from_name" value="Tuned Performance Website">
+            <input type="hidden" name="redirect" value="https://tunedperformance.co.uk/thank-you.html?source=email">
+            <input type="hidden" name="lead_source" value="Estimator page">
+            <input type="hidden" name="estimated_service" data-estimate-service-label>
+            <input type="hidden" name="estimated_job_size" data-estimate-size-label>
+            <input type="hidden" name="estimated_guide" data-estimate-guide>
+            <input type="hidden" name="estimate_summary" data-estimate-summary>
+            <input class="botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+            <label>Name
+              <input type="text" name="name" data-full-name placeholder="Your name" autocomplete="name" required>
+            </label>
+            <label>Phone
+              <input type="tel" name="phone" data-full-phone placeholder="Best number for the quote" autocomplete="tel" required>
+            </label>
+            <label>Email
+              <input type="email" name="email" data-full-email placeholder="For email replies" autocomplete="email">
+            </label>
+            <label>Preferred contact
+              <select name="preferred_contact" data-full-contact>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Phone call">Phone call</option>
+                <option value="Text message">Text message</option>
+                <option value="Email">Email</option>
+              </select>
+            </label>
+            <label>Service
+              <select name="service" data-full-service>
+                <option value="repair">Bumper or panel repair</option>
+                <option value="scratch">Single panel repair &amp; re-spray</option>
+                <option value="diagnostic">OBD diagnostics</option>
+                <option value="fitment">Trim or accessory fitment</option>
+                <option value="mot">MOT support</option>
+                <option value="remap">ECU remap enquiry</option>
+              </select>
+            </label>
+            <label>Job size
+              <select name="job_size" data-full-size>
+                <option value="small">Small or single item</option>
+                <option value="medium">Medium or two items</option>
+                <option value="large">Large or multi-part job</option>
+              </select>
+            </label>
+            <label>Preferred availability
+              <select name="preferred_availability" data-full-slot>
+                <option value="weekday">Weekday daytime</option>
+                <option value="evening">Weekday evening</option>
+                <option value="saturday">Saturday route</option>
+                <option value="sunday">Sunday route</option>
+              </select>
+            </label>
+            <label>Area or postcode
+              <input type="text" name="postcode_or_area" data-full-area placeholder="Feltham, TW13, Hounslow..." autocomplete="postal-code">
+            </label>
+            <label>Vehicle
+              <input type="text" name="vehicle" data-full-vehicle placeholder="Make, model, year or registration">
+            </label>
+            <label>Vehicle colour
+              <input type="text" name="vehicle_colour" data-full-colour placeholder="Black, white, grey, paint code if known">
+            </label>
+            <label>Vehicle access
+              <select name="vehicle_access" data-full-access>
+                <option value="Driveway or private parking">Driveway or private parking</option>
+                <option value="Street parking">Street parking</option>
+                <option value="Workplace car park">Workplace car park</option>
+                <option value="Need advice on access">Need advice on access</option>
+              </select>
+            </label>
+            <label>How soon do you need it?
+              <select name="urgency" data-full-urgency>
+                <option value="Flexible">Flexible</option>
+                <option value="This week">This week</option>
+                <option value="Weekend preferred">Weekend preferred</option>
+                <option value="Urgent">Urgent</option>
+              </select>
+            </label>
+            <label>Extra details
+              <textarea rows="4" name="message" data-full-details placeholder="Symptoms, damage location, parts to fit, MOT date or remap goal."></textarea>
+            </label>
+          </form>
+          <aside class="estimate-panel">
+            <p class="eyebrow">Guide estimate</p>
+            <output class="estimate-amount" data-full-total>From &pound;60</output>
+            <ul class="estimate-breakdown" data-full-breakdown>
+              <li><span>Base guide</span><strong>&pound;60</strong></li>
+            </ul>
+            <p>Final quotes depend on photos, vehicle condition, paint match, parts, access and route planning. This is a guide, not a fixed invoice.</p>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit" form="estimate-email-form">Send estimate by email</button>
+              <a class="btn btn-secondary btn-on-light" href="#" data-full-whatsapp>Send on WhatsApp</a>
+            </div>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </aside>
+        </div>
+      </section>
+      <section class="section section-accent">
+        <div class="container quote-ready">
+          <div>
+            <p class="eyebrow">Faster quote</p>
+            <h2>Photos are added after WhatsApp opens</h2>
+            <p>For repair and re-spray work, send one close-up photo, one wider photo of the panel, and the vehicle colour if known. That keeps the quote process quick and avoids back-and-forth.</p>
+          </div>
+          <a class="btn btn-primary" href="pricing.html">Check pricing first</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true"><span><strong>Tuned Performance</strong><small>Mobile car care - Feltham</small></span></a><p>Mobile car repairs, diagnostics, fitment, MOT support and ECU remap enquiries. Company number: 17180730.</p></div><div><h2>Pages</h2><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="availability.html">Availability</a><a href="areas.html">Areas covered</a><a href="contact.html">Contact</a></div><div><h2>Services</h2><a href="scratch-bumper-repairs.html">Bumper repairs</a><a href="single-panel-repair-respray.html">Single panel repair</a><a href="obd-diagnostics.html">OBD diagnostics</a><a href="trim-fitment.html">Trim fitment</a><a href="mot-support.html">MOT support</a><a href="ecu-remapping.html">ECU remapping</a></div><div><h2>Trust</h2><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a><a href="https://g.page/r/CZnD7eUE_OmbEBM/review" target="_blank" rel="noopener">Google review</a><a href="https://www.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener">Trustpilot</a></div><div><h2>Legal</h2><a href="privacy-gdpr.html">Privacy and GDPR</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a><a href="cancellation-policy.html">Cancellation</a></div></div>
+      <div class="container footer-bottom"><span>&copy; 2026 Tuned Performance. All rights reserved.</span><a href="#main">Back to top</a></div>
+    </footer>
+    <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447933705124">Call</a><a href="https://wa.me/447933705124" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div>
+    <div class="cookie-banner" data-cookie-banner><p>This site uses essential storage and optional Google Analytics to understand enquiries and improve the website. Analytics only loads when accepted.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div>
+    <script src="script.js"></script>
+  </body>
+</html>

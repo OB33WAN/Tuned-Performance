@@ -1,0 +1,50 @@
+{
+  "name": "Tuned Performance",
+  "short_name": "Tuned",
+  "description": "Mobile car repairs, diagnostics, fitment, MOT support and ECU remap enquiries around Feltham.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#101214",
+  "theme_color": "#101214",
+  "categories": [
+    "business",
+    "auto"
+  ],
+  "icons": [
+    {
+      "src": "assets/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Get a quote",
+      "short_name": "Quote",
+      "url": "./contact.html"
+    },
+    {
+      "name": "Estimator",
+      "short_name": "Estimate",
+      "url": "./estimator.html"
+    },
+    {
+      "name": "Pricing",
+      "short_name": "Pricing",
+      "url": "./pricing.html"
+    }
+  ]
+}
