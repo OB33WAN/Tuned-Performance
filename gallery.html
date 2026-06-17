@@ -9,6 +9,9 @@
     <meta name="theme-color" content="#101214">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Tuned Performance">
@@ -45,20 +48,27 @@
           <h2>Photo-led quoting gives faster answers</h2>
           <p>For repairs and re-spray enquiries, clear images help confirm whether the job is suitable for a mobile visit or needs a different route.</p>
         </div>
-        <div class="container content-grid three">
-          <article class="info-card media-card">
+        <div class="container gallery-filter" data-gallery-filters aria-label="Gallery filters">
+          <button type="button" class="is-active" data-gallery-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-gallery-filter="repair" aria-pressed="false">Repairs</button>
+          <button type="button" data-gallery-filter="styling" aria-pressed="false">Styling</button>
+          <button type="button" data-gallery-filter="diagnostics" aria-pressed="false">Diagnostics</button>
+          <button type="button" data-gallery-filter="performance" aria-pressed="false">Performance</button>
+        </div>
+        <div class="container content-grid three" data-gallery-grid>
+          <article class="info-card media-card" data-gallery-card data-gallery-category="repair">
             <img src="assets/real-bumper-scratch-spot-repairs.jpg" alt="Before, during and after bumper scratch repair on a red Mercedes" loading="lazy">
             <h2>Bumper repair process</h2>
             <p>Before, during and after proof helps customers understand what a repair enquiry needs.</p>
             <a href="scratch-bumper-repairs.html">Bumper repair</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="repair">
             <img src="assets/real-small-scratch-repairs.jpg" alt="Red vehicle arch with visible scratch marks for repair assessment" loading="lazy">
             <h2>Single panel review</h2>
             <p>Scratches and paint damage are quoted more accurately with close and wider photos.</p>
             <a href="single-panel-repair-respray.html">Panel repair</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="repair">
             <img src="assets/service-repair-photo.jpg" alt="Generated professional paint and panel repair scene" loading="lazy">
             <h2>Clean finish goal</h2>
             <p>The service route stays focused on clear repair scope, preparation and finish quality.</p>
@@ -73,26 +83,26 @@
           <h2>Carbon, trim, exhaust and intake work</h2>
           <p>Use the fitment route for mirror caps, diffusers, exhaust tips, air filters, intakes and selected styling parts.</p>
         </div>
-        <div class="container content-grid four">
-          <article class="info-card media-card">
+        <div class="container content-grid four" data-gallery-grid>
+          <article class="info-card media-card" data-gallery-card data-gallery-category="styling">
             <img src="assets/real-mirror-caps-installed-1.jpg" alt="Installed carbon mirror cap close-up on a grey vehicle" loading="lazy">
             <h2>Carbon mirror cap</h2>
             <p>Close-up fitment photos help confirm finish, access and part condition.</p>
             <a href="trim-fitment.html">Mirror cap fitment</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="styling">
             <img src="assets/real-mirror-caps-installed-2.jpg" alt="Side view of installed carbon mirror cap on a grey vehicle" loading="lazy">
             <h2>Installed side profile</h2>
             <p>Wider photos show the vehicle shape and how the part sits after fitment.</p>
             <a href="trim-fitment.html">Trim fitment</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="styling">
             <img src="assets/real-exhaust-tips.png" alt="Performance exhaust tips and carbon diffuser close-up" loading="lazy">
             <h2>Exhaust tips</h2>
             <p>Slip-on styling work is quoted around access, fixing style and part quality.</p>
             <a href="trim-fitment.html">Exhaust tip fitment</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="styling">
             <img src="assets/service-remap-photo.jpg" alt="Sharp generated engine bay and performance tuning enquiry image" loading="lazy">
             <h2>Engine bay and intake enquiries</h2>
             <p>Send part links, engine bay photos and the vehicle details so the fitment route is clear.</p>
@@ -107,38 +117,38 @@
           <h2>Clear enquiry routes for technical work</h2>
           <p>Diagnostics, MOT support and remap enquiries work best when the first message includes symptoms, warning lights, vehicle details and goals.</p>
         </div>
-        <div class="container content-grid three">
-          <article class="info-card media-card">
+        <div class="container content-grid three" data-gallery-grid>
+          <article class="info-card media-card" data-gallery-card data-gallery-category="diagnostics">
             <img src="assets/real-obd-scanning.jpg" alt="OBD scanner being connected inside a vehicle" loading="lazy">
             <h2>OBD scanning</h2>
             <p>Fault scans help narrow down warning lights before parts are ordered.</p>
             <a href="obd-diagnostics.html">Book diagnostics</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="diagnostics">
             <img src="assets/real-mot.jpg" alt="Calendar reminder marked MOT due" loading="lazy">
             <h2>MOT support</h2>
             <p>MOT questions can be routed to the right support before the date arrives.</p>
             <a href="mot-support.html">MOT support</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="performance">
             <img src="assets/real-ecu-remapping.jpg" alt="Technician using a laptop for ECU remapping inside an Audi" loading="lazy">
             <h2>ECU remapping</h2>
             <p>Remap enquiries collect the vehicle, engine, current setup and goal first.</p>
             <a href="ecu-remapping.html">Remap enquiry</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="performance">
             <img src="assets/real-dyno-mapping.jpg" alt="Performance car on a rolling road dyno for mapping" loading="lazy">
             <h2>Dyno mapping interest</h2>
             <p>Performance goals should be discussed before booking any tuning route.</p>
             <a href="ecu-remapping.html">Check remap route</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="styling">
             <img src="assets/service-fitment-photo.jpg" alt="Sharp generated rear diffuser and styling parts fitment image" loading="lazy">
             <h2>Rear diffuser styling</h2>
             <p>Diffusers need part and vehicle checks before confirming fitting time.</p>
             <a href="trim-fitment.html">Diffuser fitment</a>
           </article>
-          <article class="info-card media-card">
+          <article class="info-card media-card" data-gallery-card data-gallery-category="performance">
             <img src="assets/tuned-car-lineup.jpg" alt="Lineup of tuned performance cars including BMW, Mercedes, Audi and Mini inspiration" loading="lazy">
             <h2>Tuned car focus</h2>
             <p>Built for performance-led daily drivers, enthusiast cars and local service enquiries.</p>

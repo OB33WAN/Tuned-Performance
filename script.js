@@ -1,3 +1,5 @@
+document.documentElement.classList.add("is-enhanced");
+
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
@@ -6,6 +8,33 @@ const WEB3FORMS_ACCESS_KEY = "4f7ab378-e677-4b67-b382-d548236a7160";
 const GOOGLE_ANALYTICS_ID = "G-Z6M09GYPFY";
 const whatsappThankYouUrl = "thank-you.html?source=whatsapp";
 let analyticsLoaded = false;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const loader = document.createElement("div");
+loader.className = "site-loader";
+loader.setAttribute("aria-hidden", "true");
+loader.innerHTML = "<span></span>";
+document.body.prepend(loader);
+
+window.addEventListener("load", () => {
+  document.documentElement.classList.add("is-ready");
+  window.setTimeout(() => loader.remove(), prefersReducedMotion ? 40 : 650);
+});
+
+const scrollProgress = document.createElement("div");
+scrollProgress.className = "scroll-progress";
+scrollProgress.setAttribute("aria-hidden", "true");
+scrollProgress.innerHTML = "<span></span>";
+document.body.prepend(scrollProgress);
+
+const updateScrollProgress = () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const percent = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+  scrollProgress.style.setProperty("--scroll-progress", `${percent}%`);
+};
+
+updateScrollProgress();
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
 
 const loadAnalytics = () => {
   if (analyticsLoaded || !GOOGLE_ANALYTICS_ID || !/^https?:$/.test(window.location.protocol)) return;
@@ -42,12 +71,24 @@ const trackConversion = (eventName, params = {}) => {
   });
 };
 
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
 };
 
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
+
+nav?.querySelectorAll("a[href]").forEach((link) => {
+  const href = link.getAttribute("href") || "";
+  const page = href.split("#")[0] || "index.html";
+  const homeMatch = currentPage === "index.html" && (href === "#top" || page === "index.html");
+  if (homeMatch || page === currentPage) {
+    link.classList.add("is-current");
+    link.setAttribute("aria-current", "page");
+  }
+});
 
 navToggle?.addEventListener("click", () => {
   const isOpen = nav?.classList.toggle("is-open");
@@ -79,6 +120,10 @@ const updateEstimate = () => {
   const service = estimateService.value;
   const size = estimateSize.value;
   estimateResult.innerHTML = estimates[service]?.[size] || "Quote needed";
+  estimateResult.classList.remove("is-updated");
+  void estimateResult.offsetWidth;
+  estimateResult.classList.add("is-updated");
+  trackConversion("quick_estimate_change", { service, size });
 };
 
 estimator?.addEventListener("change", updateEstimate);
@@ -124,7 +169,8 @@ const availabilityLabels = {
 };
 
 availability?.addEventListener("click", (event) => {
-  const card = event.target.closest("[data-slot]");
+  const target = event.target instanceof Element ? event.target : null;
+  const card = target?.closest("[data-slot]");
   if (!(card instanceof HTMLElement)) return;
 
   availability.querySelectorAll("[data-slot]").forEach((item) => {
@@ -134,6 +180,12 @@ availability?.addEventListener("click", (event) => {
   const label = availabilityLabels[card.dataset.slot] || "Availability request";
   if (availabilityNote) availabilityNote.textContent = `Selected preference: ${label}`;
   if (slotField) slotField.value = label;
+  if (availabilityNote) {
+    availabilityNote.classList.remove("is-updated");
+    void availabilityNote.offsetWidth;
+    availabilityNote.classList.add("is-updated");
+  }
+  trackConversion("availability_select", { slot: label });
 });
 
 const coreAreas = ["feltham", "bedfont", "ashford", "sunbury", "hounslow", "kingston"];
@@ -153,6 +205,7 @@ areaFilter?.addEventListener("input", () => {
   areaMessage.textContent = match
     ? `${match[0].toUpperCase()}${match.slice(1)} is in the core mobile coverage list.`
     : "That area may still be possible. Send the postcode for confirmation.";
+  areaMessage.classList.toggle("is-positive", Boolean(match));
 });
 
 const getFormStatus = (form) => form.querySelector("[data-form-status]") || form.closest(".full-estimator")?.querySelector("[data-form-status]");
@@ -269,6 +322,8 @@ const estimateServiceLabel = document.querySelector("[data-estimate-service-labe
 const estimateSizeLabel = document.querySelector("[data-estimate-size-label]");
 const estimateGuide = document.querySelector("[data-estimate-guide]");
 const estimateSummary = document.querySelector("[data-estimate-summary]");
+const estimatorWizard = document.querySelector("[data-estimator-wizard]");
+let validateEstimatorAll = null;
 
 const fullEstimateData = {
   repair: {
@@ -391,8 +446,113 @@ fullEstimator?.addEventListener("input", updateFullEstimator);
 fullEstimator?.addEventListener("change", updateFullEstimator);
 updateFullEstimator();
 
+if (estimatorWizard && estimateEmailForm) {
+  const panels = [...estimatorWizard.querySelectorAll("[data-estimator-step]")];
+  const triggers = [...estimatorWizard.querySelectorAll("[data-estimator-step-trigger]")];
+  let activeStep = 0;
+  let maxStepReached = 0;
+
+  const getPanelFields = (panel) => [...panel.querySelectorAll("input, select, textarea")].filter((field) => {
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return false;
+    if (field.type === "hidden" || (field.type === "checkbox" && field.classList.contains("botcheck"))) return false;
+    return !field.disabled;
+  });
+
+  const showEstimatorStep = (index, allowLocked = false) => {
+    const nextIndex = Math.max(0, Math.min(index, panels.length - 1));
+    if (!allowLocked && nextIndex > maxStepReached) return;
+
+    activeStep = nextIndex;
+    panels.forEach((panel, panelIndex) => {
+      const isActive = panelIndex === activeStep;
+      panel.hidden = !isActive;
+      panel.classList.toggle("is-active", isActive);
+      panel.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    triggers.forEach((trigger, triggerIndex) => {
+      const isActive = triggerIndex === activeStep;
+      const isComplete = triggerIndex < maxStepReached;
+      trigger.disabled = triggerIndex > maxStepReached;
+      trigger.classList.toggle("is-active", isActive);
+      trigger.classList.toggle("is-complete", isComplete);
+      if (isActive) {
+        trigger.setAttribute("aria-current", "step");
+      } else {
+        trigger.removeAttribute("aria-current");
+      }
+    });
+
+    const progress = panels.length ? Math.round(((activeStep + 1) / panels.length) * 100) : 100;
+    estimatorWizard.style.setProperty("--wizard-progress", `${progress}%`);
+    updateFullEstimator();
+    trackConversion("estimator_step_view", { step: String(activeStep + 1) });
+  };
+
+  const validateFields = (fields) => {
+    const invalidField = fields.find((field) => !field.checkValidity());
+    if (!invalidField) return true;
+
+    const fieldPanel = invalidField.closest("[data-estimator-step]");
+    if (fieldPanel) {
+      const panelIndex = panels.indexOf(fieldPanel);
+      if (panelIndex >= 0) showEstimatorStep(panelIndex, true);
+    }
+
+    invalidField.reportValidity();
+    invalidField.focus({ preventScroll: false });
+    return false;
+  };
+
+  const validateActiveEstimatorStep = () => validateFields(getPanelFields(panels[activeStep]));
+  validateEstimatorAll = () => validateFields(panels.flatMap(getPanelFields));
+
+  estimatorWizard.addEventListener("click", (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    const trigger = target?.closest("[data-estimator-step-trigger]");
+    if (trigger instanceof HTMLButtonElement) {
+      showEstimatorStep(Number(trigger.dataset.estimatorStepTrigger || 0));
+      return;
+    }
+
+    if (target?.closest("[data-estimator-next]")) {
+      if (!validateActiveEstimatorStep()) return;
+      maxStepReached = Math.max(maxStepReached, activeStep + 1);
+      showEstimatorStep(activeStep + 1, true);
+      return;
+    }
+
+    if (target?.closest("[data-estimator-prev]")) {
+      showEstimatorStep(activeStep - 1, true);
+    }
+  });
+
+  estimateEmailForm.addEventListener("submit", (event) => {
+    if (activeStep < panels.length - 1) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (!validateActiveEstimatorStep()) return;
+      maxStepReached = Math.max(maxStepReached, activeStep + 1);
+      showEstimatorStep(activeStep + 1, true);
+      return;
+    }
+
+    if (!validateEstimatorAll()) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+  }, true);
+
+  showEstimatorStep(0, true);
+}
+
 fullWhatsApp?.addEventListener("click", (event) => {
-  if (estimateEmailForm && !estimateEmailForm.reportValidity()) {
+  if (validateEstimatorAll && !validateEstimatorAll()) {
+    event.preventDefault();
+    return;
+  }
+
+  if (!validateEstimatorAll && estimateEmailForm && !estimateEmailForm.reportValidity()) {
     event.preventDefault();
     return;
   }
@@ -470,6 +630,303 @@ document.querySelectorAll('a[href*="g.page/r/CZnD7eUE_OmbEBM/review"]').forEach(
 
 document.querySelectorAll('a[href*="trustpilot.com/review/tunedperformance.co.uk"]').forEach((link) => {
   link.addEventListener("click", () => trackConversion("review_click", { platform: "trustpilot", link_url: link.href }));
+});
+
+const addFloatingQuote = () => {
+  if (document.querySelector("[data-floating-quote]")) return;
+
+  const link = document.createElement("a");
+  link.className = "floating-quote";
+  link.dataset.floatingQuote = "";
+  link.href = currentPage === "contact.html" ? "tel:+447933705124" : "contact.html";
+  link.textContent = currentPage === "contact.html" ? "Call now" : "Quick quote";
+  document.body.append(link);
+};
+
+addFloatingQuote();
+
+const revealTargets = document.querySelectorAll([
+  ".page-hero .container",
+  ".hero-inner > *",
+  ".quick-route",
+  ".section-heading",
+  ".split > *",
+  ".split-reverse > *",
+  ".booking-layout > *",
+  ".info-card",
+  ".detail-card",
+  ".price-card",
+  ".policy-card",
+  ".service-card",
+  ".availability-card",
+  ".journey-grid article",
+  ".area-link-grid a",
+  ".area-map span",
+  ".quote-ready",
+  ".mini-cta",
+  ".conversion-card",
+  ".feature-image",
+  ".tuned-copy",
+  ".tuned-media",
+  ".price-row",
+  ".faq-list details",
+  ".legal-content h2",
+  ".legal-content p"
+].join(","));
+
+revealTargets.forEach((item, index) => {
+  item.classList.add("reveal-item");
+  item.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 60}ms`);
+});
+
+if ("IntersectionObserver" in window && !prefersReducedMotion) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      revealObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+
+  revealTargets.forEach((item) => revealObserver.observe(item));
+} else {
+  revealTargets.forEach((item) => item.classList.add("is-visible"));
+}
+
+const animateNumberText = (element) => {
+  if (element.dataset.counted === "true") return;
+
+  const original = element.textContent.trim();
+  const match = original.match(/\d+(?:,\d{3})*(?:\.\d+)?/);
+  if (!match) return;
+
+  element.dataset.counted = "true";
+
+  const target = Number(match[0].replace(/,/g, ""));
+  if (!Number.isFinite(target) || target <= 0 || prefersReducedMotion) {
+    element.textContent = original;
+    return;
+  }
+
+  const decimals = match[0].includes(".") ? match[0].split(".")[1].length : 0;
+  const formatter = new Intl.NumberFormat("en-GB", {
+    maximumFractionDigits: decimals,
+    minimumFractionDigits: decimals
+  });
+  const startedAt = performance.now();
+  const duration = 900;
+
+  const frame = (timestamp) => {
+    const progress = Math.min(1, (timestamp - startedAt) / duration);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = decimals ? target * eased : Math.round(target * eased);
+    element.textContent = original.replace(match[0], formatter.format(current));
+
+    if (progress < 1) {
+      requestAnimationFrame(frame);
+      return;
+    }
+
+    element.textContent = original;
+  };
+
+  requestAnimationFrame(frame);
+};
+
+const numberTargets = [...document.querySelectorAll(".hero-stats dt, .estimate-amount")];
+
+if ("IntersectionObserver" in window && !prefersReducedMotion) {
+  const numberObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      animateNumberText(entry.target);
+      numberObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.55 });
+
+  numberTargets.forEach((item) => numberObserver.observe(item));
+} else {
+  numberTargets.forEach(animateNumberText);
+}
+
+const heroBg = document.querySelector(".hero-bg");
+const updateHeroMotion = () => {
+  if (!heroBg || prefersReducedMotion) return;
+  const offset = Math.min(36, window.scrollY * 0.035);
+  heroBg.style.transform = `translateY(${offset}px) scale(1.04)`;
+};
+
+updateHeroMotion();
+window.addEventListener("scroll", () => requestAnimationFrame(updateHeroMotion), { passive: true });
+
+document.querySelectorAll("details").forEach((detail) => {
+  detail.addEventListener("toggle", () => {
+    if (detail.open) trackConversion("faq_open", { question: detail.querySelector("summary")?.textContent?.trim() || "detail" });
+  });
+});
+
+document.querySelectorAll("form").forEach((form) => {
+  const fields = [...form.querySelectorAll("input, select, textarea")].filter((field) => {
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return false;
+    if (field.type === "hidden" || (field.type === "checkbox" && field.classList.contains("botcheck"))) return false;
+    return !field.disabled;
+  });
+
+  if (fields.length < 2 || form.querySelector(".form-progress")) return;
+
+  const progress = document.createElement("div");
+  progress.className = "form-progress";
+  progress.setAttribute("aria-hidden", "true");
+  progress.innerHTML = "<span></span>";
+  form.prepend(progress);
+
+  const updateFormProgress = () => {
+    const completed = fields.filter((field) => {
+      if (field instanceof HTMLInputElement && ["checkbox", "radio"].includes(field.type)) return field.checked;
+      return Boolean(field.value?.trim());
+    }).length;
+    const percent = Math.round((completed / fields.length) * 100);
+    progress.style.setProperty("--form-progress", `${percent}%`);
+  };
+
+  form.addEventListener("input", updateFormProgress);
+  form.addEventListener("change", updateFormProgress);
+  updateFormProgress();
+});
+
+const galleryCards = [...document.querySelectorAll("[data-gallery-card]")];
+const galleryFilters = document.querySelector("[data-gallery-filters]");
+let activeGalleryIndex = 0;
+
+if (galleryCards.length) {
+  galleryCards.forEach((card, index) => {
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", `Open gallery image: ${card.querySelector("h2")?.textContent?.trim() || "vehicle image"}`);
+    card.dataset.galleryIndex = String(index);
+
+    card.addEventListener("click", (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (target?.closest("a")) return;
+      openGalleryLightbox(index);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openGalleryLightbox(index);
+      }
+    });
+  });
+}
+
+galleryFilters?.addEventListener("click", (event) => {
+  const target = event.target instanceof Element ? event.target : null;
+  const button = target?.closest("[data-gallery-filter]");
+  if (!(button instanceof HTMLButtonElement)) return;
+
+  const filter = button.dataset.galleryFilter || "all";
+  galleryFilters.querySelectorAll("[data-gallery-filter]").forEach((item) => {
+    const isActive = item === button;
+    item.classList.toggle("is-active", isActive);
+    item.setAttribute("aria-pressed", String(isActive));
+  });
+
+  galleryCards.forEach((card) => {
+    const show = filter === "all" || card.dataset.galleryCategory === filter;
+    card.classList.toggle("is-filtered-out", !show);
+    card.toggleAttribute("hidden", !show);
+  });
+
+  trackConversion("gallery_filter", { filter });
+});
+
+const lightbox = document.createElement("div");
+lightbox.className = "gallery-lightbox";
+lightbox.setAttribute("role", "dialog");
+lightbox.setAttribute("aria-modal", "true");
+lightbox.setAttribute("aria-hidden", "true");
+lightbox.innerHTML = `
+  <div class="gallery-lightbox__panel">
+    <button class="gallery-lightbox__close" type="button" aria-label="Close gallery image">Close</button>
+    <button class="gallery-lightbox__nav gallery-lightbox__nav--prev" type="button" aria-label="Previous gallery image">Prev</button>
+    <figure>
+      <img alt="">
+      <figcaption>
+        <strong></strong>
+        <span></span>
+        <a class="btn btn-primary" href="contact.html">Start similar enquiry</a>
+      </figcaption>
+    </figure>
+    <button class="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" aria-label="Next gallery image">Next</button>
+  </div>
+`;
+document.body.append(lightbox);
+
+const lightboxImage = lightbox.querySelector("img");
+const lightboxTitle = lightbox.querySelector("figcaption strong");
+const lightboxCopy = lightbox.querySelector("figcaption span");
+const lightboxCta = lightbox.querySelector("figcaption a");
+const lightboxClose = lightbox.querySelector(".gallery-lightbox__close");
+const lightboxPrev = lightbox.querySelector(".gallery-lightbox__nav--prev");
+const lightboxNext = lightbox.querySelector(".gallery-lightbox__nav--next");
+
+const visibleGalleryCards = () => galleryCards.filter((card) => !card.hidden);
+
+function openGalleryLightbox(index) {
+  const cards = visibleGalleryCards();
+  const selected = galleryCards[index];
+  activeGalleryIndex = Math.max(0, cards.indexOf(selected));
+  updateGalleryLightbox();
+  lightbox.classList.add("is-open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("has-modal");
+  lightboxClose?.focus();
+  trackConversion("gallery_open", { item: selected?.querySelector("h2")?.textContent?.trim() || "gallery item" });
+}
+
+const updateGalleryLightbox = () => {
+  const cards = visibleGalleryCards();
+  if (!cards.length || !lightboxImage || !lightboxTitle || !lightboxCopy || !lightboxCta) return;
+
+  const card = cards[activeGalleryIndex];
+  const image = card.querySelector("img");
+  const title = card.querySelector("h2")?.textContent?.trim() || "Gallery image";
+  const copy = card.querySelector("p")?.textContent?.trim() || "";
+  const link = card.querySelector("a")?.getAttribute("href") || "contact.html";
+
+  lightboxImage.src = image?.getAttribute("src") || "";
+  lightboxImage.alt = image?.getAttribute("alt") || title;
+  lightboxTitle.textContent = title;
+  lightboxCopy.textContent = copy;
+  lightboxCta.href = link;
+};
+
+const closeGalleryLightbox = () => {
+  lightbox.classList.remove("is-open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("has-modal");
+};
+
+const moveGalleryLightbox = (direction) => {
+  const cards = visibleGalleryCards();
+  if (!cards.length) return;
+  activeGalleryIndex = (activeGalleryIndex + direction + cards.length) % cards.length;
+  updateGalleryLightbox();
+};
+
+lightboxClose?.addEventListener("click", closeGalleryLightbox);
+lightboxPrev?.addEventListener("click", () => moveGalleryLightbox(-1));
+lightboxNext?.addEventListener("click", () => moveGalleryLightbox(1));
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) closeGalleryLightbox();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (!lightbox.classList.contains("is-open")) return;
+  if (event.key === "Escape") closeGalleryLightbox();
+  if (event.key === "ArrowLeft") moveGalleryLightbox(-1);
+  if (event.key === "ArrowRight") moveGalleryLightbox(1);
 });
 
 const thanksTitle = document.querySelector("[data-thanks-title]");

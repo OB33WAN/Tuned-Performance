@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v5";
+const CACHE_NAME = "tuned-performance-pwa-v8";
 
 const CORE_ASSETS = [
   "./",
@@ -40,6 +40,9 @@ const CORE_ASSETS = [
   "./assets/app-icon-192.png",
   "./assets/app-icon-512.png",
   "./assets/apple-touch-icon.png",
+  "./assets/favicon.ico",
+  "./assets/favicon-32.png",
+  "./assets/favicon-16.png",
   "./assets/area-coverage.png",
   "./assets/hero-bmw-m3-dark.jpg",
   "./assets/hero-bmw-m3-mobile.jpg",
