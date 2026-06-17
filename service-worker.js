@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v4";
+const CACHE_NAME = "tuned-performance-pwa-v5";
 
 const CORE_ASSETS = [
   "./",
@@ -33,6 +33,10 @@ const CORE_ASSETS = [
   "./styles.css",
   "./script.js",
   "./manifest.webmanifest",
+  "./README.MD",
+  "./llms.txt",
+  "./robots.txt",
+  "./sitemap.xml",
   "./assets/app-icon-192.png",
   "./assets/app-icon-512.png",
   "./assets/apple-touch-icon.png",
@@ -40,7 +44,6 @@ const CORE_ASSETS = [
   "./assets/hero-bmw-m3-dark.jpg",
   "./assets/hero-bmw-m3-mobile.jpg",
   "./assets/hero-workshop.png",
-  "./assets/real-air-filters-intakes.jpg",
   "./assets/real-bumper-scratch-spot-repairs.jpg",
   "./assets/real-dyno-mapping.jpg",
   "./assets/real-ecu-remapping.jpg",

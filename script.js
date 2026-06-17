@@ -11,6 +11,7 @@ const loadAnalytics = () => {
   if (analyticsLoaded || !GOOGLE_ANALYTICS_ID || !/^https?:$/.test(window.location.protocol)) return;
 
   analyticsLoaded = true;
+  window[`ga-disable-${GOOGLE_ANALYTICS_ID}`] = false;
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function gtag() {
     window.dataLayer.push(arguments);
@@ -26,6 +27,11 @@ const loadAnalytics = () => {
     anonymize_ip: true,
     send_page_view: true
   });
+};
+
+const disableAnalytics = () => {
+  if (!GOOGLE_ANALYTICS_ID) return;
+  window[`ga-disable-${GOOGLE_ANALYTICS_ID}`] = true;
 };
 
 const trackConversion = (eventName, params = {}) => {
@@ -398,6 +404,8 @@ fullWhatsApp?.addEventListener("click", (event) => {
 const cookieBanner = document.querySelector("[data-cookie-banner]");
 const cookieAccept = document.querySelector("[data-cookie-accept]");
 const cookieReject = document.querySelector("[data-cookie-reject]");
+const cookieReset = document.querySelector("[data-cookie-reset]");
+const cookieResetStatus = document.querySelector("[data-cookie-reset-status]");
 
 const getCookieChoice = () => {
   try {
@@ -433,7 +441,19 @@ cookieAccept?.addEventListener("click", () => {
 
 cookieReject?.addEventListener("click", () => {
   setCookieChoice("essential");
+  disableAnalytics();
   cookieBanner?.classList.remove("is-visible");
+});
+
+cookieReset?.addEventListener("click", () => {
+  try {
+    localStorage.removeItem("tp_cookie_choice");
+  } catch {
+    // If local storage is unavailable, show the banner for this page view.
+  }
+  disableAnalytics();
+  cookieBanner?.classList.add("is-visible");
+  if (cookieResetStatus) cookieResetStatus.textContent = "Cookie choice reset. Use the banner to choose again.";
 });
 
 document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
