@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v8";
+const CACHE_NAME = "tuned-performance-pwa-v13";
 
 const CORE_ASSETS = [
   "./",
@@ -15,6 +15,7 @@ const CORE_ASSETS = [
   "./contact.html",
   "./cancellation-policy.html",
   "./cookies.html",
+  "./bmw-mini-coding.html",
   "./ecu-remapping.html",
   "./estimator.html",
   "./faq.html",
@@ -23,11 +24,22 @@ const CORE_ASSETS = [
   "./obd-diagnostics.html",
   "./pricing.html",
   "./privacy-gdpr.html",
+  "./recent-jobs.html",
+  "./refer-a-friend.html",
   "./reviews.html",
   "./scratch-bumper-repairs.html",
   "./services.html",
   "./single-panel-repair-respray.html",
   "./thank-you.html",
+  "./customer-thank-you.html",
+  "./guides.html",
+  "./bumper-repair-feltham.html",
+  "./single-panel-respray-feltham.html",
+  "./mobile-obd-diagnostics-feltham.html",
+  "./bmw-mini-coding-feltham.html",
+  "./car-repair-photo-guide.html",
+  "./mot-warning-light-guide.html",
+  "./bmw-mini-coding-guide.html",
   "./terms.html",
   "./trim-fitment.html",
   "./styles.css",

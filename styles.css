@@ -897,6 +897,67 @@ h3 {
   font-weight: 850;
 }
 
+.case-card .case-meta {
+  display: grid;
+  gap: 8px;
+  margin: 0 24px 18px;
+}
+
+.case-card .case-meta div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(16, 18, 20, 0.08);
+}
+
+.case-card .case-meta dt {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.case-card .case-meta dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 850;
+  text-align: right;
+}
+
+.loyalty-step {
+  display: grid;
+  gap: 10px;
+}
+
+.loyalty-step > span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--ink);
+  font-weight: 950;
+}
+
+.loyalty-code-box {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(183, 255, 42, 0.28);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.loyalty-code-box strong {
+  color: var(--lime);
+  font-size: clamp(1.9rem, 5vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 .detail-card.highlight {
   background: var(--ink);
   color: var(--white);
@@ -1782,6 +1843,10 @@ h3 {
   gap: 16px;
 }
 
+.coding-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .availability-card {
   min-height: 190px;
   text-align: left;
@@ -2135,17 +2200,29 @@ h3 {
   transform: translateY(-1px);
 }
 
-.footer-brand {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.footer-grid a.footer-brand {
+  display: inline-grid;
+  justify-items: center;
+  gap: 10px;
+  margin: 0 auto 16px;
   min-width: 0;
   text-align: center;
+}
+
+.footer-brand .brand-logo {
+  flex: none;
+  margin-inline: auto;
 }
 
 .footer-brand span {
   display: grid;
   justify-items: center;
+  gap: 3px;
+}
+
+.footer-brand strong,
+.footer-brand small {
+  text-align: center;
 }
 
 .footer-bottom {
@@ -2453,6 +2530,11 @@ h3 {
   .availability-list div {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  .loyalty-code-box {
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
 
   .booking-form {

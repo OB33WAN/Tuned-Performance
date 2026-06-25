@@ -107,7 +107,8 @@ const estimates = {
   scratch: { small: "From &pound;100", medium: "&pound;150-&pound;240 guide", large: "Panel review needed" },
   diagnostic: { small: "From &pound;50", medium: "&pound;50-&pound;90 guide", large: "Fault route needed" },
   fitment: { small: "From &pound;20", medium: "&pound;35-&pound;80 guide", large: "Parts review needed" },
-  mot: { small: "Ask for route quote", medium: "Pickup support quote", large: "Workshop route needed" }
+  mot: { small: "Ask for route quote", medium: "Pickup support quote", large: "Workshop route needed" },
+  coding: { small: "From &pound;40", medium: "&pound;60-&pound;90 guide", large: "Compatibility check needed" }
 };
 
 const estimator = document.querySelector("[data-estimator]");
@@ -186,6 +187,34 @@ availability?.addEventListener("click", (event) => {
     availabilityNote.classList.add("is-updated");
   }
   trackConversion("availability_select", { slot: label });
+});
+
+const codingPreview = document.querySelector("[data-coding-preview]");
+const codingResult = document.querySelector("[data-coding-result]");
+const codingLabels = {
+  comfort: "Selected route: Comfort coding. Send the vehicle, model year and the exact convenience features wanted.",
+  lighting: "Selected route: Lighting coding. Send the current light behaviour and the setting you want changed.",
+  display: "Selected route: Display and iDrive coding. Send photos of the current menu or cluster if possible.",
+  compatibility: "Selected route: Compatibility review. Send the registration or model/year plus your full feature wish list."
+};
+
+codingPreview?.addEventListener("click", (event) => {
+  const target = event.target instanceof Element ? event.target : null;
+  const card = target?.closest("[data-coding-option]");
+  if (!(card instanceof HTMLElement)) return;
+
+  codingPreview.querySelectorAll("[data-coding-option]").forEach((item) => {
+    item.classList.toggle("is-active", item === card);
+  });
+
+  const label = codingLabels[card.dataset.codingOption] || codingLabels.compatibility;
+  if (codingResult) {
+    codingResult.textContent = label;
+    codingResult.classList.remove("is-updated");
+    void codingResult.offsetWidth;
+    codingResult.classList.add("is-updated");
+  }
+  trackConversion("coding_option_select", { option: card.dataset.codingOption || "compatibility" });
 });
 
 const coreAreas = ["feltham", "bedfont", "ashford", "sunbury", "hounslow", "kingston"];
@@ -355,6 +384,12 @@ const fullEstimateData = {
     small: { amount: null, note: "Route quote needed" },
     medium: { amount: null, note: "Garage route quote needed" },
     large: { amount: null, note: "Workshop support quote needed" }
+  },
+  coding: {
+    label: "BMW/MINI coding",
+    small: { amount: 40, note: "Supported feature coding session" },
+    medium: { amount: 60, note: "Multiple supported coding changes" },
+    large: { amount: null, note: "Compatibility review needed first" }
   },
   remap: {
     label: "ECU remap enquiry",
@@ -630,6 +665,29 @@ document.querySelectorAll('a[href*="g.page/r/CZnD7eUE_OmbEBM/review"]').forEach(
 
 document.querySelectorAll('a[href*="trustpilot.com/review/tunedperformance.co.uk"]').forEach((link) => {
   link.addEventListener("click", () => trackConversion("review_click", { platform: "trustpilot", link_url: link.href }));
+});
+
+const loyaltyCode = document.querySelector("[data-loyalty-code]");
+const loyaltyCodeField = document.querySelector("[data-loyalty-code-field]");
+const copyLoyaltyButton = document.querySelector("[data-copy-loyalty]");
+const copyStatus = document.querySelector("[data-copy-status]");
+const loyaltyParams = new URLSearchParams(window.location.search);
+
+if (loyaltyCode) {
+  const code = loyaltyParams.get("code")?.trim().slice(0, 24) || "TUNED10";
+  loyaltyCode.textContent = code;
+  if (loyaltyCodeField instanceof HTMLInputElement) loyaltyCodeField.value = code;
+}
+
+copyLoyaltyButton?.addEventListener("click", async () => {
+  const code = loyaltyCode?.textContent?.trim() || "TUNED10";
+  try {
+    await navigator.clipboard.writeText(code);
+    if (copyStatus) copyStatus.textContent = `Copied ${code}. Use it on your next enquiry.`;
+    trackConversion("loyalty_code_copy", { code });
+  } catch {
+    if (copyStatus) copyStatus.textContent = `Code: ${code}`;
+  }
 });
 
 const addFloatingQuote = () => {
@@ -947,6 +1005,16 @@ if (thanksTitle && thanksCopy && thanksPanelTitle && thanksPanelCopy) {
     thanksCopy.textContent = "Your details have been sent to the Tuned Performance inbox through Web3Forms. You will receive a reply as soon as possible.";
     thanksPanelTitle.textContent = "Your enquiry is in the inbox";
     thanksPanelCopy.textContent = "For repair and fitment jobs, keeping clear photos ready will help confirm the quote faster. For urgent bookings, calling is still the quickest option.";
+  } else if (source === "referral") {
+    thanksTitle.textContent = "Thank you, your referral has been registered";
+    thanksCopy.textContent = "The referral details have been sent to the Tuned Performance inbox so they can be matched manually when the friend books.";
+    thanksPanelTitle.textContent = "Referral received";
+    thanksPanelCopy.textContent = "Referral rewards are confirmed only after a genuine completed job. Reviews are always separate and should only reflect real customer experience.";
+  } else if (source === "loyalty") {
+    thanksTitle.textContent = "Thank you, your loyalty claim has been sent";
+    thanksCopy.textContent = "Your loyalty details have been sent to the Tuned Performance inbox for manual matching against completed customer records.";
+    thanksPanelTitle.textContent = "Loyalty claim received";
+    thanksPanelCopy.textContent = "Keep your loyalty code ready for your next enquiry. Tuned Performance will confirm any reward before booking.";
   }
 }
 
