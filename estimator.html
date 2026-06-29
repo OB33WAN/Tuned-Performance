@@ -440,10 +440,46 @@
       <div class="container header-inner">
         <a class="brand" href="index.html"><img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true"><span><strong>Tuned Performance</strong><small>Mobile car care - Feltham</small></span></a>
         <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
-        <nav class="site-nav" aria-label="Primary navigation" data-nav><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="recent-jobs.html">Recent jobs</a><a href="areas.html">Areas</a><a href="guides.html">Guides</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a></nav>
+        <nav class="site-nav" aria-label="Primary navigation" data-nav>
+          <div class="nav-services" data-services-menu>
+            <div class="nav-services-trigger">
+              <a class="nav-services-link" href="services.html" data-services-parent>Services</a>
+              <button class="nav-services-toggle" type="button" aria-label="Show services menu" aria-expanded="false" aria-controls="services-menu" data-services-toggle><span class="nav-chevron" aria-hidden="true"></span></button>
+            </div>
+            <div class="services-menu" id="services-menu" data-services-panel>
+              <div class="services-menu__overview">
+                <span class="services-menu__eyebrow">Choose a service</span>
+                <strong>Mobile vehicle services</strong>
+                <p>Repairs, diagnostics, coding and performance support across Feltham and nearby areas.</p>
+                <a class="services-menu__all" href="services.html">View all services <span aria-hidden="true">&rarr;</span></a>
+              </div>
+              <div class="services-menu__group">
+                <span class="services-menu__label">Repairs and paint</span>
+                <a href="scratch-bumper-repairs.html"><strong>Bumper and scratch repair</strong><small>Scuffs, scratches and bumper damage</small></a>
+                <a href="single-panel-repair-respray.html"><strong>Panel repair and respray</strong><small>Single-panel paint and body repair</small></a>
+              </div>
+              <div class="services-menu__group">
+                <span class="services-menu__label">Diagnostics and coding</span>
+                <a href="obd-diagnostics.html"><strong>Car diagnostics</strong><small>Warning lights and OBD fault checks</small></a>
+                <a href="bmw-mini-coding.html"><strong>BMW and MINI coding</strong><small>BimmerCode features and compatibility</small></a>
+                <a href="mot-support.html"><strong>MOT support</strong><small>Pre-MOT checks and fault guidance</small></a>
+              </div>
+              <div class="services-menu__group">
+                <span class="services-menu__label">Performance and styling</span>
+                <a href="ecu-remapping.html"><strong>ECU remapping</strong><small>Stage 1 tuning enquiries</small></a>
+                <a href="trim-fitment.html"><strong>Styling and fitment</strong><small>Trim, intakes and accessories</small></a>
+              </div>
+            </div>
+          </div>
+          <a href="pricing.html">Pricing</a>
+          <a href="estimator.html">Estimator</a>
+          <a href="recent-jobs.html">Recent jobs</a>
+          <a href="areas.html">Areas</a>
+          <a href="reviews.html">Reviews</a>
+          <a class="nav-book-link" href="contact.html">Book</a>
+        </nav>
         <a class="header-cta" href="tel:+447933705124">Call 07933 705124</a>
-      </div>
-    <nav class="service-link-nav" aria-label="Direct service navigation" data-service-nav><div class="container"><a href="bumper-repair-feltham.html">Bumper Repair</a><a href="single-panel-respray-feltham.html">Panel Respray</a><a href="mobile-obd-diagnostics-feltham.html">OBD Diagnostics</a><a href="bmw-mini-coding-feltham.html">BMW/MINI Coding</a><a href="trim-fitment.html">Trim Fitment</a><a href="mot-support.html">MOT Support</a><a href="ecu-remapping.html">ECU Remapping</a></div></nav></header>
+      </div></header>
     <main id="main">
       <section class="page-hero">
         <div class="container">
@@ -465,7 +501,7 @@
             <input type="hidden" name="estimated_job_size" data-estimate-size-label>
             <input type="hidden" name="estimated_guide" data-estimate-guide>
             <input type="hidden" name="estimate_summary" data-estimate-summary>
-            <input class="botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+            <input class="botcheck" aria-label="Leave this field empty" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
             <div class="estimator-stepper" aria-label="Instant estimator steps">
               <button class="is-active" type="button" data-estimator-step-trigger="0" aria-current="step"><span>1</span>Vehicle</button>
               <button type="button" data-estimator-step-trigger="1" disabled><span>2</span>Job</button>

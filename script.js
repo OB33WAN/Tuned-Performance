@@ -3,7 +3,9 @@ document.documentElement.classList.add("is-enhanced");
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
-const serviceNav = document.querySelector("[data-service-nav]");
+const servicesMenu = document.querySelector("[data-services-menu]");
+const servicesToggle = document.querySelector("[data-services-toggle]");
+const servicesPanel = document.querySelector("[data-services-panel]");
 const slotField = document.querySelector("[data-slot-field]");
 const WEB3FORMS_ACCESS_KEY = "4f7ab378-e677-4b67-b382-d548236a7160";
 const GOOGLE_ANALYTICS_ID = "G-Z6M09GYPFY";
@@ -94,17 +96,53 @@ const markCurrentNavigation = (navigation) => {
 };
 
 markCurrentNavigation(nav);
-markCurrentNavigation(serviceNav);
+markCurrentNavigation(servicesPanel);
+
+if (servicesPanel?.querySelector(".is-current")) {
+  servicesMenu?.classList.add("has-current");
+  servicesMenu?.querySelector("[data-services-parent]")?.classList.add("is-current");
+}
+
+const closeServicesMenu = () => {
+  servicesMenu?.classList.remove("is-open");
+  servicesToggle?.setAttribute("aria-expanded", "false");
+  servicesToggle?.setAttribute("aria-label", "Show services menu");
+};
+
+servicesToggle?.addEventListener("click", () => {
+  const isOpen = servicesMenu?.classList.toggle("is-open");
+  servicesToggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+  servicesToggle.setAttribute("aria-label", isOpen ? "Hide services menu" : "Show services menu");
+});
 
 navToggle?.addEventListener("click", () => {
   const isOpen = nav?.classList.toggle("is-open");
   navToggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+  navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  if (!isOpen) closeServicesMenu();
 });
 
 nav?.addEventListener("click", (event) => {
   if (event.target instanceof HTMLAnchorElement) {
     nav.classList.remove("is-open");
     navToggle?.setAttribute("aria-expanded", "false");
+    navToggle?.setAttribute("aria-label", "Open menu");
+    closeServicesMenu();
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (servicesMenu && event.target instanceof Node && !servicesMenu.contains(event.target)) {
+    closeServicesMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeServicesMenu();
+    nav?.classList.remove("is-open");
+    navToggle?.setAttribute("aria-expanded", "false");
+    navToggle?.setAttribute("aria-label", "Open menu");
   }
 });
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v16";
+const CACHE_NAME = "tuned-performance-pwa-v17";
 
 const CORE_ASSETS = [
   "./",
