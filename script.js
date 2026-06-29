@@ -3,6 +3,7 @@ document.documentElement.classList.add("is-enhanced");
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
+const serviceNav = document.querySelector("[data-service-nav]");
 const slotField = document.querySelector("[data-slot-field]");
 const WEB3FORMS_ACCESS_KEY = "4f7ab378-e677-4b67-b382-d548236a7160";
 const GOOGLE_ANALYTICS_ID = "G-Z6M09GYPFY";
@@ -80,15 +81,20 @@ const setHeaderState = () => {
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
 
-nav?.querySelectorAll("a[href]").forEach((link) => {
-  const href = link.getAttribute("href") || "";
-  const page = href.split("#")[0] || "index.html";
-  const homeMatch = currentPage === "index.html" && (href === "#top" || page === "index.html");
-  if (homeMatch || page === currentPage) {
-    link.classList.add("is-current");
-    link.setAttribute("aria-current", "page");
-  }
-});
+const markCurrentNavigation = (navigation) => {
+  navigation?.querySelectorAll("a[href]").forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    const page = href.split("#")[0] || "index.html";
+    const homeMatch = currentPage === "index.html" && (href === "#top" || page === "index.html");
+    if (homeMatch || page === currentPage) {
+      link.classList.add("is-current");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+};
+
+markCurrentNavigation(nav);
+markCurrentNavigation(serviceNav);
 
 navToggle?.addEventListener("click", () => {
   const isOpen = nav?.classList.toggle("is-open");
@@ -604,7 +610,7 @@ const cookieResetStatus = document.querySelector("[data-cookie-reset-status]");
 
 const getCookieChoice = () => {
   try {
-    return localStorage.getItem("tp_cookie_choice");
+    return sessionStorage.getItem("tp_cookie_choice");
   } catch {
     return null;
   }
@@ -612,9 +618,9 @@ const getCookieChoice = () => {
 
 const setCookieChoice = (choice) => {
   try {
-    localStorage.setItem("tp_cookie_choice", choice);
+    sessionStorage.setItem("tp_cookie_choice", choice);
   } catch {
-    // If local storage is unavailable, the current page view can still honour the click.
+    // If session storage is unavailable, the current page view can still honour the click.
   }
 };
 
@@ -642,9 +648,9 @@ cookieReject?.addEventListener("click", () => {
 
 cookieReset?.addEventListener("click", () => {
   try {
-    localStorage.removeItem("tp_cookie_choice");
+    sessionStorage.removeItem("tp_cookie_choice");
   } catch {
-    // If local storage is unavailable, show the banner for this page view.
+    // If session storage is unavailable, show the banner for this page view.
   }
   disableAnalytics();
   cookieBanner?.classList.add("is-visible");
