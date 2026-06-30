@@ -20,10 +20,10 @@ const replacements = {
   },
   "services.html": {
     "Bumper and panel repairs": "Mobile Bumper Repair and Car Scratch Repair",
-    "OBD diagnostics": "Mobile Car Diagnostics and Warning Light Checks",
+    "OBD diagnostics": "Car and Engine Diagnostics and Warning Light Checks",
     "BMW and MINI coding": "BMW Coding and MINI Coding",
     "Trim and accessory fitment": "Car Styling and Accessory Fitting",
-    "MOT support": "MOT Support and Pre-MOT Checks",
+    "MOT support": "MOT Prep and Fault Checks",
     "ECU remap enquiries": "ECU Remapping and Stage 1 Tuning",
     "Not sure what you need?": "Choose the Right Mobile Mechanic Service",
     "Ready to price the job?": "Get a Mobile Mechanic Quote in Feltham",

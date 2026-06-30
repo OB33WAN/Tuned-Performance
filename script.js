@@ -3,15 +3,28 @@ document.documentElement.classList.add("is-enhanced");
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
-const servicesMenu = document.querySelector("[data-services-menu]");
-const servicesToggle = document.querySelector("[data-services-toggle]");
-const servicesPanel = document.querySelector("[data-services-panel]");
+const navClose = document.querySelector("[data-nav-close]");
+const serviceNav = document.querySelector("[data-service-nav]");
 const slotField = document.querySelector("[data-slot-field]");
 const WEB3FORMS_ACCESS_KEY = "4f7ab378-e677-4b67-b382-d548236a7160";
 const GOOGLE_ANALYTICS_ID = "G-Z6M09GYPFY";
 const whatsappThankYouUrl = "thank-you.html?source=whatsapp";
 let analyticsLoaded = false;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mobileNavBreakpoint = 820;
+
+const navBackdrop = nav
+  ? Object.assign(document.createElement("button"), {
+      type: "button",
+      className: "mobile-nav-backdrop"
+    })
+  : null;
+
+if (navBackdrop) {
+  navBackdrop.setAttribute("aria-label", "Close menu");
+  navBackdrop.setAttribute("aria-hidden", "true");
+  document.body.append(navBackdrop);
+}
 
 const loader = document.createElement("div");
 loader.className = "site-loader";
@@ -75,6 +88,19 @@ const trackConversion = (eventName, params = {}) => {
 };
 
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const pageBookingDefaults = {
+  "scratch-bumper-repairs.html": "Bumper scratch repair",
+  "bumper-repair-feltham.html": "Bumper scratch repair",
+  "single-panel-repair-respray.html": "Single panel respray",
+  "single-panel-respray-feltham.html": "Single panel respray",
+  "obd-diagnostics.html": "Car and engine diagnostics",
+  "mobile-obd-diagnostics-feltham.html": "Car and engine diagnostics",
+  "bmw-mini-coding.html": "BMW and MINI coding",
+  "bmw-mini-coding-feltham.html": "BMW and MINI coding",
+  "trim-fitment.html": "Car styling or accessory fitting",
+  "mot-support.html": "MOT prep and fault checks",
+  "ecu-remapping.html": "ECU remap enquiry"
+};
 
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -96,53 +122,278 @@ const markCurrentNavigation = (navigation) => {
 };
 
 markCurrentNavigation(nav);
-markCurrentNavigation(servicesPanel);
+markCurrentNavigation(serviceNav);
 
-if (servicesPanel?.querySelector(".is-current")) {
-  servicesMenu?.classList.add("has-current");
-  servicesMenu?.querySelector("[data-services-parent]")?.classList.add("is-current");
-}
+const setNavOpen = (isOpen, { restoreFocus = false } = {}) => {
+  nav?.classList.toggle("is-open", isOpen);
+  document.body.classList.toggle("has-nav-open", isOpen);
+  navBackdrop?.classList.toggle("is-visible", isOpen);
+  navToggle?.setAttribute("aria-expanded", String(isOpen));
+  navToggle?.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
 
-const closeServicesMenu = () => {
-  servicesMenu?.classList.remove("is-open");
-  servicesToggle?.setAttribute("aria-expanded", "false");
-  servicesToggle?.setAttribute("aria-label", "Show services menu");
+  if (!isOpen && restoreFocus) navToggle?.focus();
+  if (isOpen) navClose?.focus();
 };
 
-servicesToggle?.addEventListener("click", () => {
-  const isOpen = servicesMenu?.classList.toggle("is-open");
-  servicesToggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
-  servicesToggle.setAttribute("aria-label", isOpen ? "Hide services menu" : "Show services menu");
-});
+const closeNav = (options) => {
+  setNavOpen(false, options);
+};
 
 navToggle?.addEventListener("click", () => {
-  const isOpen = nav?.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
-  navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-  if (!isOpen) closeServicesMenu();
+  const isOpen = !nav?.classList.contains("is-open");
+  setNavOpen(Boolean(isOpen));
+});
+
+navClose?.addEventListener("click", () => {
+  closeNav({ restoreFocus: true });
+});
+
+navBackdrop?.addEventListener("click", () => {
+  closeNav({ restoreFocus: true });
 });
 
 nav?.addEventListener("click", (event) => {
-  if (event.target instanceof HTMLAnchorElement) {
-    nav.classList.remove("is-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-    navToggle?.setAttribute("aria-label", "Open menu");
-    closeServicesMenu();
-  }
-});
-
-document.addEventListener("click", (event) => {
-  if (servicesMenu && event.target instanceof Node && !servicesMenu.contains(event.target)) {
-    closeServicesMenu();
+  const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
+  if (link && nav.contains(link)) {
+    closeNav();
   }
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    closeServicesMenu();
-    nav?.classList.remove("is-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-    navToggle?.setAttribute("aria-label", "Open menu");
+    closeNav({ restoreFocus: true });
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > mobileNavBreakpoint && nav?.classList.contains("is-open")) {
+    closeNav();
+  }
+});
+
+const bookingModal = document.createElement("div");
+bookingModal.className = "booking-modal";
+bookingModal.setAttribute("data-booking-modal", "");
+bookingModal.setAttribute("aria-hidden", "true");
+bookingModal.innerHTML = `
+  <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title" aria-describedby="booking-modal-copy" tabindex="-1">
+    <button class="booking-modal__close" type="button" aria-label="Close booking form" data-booking-modal-close>
+      <span aria-hidden="true"></span>
+    </button>
+    <div class="booking-modal__layout">
+      <aside class="booking-modal__side">
+        <span class="booking-modal__eyebrow">Direct booking</span>
+        <h2 id="booking-modal-title">Book a mobile visit without leaving the page</h2>
+        <p id="booking-modal-copy">Send the booking details directly from the menu. Use email for a tracked enquiry or WhatsApp when you want to attach photos straight away.</p>
+        <ul class="booking-modal__list">
+          <li>Weekday, evening, Saturday and Sunday route requests</li>
+          <li>Service, vehicle and area details in one step</li>
+          <li>Works for diagnostics, repairs, coding and fitment bookings</li>
+        </ul>
+        <div class="booking-modal__actions">
+          <a class="btn btn-secondary" href="tel:+447933705124">Call 07933 705124</a>
+          <a class="btn btn-secondary" href="https://wa.me/447933705124" target="_blank" rel="noopener">WhatsApp directly</a>
+        </div>
+      </aside>
+      <form class="booking-form booking-modal__form" action="https://api.web3forms.com/submit" method="POST" data-booking-form data-lead-form>
+        <input type="hidden" name="access_key" value="${WEB3FORMS_ACCESS_KEY}">
+        <input type="hidden" name="subject" value="New Tuned Performance quick booking enquiry">
+        <input type="hidden" name="from_name" value="Tuned Performance Website">
+        <input type="hidden" name="redirect" value="https://tunedperformance.co.uk/thank-you.html?source=email">
+        <input type="hidden" name="lead_source" value="Menu booking modal">
+        <input type="hidden" name="page_context" value="${document.title}">
+        <input class="botcheck" aria-label="Leave this field empty" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+        <div class="form-row">
+          <label for="modal-book-name">Name</label>
+          <input id="modal-book-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-row">
+          <label for="modal-book-phone">Phone</label>
+          <input id="modal-book-phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="form-row">
+          <label for="modal-book-email">Email</label>
+          <input id="modal-book-email" name="email" type="email" autocomplete="email" placeholder="For email replies">
+        </div>
+        <div class="form-row">
+          <label for="modal-book-postcode">Postcode or area</label>
+          <input id="modal-book-postcode" name="postcode" type="text" autocomplete="postal-code" required>
+        </div>
+        <div class="form-row">
+          <label for="modal-book-vehicle">Vehicle</label>
+          <input id="modal-book-vehicle" name="vehicle" type="text" placeholder="Make, model, year or registration">
+        </div>
+        <div class="form-row">
+          <label for="modal-book-service">Service needed</label>
+          <select id="modal-book-service" name="service">
+            <option>Bumper scratch repair</option>
+            <option>Single panel respray</option>
+            <option>Car and engine diagnostics</option>
+            <option>Car styling or accessory fitting</option>
+            <option>MOT prep and fault checks</option>
+            <option>BMW and MINI coding</option>
+            <option>ECU remap enquiry</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="modal-book-slot">Preferred availability</label>
+          <select id="modal-book-slot" name="slot">
+            <option>Weekday daytime request</option>
+            <option>Weekday evening request</option>
+            <option>Saturday route request</option>
+            <option>Sunday route request</option>
+          </select>
+        </div>
+        <div class="form-row form-row-full">
+          <label for="modal-book-message">What is happening?</label>
+          <textarea id="modal-book-message" name="message" rows="4" placeholder="Add symptoms, damage, parts to fit, MOT date or the coding feature you want."></textarea>
+        </div>
+        <div class="form-actions form-row-full">
+          <button class="btn btn-primary" type="submit">Send email enquiry</button>
+          <button class="btn btn-secondary btn-on-light" type="button" data-whatsapp-submit>Send on WhatsApp</button>
+        </div>
+        <p class="form-note">Email enquiries go through Web3Forms. WhatsApp is best when you need to add job photos straight away.</p>
+        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+`;
+document.body.append(bookingModal);
+
+const bookingModalDialog = bookingModal.querySelector(".booking-modal__dialog");
+const bookingModalClose = bookingModal.querySelector("[data-booking-modal-close]");
+const bookingModalForm = bookingModal.querySelector("[data-booking-form]");
+const bookingModalService = bookingModal.querySelector('select[name="service"]');
+const bookingModalLeadSource = bookingModal.querySelector('input[name="lead_source"]');
+const bookingModalPageContext = bookingModal.querySelector('input[name="page_context"]');
+const bookingModalTriggers = [...new Set(document.querySelectorAll(
+  ".nav-book-link, a.btn[href='contact.html'], .mobile-bar a[href='contact.html'], .route-item[href='contact.html']"
+))];
+let bookingModalRestoreFocus = null;
+
+const setBookingModalDefaultService = () => {
+  if (!(bookingModalService instanceof HTMLSelectElement)) return;
+  bookingModalService.value = pageBookingDefaults[currentPage] || "Not sure yet";
+};
+
+const getBookingTriggerSource = (trigger) => {
+  if (!(trigger instanceof HTMLElement)) {
+    return "Direct booking modal";
+  }
+
+  if (trigger.classList.contains("nav-book-link")) {
+    return "Header book";
+  }
+
+  if (trigger.closest(".mobile-bar")) {
+    return "Mobile quote bar";
+  }
+
+  if (trigger.classList.contains("route-item")) {
+    return "Quick route quote";
+  }
+
+  if (trigger.closest(".hero-actions")) {
+    return "Hero quote CTA";
+  }
+
+  if (trigger.closest(".conversion-strip")) {
+    return "Conversion strip CTA";
+  }
+
+  if (trigger.closest(".quote-ready")) {
+    return "Quote section CTA";
+  }
+
+  if (trigger.closest(".mini-cta")) {
+    return "Mini CTA";
+  }
+
+  if (trigger.classList.contains("btn")) {
+    return "Page quote button";
+  }
+
+  return "Direct booking modal";
+};
+
+const closeBookingModal = ({ restoreFocus = true } = {}) => {
+  bookingModal.classList.remove("is-visible");
+  bookingModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("has-modal");
+
+  if (restoreFocus && bookingModalRestoreFocus instanceof HTMLElement) {
+    bookingModalRestoreFocus.focus();
+  }
+};
+
+const openBookingModal = (trigger = null) => {
+  bookingModalRestoreFocus = trigger instanceof HTMLElement ? trigger : document.activeElement;
+  if (bookingModalLeadSource instanceof HTMLInputElement) {
+    bookingModalLeadSource.value = `${getBookingTriggerSource(trigger)} - ${currentPage}`;
+  }
+  if (bookingModalPageContext instanceof HTMLInputElement) {
+    bookingModalPageContext.value = document.title;
+  }
+  setBookingModalDefaultService();
+  bookingModal.classList.add("is-visible");
+  bookingModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("has-modal");
+  bookingModalDialog?.focus();
+  const firstField = bookingModal.querySelector("input:not([type='hidden']):not(.botcheck), select, textarea");
+  if (firstField instanceof HTMLElement) {
+    window.setTimeout(() => firstField.focus(), 40);
+  }
+  trackConversion("booking_modal_open", { page: currentPage });
+};
+
+bookingModalTriggers.forEach((trigger) => {
+  trigger.setAttribute("aria-haspopup", "dialog");
+  trigger.setAttribute("aria-controls", "site-booking-modal");
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeNav();
+    openBookingModal(trigger);
+  });
+});
+
+bookingModal.id = "site-booking-modal";
+
+bookingModal.addEventListener("click", (event) => {
+  if (event.target === bookingModal) {
+    closeBookingModal();
+  }
+});
+
+bookingModalClose?.addEventListener("click", () => {
+  closeBookingModal();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (!bookingModal.classList.contains("is-visible")) return;
+
+  if (event.key === "Escape") {
+    closeBookingModal();
+    return;
+  }
+
+  if (event.key !== "Tab") return;
+
+  const focusable = [...bookingModal.querySelectorAll(
+    'a[href], button:not([disabled]), textarea:not([disabled]), input:not([type="hidden"]):not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )].filter((element) => element instanceof HTMLElement && element.offsetParent !== null);
+
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
   }
 });
 

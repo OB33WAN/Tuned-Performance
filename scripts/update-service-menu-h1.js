@@ -4,8 +4,6 @@ const path = require("path");
 const root = path.join(process.cwd(), "outputs");
 const htmlFiles = fs.readdirSync(root).filter((file) => file.endsWith(".html"));
 
-const serviceNav = `<nav class="service-link-nav" aria-label="Direct service navigation" data-service-nav><div class="container"><a href="bumper-repair-feltham.html">Bumper Repair</a><a href="single-panel-respray-feltham.html">Panel Respray</a><a href="mobile-obd-diagnostics-feltham.html">OBD Diagnostics</a><a href="bmw-mini-coding-feltham.html">BMW/MINI Coding</a><a href="trim-fitment.html">Trim Fitment</a><a href="mot-support.html">MOT Support</a><a href="ecu-remapping.html">ECU Remapping</a></div></nav>`;
-
 const h1Updates = {
   "index.html": "Mobile Mechanic and Car Diagnostics in Feltham",
   "about.html": "Mobile Mechanic and Car Diagnostics by Tuned Performance",
@@ -70,10 +68,6 @@ for (const file of htmlFiles) {
   const full = path.join(root, file);
   let html = fs.readFileSync(full, "utf8");
 
-  if (!html.includes("data-service-nav")) {
-    html = html.replace("</header>", `${serviceNav}</header>`);
-  }
-
   if (h1Updates[file]) {
     html = html.replace(/<h1([^>]*)>[\s\S]*?<\/h1>/i, `<h1$1>${h1Updates[file]}</h1>`);
   }
@@ -110,7 +104,7 @@ const sitemap = fs.readFileSync(sitemapPath, "utf8").replace(/<lastmod>[^<]+<\/l
 fs.writeFileSync(sitemapPath, sitemap, "utf8");
 
 const swPath = path.join(root, "service-worker.js");
-const sw = fs.readFileSync(swPath, "utf8").replace(/tuned-performance-pwa-v\d+/, "tuned-performance-pwa-v16");
+const sw = fs.readFileSync(swPath, "utf8").replace(/tuned-performance-pwa-v\d+/, "tuned-performance-pwa-v19");
 fs.writeFileSync(swPath, sw, "utf8");
 
-console.log(`Updated direct service navigation across ${htmlFiles.length} pages, revised ${Object.keys(h1Updates).length} H1 headings and aligned ${Object.keys(titleUpdates).length} title tags.`);
+console.log(`Revised ${Object.keys(h1Updates).length} H1 headings and aligned ${Object.keys(titleUpdates).length} title tags.`);
