@@ -3133,6 +3133,10 @@ h4 {
     border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
+  .service-link-nav {
+    display: none;
+  }
+
   .service-link-nav .container {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -3164,7 +3168,7 @@ h4 {
   .hero-bg {
     background-image: url("assets/hero-bmw-m3-mobile.jpg");
     background-size: cover;
-    background-position: center 68%;
+    background-position: center center;
   }
 
   h1 {

@@ -22,7 +22,6 @@ const h1Updates = {
   "estimator.html": "Mobile Mechanic Cost Estimator in Feltham",
   "faq.html": "Mobile Mechanic and Car Diagnostics FAQs",
   "gallery.html": "Mobile Car Repair and Car Styling Gallery in Feltham",
-  "guides.html": "Mobile Mechanic and Car Diagnostics Guides",
   "mobile-obd-diagnostics-feltham.html": "Mobile Car Diagnostics Feltham",
   "mot-support.html": "MOT Support and Pre-MOT Car Diagnostics in Feltham",
   "obd-diagnostics.html": "Car Diagnostics and Warning Light Checks in Feltham",

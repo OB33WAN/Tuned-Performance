@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v23";
+const CACHE_NAME = "tuned-performance-pwa-v28";
 
 const CORE_ASSETS = [
   "./",
@@ -32,7 +32,6 @@ const CORE_ASSETS = [
   "./single-panel-repair-respray.html",
   "./thank-you.html",
   "./customer-thank-you.html",
-  "./guides.html",
   "./bumper-repair-feltham.html",
   "./single-panel-respray-feltham.html",
   "./mobile-obd-diagnostics-feltham.html",
@@ -42,8 +41,8 @@ const CORE_ASSETS = [
   "./bmw-mini-coding-guide.html",
   "./terms.html",
   "./trim-fitment.html",
-  "./styles.css?v=23",
-  "./script.js?v=23",
+  "./styles.css?v=28",
+  "./script.js?v=28",
   "./manifest.webmanifest",
   "./README.MD",
   "./llms.txt",
@@ -56,8 +55,6 @@ const CORE_ASSETS = [
   "./assets/favicon-32.png",
   "./assets/favicon-16.png",
   "./assets/area-coverage.png",
-  "./assets/hero-bmw-m3-dark.jpg",
-  "./assets/hero-bmw-m3-mobile.jpg",
   "./assets/hero-workshop.png",
   "./assets/real-bumper-scratch-spot-repairs.jpg",
   "./assets/real-dyno-mapping.jpg",

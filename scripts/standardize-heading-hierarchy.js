@@ -111,12 +111,6 @@ const replacements = {
     "Recent work": "Recent BMW and MINI Coding Work",
     "Questions this page answers": "BMW and MINI Coding FAQs",
   },
-  "guides.html": {
-    "Content built for real customer questions": "Mobile Mechanic and Car Diagnostics Advice",
-    "Internal links": "Related Mobile Car Services",
-    "Recent work": "Recent Mobile Mechanic Work",
-    "Questions this page answers": "Mobile Mechanic Guide FAQs",
-  },
   "car-repair-photo-guide.html": {
     "Internal links": "Related Mobile Car Repair Services",
     "Recent work": "Recent Mobile Car Repair Work",
@@ -159,7 +153,6 @@ const unheadedSectionTitles = {
   "contact.html": ["Mobile Mechanic Contact and Booking Information"],
   "customer-thank-you.html": ["Customer Reviews, Loyalty and Referral Options"],
   "ecu-remapping.html": ["ECU Remapping Prices and Enquiry Information"],
-  "guides.html": ["Mobile Mechanic Guides and Related Services"],
   "mobile-obd-diagnostics-feltham.html": ["Mobile Car Diagnostics Quote Information"],
   "mot-support.html": ["MOT Support Prices and Booking Information", "MOT Status and Car Diagnostics Resources"],
   "mot-warning-light-guide.html": ["MOT and Car Diagnostics Services"],

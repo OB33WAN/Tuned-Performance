@@ -15,12 +15,70 @@ const sitewideBlock = indexHtml.match(
 const navOld =
   '<a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="recent-jobs.html">Recent jobs</a><a href="areas.html">Areas</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a>';
 const navNew =
-  '<a href="services.html">All services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="recent-jobs.html">Recent jobs</a><a href="areas.html">Areas</a><a href="guides.html">Guides</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a>';
+  '<a href="services.html">All services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="recent-jobs.html">Recent jobs</a><a href="areas.html">Areas</a><a href="reviews.html">Reviews</a><a href="contact.html">Book</a>';
 const footerPagesOld =
   '<h2>Pages</h2><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="recent-jobs.html">Recent jobs</a><a href="availability.html">Availability</a><a href="areas.html">Areas covered</a><a href="contact.html">Contact</a>';
 const footerPagesNew =
-  '<h2>Pages</h2><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="recent-jobs.html">Recent jobs</a><a href="availability.html">Availability</a><a href="areas.html">Areas covered</a><a href="guides.html">Guides</a><a href="contact.html">Contact</a>';
-const serviceNav = `<nav class="service-link-nav" aria-label="Direct service navigation" data-service-nav><div class="container"><span class="service-link-nav__label">Service pages</span><a href="scratch-bumper-repairs.html">Bumper scratch repairs</a><a href="single-panel-repair-respray.html">Single panel respray</a><a href="obd-diagnostics.html">Car and engine diagnostics</a><a href="bmw-mini-coding.html">BMW and MINI coding</a><a href="mot-support.html">MOT prep and fault checks</a><a href="ecu-remapping.html">ECU remapping</a><a href="trim-fitment.html">Car styling and accessory fitting</a></div></nav>`;
+  '<h2>Pages</h2><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="recent-jobs.html">Recent jobs</a><a href="availability.html">Availability</a><a href="areas.html">Areas covered</a><a href="contact.html">Contact</a>';
+const serviceLinks = [
+  { href: "scratch-bumper-repairs.html", label: "Bumper scratch repairs" },
+  { href: "single-panel-repair-respray.html", label: "Single panel respray" },
+  { href: "obd-diagnostics.html", label: "Car and engine diagnostics" },
+  { href: "mot-support.html", label: "MOT prep and fault checks" }
+];
+
+const secondaryServiceLinks = [
+  { href: "trim-fitment.html", label: "Trim replacement and accessory fitting" },
+  { href: "bmw-mini-coding.html", label: "BMW and MINI coding" },
+  { href: "ecu-remapping.html", label: "ECU remap enquiries" }
+];
+
+const coreLinks = [
+  { href: "index.html", label: "Home" },
+  { href: "car-services-feltham.html", label: "Mobile Mechanic" },
+  { href: "services.html", label: "Repairs" },
+  { href: "obd-diagnostics.html", label: "Diagnostics" },
+  { href: "pricing.html", label: "Pricing" },
+  { href: "areas.html", label: "Areas" },
+  { href: "contact.html", label: "Contact", className: "nav-book-link" }
+];
+
+const areaLinks = [
+  { href: "car-services-feltham.html", label: "Mobile mechanic Feltham" },
+  { href: "car-services-bedfont.html", label: "Mobile mechanic Bedfont" },
+  { href: "car-services-ashford.html", label: "Mobile mechanic Ashford" },
+  { href: "car-services-sunbury.html", label: "Mobile mechanic Sunbury" },
+  { href: "car-services-hounslow.html", label: "Mobile mechanic Hounslow" },
+  { href: "car-services-kingston.html", label: "Mobile mechanic Kingston" }
+];
+
+const businessLinks = [
+  { href: "about.html", label: "About Tuned Performance" },
+  { href: "recent-jobs.html", label: "Recent jobs" },
+  { href: "reviews.html", label: "Reviews" },
+  { href: "gallery.html", label: "Gallery" },
+  { href: "faq.html", label: "FAQ" },
+  { href: "refer-a-friend.html", label: "Refer a friend" }
+];
+
+const legalLinks = [
+  { href: "privacy-gdpr.html", label: "Privacy and GDPR" },
+  { href: "cookies.html", label: "Cookies" },
+  { href: "terms.html", label: "Terms" },
+  { href: "cancellation-policy.html", label: "Cancellation policy" }
+];
+
+function renderLinks(links, baseClass = "") {
+  return links
+    .map(({ href, label, className = "" }) => {
+      const classes = [baseClass, className].filter(Boolean).join(" ");
+      const classAttr = classes ? ` class="${classes}"` : "";
+      return `<a${classAttr} href="${href}">${label}</a>`;
+    })
+    .join("");
+}
+
+const serviceNav = `<nav class="service-link-nav" aria-label="Direct service navigation" data-service-nav><div class="container"><span class="service-link-nav__label">Service pages</span>${renderLinks(serviceLinks)}</div></nav>`;
 
 function esc(value) {
   return String(value).replace(/[&<>"]/g, (char) => ({
@@ -36,11 +94,11 @@ function jsonScript(key, data) {
 }
 
 function header() {
-  return `<header class="site-header" data-header><div class="container header-inner"><a class="brand" href="index.html"><img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true"><span><strong>Tuned Performance</strong><small>Mobile car care - Feltham</small></span></a><button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button><nav class="site-nav" aria-label="Primary navigation" data-nav><div class="mobile-nav-header"><div><strong>Menu</strong><small>Direct page links for services and booking</small></div><button class="mobile-nav-close" type="button" aria-label="Close menu" data-nav-close><span aria-hidden="true"></span></button></div>${navNew}<div class="mobile-nav-section-title">Service pages</div><a class="mobile-service-link" href="scratch-bumper-repairs.html">Bumper scratch repairs</a><a class="mobile-service-link" href="single-panel-repair-respray.html">Single panel respray</a><a class="mobile-service-link" href="obd-diagnostics.html">Car and engine diagnostics</a><a class="mobile-service-link" href="bmw-mini-coding.html">BMW and MINI coding</a><a class="mobile-service-link" href="mot-support.html">MOT prep and fault checks</a><a class="mobile-service-link" href="ecu-remapping.html">ECU remapping</a><a class="mobile-service-link" href="trim-fitment.html">Car styling and accessory fitting</a><div class="mobile-nav-actions"><a class="mobile-nav-action mobile-nav-action--call" href="tel:+447933705124">Call now</a><a class="mobile-nav-action mobile-nav-action--whatsapp" href="https://wa.me/447933705124" target="_blank" rel="noopener">WhatsApp</a></div></nav><a class="header-cta" href="tel:+447933705124">Call 07933 705124</a></div>${serviceNav}</header>`;
+  return `<header class="site-header" data-header><div class="container header-inner"><a class="brand" href="index.html"><img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true"><span><strong>Tuned Performance</strong><small>Mobile mechanic - Feltham</small></span></a><button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button><nav class="site-nav" aria-label="Primary navigation" data-nav><div class="mobile-nav-header"><div><strong>Menu</strong><small>Core routes, service pages, areas and legal info</small></div><button class="mobile-nav-close" type="button" aria-label="Close menu" data-nav-close><span aria-hidden="true"></span></button></div><div class="mobile-nav-section-title">Main routes</div>${renderLinks(coreLinks)}<div class="mobile-nav-section-title">Core service pages</div>${renderLinks(serviceLinks, "mobile-service-link")}<div class="mobile-nav-section-title">Specialist services</div>${renderLinks(secondaryServiceLinks, "mobile-service-link")}<div class="mobile-nav-section-title">Area pages</div>${renderLinks(areaLinks, "mobile-service-link")}<div class="mobile-nav-section-title">Business</div>${renderLinks(businessLinks, "mobile-service-link")}<div class="mobile-nav-section-title">Legal</div>${renderLinks(legalLinks, "mobile-service-link")}<div class="mobile-nav-actions"><a class="mobile-nav-action mobile-nav-action--call" href="tel:+447933705124">Call now</a><a class="mobile-nav-action mobile-nav-action--whatsapp" href="https://wa.me/447933705124" target="_blank" rel="noopener">WhatsApp</a></div></nav><a class="header-cta" href="tel:+447933705124">Call 07933 705124</a></div>${serviceNav}</header>`;
 }
 
 function footer() {
-  return `<footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true"><span><strong>Tuned Performance</strong><small>Mobile car care - Feltham</small></span></a><p>Mobile car repairs, diagnostics, BMW and MINI coding, fitment, MOT support and ECU remap enquiries. Address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.</p></div><div>${footerPagesNew}</div><div><h2>Services</h2><a href="bumper-repair-feltham.html">Bumper scratch repair Feltham</a><a href="single-panel-respray-feltham.html">Single panel respray Feltham</a><a href="mobile-obd-diagnostics-feltham.html">Car diagnostics Feltham</a><a href="bmw-mini-coding-feltham.html">BMW and MINI coding Feltham</a><a href="trim-fitment.html">Car styling and accessory fitting</a><a href="mot-support.html">MOT prep and fault checks</a></div><div><h2>Trust</h2><a href="about.html">About</a><a href="recent-jobs.html">Recent jobs</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="refer-a-friend.html">Refer a friend</a><a href="faq.html">FAQ</a><a href="https://g.page/r/CZnD7eUE_OmbEBM/review" target="_blank" rel="noopener">Google review</a><a href="https://www.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener">Trustpilot</a></div><div><h2>Legal</h2><a href="privacy-gdpr.html">Privacy and GDPR</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a><a href="cancellation-policy.html">Cancellation</a></div></div><div class="container footer-bottom"><span>&copy; 2026 Tuned Performance. All rights reserved.</span><a href="#main">Back to top</a></div></footer>`;
+  return `<footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true"><span><strong>Tuned Performance</strong><small>Mobile mechanic - Feltham</small></span></a><p>Mobile mechanic support from 105 Swan Road, Feltham, TW13 6PE for car repairs, warning light diagnostics, MOT prep checks, bumper scratches and single panel resprays. Home or workplace visits are available where the job suits a mobile booking. Company number: 17180730.</p></div><div>${footerPagesNew}</div><div><h2>Services</h2><a href="car-services-feltham.html">Mobile mechanic Feltham</a><a href="bumper-repair-feltham.html">Bumper scratch repair Feltham</a><a href="single-panel-respray-feltham.html">Single panel respray Feltham</a><a href="mobile-obd-diagnostics-feltham.html">Car diagnostics Feltham</a><a href="mot-support.html">MOT prep and fault checks</a><a href="bmw-mini-coding-feltham.html">BMW and MINI coding Feltham</a></div><div><h2>Trust</h2><a href="about.html">About</a><a href="recent-jobs.html">Recent jobs</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="refer-a-friend.html">Refer a friend</a><a href="faq.html">FAQ</a><a href="https://g.page/r/CZnD7eUE_OmbEBM/review" target="_blank" rel="noopener">Google review</a><a href="https://www.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener">Trustpilot</a></div><div><h2>Legal</h2><a href="privacy-gdpr.html">Privacy and GDPR</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a><a href="cancellation-policy.html">Cancellation</a></div></div><div class="container footer-bottom"><span>&copy; 2026 Tuned Performance. All rights reserved.</span><a href="#main">Back to top</a></div></footer>`;
 }
 
 function cookieBits() {
@@ -198,10 +256,10 @@ ${schemas.join("\n")}
     <a class="skip-link" href="#main">Skip to content</a>
     ${header()}
     <main id="main">
-      <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb">${breadcrumbs(crumbs)}</nav><p class="eyebrow">${esc(data.eyebrow)}</p><h1>${esc(data.h1)}</h1><p>${esc(data.intro)}</p><div class="hero-actions"><a class="btn btn-primary" href="contact.html">${esc(data.primaryCta || "Request a quote")}</a><a class="btn btn-secondary" href="estimator.html">Use estimator</a></div></div></section>
-      <section class="section section-light"><div class="container split"><div><p class="eyebrow">${esc(data.mainEyebrow || "Local SEO focus")}</p><h2>${esc(data.mainHeading)}</h2>${data.mainParagraphs.map((p) => `<p>${p}</p>`).join("")}<div class="trust-row"><span>Feltham based</span><span>Weekday/weekend requests</span><span>Quote-ready forms</span></div></div><img class="feature-image" src="${data.image || "assets/hero-bmw-m3-dark.jpg"}" alt="${esc(data.imageAlt || data.h1)}" loading="lazy"></div></section>
+      <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb">${breadcrumbs(crumbs)}</nav><p class="eyebrow">${esc(data.eyebrow)}</p><h1>${esc(data.h1)}</h1><p>${esc(data.intro)}</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+447933705124">Call 07933 705124</a><a class="btn btn-secondary" href="https://wa.me/447933705124?text=Hi%20Tuned%20Performance%2C%20I%20would%20like%20a%20quote%20for%20my%20car." target="_blank" rel="noopener">WhatsApp photos for a quote</a></div></div></section>
+      <section class="section section-light"><div class="container split"><div><p class="eyebrow">${esc(data.mainEyebrow || "Mobile mechanic route")}</p><h2>${esc(data.mainHeading)}</h2>${data.mainParagraphs.map((p) => `<p>${p}</p>`).join("")}<div class="trust-row"><span>Feltham based</span><span>Home or workplace visits</span><span>Weekday, evening and weekend requests</span></div></div><img class="feature-image" src="${data.image || "assets/hero-bmw-m3-dark.jpg"}" alt="${esc(data.imageAlt || data.h1)}" loading="lazy"></div></section>
       <section class="section section-dark"><div class="container section-heading"><p class="eyebrow">Search intent</p><h2>${esc(data.cardsHeading)}</h2><p>${esc(data.cardsIntro)}</p></div><div class="container content-grid">${renderCards(data.cards)}</div></section>
-      <section class="section section-light"><div class="container content-grid"><article class="detail-card"><h2>Internal links</h2><p>Move between the main service page, local area page, pricing guide and enquiry form without starting again.</p><a href="services.html">All services</a><a href="pricing.html">Pricing</a><a href="areas.html">Areas covered</a><a href="contact.html">Contact</a></article><article class="detail-card highlight"><h2>What to send</h2><p>${esc(data.whatToSend)}</p><a href="contact.html">Send details</a></article><article class="detail-card"><h2>Recent work</h2><p>Use recent jobs and gallery pages to build trust before sending a quote request.</p><a href="recent-jobs.html">Recent jobs</a><a href="gallery.html">Gallery</a></article></div></section>
+      <section class="section section-light"><div class="container content-grid"><article class="detail-card"><h2>Internal links</h2><p>Move between mobile mechanic, pricing, area and contact routes without starting again.</p><a href="services.html">All services</a><a href="pricing.html">Pricing</a><a href="areas.html">Areas covered</a><a href="contact.html">Contact</a></article><article class="detail-card highlight"><h2>What to send</h2><p>${esc(data.whatToSend)}</p><a href="contact.html">Send details</a></article><article class="detail-card"><h2>Recent work</h2><p>Use recent jobs and gallery pages to build trust before sending a quote request.</p><a href="recent-jobs.html">Recent jobs</a><a href="gallery.html">Gallery</a></article></div></section>
       ${data.faqs?.length ? renderFaq(data.faqs) : ""}
       <section class="conversion-strip"><div class="container"><div><h2>${esc(data.conversionHeading)}</h2><p>${esc(data.conversionText)}</p></div><a class="btn btn-primary" href="contact.html">${esc(data.primaryCta || "Request a quote")}</a></div></section>
     </main>
@@ -350,7 +408,7 @@ const pages = [
     title: "How to Send Car Repair Photos for a Faster Quote | Tuned Performance",
     description: "A practical guide showing what photos and details to send for bumper repair, single panel repair, trim fitment and car repair quotes.",
     keywords: "car repair quote photos, bumper repair photo guide, car scratch quote photos, Feltham car repair guide, Tuned Performance quote guide",
-    crumbs: [{ name: "Guides", href: "guides.html" }, { name: "Photo Guide", href: "car-repair-photo-guide.html" }],
+    crumbs: [{ name: "Photo Guide", href: "car-repair-photo-guide.html" }],
     eyebrow: "Quote guide",
     h1: "How to send car repair photos for a faster quote",
     intro: "Use this guide before sending a repair or fitment enquiry so the quote can be reviewed with less back-and-forth.",
@@ -383,7 +441,7 @@ const pages = [
     title: "Warning Light Before MOT? What to Send First | Tuned Performance",
     description: "Guide for drivers with warning lights before MOT, including what details to send for diagnostics, MOT support and garage routing.",
     keywords: "warning light before MOT, MOT warning light Feltham, car diagnostic before MOT, OBD scan before MOT, MOT support Feltham",
-    crumbs: [{ name: "Guides", href: "guides.html" }, { name: "MOT Warning Light Guide", href: "mot-warning-light-guide.html" }],
+    crumbs: [{ name: "MOT Warning Light Guide", href: "mot-warning-light-guide.html" }],
     eyebrow: "MOT guide",
     h1: "Warning light before MOT? Send these details first",
     intro: "If a warning light appears before MOT, send the right details so diagnostics, repair advice or garage routing can be confirmed.",
@@ -416,7 +474,7 @@ const pages = [
     title: "BMW/MINI Coding Guide | Hidden Features and Compatibility | Tuned Performance",
     description: "Guide to BMW and MINI coding, BimmerCode compatibility, hidden factory features and what to send before requesting coding in Feltham.",
     keywords: "BMW coding guide, MINI coding guide, BimmerCode hidden features, BMW hidden feature compatibility, Mini coding Feltham",
-    crumbs: [{ name: "Guides", href: "guides.html" }, { name: "BMW MINI Coding Guide", href: "bmw-mini-coding-guide.html" }],
+    crumbs: [{ name: "BMW MINI Coding Guide", href: "bmw-mini-coding-guide.html" }],
     eyebrow: "Coding guide",
     h1: "BMW/MINI coding guide for hidden factory features",
     intro: "Understand what coding is, what it is not, and what details to send before requesting a BMW or MINI compatibility check.",
@@ -446,41 +504,13 @@ const pages = [
   },
 ];
 
-const guidesPage = {
-  file: "guides.html",
-  title: "Car Repair and Coding Guides | Tuned Performance Feltham",
-  description: "Helpful Tuned Performance guides for car repair photos, MOT warning lights, BMW/MINI coding, diagnostics and local quote preparation.",
-  keywords: "car repair guides Feltham, bumper repair photo guide, BMW MINI coding guide, MOT warning light guide, car diagnostics Feltham",
-  crumbs: [{ name: "Guides", href: "guides.html" }],
-  eyebrow: "Helpful guides",
-  h1: "Guides for faster car repair, diagnostic and coding enquiries",
-  intro: "Use these guides to send better information, reduce back-and-forth and choose the right Tuned Performance quote route.",
-  mainHeading: "Content built for real customer questions",
-  mainParagraphs: [
-    "Search visibility improves when pages answer specific questions clearly. These guides target practical long-tail searches around photos, MOT warning lights and BMW/MINI coding.",
-    "Each guide links back into the service, pricing, estimator and contact routes so visitors can move from research to enquiry.",
-  ],
-  cardsHeading: "Start with the guide that matches your problem",
-  cardsIntro: "These pages are written for local drivers who are not ready to call yet but are close to making an enquiry.",
-  cards: [
-    { h: "Repair photo guide", p: "What to photograph before requesting bumper, scratch or panel repair pricing.", links: [{ href: "car-repair-photo-guide.html", text: "Read photo guide" }] },
-    { h: "MOT warning light guide", p: "What to send when a warning light appears before an MOT or after a fail.", links: [{ href: "mot-warning-light-guide.html", text: "Read MOT guide" }] },
-    { h: "BMW/MINI coding guide", p: "Understand hidden factory feature coding, compatibility and what details to send.", links: [{ href: "bmw-mini-coding-guide.html", text: "Read coding guide" }] },
-  ],
-  whatToSend: "Send vehicle details, postcode, service type, photos or warning light details, and preferred weekday or weekend timing.",
-  conversionHeading: "Know what you need now?",
-  conversionText: "Use the estimator or contact form to turn the guide into a clear enquiry.",
-  image: "assets/tuned-car-lineup.jpg",
-  imageAlt: "Tuned performance cars for local service guides",
-  faqs: [
-    ["Why add guides to the website?", "Guides help Google and customers understand the site expertise while capturing longer search queries before someone is ready to book."],
-    ["Do guides replace service pages?", "No. Guides answer questions and then link users to service, pricing, estimator and contact pages."],
-    ["Can I use these guides before messaging?", "Yes. They are designed to help you send the right information the first time."],
-  ],
-};
-
-for (const page of [guidesPage, ...pages]) {
+for (const page of pages) {
   fs.writeFileSync(path.join(root, page.file), renderPage(page), "utf8");
+}
+
+const guidesHubPath = path.join(root, "guides.html");
+if (fs.existsSync(guidesHubPath)) {
+  fs.unlinkSync(guidesHubPath);
 }
 
 for (const file of fs.readdirSync(root).filter((f) => f.endsWith(".html"))) {
@@ -488,12 +518,14 @@ for (const file of fs.readdirSync(root).filter((f) => f.endsWith(".html"))) {
   let html = fs.readFileSync(full, "utf8");
   html = html.split(navOld).join(navNew);
   html = html.split(footerPagesOld).join(footerPagesNew);
+  html = html.replace(/<a href="guides\.html">Guides<\/a>/g, "");
+  html = html.replace(/<a href="guides\.html">All guides<\/a>/g, "");
   fs.writeFileSync(full, html, "utf8");
 }
 
 const popularLocalSection = `      <section class="section section-dark" aria-labelledby="popular-searches-title">
-        <div class="container section-heading"><p class="eyebrow">Popular local searches</p><h2 id="popular-searches-title">Pages built around high-intent Feltham searches</h2><p>These pages target the service-and-place searches that are more likely to turn into calls, WhatsApp messages and quote requests.</p></div>
-        <div class="container content-grid"><article class="detail-card"><h3>Bumper scratch repair Feltham</h3><p>Photo-led bumper scratch and paint scuff quote route for local drivers.</p><a href="bumper-repair-feltham.html">Open bumper page</a></article><article class="detail-card"><h3>Single panel respray Feltham</h3><p>Single panel repair and re-spray guidance for scratches and paint damage.</p><a href="single-panel-respray-feltham.html">Open panel page</a></article><article class="detail-card"><h3>Car diagnostics Feltham</h3><p>Warning light and engine fault checks before MOT or repair work.</p><a href="mobile-obd-diagnostics-feltham.html">Open diagnostics page</a></article><article class="detail-card"><h3>BMW and MINI coding Feltham</h3><p>BimmerCode-supported hidden feature and comfort coding compatibility checks.</p><a href="bmw-mini-coding-feltham.html">Open coding page</a></article></div>
+        <div class="container section-heading"><p class="eyebrow">Popular local searches</p><h2 id="popular-searches-title">Pages built around high-intent Feltham searches</h2><p>These pages target the repair, diagnostics and local mobile mechanic searches that are more likely to turn into calls, WhatsApp messages and quote requests.</p></div>
+        <div class="container content-grid"><article class="detail-card"><h3>Mobile mechanic Feltham</h3><p>Local quote route for repairs, warning lights, MOT prep and fast booking requests.</p><a href="car-services-feltham.html">Open Feltham page</a></article><article class="detail-card"><h3>Bumper scratch repair Feltham</h3><p>Photo-led bumper scratch and paint scuff quote route for local drivers.</p><a href="bumper-repair-feltham.html">Open bumper page</a></article><article class="detail-card"><h3>Single panel respray Feltham</h3><p>Single panel repair and re-spray guidance for scratches and paint damage.</p><a href="single-panel-respray-feltham.html">Open panel page</a></article><article class="detail-card"><h3>Car diagnostics Feltham</h3><p>Warning light and engine fault checks before MOT or repair work.</p><a href="mobile-obd-diagnostics-feltham.html">Open diagnostics page</a></article></div>
       </section>
 
 `;
@@ -503,7 +535,7 @@ if (!home.includes("popular-searches-title")) {
   fs.writeFileSync(path.join(root, "index.html"), home, "utf8");
 }
 
-const areaServiceSection = `      <section class="section section-light" aria-labelledby="area-service-searches-title"><div class="container section-heading"><p class="eyebrow">Service searches</p><h2 id="area-service-searches-title">High-intent Feltham service pages</h2><p>These pages target specific local queries and link customers directly to pricing, estimator and contact routes.</p></div><div class="container content-grid"><article class="detail-card"><h3>Bumper scratch repair Feltham</h3><p>For bumper scratches, paint transfer and scuff quote requests.</p><a href="bumper-repair-feltham.html">Bumper scratch repair</a></article><article class="detail-card"><h3>Single panel respray Feltham</h3><p>For single panel repair and re-spray enquiries.</p><a href="single-panel-respray-feltham.html">Single panel respray</a></article><article class="detail-card"><h3>Car diagnostics Feltham</h3><p>For warning lights, engine checks and MOT-related faults.</p><a href="mobile-obd-diagnostics-feltham.html">Car diagnostics</a></article><article class="detail-card"><h3>BMW and MINI coding Feltham</h3><p>For supported hidden factory feature coding.</p><a href="bmw-mini-coding-feltham.html">BMW and MINI coding</a></article></div></section>
+const areaServiceSection = `      <section class="section section-light" aria-labelledby="area-service-searches-title"><div class="container section-heading"><p class="eyebrow">Service searches</p><h2 id="area-service-searches-title">High-intent Feltham service pages</h2><p>These pages target specific local queries and link customers directly to pricing, estimator and contact routes.</p></div><div class="container content-grid"><article class="detail-card"><h3>Mobile mechanic Feltham</h3><p>Local route for repair quotes, warning lights and weekday or weekend booking requests.</p><a href="car-services-feltham.html">Mobile mechanic Feltham</a></article><article class="detail-card"><h3>Bumper scratch repair Feltham</h3><p>For bumper scratches, paint transfer and scuff quote requests.</p><a href="bumper-repair-feltham.html">Bumper scratch repair</a></article><article class="detail-card"><h3>Single panel respray Feltham</h3><p>For single panel repair and re-spray enquiries.</p><a href="single-panel-respray-feltham.html">Single panel respray</a></article><article class="detail-card"><h3>Car diagnostics Feltham</h3><p>For warning lights, engine checks and MOT-related faults.</p><a href="mobile-obd-diagnostics-feltham.html">Car diagnostics</a></article></div></section>
 `;
 let areasHtml = fs.readFileSync(path.join(root, "areas.html"), "utf8");
 if (!areasHtml.includes("area-service-searches-title")) {
@@ -511,7 +543,7 @@ if (!areasHtml.includes("area-service-searches-title")) {
   fs.writeFileSync(path.join(root, "areas.html"), areasHtml, "utf8");
 }
 
-const servicesIntentSection = `      <section class="section section-light" aria-labelledby="service-intent-title"><div class="container section-heading"><p class="eyebrow">Local search pages</p><h2 id="service-intent-title">Service pages for specific Feltham searches</h2><p>Use these pages when the customer already knows the service they want and is searching locally.</p></div><div class="container content-grid"><article class="detail-card"><h3>Bumper scratch repair Feltham</h3><p>Bumper scratches, paint scuffs and minor bumper damage quote route.</p><a href="bumper-repair-feltham.html">Bumper scratch repair Feltham</a></article><article class="detail-card"><h3>Single panel respray Feltham</h3><p>Panel paint repair and re-spray enquiry route.</p><a href="single-panel-respray-feltham.html">Single panel respray Feltham</a></article><article class="detail-card"><h3>Car and engine diagnostics Feltham</h3><p>Warning light, MOT and engine fault check enquiry route.</p><a href="mobile-obd-diagnostics-feltham.html">Car diagnostics Feltham</a></article><article class="detail-card"><h3>BMW and MINI coding Feltham</h3><p>BimmerCode supported coding and hidden feature checks.</p><a href="bmw-mini-coding-feltham.html">BMW and MINI coding Feltham</a></article></div></section>
+const servicesIntentSection = `      <section class="section section-light" aria-labelledby="service-intent-title"><div class="container section-heading"><p class="eyebrow">Local search pages</p><h2 id="service-intent-title">Service pages for specific Feltham searches</h2><p>Use these pages when the customer already knows the service they want and is searching locally.</p></div><div class="container content-grid"><article class="detail-card"><h3>Mobile mechanic Feltham</h3><p>Area page for repair quotes, diagnostics and MOT-related mobile mechanic searches.</p><a href="car-services-feltham.html">Mobile mechanic Feltham</a></article><article class="detail-card"><h3>Bumper scratch repair Feltham</h3><p>Bumper scratches, paint scuffs and minor bumper damage quote route.</p><a href="bumper-repair-feltham.html">Bumper scratch repair Feltham</a></article><article class="detail-card"><h3>Single panel respray Feltham</h3><p>Panel paint repair and re-spray enquiry route.</p><a href="single-panel-respray-feltham.html">Single panel respray Feltham</a></article><article class="detail-card"><h3>Car and engine diagnostics Feltham</h3><p>Warning light, MOT and engine fault check enquiry route.</p><a href="mobile-obd-diagnostics-feltham.html">Car diagnostics Feltham</a></article></div></section>
 `;
 let servicesHtml = fs.readFileSync(path.join(root, "services.html"), "utf8");
 if (!servicesHtml.includes("service-intent-title")) {
@@ -520,7 +552,6 @@ if (!servicesHtml.includes("service-intent-title")) {
 }
 
 const newUrls = [
-  ["guides.html", "0.7"],
   ["bumper-repair-feltham.html", "0.8"],
   ["single-panel-respray-feltham.html", "0.8"],
   ["mobile-obd-diagnostics-feltham.html", "0.8"],
@@ -530,6 +561,7 @@ const newUrls = [
   ["bmw-mini-coding-guide.html", "0.65"],
 ];
 let sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8").replace(/<lastmod>[^<]+<\/lastmod>/g, `<lastmod>${date}</lastmod>`);
+sitemap = sitemap.replace(/\s*<url><loc>https:\/\/tunedperformance\.co\.uk\/guides\.html<\/loc><lastmod>[^<]+<\/lastmod><priority>[^<]+<\/priority><\/url>/g, "");
 for (const [file, priority] of newUrls) {
   const loc = `${base}${file}`;
   if (!sitemap.includes(`<loc>${loc}</loc>`)) {
@@ -540,7 +572,8 @@ fs.writeFileSync(path.join(root, "sitemap.xml"), sitemap, "utf8");
 
 let sw = fs.readFileSync(path.join(root, "service-worker.js"), "utf8");
 sw = sw.replace(/tuned-performance-pwa-v\d+/, "tuned-performance-pwa-v13");
-if (!sw.includes("./guides.html")) {
+sw = sw.replace(/^\s*"\.\/guides\.html",\r?\n/m, "");
+if (!sw.includes("./bumper-repair-feltham.html")) {
   sw = sw.replace(
     '  "./customer-thank-you.html",\n',
     '  "./customer-thank-you.html",\n' + newUrls.map(([file]) => `  "./${file}",\n`).join("")
@@ -549,8 +582,11 @@ if (!sw.includes("./guides.html")) {
 fs.writeFileSync(path.join(root, "service-worker.js"), sw, "utf8");
 
 let llms = fs.readFileSync(path.join(root, "llms.txt"), "utf8");
+llms = llms.replace(/- Guides Hub: https:\/\/tunedperformance\.co\.uk\/guides\.html\r?\n/g, "");
 if (!llms.includes("## Local SEO Landing Pages")) {
-  llms += `\n## Local SEO Landing Pages\n\n- Bumper Repair Feltham: https://tunedperformance.co.uk/bumper-repair-feltham.html\n- Single Panel Respray Feltham: https://tunedperformance.co.uk/single-panel-respray-feltham.html\n- Mobile OBD Diagnostics Feltham: https://tunedperformance.co.uk/mobile-obd-diagnostics-feltham.html\n- BMW/MINI Coding Feltham: https://tunedperformance.co.uk/bmw-mini-coding-feltham.html\n- Guides Hub: https://tunedperformance.co.uk/guides.html\n- Repair Photo Guide: https://tunedperformance.co.uk/car-repair-photo-guide.html\n- MOT Warning Light Guide: https://tunedperformance.co.uk/mot-warning-light-guide.html\n- BMW/MINI Coding Guide: https://tunedperformance.co.uk/bmw-mini-coding-guide.html\n`;
+  llms += `\n## Local SEO Landing Pages\n\n- Bumper Repair Feltham: https://tunedperformance.co.uk/bumper-repair-feltham.html\n- Single Panel Respray Feltham: https://tunedperformance.co.uk/single-panel-respray-feltham.html\n- Mobile OBD Diagnostics Feltham: https://tunedperformance.co.uk/mobile-obd-diagnostics-feltham.html\n- BMW/MINI Coding Feltham: https://tunedperformance.co.uk/bmw-mini-coding-feltham.html\n- Repair Photo Guide: https://tunedperformance.co.uk/car-repair-photo-guide.html\n- MOT Warning Light Guide: https://tunedperformance.co.uk/mot-warning-light-guide.html\n- BMW/MINI Coding Guide: https://tunedperformance.co.uk/bmw-mini-coding-guide.html\n`;
+  fs.writeFileSync(path.join(root, "llms.txt"), llms, "utf8");
+} else {
   fs.writeFileSync(path.join(root, "llms.txt"), llms, "utf8");
 }
 
@@ -560,4 +596,4 @@ if (!readme.includes("## SEO Expansion")) {
   fs.writeFileSync(path.join(root, "README.MD"), readme, "utf8");
 }
 
-console.log(`Generated ${pages.length + 1} SEO pages and updated internal links.`);
+console.log(`Generated ${pages.length} SEO pages and updated internal links.`);

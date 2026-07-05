@@ -3,12 +3,72 @@ const path = require("path");
 
 const root = path.join(process.cwd(), "outputs");
 const htmlFiles = fs.readdirSync(root).filter((file) => file.endsWith(".html"));
-const assetVersion = "23";
+const assetVersion = "28";
 
-const serviceNav = `<nav class="service-link-nav" aria-label="Direct service navigation" data-service-nav><div class="container"><span class="service-link-nav__label">Service pages</span><a href="scratch-bumper-repairs.html">Bumper scratch repairs</a><a href="single-panel-repair-respray.html">Single panel respray</a><a href="obd-diagnostics.html">Car and engine diagnostics</a><a href="bmw-mini-coding.html">BMW and MINI coding</a><a href="mot-support.html">MOT prep and fault checks</a><a href="ecu-remapping.html">ECU remapping</a><a href="trim-fitment.html">Car styling and accessory fitting</a></div></nav>`;
+const serviceLinks = [
+  { href: "scratch-bumper-repairs.html", label: "Bumper scratch repairs" },
+  { href: "single-panel-repair-respray.html", label: "Single panel respray" },
+  { href: "obd-diagnostics.html", label: "Car and engine diagnostics" },
+  { href: "mot-support.html", label: "MOT prep and fault checks" }
+];
+
+const secondaryServiceLinks = [
+  { href: "trim-fitment.html", label: "Trim replacement and accessory fitting" },
+  { href: "bmw-mini-coding.html", label: "BMW and MINI coding" },
+  { href: "ecu-remapping.html", label: "ECU remap enquiries" }
+];
+
+const coreLinks = [
+  { href: "index.html", label: "Home" },
+  { href: "car-services-feltham.html", label: "Mobile Mechanic" },
+  { href: "services.html", label: "Repairs" },
+  { href: "obd-diagnostics.html", label: "Diagnostics" },
+  { href: "pricing.html", label: "Pricing" },
+  { href: "areas.html", label: "Areas" },
+  { href: "contact.html", label: "Contact", className: "nav-book-link" }
+];
+
+const areaLinks = [
+  { href: "car-services-feltham.html", label: "Mobile mechanic Feltham" },
+  { href: "car-services-bedfont.html", label: "Mobile mechanic Bedfont" },
+  { href: "car-services-ashford.html", label: "Mobile mechanic Ashford" },
+  { href: "car-services-sunbury.html", label: "Mobile mechanic Sunbury" },
+  { href: "car-services-hounslow.html", label: "Mobile mechanic Hounslow" },
+  { href: "car-services-kingston.html", label: "Mobile mechanic Kingston" }
+];
+
+const businessLinks = [
+  { href: "about.html", label: "About Tuned Performance" },
+  { href: "recent-jobs.html", label: "Recent jobs" },
+  { href: "reviews.html", label: "Reviews" },
+  { href: "gallery.html", label: "Gallery" },
+  { href: "faq.html", label: "FAQ" },
+  { href: "refer-a-friend.html", label: "Refer a friend" }
+];
+
+const legalLinks = [
+  { href: "privacy-gdpr.html", label: "Privacy and GDPR" },
+  { href: "cookies.html", label: "Cookies" },
+  { href: "terms.html", label: "Terms" },
+  { href: "cancellation-policy.html", label: "Cancellation policy" }
+];
+
+function renderLinks(links, baseClass = "") {
+  return links
+    .map(({ href, label, className = "" }) => {
+      const classes = [baseClass, className].filter(Boolean).join(" ");
+      const classAttr = classes ? ` class="${classes}"` : "";
+      return `<a${classAttr} href="${href}">${label}</a>`;
+    })
+    .join("");
+}
+
+const serviceNav = `<nav class="service-link-nav" aria-label="Direct service navigation" data-service-nav><div class="container"><span class="service-link-nav__label">Service pages</span>${renderLinks(serviceLinks)}</div></nav>`;
 
 const sharedReplacements = [
+  ['Mobile car care - Feltham', 'Mobile mechanic - Feltham'],
   ['Mobile car care, diagnostics, BMW/MINI coding and repair enquiries in Feltham', 'Mobile car care, car diagnostics, BMW and MINI coding and repair enquiries in Feltham'],
+  ['Mobile mechanic visits, car repairs, car and engine diagnostics, MOT prep checks, minor bodywork enquiries, trim replacement and specialist BMW and MINI coding from 105 Swan Road, Feltham, TW13 6PE, serving Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston.', 'Mobile mechanic visits, car repairs, bumper scratch repairs, single panel resprays, car and engine diagnostics, MOT prep checks and trim replacement from 105 Swan Road, Feltham, TW13 6PE, serving Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Specialist BMW and MINI coding is available when relevant.'],
   ['Mobile car repairs, diagnostics, BMW and MINI coding, trim fitment, MOT support and ECU remap enquiries from 105 Swan Road, Feltham, TW13 6PE, serving Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston.', 'Mobile car repairs, car and engine diagnostics, BMW and MINI coding, car styling and accessory fitting, MOT prep checks and ECU remap enquiries from 105 Swan Road, Feltham, TW13 6PE, serving Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston.'],
   ['Mobile car repairs, diagnostics, BMW and MINI coding, fitment, MOT support and ECU remap enquiries across Feltham and nearby areas. Address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.', 'Mobile car repairs, car and engine diagnostics, BMW and MINI coding, car styling and accessory fitting, MOT prep checks and ECU remap enquiries across Feltham and nearby areas. Address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.'],
   ['Mobile car repairs, diagnostics, BMW and MINI coding, fitment, MOT support and ECU remap enquiries. Address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.', 'Mobile car repairs, car and engine diagnostics, BMW and MINI coding, car styling and accessory fitting, MOT prep checks and ECU remap enquiries. Address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.'],
@@ -26,8 +86,9 @@ const sharedReplacements = [
   ['href="single-panel-repair-respray.html">Single panel repair<', 'href="single-panel-repair-respray.html">Single panel respray<'],
   ['href="obd-diagnostics.html">OBD diagnostics<', 'href="obd-diagnostics.html">Car and engine diagnostics<'],
   ['href="obd-diagnostics.html">Car diagnostics<', 'href="obd-diagnostics.html">Car and engine diagnostics<'],
-  ['href="trim-fitment.html">Trim fitment<', 'href="trim-fitment.html">Car styling and accessory fitting<'],
-  ['href="trim-fitment.html">Styling and fitment<', 'href="trim-fitment.html">Car styling and accessory fitting<'],
+  ['href="trim-fitment.html">Trim fitment<', 'href="trim-fitment.html">Trim replacement and accessory fitting<'],
+  ['href="trim-fitment.html">Styling and fitment<', 'href="trim-fitment.html">Trim replacement and accessory fitting<'],
+  ['href="trim-fitment.html">Car styling and accessory fitting<', 'href="trim-fitment.html">Trim replacement and accessory fitting<'],
   ['href="mot-support.html">MOT support<', 'href="mot-support.html">MOT prep and fault checks<'],
   ['href="bmw-mini-coding.html">BMW/MINI coding<', 'href="bmw-mini-coding.html">BMW and MINI coding<'],
   ['href="mobile-obd-diagnostics-feltham.html">OBD diagnostics Feltham<', 'href="mobile-obd-diagnostics-feltham.html">Car diagnostics Feltham<'],
@@ -43,17 +104,15 @@ const sharedReplacements = [
   ['<h3>BMW Coding and MINI Coding</h3>', '<h3>BMW and MINI coding</h3>'],
   ['<h3>BMW/MINI coding</h3>', '<h3>BMW and MINI coding</h3>'],
   ['<h3>MOT support and checks</h3>', '<h3>MOT prep and fault checks</h3>'],
-  ['>Repairs<', '>Single panel respray<'],
-  ['>Diagnostics<', '>Car diagnostics<'],
   ['<dd>Bumper repairs</dd>', '<dd>Bumper scratch repairs</dd>'],
   ['<dd>OBD diagnostics</dd>', '<dd>Car and engine diagnostics</dd>'],
   ['<option value="repair">Bumper or panel repair</option>', '<option value="repair">Bumper scratch or panel repair</option>'],
   ['<option value="diagnostic">OBD diagnostics</option>', '<option value="diagnostic">Car and engine diagnostics</option>'],
-  ['<option value="fitment">Trim or accessory fitment</option>', '<option value="fitment">Car styling or accessory fitting</option>'],
+  ['<option value="fitment">Trim or accessory fitment</option>', '<option value="fitment">Trim replacement or accessory fitting</option>'],
   ['<option value="mot">MOT support</option>', '<option value="mot">MOT prep and fault checks</option>'],
   ['<option value="coding">BMW/MINI coding</option>', '<option value="coding">BMW and MINI coding</option>'],
   ['<option>OBD diagnostics</option>', '<option>Car and engine diagnostics</option>'],
-  ['<option>Trim or accessory fitment</option>', '<option>Car styling or accessory fitting</option>'],
+  ['<option>Trim or accessory fitment</option>', '<option>Trim replacement or accessory fitting</option>'],
   ['<option>MOT support</option>', '<option>MOT prep and fault checks</option>'],
   ['<option>BMW/MINI coding</option>', '<option>BMW and MINI coding</option>'],
   ['<h3>OBD diagnostics Feltham</h3>', '<h3>Car and engine diagnostics Feltham</h3>'],
@@ -87,33 +146,56 @@ const sharedReplacements = [
   ['"name": "Bumper repairs"', '"name": "Bumper scratch repairs"'],
   ['"name": "OBD diagnostics"', '"name": "Car and engine diagnostics"'],
   ['"name": "MOT support"', '"name": "MOT prep and fault checks"'],
-  ['"name": "Trim and styling fitment"', '"name": "Car styling and accessory fitting"']
+  ['"name": "Trim and styling fitment"', '"name": "Trim replacement and accessory fitting"'],
+  ['Car styling and accessory fitting', 'Trim replacement and accessory fitting'],
+  ['car styling and accessory fitting', 'trim replacement and accessory fitting'],
+  ['Car styling or accessory fitting', 'Trim replacement or accessory fitting'],
+  ['Mobile mechanic visits, car repairs, car and engine diagnostics, MOT prep checks, minor bodywork, trim replacement and specialist BMW and MINI coding. Address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.', 'Mobile mechanic quotes for car repairs, bumper scratch repairs, single panel resprays, car and engine diagnostics, MOT prep checks and trim replacement. Address: 105 Swan Road, Feltham, TW13 6PE. BMW and MINI coding is available as a specialist add-on service. Company number: 17180730.'],
+  ['Mobile car repairs, car and engine diagnostics, BMW and MINI coding, trim replacement and accessory fitting, MOT prep checks and ECU remap enquiries across Feltham and nearby areas. Address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.', 'Mobile mechanic quotes for car repairs, bumper scratch repairs, single panel resprays, car and engine diagnostics, MOT prep checks and trim replacement across Feltham and nearby areas. Address: 105 Swan Road, Feltham, TW13 6PE. BMW and MINI coding is available as a specialist add-on service. Company number: 17180730.'],
+  ['<div><h2>Services</h2><a href="scratch-bumper-repairs.html">Bumper scratch repairs</a><a href="single-panel-repair-respray.html">Single panel respray</a><a href="obd-diagnostics.html">Car and engine diagnostics</a><a href="trim-fitment.html">Trim replacement and accessory fitting</a><a href="mot-support.html">MOT prep and fault checks</a><a href="bmw-mini-coding.html">BMW and MINI coding</a><a href="ecu-remapping.html">ECU remapping</a></div>', '<div><h2>Services</h2><a href="bumper-repair-feltham.html">Bumper scratch repair Feltham</a><a href="single-panel-respray-feltham.html">Single panel respray Feltham</a><a href="mobile-obd-diagnostics-feltham.html">Car diagnostics Feltham</a><a href="mot-support.html">MOT prep and fault checks</a><a href="trim-fitment.html">Trim replacement and accessory fitting</a><a href="bmw-mini-coding-feltham.html">BMW and MINI coding Feltham</a></div>'],
+  ['"name": "Is BMW and MINI coding the same as ECU remapping?"', '"name": "Do I need diagnostics before BMW or MINI coding?"'],
+  ['"text": "No. BMW and MINI coding changes supported convenience and hidden features, while ECU remapping changes engine calibration. Coding availability depends on vehicle support and remapping remains an enquiry route only."', '"text": "If the vehicle has warning lights, fault codes or running issues, diagnostics should come before BMW or MINI coding. Coding is for supported comfort and hidden-feature changes on fault-free vehicles."'],
+  ['Can I enquire about ECU remapping now?', 'Should I book diagnostics before replacing parts?'],
+  ['Yes. Remapping is enquiry-only at the moment, so the best next step is to register interest with make, model, engine and your goal.', 'If the car has a warning light, starting issue or running fault, diagnostics should usually come before parts ordering. Send the symptoms and any warning light photo first.'],
+  ['Compare repair, diagnostics, MOT prep, trim replacement and specialist BMW and MINI coding pages.', 'Compare repair, diagnostics, MOT prep and trim replacement pages, with BMW and MINI coding available when relevant.'],
+  ['Trim replacement and specialist BMW and MINI coding are still available through the services page when relevant.', 'Trim replacement is available directly, and BMW and MINI coding remains a specialist secondary service when relevant.'],
+  ['Most bookings start with repairs, diagnostics or MOT-related checks. Use the specialist BMW and MINI coding route only when the car is fault-free and you already know the feature change you want.', 'Most bookings start with bumper scratches, panel paint damage, diagnostics or MOT-related checks. BMW and MINI coding remains a specialist secondary route for supported, fault-free vehicles.'],
+  ['Learn about Tuned Performance, a Feltham-based mobile car care business for repairs, diagnostics, BMW and MINI coding, fitment, MOT support and ECU remap enquiries.', 'Learn about Tuned Performance, a Feltham-based mobile mechanic business for repairs, bumper scratches, diagnostics, MOT prep checks and trim replacement, with BMW and MINI coding available when relevant.'],
+  ['Request a Tuned Performance quote by email, phone or WhatsApp for mobile car repair, car and engine diagnostics, BMW and MINI coding, trim replacement and accessory fitting, MOT prep checks or ECU remap enquiries.', 'Request a Tuned Performance quote by email, phone or WhatsApp for mobile car repairs, bumper scratches, single panel resprays, car and engine diagnostics, MOT prep checks and trim replacement.'],
+  ['Tuned Performance pricing for bumper repairs, single panel repair and re-spray, diagnostics, BMW and MINI coding, fitment labour, MOT support and ECU remap enquiries in Feltham and nearby areas.', 'Tuned Performance pricing for bumper scratch repairs, single panel resprays, car and engine diagnostics, trim replacement labour and MOT prep checks in Feltham and nearby areas.'],
+  ['Frequently asked questions for Tuned Performance quotes, repairs, diagnostics, BMW and MINI coding, trim replacement, MOT support, ECU remap enquiries and weekend availability.', 'Frequently asked questions for Tuned Performance quotes, repairs, diagnostics, MOT prep checks, trim replacement, weekday and weekend availability, and BMW and MINI coding where relevant.'],
+  ['View Tuned Performance gallery images for bumper repairs, single panel repair and re-spray, carbon mirror caps, trim replacement, diagnostics, MOT support and ECU remap enquiries.', 'View Tuned Performance gallery images for bumper scratch repairs, single panel resprays, trim replacement, diagnostics, MOT prep checks and recent customer jobs.'],
+  ['Mobile mechanic visits, car repairs, bumper scratch repairs, single panel resprays, car and engine diagnostics, MOT prep checks and trim replacement from 105 Swan Road, Feltham, TW13 6PE, serving Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Specialist BMW and MINI coding is available when relevant.', 'Mobile mechanic visits from 105 Swan Road, Feltham, TW13 6PE for car repairs, warning light diagnostics, MOT prep checks, bumper scratches and single panel resprays across Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Home or workplace visits are available where the job suits a mobile booking.'],
+  ['Trim replacement is available directly, and BMW and MINI coding remains a specialist secondary service when relevant.', 'Home or workplace visits are available where the job suits a mobile booking, and clear guidance is given when workshop support is the better route.'],
+  ['Compare repair, diagnostics, MOT prep and trim replacement pages, with BMW and MINI coding available when relevant.', 'Compare the main mobile mechanic routes for repairs, diagnostics, pricing and contact before you book.'],
+  ['Most bookings start with bumper scratches, panel paint damage, diagnostics or MOT-related checks. BMW and MINI coding remains a specialist secondary route for supported, fault-free vehicles.', 'Most bookings start with car repairs, warning lights, MOT-related faults or quote-ready photos. Specialist secondary services are discussed separately when relevant.'],
+  ['Specialist coding only if relevant', 'Secondary specialist services only where relevant'],
+  ['Move between the main service page, local area page, pricing guide and enquiry form without starting again.', 'Move between mobile mechanic, pricing, area and contact routes without starting again.'],
+  ['Send one message with the vehicle, postcode, symptoms and photos where relevant and get pointed to the fastest booking path.', 'Send one message with the vehicle, postcode, symptoms and photos and get pointed to the fastest mobile mechanic booking path.'],
+  ['Use this page for customer confidence and SEO. It answers the cost question without pretending every vehicle can be priced instantly.', 'Use this page to answer the cost question quickly with clear guide prices, a minimum diagnostic visit and the main next-step routes.'],
+  ['Mobile mechanic quotes for car repairs, bumper scratch repairs, single panel resprays, car and engine diagnostics, MOT prep checks and trim replacement. Address: 105 Swan Road, Feltham, TW13 6PE. BMW and MINI coding is available as a specialist add-on service. Company number: 17180730.', 'Mobile mechanic support from 105 Swan Road, Feltham, TW13 6PE for car repairs, warning light diagnostics, MOT prep checks, bumper scratches and single panel resprays. Home or workplace visits are available where the job suits a mobile booking. Company number: 17180730.']
 ];
 
 const primaryNav = `<nav class="site-nav" aria-label="Primary navigation" data-nav>
           <div class="mobile-nav-header">
             <div>
               <strong>Menu</strong>
-              <small>Direct page links for services and booking</small>
+              <small>Core routes, service pages, areas and legal info</small>
             </div>
             <button class="mobile-nav-close" type="button" aria-label="Close menu" data-nav-close><span aria-hidden="true"></span></button>
           </div>
-          <a href="services.html">All services</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="estimator.html">Estimator</a>
-          <a href="recent-jobs.html">Recent jobs</a>
-          <a href="areas.html">Areas</a>
-          <a href="guides.html">Guides</a>
-          <a href="reviews.html">Reviews</a>
-          <a class="nav-book-link" href="contact.html">Book</a>
-          <div class="mobile-nav-section-title">Service pages</div>
-          <a class="mobile-service-link" href="scratch-bumper-repairs.html">Bumper scratch repairs</a>
-          <a class="mobile-service-link" href="single-panel-repair-respray.html">Single panel respray</a>
-          <a class="mobile-service-link" href="obd-diagnostics.html">Car and engine diagnostics</a>
-          <a class="mobile-service-link" href="bmw-mini-coding.html">BMW and MINI coding</a>
-          <a class="mobile-service-link" href="mot-support.html">MOT prep and fault checks</a>
-          <a class="mobile-service-link" href="ecu-remapping.html">ECU remapping</a>
-          <a class="mobile-service-link" href="trim-fitment.html">Car styling and accessory fitting</a>
+          <div class="mobile-nav-section-title">Main routes</div>
+          ${renderLinks(coreLinks)}
+          <div class="mobile-nav-section-title">Core service pages</div>
+          ${renderLinks(serviceLinks, "mobile-service-link")}
+          <div class="mobile-nav-section-title">Specialist services</div>
+          ${renderLinks(secondaryServiceLinks, "mobile-service-link")}
+          <div class="mobile-nav-section-title">Area pages</div>
+          ${renderLinks(areaLinks, "mobile-service-link")}
+          <div class="mobile-nav-section-title">Business</div>
+          ${renderLinks(businessLinks, "mobile-service-link")}
+          <div class="mobile-nav-section-title">Legal</div>
+          ${renderLinks(legalLinks, "mobile-service-link")}
           <div class="mobile-nav-actions">
             <a class="mobile-nav-action mobile-nav-action--call" href="tel:+447933705124">Call now</a>
             <a class="mobile-nav-action mobile-nav-action--whatsapp" href="https://wa.me/447933705124" target="_blank" rel="noopener">WhatsApp</a>
@@ -127,6 +209,8 @@ for (const file of htmlFiles) {
   html = html.replace(/<nav class="site-nav"[\s\S]*?<\/nav>/i, primaryNav);
   html = html.replace(/\s*<nav class="service-link-nav"[\s\S]*?<\/nav>/i, "");
   html = html.replace(/<\/div>\s*<\/header>/i, `</div>${serviceNav}</header>`);
+  html = html.replace(/<a href="guides\.html">Guides<\/a>/g, "");
+  html = html.replace(/<a href="guides\.html">All guides<\/a>/g, "");
   html = html.replace(/href="styles\.css(?:\?v=\d+)?"/g, `href="styles.css?v=${assetVersion}"`);
   html = html.replace(/src="script\.js(?:\?v=\d+)?"/g, `src="script.js?v=${assetVersion}"`);
   html = html.replace(
