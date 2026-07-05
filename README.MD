@@ -12,6 +12,7 @@ Business address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.
 - Legal pages for Privacy and GDPR, Cookies, Terms and Cancellation.
 - PWA files: `manifest.webmanifest`, `service-worker.js`, app icons and install support.
 - SEO files: `sitemap.xml`, `robots.txt` and `llms.txt`.
+- AI discovery files: `llms.txt` and `llms-full.txt` for LLM crawlers and AI search summaries.
 
 ## Forms And Enquiries
 
@@ -59,10 +60,15 @@ After upload:
 - Confirm `https://tunedperformance.co.uk/sitemap.xml` loads.
 - Confirm `https://tunedperformance.co.uk/robots.txt` loads.
 - Confirm `https://tunedperformance.co.uk/llms.txt` loads.
+- Confirm `https://tunedperformance.co.uk/llms-full.txt` loads.
 - Test the contact form and estimator email route.
 - Test WhatsApp links on mobile.
 - Check Google Analytics real-time events after accepting analytics cookies.
 
 ## SEO Expansion
 
-Added high-intent local landing pages for bumper repair, panel re-spray, OBD diagnostics and BMW/MINI coding in Feltham, plus guide pages for repair photos, MOT warning lights and coding compatibility. Submit the updated sitemap in Google Search Console after deployment.
+Added high-intent local landing pages for bumper repair, panel re-spray, car and engine diagnostics and BMW/MINI coding in Feltham, plus guide pages for repair photos, MOT warning lights and coding compatibility. Submit the updated sitemap in Google Search Console after deployment.
+
+## AI Discovery
+
+The AI discovery layer is designed to make the business easier to classify in AI overviews and LLM-powered search. It is intentionally mobile-mechanic first, with BMW/MINI coding and remap content treated as secondary.

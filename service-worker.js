@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v28";
+const CACHE_NAME = "tuned-performance-pwa-v31";
 
 const CORE_ASSETS = [
   "./",
@@ -41,11 +41,12 @@ const CORE_ASSETS = [
   "./bmw-mini-coding-guide.html",
   "./terms.html",
   "./trim-fitment.html",
-  "./styles.css?v=28",
-  "./script.js?v=28",
+  "./styles.css?v=31",
+  "./script.js?v=30",
   "./manifest.webmanifest",
   "./README.MD",
   "./llms.txt",
+  "./llms-full.txt",
   "./robots.txt",
   "./sitemap.xml",
   "./assets/app-icon-192.png",

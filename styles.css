@@ -574,14 +574,14 @@ p {
 
 h1 {
   margin-bottom: 0;
-  max-width: 760px;
-  font-size: 5.8rem;
-  line-height: 0.94;
+  max-width: 13ch;
+  font-size: 4.8rem;
+  line-height: 0.98;
   letter-spacing: 0;
 }
 
 .hero h1 {
-  max-width: 920px;
+  max-width: 12ch;
   margin-inline: auto;
 }
 
@@ -825,7 +825,7 @@ h4 {
 .page-hero {
   position: relative;
   isolation: isolate;
-  padding: 132px 0 66px;
+  padding: 120px 0 58px;
   background:
     linear-gradient(90deg, rgba(16, 18, 20, 0.94), rgba(16, 18, 20, 0.72)),
     url("assets/hero-workshop.png");
@@ -835,9 +835,9 @@ h4 {
 }
 
 .page-hero h1 {
-  font-size: 4.1rem;
-  max-width: 920px;
-  line-height: 1;
+  font-size: 3.55rem;
+  max-width: 15ch;
+  line-height: 1.02;
 }
 
 .page-hero p {
@@ -1779,11 +1779,11 @@ h4 {
   z-index: 80;
   display: none;
   grid-template-columns: 1fr auto;
-  gap: 18px;
-  align-items: center;
-  max-width: 940px;
+  gap: 14px;
+  align-items: flex-start;
+  max-width: 860px;
   margin-inline: auto;
-  padding: 18px;
+  padding: 14px 16px;
   border-radius: var(--radius);
   background: var(--white);
   color: var(--ink);
@@ -1798,13 +1798,40 @@ h4 {
 .cookie-banner p {
   margin: 0;
   color: var(--muted);
+  font-size: 0.94rem;
 }
 
 .cookie-banner div:last-child {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.cookie-banner a.btn {
+  min-height: auto;
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-banner a.btn:hover,
+.cookie-banner a.btn:focus-visible {
+  transform: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--red);
+}
+
+.cookie-banner button.btn {
+  min-height: 42px;
+  padding: 10px 14px;
 }
 
 .section-light {
@@ -2440,6 +2467,8 @@ h4 {
 
 .botcheck {
   position: absolute;
+  left: -9999px;
+  top: auto;
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -3224,7 +3253,8 @@ h4 {
   }
 
   .page-hero h1 {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
+    max-width: 16ch;
   }
 
   .price-row {
@@ -3481,18 +3511,20 @@ h4 {
 
   .cookie-banner {
     grid-template-columns: 1fr;
-    bottom: 66px;
+    bottom: 62px;
     left: 8px;
     right: 8px;
     width: auto;
     max-width: none;
-    padding: 16px;
+    gap: 10px;
+    padding: 12px;
     overflow: visible;
   }
 
   .cookie-banner p {
     min-width: 0;
     overflow-wrap: anywhere;
+    font-size: 0.9rem;
   }
 
   .cookie-banner div:last-child {
@@ -3504,7 +3536,16 @@ h4 {
   .cookie-banner .btn {
     width: 100%;
     min-width: 0;
-    padding-inline: 12px;
+    min-height: 40px;
+    padding-inline: 10px;
+    font-size: 0.82rem;
+  }
+
+  .cookie-banner a.btn {
+    width: auto;
+    min-height: auto;
+    padding: 2px 0;
+    justify-self: start;
   }
 }
 

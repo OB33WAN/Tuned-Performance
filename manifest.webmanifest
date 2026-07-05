@@ -1,7 +1,7 @@
 {
   "name": "Tuned Performance",
   "short_name": "Tuned",
-  "description": "Mobile car repairs, diagnostics, fitment, MOT support and ECU remap enquiries around Feltham.",
+  "description": "Mobile mechanic repair visits, car diagnostics, MOT prep checks and photo-led repair quotes around Feltham.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

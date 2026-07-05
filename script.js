@@ -89,16 +89,35 @@ const trackConversion = (eventName, params = {}) => {
 
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const pageBookingDefaults = {
-  "scratch-bumper-repairs.html": "Bumper scratch repair",
-  "bumper-repair-feltham.html": "Bumper scratch repair",
-  "single-panel-repair-respray.html": "Single panel respray",
-  "single-panel-respray-feltham.html": "Single panel respray",
+  "index.html": "Mobile mechanic repairs and inspections",
+  "services.html": "Mobile mechanic repairs and inspections",
+  "contact.html": "Mobile mechanic repairs and inspections",
+  "pricing.html": "Mobile mechanic repairs and inspections",
+  "estimator.html": "Mobile mechanic repairs and inspections",
+  "areas.html": "Mobile mechanic repairs and inspections",
+  "availability.html": "Mobile mechanic repairs and inspections",
+  "about.html": "Mobile mechanic repairs and inspections",
+  "gallery.html": "Mobile mechanic repairs and inspections",
+  "reviews.html": "Mobile mechanic repairs and inspections",
+  "recent-jobs.html": "Mobile mechanic repairs and inspections",
+  "refer-a-friend.html": "Mobile mechanic repairs and inspections",
+  "faq.html": "Mobile mechanic repairs and inspections",
+  "car-services-feltham.html": "Mobile mechanic repairs and inspections",
+  "car-services-bedfont.html": "Mobile mechanic repairs and inspections",
+  "car-services-ashford.html": "Mobile mechanic repairs and inspections",
+  "car-services-sunbury.html": "Mobile mechanic repairs and inspections",
+  "car-services-hounslow.html": "Mobile mechanic repairs and inspections",
+  "car-services-kingston.html": "Mobile mechanic repairs and inspections",
+  "scratch-bumper-repairs.html": "Bumper scratches and scuff repair",
+  "bumper-repair-feltham.html": "Bumper scratches and scuff repair",
+  "single-panel-repair-respray.html": "Single panel scratch repair and re-spray",
+  "single-panel-respray-feltham.html": "Single panel scratch repair and re-spray",
   "obd-diagnostics.html": "Car and engine diagnostics",
   "mobile-obd-diagnostics-feltham.html": "Car and engine diagnostics",
   "bmw-mini-coding.html": "BMW and MINI coding",
   "bmw-mini-coding-feltham.html": "BMW and MINI coding",
-  "trim-fitment.html": "Car styling or accessory fitting",
-  "mot-support.html": "MOT prep and fault checks",
+  "trim-fitment.html": "Trim, mirror cap and accessory fitting",
+  "mot-support.html": "MOT prep and fail-sheet checks",
   "ecu-remapping.html": "ECU remap enquiry"
 };
 
@@ -188,7 +207,7 @@ bookingModal.innerHTML = `
         <ul class="booking-modal__list">
           <li>Weekday, evening, Saturday and Sunday route requests</li>
           <li>Service, vehicle and area details in one step</li>
-          <li>Works for diagnostics, repairs, coding and fitment bookings</li>
+          <li>Works for general repairs, diagnostics, MOT prep and specialist bookings</li>
         </ul>
         <div class="booking-modal__actions">
           <a class="btn btn-secondary" href="tel:+447933705124">Call 07933 705124</a>
@@ -226,11 +245,12 @@ bookingModal.innerHTML = `
         <div class="form-row">
           <label for="modal-book-service">Service needed</label>
           <select id="modal-book-service" name="service">
-            <option>Bumper scratch repair</option>
-            <option>Single panel respray</option>
+            <option>Mobile mechanic repairs and inspections</option>
+            <option>Bumper scratches and scuff repair</option>
+            <option>Single panel scratch repair and re-spray</option>
             <option>Car and engine diagnostics</option>
-            <option>Car styling or accessory fitting</option>
-            <option>MOT prep and fault checks</option>
+            <option>MOT prep and fail-sheet checks</option>
+            <option>Trim, mirror cap and accessory fitting</option>
             <option>BMW and MINI coding</option>
             <option>ECU remap enquiry</option>
             <option>Not sure yet</option>
@@ -247,7 +267,7 @@ bookingModal.innerHTML = `
         </div>
         <div class="form-row form-row-full">
           <label for="modal-book-message">What is happening?</label>
-          <textarea id="modal-book-message" name="message" rows="4" placeholder="Add symptoms, damage, parts to fit, MOT date or the coding feature you want."></textarea>
+          <textarea id="modal-book-message" name="message" rows="4" placeholder="Add the repair needed, symptoms, warning lights, damage, parts to fit, MOT concerns or coding features."></textarea>
         </div>
         <div class="form-actions form-row-full">
           <button class="btn btn-primary" type="submit">Send email enquiry</button>
@@ -271,6 +291,51 @@ const bookingModalTriggers = [...new Set(document.querySelectorAll(
   ".nav-book-link, a.btn[href='contact.html'], .mobile-bar a[href='contact.html'], .route-item[href='contact.html']"
 ))];
 let bookingModalRestoreFocus = null;
+
+const estimates = {
+  mechanic: { small: "From &pound;50", medium: "Quote after symptoms or photos", large: "Repair route review needed" },
+  bumper: { small: "From &pound;60", medium: "&pound;90-&pound;160 guide", large: "Photo quote needed" },
+  panel: { small: "From &pound;100", medium: "&pound;150-&pound;240 guide", large: "Panel review needed" },
+  diagnostic: { small: "From &pound;50", medium: "&pound;50-&pound;90 guide", large: "Fault route needed" },
+  fitment: { small: "From &pound;20", medium: "&pound;35-&pound;80 guide", large: "Parts review needed" },
+  mot: { small: "Ask for route quote", medium: "Pickup support quote", large: "Workshop route needed" },
+  coding: { small: "From &pound;40", medium: "&pound;60-&pound;90 guide", large: "Compatibility check needed" },
+  remap: { small: "Enquiry-only service", medium: "Vehicle-specific guidance", large: "Register interest first" }
+};
+
+const estimator = document.querySelector("[data-estimator]");
+const estimateService = document.querySelector("[data-estimate-service]");
+const estimateSize = document.querySelector("[data-estimate-size]");
+const estimateResult = document.querySelector("[data-estimate-result]");
+
+const updateEstimate = () => {
+  if (!estimateService || !estimateSize || !estimateResult) return;
+  const service = estimateService.value;
+  const size = estimateSize.value;
+  estimateResult.innerHTML = estimates[service]?.[size] || "Quote needed";
+  estimateResult.classList.remove("is-updated");
+  void estimateResult.offsetWidth;
+  estimateResult.classList.add("is-updated");
+  trackConversion("quick_estimate_change", { service, size });
+};
+
+estimator?.addEventListener("change", updateEstimate);
+updateEstimate();
+
+const remapRanges = {
+  "turbo-diesel": {
+    text: "Typical enquiry range: 20-35 bhp and stronger mid-range torque.",
+    angle: "-18deg"
+  },
+  "turbo-petrol": {
+    text: "Typical enquiry range: 25-45 bhp with sharper throttle response.",
+    angle: "8deg"
+  },
+  "naturally-aspirated": {
+    text: "Typical gains are usually modest. Enquire for vehicle-specific advice.",
+    angle: "-44deg"
+  }
+};
 
 const setBookingModalDefaultService = () => {
   if (!(bookingModalService instanceof HTMLSelectElement)) return;
@@ -396,64 +461,6 @@ document.addEventListener("keydown", (event) => {
     first.focus();
   }
 });
-
-const estimates = {
-  repair: { small: "From &pound;60", medium: "&pound;90-&pound;160 guide", large: "Photo quote needed" },
-  scratch: { small: "From &pound;100", medium: "&pound;150-&pound;240 guide", large: "Panel review needed" },
-  diagnostic: { small: "From &pound;50", medium: "&pound;50-&pound;90 guide", large: "Fault route needed" },
-  fitment: { small: "From &pound;20", medium: "&pound;35-&pound;80 guide", large: "Parts review needed" },
-  mot: { small: "Ask for route quote", medium: "Pickup support quote", large: "Workshop route needed" },
-  coding: { small: "From &pound;40", medium: "&pound;60-&pound;90 guide", large: "Compatibility check needed" }
-};
-
-const estimator = document.querySelector("[data-estimator]");
-const estimateService = document.querySelector("[data-estimate-service]");
-const estimateSize = document.querySelector("[data-estimate-size]");
-const estimateResult = document.querySelector("[data-estimate-result]");
-
-const updateEstimate = () => {
-  if (!estimateService || !estimateSize || !estimateResult) return;
-  const service = estimateService.value;
-  const size = estimateSize.value;
-  estimateResult.innerHTML = estimates[service]?.[size] || "Quote needed";
-  estimateResult.classList.remove("is-updated");
-  void estimateResult.offsetWidth;
-  estimateResult.classList.add("is-updated");
-  trackConversion("quick_estimate_change", { service, size });
-};
-
-estimator?.addEventListener("change", updateEstimate);
-updateEstimate();
-
-const remapRanges = {
-  "turbo-diesel": {
-    text: "Typical enquiry range: 20-35 bhp and stronger mid-range torque.",
-    angle: "-18deg"
-  },
-  "turbo-petrol": {
-    text: "Typical enquiry range: 25-45 bhp with sharper throttle response.",
-    angle: "8deg"
-  },
-  "naturally-aspirated": {
-    text: "Typical gains are usually modest. Enquire for vehicle-specific advice.",
-    angle: "-44deg"
-  }
-};
-
-const remapForm = document.querySelector("[data-remap]");
-const engineType = document.querySelector("[data-engine-type]");
-const remapOutput = document.querySelector("[data-remap-output]");
-const gaugeNeedle = document.querySelector("[data-gauge-needle]");
-
-const updateRemap = () => {
-  if (!engineType || !remapOutput || !gaugeNeedle) return;
-  const range = remapRanges[engineType.value];
-  remapOutput.textContent = range.text;
-  gaugeNeedle.style.transform = `translateX(-50%) rotate(${range.angle})`;
-};
-
-remapForm?.addEventListener("change", updateRemap);
-updateRemap();
 
 const availability = document.querySelector("[data-availability]");
 const availabilityNote = document.querySelector("[data-availability-note]");
@@ -650,38 +657,44 @@ const estimatorWizard = document.querySelector("[data-estimator-wizard]");
 let validateEstimatorAll = null;
 
 const fullEstimateData = {
-  repair: {
-    label: "Bumper or panel repair",
-    small: { amount: 60, note: "Small scuff or localised repair" },
-    medium: { amount: 120, note: "Medium repair or two affected areas" },
-    large: { amount: null, note: "Photo quote needed for larger repair" }
+  mechanic: {
+    label: "Mobile mechanic repairs and inspections",
+    small: { amount: 50, note: "General repair or inspection route" },
+    medium: { amount: null, note: "Quote after symptoms or photos" },
+    large: { amount: null, note: "Repair route review needed" }
   },
-  scratch: {
-    label: "Single panel repair & re-spray",
+  bumper: {
+    label: "Bumper scratches and scuff repair",
+    small: { amount: 60, note: "Small scuff or localised bumper repair" },
+    medium: { amount: 120, note: "Medium bumper repair or two affected areas" },
+    large: { amount: null, note: "Photo quote needed for larger bumper repair" }
+  },
+  panel: {
+    label: "Single panel scratch repair and re-spray",
     small: { amount: 100, note: "Single panel starting guide" },
     medium: { amount: 160, note: "More visible or wider panel repair" },
     large: { amount: null, note: "Panel review needed" }
   },
   diagnostic: {
-    label: "OBD diagnostics",
+    label: "Car and engine diagnostics",
     small: { amount: 50, note: "Fault scan visit" },
     medium: { amount: 75, note: "Scan plus extended guidance" },
     large: { amount: null, note: "Workshop route may be needed" }
   },
   fitment: {
-    label: "Trim or accessory fitment",
+    label: "Trim, mirror cap and accessory fitting",
     small: { amount: 20, note: "Simple small-item fitment" },
     medium: { amount: 50, note: "Two items or more involved fitment" },
     large: { amount: null, note: "Parts review needed" }
   },
   mot: {
-    label: "MOT support",
+    label: "MOT prep and fail-sheet checks",
     small: { amount: null, note: "Route quote needed" },
     medium: { amount: null, note: "Garage route quote needed" },
     large: { amount: null, note: "Workshop support quote needed" }
   },
   coding: {
-    label: "BMW/MINI coding",
+    label: "BMW and MINI coding",
     small: { amount: 40, note: "Supported feature coding session" },
     medium: { amount: 60, note: "Multiple supported coding changes" },
     large: { amount: null, note: "Compatibility review needed first" }
