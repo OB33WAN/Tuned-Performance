@@ -210,8 +210,8 @@ bookingModal.innerHTML = `
           <li>Works for general repairs, diagnostics, MOT prep and specialist bookings</li>
         </ul>
         <div class="booking-modal__actions">
-          <a class="btn btn-secondary" href="tel:+447933705124">Call 07933 705124</a>
-          <a class="btn btn-secondary" href="https://wa.me/447933705124" target="_blank" rel="noopener">WhatsApp directly</a>
+          <a class="btn btn-secondary" href="tel:+447347388893">Call 07347 388893</a>
+          <a class="btn btn-secondary" href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp directly</a>
         </div>
       </aside>
       <form class="booking-form booking-modal__form" action="https://api.web3forms.com/submit" method="POST" data-booking-form data-lead-form>
@@ -593,7 +593,7 @@ document.querySelectorAll("[data-booking-form]").forEach((bookingForm) => {
       `Details: ${data.get("message") || ""}`
     ];
     const message = encodeURIComponent(lines.join("\n"));
-    openWhatsAppLead(`https://wa.me/447933705124?text=${message}`);
+    openWhatsAppLead(`https://wa.me/447347388893?text=${message}`);
   });
 });
 
@@ -775,7 +775,7 @@ const updateFullEstimator = () => {
     `Access: ${access}`,
     `Details: ${details}`
   ];
-  fullWhatsApp.href = `https://wa.me/447933705124?text=${encodeURIComponent(lines.join("\n"))}`;
+  fullWhatsApp.href = `https://wa.me/447347388893?text=${encodeURIComponent(lines.join("\n"))}`;
   fullWhatsApp.target = "_blank";
   fullWhatsApp.rel = "noopener";
 
@@ -1004,7 +1004,7 @@ const addFloatingQuote = () => {
   const link = document.createElement("a");
   link.className = "floating-quote";
   link.dataset.floatingQuote = "";
-  link.href = currentPage === "contact.html" ? "tel:+447933705124" : "contact.html";
+  link.href = currentPage === "contact.html" ? "tel:+447347388893" : "contact.html";
   link.textContent = currentPage === "contact.html" ? "Call now" : "Quick quote";
   document.body.append(link);
 };
