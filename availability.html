@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Availability | Weekday and Weekend Mobile Mechanic Bookings</title>
-    <meta name="description" content="Check weekday daytime, weekday evening, Saturday and Sunday request routes for Tuned Performance mobile mechanic bookings around Feltham and nearby towns.">
+    <meta name="description" content="Check Monday to Wednesday, Saturday and Sunday mobile mechanic booking windows in Feltham, including Saturday and Sunday out-of-hours call-outs with a £50 fee.">
     <link rel="canonical" href="https://tunedperformance.co.uk/availability.html">
     <meta property="og:title" content="Availability | Weekday and Weekend Mobile Mechanic Bookings">
-    <meta property="og:description" content="Check weekday daytime, weekday evening, Saturday and Sunday request routes for Tuned Performance mobile mechanic bookings around Feltham and nearby towns.">
+    <meta property="og:description" content="Check Monday to Wednesday, Saturday and Sunday mobile mechanic booking windows in Feltham, including Saturday and Sunday out-of-hours call-outs with a £50 fee.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_GB">
     <meta property="og:url" content="https://tunedperformance.co.uk/availability.html">
@@ -15,7 +15,7 @@
     <meta property="og:image:alt" content="Tuned Performance mobile car services">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Availability | Weekday and Weekend Mobile Mechanic Bookings">
-    <meta name="twitter:description" content="Check weekday daytime, weekday evening, Saturday and Sunday request routes for Tuned Performance mobile mechanic bookings around Feltham and nearby towns.">
+    <meta name="twitter:description" content="Check Monday to Wednesday, Saturday and Sunday mobile mechanic booking windows in Feltham, including Saturday and Sunday out-of-hours call-outs with a £50 fee.">
     <meta name="twitter:image" content="https://tunedperformance.co.uk/assets/hero-workshop.png">
     <meta name="geo.placename" content="105 Swan Road, Feltham, TW13 6PE, United Kingdom">
     <meta name="geo.region" content="GB">
@@ -28,9 +28,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/tp-favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Tuned Performance">
+    <meta name="apple-mobile-web-app-title" content="Vehicle Mobile Mechanic">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="styles.css?v=43">
     <script type="application/ld+json" data-seo-schema="sitewide">
       {
             "@context": "https://schema.org",
@@ -95,7 +95,37 @@
                               "name": "Feltham and nearby mobile service area",
                               "description": "Core mobile service coverage includes Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Other nearby locations are subject to route confirmation."
                         },
-                        "openingHours": "Mo-Su by appointment",
+                        "openingHoursSpecification": [
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Monday",
+                                          "https://schema.org/Tuesday",
+                                          "https://schema.org/Wednesday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "18:00",
+                                    "closes": "23:30",
+                                    "description": "Out-of-hours mobile call-out service; £50 call-out fee applies."
+                              }
+                        ],
                         "identifier": {
                               "@type": "PropertyValue",
                               "propertyID": "UK company number",
@@ -482,8 +512,8 @@
       </div>
     </header>
     <main id="main">
-      <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Availability</span></nav><p class="eyebrow">Booking windows</p><h1>Weekday and Weekend Mobile Mechanic Availability</h1><p>Choose the booking preference that best matches your week, then send the vehicle, postcode, service needed and any photos so Tuned Performance can confirm the route.</p><div class="hero-actions"><a class="btn btn-primary" href="contact.html">Book now</a><a class="btn btn-secondary" href="services.html">View services</a></div></div></section>
-      <section class="section section-light"><div class="container section-heading"><p class="eyebrow">Choose a request window</p><h2>Availability request options</h2><p>Select the slot type that best fits your enquiry. Final confirmation still depends on route planning, the service needed and whether the job suits a mobile visit.</p></div><div class="container availability-grid" data-availability><button class="availability-card is-active" type="button" data-slot="weekday-day"><span>Most popular</span><strong>Weekday daytime</strong><small>Best for planned repairs, diagnostics, MOT prep and general mobile mechanic visits.</small></button><button class="availability-card" type="button" data-slot="weekday-evening"><span>After work</span><strong>Weekday evening</strong><small>Useful when daytime access is difficult and the job still suits a later route.</small></button><button class="availability-card" type="button" data-slot="saturday"><span>Weekend</span><strong>Saturday route</strong><small>Best for customers who need a weekend booking request where the route can be grouped efficiently.</small></button><button class="availability-card" type="button" data-slot="sunday"><span>Weekend</span><strong>Sunday route</strong><small>Sunday requests can be sent too. Availability depends on route, service type and confirmation.</small></button></div><div class="container"><p class="availability-note" data-availability-note>Selected preference: Weekday daytime request</p></div></section>
+      <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Availability</span></nav><p class="eyebrow">Booking windows</p><h1>Mobile Mechanic Availability in Feltham</h1><p>Choose the booking preference that best matches the real operating hours, then send the vehicle, postcode, service needed and any photos so the route can be confirmed properly.</p><div class="hero-actions"><a class="btn btn-primary" href="contact.html">Book now</a><a class="btn btn-secondary" href="services.html">View services</a></div></div></section>
+      <section class="section section-light"><div class="container section-heading"><p class="eyebrow">Choose a request window</p><h2>Availability request options</h2><p>Monday to Wednesday daytime, Saturday daytime and Sunday daytime are the standard booking windows. Thursday and Friday are closed. Saturday and Sunday out-of-hours call-outs from 6pm to 11.30pm are possible with a £50 call-out fee.</p></div><div class="container availability-grid" data-availability><button class="availability-card is-active" type="button" data-slot="mon-wed-day"><span>Main hours</span><strong>Monday to Wednesday</strong><small>10am to 6pm for general repairs, diagnostics, MOT prep and planned mobile mechanic visits.</small></button><button class="availability-card" type="button" data-slot="saturday-day"><span>Weekend</span><strong>Saturday daytime</strong><small>10am to 6pm for customers who need a weekend daytime slot.</small></button><button class="availability-card" type="button" data-slot="sunday-day"><span>Weekend</span><strong>Sunday daytime</strong><small>10am to 6pm subject to route planning and the service type.</small></button><button class="availability-card" type="button" data-slot="saturday-ooh"><span>Out-of-hours</span><strong>Saturday evening</strong><small>6pm to 11.30pm with a £50 out-of-hours call-out fee added to the job route.</small></button><button class="availability-card" type="button" data-slot="sunday-ooh"><span>Out-of-hours</span><strong>Sunday evening</strong><small>6pm to 11.30pm with a £50 out-of-hours call-out fee added to the job route.</small></button></div><div class="container"><p class="availability-note" data-availability-note>Selected preference: Monday to Wednesday daytime (10am to 6pm)</p></div></section>
       <section class="section section-dark"><div class="container section-heading"><h2>What helps confirm a slot faster?</h2></div><div class="container content-grid three"><article class="detail-card"><h3>Vehicle and service</h3><p>Include the make, model, registration or year, and the service you need so the route is checked properly.</p></article><article class="detail-card"><h3>Postcode and access</h3><p>Send the full postcode and any access notes. This matters for route planning and whether the job suits a mobile visit.</p></article><article class="detail-card"><h3>Photos where relevant</h3><p>Damage, parts, warning lights and fitment work should include clear photos so the right booking route is used first.</p></article></div></section>
       <section class="section section-accent"><div class="container quote-ready"><div><p class="eyebrow">Ready to request a slot?</p><h2>Send one message with the job and timing</h2><p>Use the contact form or WhatsApp route and include the availability preference you want confirmed.</p></div><a class="btn btn-primary" href="contact.html">Contact Tuned Performance</a></div></section>
     </main>
@@ -522,9 +552,10 @@
         <span>Company No. 17180730</span>
       </div>
     </footer>
-    <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div><div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div><script src="script.js?v=30"></script>
+    <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div><div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div><script src="script.js?v=35"></script>
   </body>
 </html>
+
 
 
 

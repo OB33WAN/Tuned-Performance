@@ -28,9 +28,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/tp-favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Tuned Performance">
+    <meta name="apple-mobile-web-app-title" content="Vehicle Mobile Mechanic">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="styles.css?v=43">
     <script type="application/ld+json" data-seo-schema="sitewide">
       {
             "@context": "https://schema.org",
@@ -95,7 +95,37 @@
                               "name": "Feltham and nearby mobile service area",
                               "description": "Core mobile service coverage includes Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Other nearby locations are subject to route confirmation."
                         },
-                        "openingHours": "Mo-Su by appointment",
+                        "openingHoursSpecification": [
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Monday",
+                                          "https://schema.org/Tuesday",
+                                          "https://schema.org/Wednesday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "18:00",
+                                    "closes": "23:30",
+                                    "description": "Out-of-hours mobile call-out service; £50 call-out fee applies."
+                              }
+                        ],
                         "identifier": {
                               "@type": "PropertyValue",
                               "propertyID": "UK company number",
@@ -472,7 +502,7 @@
                         "name": "Are weekends available?",
                         "acceptedAnswer": {
                               "@type": "Answer",
-                              "text": "Customers can request Saturday or Sunday route options. Final availability depends on job type, route and confirmation."
+                              "text": "Saturday and Sunday daytime slots run from 10am to 6pm. Saturday and Sunday out-of-hours call-outs from 6pm to 11.30pm can also be requested, with a £50 call-out fee."
                         }
                   },
                   {
@@ -579,7 +609,7 @@
     </header>
     <main id="main">
       <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></nav><p class="eyebrow">Fast answers</p><h1>Mobile Mechanic and Car Diagnostics FAQs</h1><p>Answers for quotes, photos, guide pricing, weekday and weekend availability, mobile suitability and how email or WhatsApp enquiries work.</p><div class="hero-actions"><a class="btn btn-primary" href="contact.html">Send enquiry</a><a class="btn btn-secondary" href="pricing.html">View pricing</a></div></div></section>
-      <section class="section section-light"><div class="container faq-list"><details open><summary>Can I send an enquiry by email?</summary><p>Yes. The homepage, contact page and estimator can send email enquiries through Web3Forms to the connected business inbox.</p></details><details><summary>Can I still use WhatsApp?</summary><p>Yes. WhatsApp buttons build a message with the details entered in the form. You still need to press send inside WhatsApp for the message to be received.</p></details><details><summary>What photos should I send for repair work?</summary><p>Send one close-up photo, one wider photo of the full panel, and the vehicle colour or paint code if known.</p></details><details><summary>Is single panel repair and re-spray available?</summary><p>Yes, single panel repair and re-spray enquiries can be reviewed from photos before quote confirmation.</p></details><details><summary>Are weekends available?</summary><p>Customers can request Saturday or Sunday route options. Final availability depends on job type, route and confirmation.</p></details><details><summary>Can you diagnose warning lights?</summary><p>OBD diagnostic enquiries can be sent with warning light details, symptoms, vehicle information and location.</p></details><details><summary>Can you code BMW or MINI hidden features?</summary><p>Yes. BMW and MINI coding is available for supported BimmerCode-compatible vehicles. Send the model, year and feature list first because availability depends on ECU hardware and software support.</p></details><details><summary>Is BMW and MINI coding the same as ECU remapping?</summary><p>No. Coding changes supported settings and factory personalisation options. Remapping changes engine calibration and is handled separately as an enquiry route.</p></details><details><summary>Are ECU remaps available now?</summary><p>ECU remapping is positioned as an enquiry route. Register interest with make, model, engine and tuning goal.</p></details><details><summary>What areas are covered?</summary><p>Core areas include Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston, subject to route planning and service type.</p></details><details><summary>Where is Tuned Performance based?</summary><p>Tuned Performance is based at 105 Swan Road, Feltham, TW13 6PE.</p></details></div></section>
+      <section class="section section-light"><div class="container faq-list"><details open><summary>Can I send an enquiry by email?</summary><p>Yes. The homepage, contact page and estimator can send email enquiries through Web3Forms to the connected business inbox.</p></details><details><summary>Can I still use WhatsApp?</summary><p>Yes. WhatsApp buttons build a message with the details entered in the form. You still need to press send inside WhatsApp for the message to be received.</p></details><details><summary>What photos should I send for repair work?</summary><p>Send one close-up photo, one wider photo of the full panel, and the vehicle colour or paint code if known.</p></details><details><summary>Is single panel repair and re-spray available?</summary><p>Yes, single panel repair and re-spray enquiries can be reviewed from photos before quote confirmation.</p></details><details><summary>Are weekends available?</summary><p>Saturday and Sunday daytime slots run from 10am to 6pm. Saturday and Sunday out-of-hours call-outs from 6pm to 11.30pm can also be requested, with a £50 call-out fee.</p></details><details><summary>Can you diagnose warning lights?</summary><p>OBD diagnostic enquiries can be sent with warning light details, symptoms, vehicle information and location.</p></details><details><summary>Can you code BMW or MINI hidden features?</summary><p>Yes. BMW and MINI coding is available for supported BimmerCode-compatible vehicles. Send the model, year and feature list first because availability depends on ECU hardware and software support.</p></details><details><summary>Is BMW and MINI coding the same as ECU remapping?</summary><p>No. Coding changes supported settings and factory personalisation options. Remapping changes engine calibration and is handled separately as an enquiry route.</p></details><details><summary>Are ECU remaps available now?</summary><p>ECU remapping is positioned as an enquiry route. Register interest with make, model, engine and tuning goal.</p></details><details><summary>What areas are covered?</summary><p>Core areas include Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston, subject to route planning and service type.</p></details><details><summary>Where is Tuned Performance based?</summary><p>Tuned Performance is based at 105 Swan Road, Feltham, TW13 6PE.</p></details></div></section>
       <section class="section section-accent"><div class="container quote-ready"><div><p class="eyebrow">Still unsure?</p><h2>Ask first, book second</h2><p>Use the contact form if you are not sure which service fits. The enquiry can be routed from there.</p></div><a class="btn btn-primary" href="contact.html">Ask a question</a></div></section>
     </main>
     <footer class="site-footer">
@@ -617,9 +647,10 @@
         <span>Company No. 17180730</span>
       </div>
     </footer>
-    <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div><div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div><script src="script.js?v=30"></script>
+    <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div><div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div><script src="script.js?v=35"></script>
   </body>
 </html>
+
 
 
 

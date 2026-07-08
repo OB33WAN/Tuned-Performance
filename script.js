@@ -5,13 +5,12 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
 const navClose = document.querySelector("[data-nav-close]");
 const serviceNav = document.querySelector("[data-service-nav]");
-const slotField = document.querySelector("[data-slot-field]");
 const WEB3FORMS_ACCESS_KEY = "4f7ab378-e677-4b67-b382-d548236a7160";
 const GOOGLE_ANALYTICS_ID = "G-Z6M09GYPFY";
 const whatsappThankYouUrl = "thank-you.html?source=whatsapp";
 let analyticsLoaded = false;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const mobileNavBreakpoint = 820;
+const mobileNavBreakpoint = 1080;
 
 const navBackdrop = nav
   ? Object.assign(document.createElement("button"), {
@@ -121,6 +120,176 @@ const pageBookingDefaults = {
   "ecu-remapping.html": "ECU remap enquiry"
 };
 
+const BUSINESS_HOURS_SUMMARY = "Standard hours are Monday to Wednesday 10am to 6pm and Saturday to Sunday 10am to 6pm. Thursday and Friday are closed.";
+const OUT_OF_HOURS_SUMMARY = "Weekend out-of-hours runs on Saturday and Sunday from 6pm to 11.30pm and adds a £50 call-out fee.";
+const BOOKING_SLOT_OPTIONS = [
+  { key: "mon-wed-day", label: "Monday to Wednesday daytime (10am to 6pm)", fee: 0 },
+  { key: "saturday-day", label: "Saturday daytime (10am to 6pm)", fee: 0 },
+  { key: "sunday-day", label: "Sunday daytime (10am to 6pm)", fee: 0 },
+  { key: "saturday-ooh", label: "Saturday out-of-hours (6pm to 11.30pm, +£50 call-out fee)", fee: 50 },
+  { key: "sunday-ooh", label: "Sunday out-of-hours (6pm to 11.30pm, +£50 call-out fee)", fee: 50 }
+];
+const BOOKING_SLOT_LOOKUP = Object.fromEntries(BOOKING_SLOT_OPTIONS.map((option) => [option.key, option]));
+const BOOKING_SLOT_LABELS = Object.fromEntries(BOOKING_SLOT_OPTIONS.map((option) => [option.key, option.label]));
+const LONDON_WEEKDAY_MAP = {
+  Mon: "mon",
+  Tue: "tue",
+  Wed: "wed",
+  Thu: "thu",
+  Fri: "fri",
+  Sat: "sat",
+  Sun: "sun"
+};
+
+const getLondonNow = () => {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23"
+  }).formatToParts(new Date());
+
+  const values = Object.fromEntries(
+    parts
+      .filter(({ type }) => type !== "literal")
+      .map(({ type, value }) => [type, value])
+  );
+  const dayKey = LONDON_WEEKDAY_MAP[values.weekday] || "mon";
+  const hour = Number(values.hour || 0);
+  const minute = Number(values.minute || 0);
+
+  return {
+    dayKey,
+    hour,
+    minute,
+    totalMinutes: (hour * 60) + minute
+  };
+};
+
+const getBookingSlotKey = (value) => {
+  const normalized = String(value || "").trim();
+  if (!normalized) return null;
+  if (BOOKING_SLOT_LOOKUP[normalized]) return normalized;
+
+  const exactLabel = BOOKING_SLOT_OPTIONS.find((option) => option.label === normalized);
+  if (exactLabel) return exactLabel.key;
+
+  const compact = normalized.replace(/\s+/g, " ").toLowerCase();
+  const textMatch = BOOKING_SLOT_OPTIONS.find((option) => {
+    const optionLabel = option.label.toLowerCase();
+    return compact === optionLabel || compact.includes(optionLabel) || optionLabel.includes(compact);
+  });
+
+  return textMatch?.key || null;
+};
+
+const getBookingSlotLabel = (value) => {
+  const slotKey = getBookingSlotKey(value);
+  return slotKey ? BOOKING_SLOT_LOOKUP[slotKey].label : String(value || "Availability request");
+};
+
+const isOutOfHoursKey = (slotKey) => (BOOKING_SLOT_LOOKUP[slotKey]?.fee || 0) > 0;
+
+const getSlotOptionForKey = (select, slotKey) => [...select.options].find((option) => (
+  getBookingSlotKey(option.value || option.textContent) === slotKey
+));
+
+const setBookingSelectValue = (select, slotValueOrKey) => {
+  const slotKey = getBookingSlotKey(slotValueOrKey);
+  if (!slotKey) return false;
+
+  const option = getSlotOptionForKey(select, slotKey);
+  if (!option) return false;
+
+  select.value = option.value;
+  return true;
+};
+
+const getBusinessHoursState = (now = getLondonNow()) => {
+  const { dayKey, totalMinutes } = now;
+  let liveKey = null;
+  let recommendedKey = "mon-wed-day";
+  let statusTone = "closed";
+  let statusText = "Currently closed.";
+
+  if (["mon", "tue"].includes(dayKey)) {
+    recommendedKey = "mon-wed-day";
+    if (totalMinutes < 600) {
+      statusText = "Currently closed. Monday to Wednesday daytime bookings start at 10am.";
+    } else if (totalMinutes < 1080) {
+      liveKey = "mon-wed-day";
+      statusTone = "open";
+      statusText = "Open now for Monday to Wednesday daytime bookings (10am to 6pm).";
+    } else {
+      statusText = dayKey === "mon"
+        ? "Currently closed. The next Monday to Wednesday daytime slot starts on Tuesday at 10am."
+        : "Currently closed. The next Monday to Wednesday daytime slot starts on Wednesday at 10am.";
+    }
+  } else if (dayKey === "wed") {
+    if (totalMinutes < 600) {
+      recommendedKey = "mon-wed-day";
+      statusText = "Currently closed. Wednesday daytime bookings start at 10am.";
+    } else if (totalMinutes < 1080) {
+      liveKey = "mon-wed-day";
+      recommendedKey = "mon-wed-day";
+      statusTone = "open";
+      statusText = "Open now for Monday to Wednesday daytime bookings (10am to 6pm).";
+    } else {
+      recommendedKey = "saturday-day";
+      statusText = "Currently closed. Thursday and Friday are closed, so the next standard slot starts on Saturday at 10am.";
+    }
+  } else if (dayKey === "thu" || dayKey === "fri") {
+    recommendedKey = "saturday-day";
+    statusText = "Currently closed. Thursday and Friday are closed. The next standard slot is Saturday daytime from 10am to 6pm.";
+  } else if (dayKey === "sat") {
+    if (totalMinutes < 600) {
+      recommendedKey = "saturday-day";
+      statusText = "Currently closed. Saturday daytime bookings start at 10am.";
+    } else if (totalMinutes < 1080) {
+      liveKey = "saturday-day";
+      recommendedKey = "saturday-day";
+      statusTone = "open";
+      statusText = "Open now for Saturday daytime bookings (10am to 6pm).";
+    } else if (totalMinutes < 1410) {
+      liveKey = "saturday-ooh";
+      recommendedKey = "saturday-ooh";
+      statusTone = "out-of-hours";
+      statusText = "Open now for Saturday out-of-hours call-outs (6pm to 11.30pm). A £50 call-out fee applies.";
+    } else {
+      recommendedKey = "sunday-day";
+      statusText = "Currently closed. The next standard slot is Sunday daytime from 10am to 6pm.";
+    }
+  } else if (dayKey === "sun") {
+    if (totalMinutes < 600) {
+      recommendedKey = "sunday-day";
+      statusText = "Currently closed. Sunday daytime bookings start at 10am.";
+    } else if (totalMinutes < 1080) {
+      liveKey = "sunday-day";
+      recommendedKey = "sunday-day";
+      statusTone = "open";
+      statusText = "Open now for Sunday daytime bookings (10am to 6pm).";
+    } else if (totalMinutes < 1410) {
+      liveKey = "sunday-ooh";
+      recommendedKey = "sunday-ooh";
+      statusTone = "out-of-hours";
+      statusText = "Open now for Sunday out-of-hours call-outs (6pm to 11.30pm). A £50 call-out fee applies.";
+    } else {
+      recommendedKey = "mon-wed-day";
+      statusText = "Currently closed. Monday to Wednesday daytime bookings resume at 10am.";
+    }
+  }
+
+  return {
+    liveKey,
+    recommendedKey,
+    recommendedLabel: BOOKING_SLOT_LOOKUP[recommendedKey].label,
+    statusTone,
+    statusText,
+    formText: `${statusText} ${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY} Recommended request window: ${BOOKING_SLOT_LOOKUP[recommendedKey].label}.`
+  };
+};
+
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
 };
@@ -205,9 +374,10 @@ bookingModal.innerHTML = `
         <h2 id="booking-modal-title">Book a mobile visit without leaving the page</h2>
         <p id="booking-modal-copy">Send the booking details directly from the menu. Use email for a tracked enquiry or WhatsApp when you want to attach photos straight away.</p>
         <ul class="booking-modal__list">
-          <li>Weekday, evening, Saturday and Sunday route requests</li>
+          <li>Monday to Wednesday daytime plus weekend booking requests</li>
+          <li>Thursday and Friday are closed</li>
           <li>Service, vehicle and area details in one step</li>
-          <li>Works for general repairs, diagnostics, MOT prep and specialist bookings</li>
+          <li>Saturday and Sunday out-of-hours options include a &pound;50 call-out fee</li>
         </ul>
         <div class="booking-modal__actions">
           <a class="btn btn-secondary" href="tel:+447347388893">Call 07347 388893</a>
@@ -259,10 +429,11 @@ bookingModal.innerHTML = `
         <div class="form-row">
           <label for="modal-book-slot">Preferred availability</label>
           <select id="modal-book-slot" name="slot">
-            <option>Weekday daytime request</option>
-            <option>Weekday evening request</option>
-            <option>Saturday route request</option>
-            <option>Sunday route request</option>
+            <option>Monday to Wednesday daytime (10am to 6pm)</option>
+            <option>Saturday daytime (10am to 6pm)</option>
+            <option>Sunday daytime (10am to 6pm)</option>
+            <option>Saturday out-of-hours (6pm to 11.30pm, +£50 call-out fee)</option>
+            <option>Sunday out-of-hours (6pm to 11.30pm, +£50 call-out fee)</option>
           </select>
         </div>
         <div class="form-row form-row-full">
@@ -273,7 +444,7 @@ bookingModal.innerHTML = `
           <button class="btn btn-primary" type="submit">Send email enquiry</button>
           <button class="btn btn-secondary btn-on-light" type="button" data-whatsapp-submit>Send on WhatsApp</button>
         </div>
-        <p class="form-note">Email enquiries go through Web3Forms. WhatsApp is best when you need to add job photos straight away.</p>
+        <p class="form-note">Email enquiries go through Web3Forms. The form shows live UK business hours and any weekend out-of-hours fee before you send it.</p>
         <p class="form-status" data-form-status role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -462,14 +633,105 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+const ensureHiddenFormField = (form, fieldName) => {
+  let field = form.querySelector(`input[name="${fieldName}"]`);
+  if (field instanceof HTMLInputElement) return field;
+
+  field = document.createElement("input");
+  field.type = "hidden";
+  field.name = fieldName;
+  const botcheck = form.querySelector(".botcheck");
+  if (botcheck) {
+    botcheck.insertAdjacentElement("beforebegin", field);
+  } else {
+    form.prepend(field);
+  }
+  return field;
+};
+
+const ensureBusinessHoursNote = (form) => {
+  let note = form.querySelector("[data-business-hours-note]");
+  if (note instanceof HTMLElement) return note;
+
+  note = document.createElement("p");
+  note.className = "form-hours-note";
+  note.dataset.businessHoursNote = "";
+  note.setAttribute("role", "status");
+  note.setAttribute("aria-live", "polite");
+
+  const bookingSlotRow = form.querySelector('select[name="slot"]')?.closest(".form-row");
+  if (bookingSlotRow instanceof HTMLElement) {
+    note.classList.add("form-row-full");
+    bookingSlotRow.insertAdjacentElement("afterend", note);
+    return note;
+  }
+
+  const estimatorGrid = form.querySelector("[data-full-slot]")?.closest(".estimator-field-grid");
+  if (estimatorGrid instanceof HTMLElement) {
+    note.classList.add("estimator-wide-field");
+    estimatorGrid.append(note);
+    return note;
+  }
+
+  const formNote = form.querySelector(".form-note");
+  if (formNote instanceof HTMLElement) {
+    formNote.insertAdjacentElement("beforebegin", note);
+    return note;
+  }
+
+  form.append(note);
+  return note;
+};
+
+const syncBusinessHourForms = () => {
+  const businessState = getBusinessHoursState();
+
+  document.querySelectorAll("[data-booking-form], [data-estimate-email-form]").forEach((form) => {
+    const slotSelect = form.querySelector('select[name="slot"], [data-full-slot]');
+    if (!(slotSelect instanceof HTMLSelectElement)) return;
+
+    if (slotSelect.dataset.userSelected !== "true") {
+      setBookingSelectValue(slotSelect, businessState.recommendedKey);
+    }
+
+    const selectedKey = getBookingSlotKey(slotSelect.value || slotSelect.selectedOptions[0]?.textContent);
+    const selectedLabel = selectedKey
+      ? BOOKING_SLOT_LOOKUP[selectedKey].label
+      : (slotSelect.selectedOptions[0]?.textContent?.trim() || slotSelect.value || "Availability request");
+    const selectedFee = BOOKING_SLOT_LOOKUP[selectedKey]?.fee || 0;
+
+    const note = ensureBusinessHoursNote(form);
+    note.classList.remove("is-open", "is-out-of-hours", "is-closed");
+    note.classList.add(
+      businessState.statusTone === "out-of-hours"
+        ? "is-out-of-hours"
+        : businessState.statusTone === "open"
+          ? "is-open"
+          : "is-closed"
+    );
+    note.textContent = `${businessState.formText} The form uses current UK time and updates automatically. Selected slot: ${selectedLabel}. ${selectedFee ? "This slot includes the £50 out-of-hours call-out fee." : "This slot is within standard hours."}`;
+
+    ensureHiddenFormField(form, "business_hours_status").value = businessState.statusText;
+    ensureHiddenFormField(form, "business_hours_summary").value = `${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY}`;
+    ensureHiddenFormField(form, "recommended_booking_window").value = businessState.recommendedLabel;
+    ensureHiddenFormField(form, "selected_booking_window").value = selectedLabel;
+    ensureHiddenFormField(form, "out_of_hours_fee").value = selectedFee ? "£50 applies" : "Not applied";
+  });
+
+  return businessState;
+};
+
+document.querySelectorAll('[data-booking-form] select[name="slot"], [data-estimate-email-form] [data-full-slot]').forEach((select) => {
+  select.addEventListener("change", () => {
+    select.dataset.userSelected = "true";
+    syncBusinessHourForms();
+    updateFullEstimator?.();
+  });
+});
+
 const availability = document.querySelector("[data-availability]");
 const availabilityNote = document.querySelector("[data-availability-note]");
-const availabilityLabels = {
-  "weekday-day": "Weekday daytime request",
-  "weekday-evening": "Weekday evening request",
-  saturday: "Saturday route request",
-  sunday: "Sunday route request"
-};
+const availabilityLabels = BOOKING_SLOT_LABELS;
 
 availability?.addEventListener("click", (event) => {
   const target = event.target instanceof Element ? event.target : null;
@@ -482,7 +744,13 @@ availability?.addEventListener("click", (event) => {
 
   const label = availabilityLabels[card.dataset.slot] || "Availability request";
   if (availabilityNote) availabilityNote.textContent = `Selected preference: ${label}`;
-  if (slotField) slotField.value = label;
+  document.querySelectorAll('[data-booking-form] select[name="slot"], [data-estimate-email-form] [data-full-slot], [data-slot-field]').forEach((field) => {
+    if (!(field instanceof HTMLSelectElement)) return;
+    setBookingSelectValue(field, card.dataset.slot || label);
+    field.dataset.userSelected = "true";
+  });
+  syncBusinessHourForms();
+  updateFullEstimator?.();
   if (availabilityNote) {
     availabilityNote.classList.remove("is-updated");
     void availabilityNote.offsetWidth;
@@ -581,6 +849,10 @@ document.querySelectorAll("[data-booking-form]").forEach((bookingForm) => {
     if (!bookingForm.reportValidity()) return;
 
     const data = new FormData(bookingForm);
+    const businessState = getBusinessHoursState();
+    const slotLabel = getBookingSlotLabel(data.get("slot"));
+    const slotKey = getBookingSlotKey(data.get("slot"));
+    const outOfHoursText = isOutOfHoursKey(slotKey) ? "£50 applied" : "Not applied";
     const lines = [
       "Hi Tuned Performance, I would like a quote.",
       `Name: ${data.get("name") || ""}`,
@@ -589,7 +861,10 @@ document.querySelectorAll("[data-booking-form]").forEach((bookingForm) => {
       `Postcode or area: ${data.get("postcode") || ""}`,
       `Vehicle: ${data.get("vehicle") || ""}`,
       `Service: ${data.get("service") || ""}`,
-      `Preferred availability: ${data.get("slot") || ""}`,
+      `Preferred availability: ${slotLabel}`,
+      `Out-of-hours call-out fee: ${outOfHoursText}`,
+      `Current booking status: ${businessState.statusText}`,
+      `Business hours: ${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY}`,
       `Details: ${data.get("message") || ""}`
     ];
     const message = encodeURIComponent(lines.join("\n"));
@@ -599,6 +874,10 @@ document.querySelectorAll("[data-booking-form]").forEach((bookingForm) => {
 
 const buildBookingLeadPreview = (bookingForm) => {
   const data = new FormData(bookingForm);
+  const businessState = getBusinessHoursState();
+  const slotLabel = getBookingSlotLabel(data.get("slot"));
+  const slotKey = getBookingSlotKey(data.get("slot"));
+  const outOfHoursText = isOutOfHoursKey(slotKey) ? "£50 applied" : "Not applied";
   const lines = [
     "New Tuned Performance website enquiry",
     `Name: ${data.get("name") || ""}`,
@@ -607,7 +886,10 @@ const buildBookingLeadPreview = (bookingForm) => {
     `Postcode or area: ${data.get("postcode") || ""}`,
     `Vehicle: ${data.get("vehicle") || ""}`,
     `Service: ${data.get("service") || ""}`,
-    `Preferred availability: ${data.get("slot") || ""}`,
+    `Preferred availability: ${slotLabel}`,
+    `Out-of-hours call-out fee: ${outOfHoursText}`,
+    `Current booking status: ${businessState.statusText}`,
+    `Business hours: ${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY}`,
     `Details: ${data.get("message") || ""}`
   ];
 
@@ -707,12 +989,7 @@ const fullEstimateData = {
   }
 };
 
-const slotLabels = {
-  weekday: "Weekday daytime",
-  evening: "Weekday evening",
-  saturday: "Saturday route",
-  sunday: "Sunday route"
-};
+const slotLabels = BOOKING_SLOT_LABELS;
 
 const formatPounds = (amount) => `&pound;${amount}`;
 const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (char) => ({
@@ -726,9 +1003,12 @@ const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (char) => ({
 const updateFullEstimator = () => {
   if (!fullEstimator || !fullService || !fullSize || !fullSlot || !fullTotal || !fullBreakdown || !fullWhatsApp) return;
 
+  const businessState = getBusinessHoursState();
   const service = fullEstimateData[fullService.value];
   const size = service[fullSize.value];
-  const slot = slotLabels[fullSlot.value] || "Availability request";
+  const slotKey = getBookingSlotKey(fullSlot.value);
+  const slot = slotLabels[slotKey] || "Availability request";
+  const outOfHoursFee = BOOKING_SLOT_LOOKUP[slotKey]?.fee || 0;
   const name = fullName?.value.trim() || "Not provided";
   const phone = fullPhone?.value.trim() || "Not provided";
   const email = fullEmail?.value.trim() || "Not provided";
@@ -739,8 +1019,14 @@ const updateFullEstimator = () => {
   const access = fullAccess?.value || "Not provided";
   const urgency = fullUrgency?.value || "Flexible";
   const details = fullDetails?.value.trim() || "Not provided";
-  const guideText = size.amount ? `From \u00a3${size.amount}` : "Quote required";
-  const amountText = size.amount ? `From ${formatPounds(size.amount)}` : "Quote required";
+  const guideText = size.amount
+    ? `From \u00a3${size.amount}${outOfHoursFee ? " plus a \u00a350 out-of-hours call-out fee" : ""}`
+    : outOfHoursFee
+      ? "Quote required plus a \u00a350 out-of-hours call-out fee"
+      : "Quote required";
+  const amountText = size.amount
+    ? `From ${formatPounds(size.amount + outOfHoursFee)}`
+    : "Quote required";
 
   fullTotal.innerHTML = amountText;
   fullBreakdown.innerHTML = [
@@ -751,6 +1037,8 @@ const updateFullEstimator = () => {
     ["Job size", size.note],
     ["Guide", guideText],
     ["Availability", slot],
+    ["Out-of-hours fee", outOfHoursFee ? "\u00a350" : "Not applied"],
+    ["Current booking status", businessState.statusText],
     ["Urgency", urgency],
     ["Area", area],
     ["Vehicle", vehicle],
@@ -768,6 +1056,9 @@ const updateFullEstimator = () => {
     `Job size: ${size.note}`,
     `Guide: ${guideText}`,
     `Preferred availability: ${slot}`,
+    `Out-of-hours call-out fee: ${outOfHoursFee ? "\u00a350 applied" : "Not applied"}`,
+    `Current booking status: ${businessState.statusText}`,
+    `Business hours: ${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY}`,
     `Urgency: ${urgency}`,
     `Area/postcode: ${area}`,
     `Vehicle: ${vehicle}`,
@@ -787,7 +1078,12 @@ const updateFullEstimator = () => {
 
 fullEstimator?.addEventListener("input", updateFullEstimator);
 fullEstimator?.addEventListener("change", updateFullEstimator);
+syncBusinessHourForms();
 updateFullEstimator();
+window.setInterval(() => {
+  syncBusinessHourForms();
+  updateFullEstimator();
+}, 60000);
 
 if (estimatorWizard && estimateEmailForm) {
   const panels = [...estimatorWizard.querySelectorAll("[data-estimator-step]")];
@@ -1042,7 +1338,7 @@ const revealTargets = document.querySelectorAll([
 
 revealTargets.forEach((item, index) => {
   item.classList.add("reveal-item");
-  item.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 60}ms`);
+  item.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 40}ms`);
 });
 
 if ("IntersectionObserver" in window && !prefersReducedMotion) {
@@ -1326,10 +1622,18 @@ if (thanksTitle && thanksCopy && thanksPanelTitle && thanksPanelCopy) {
   }
 }
 
-if ("serviceWorker" in navigator && window.location.protocol !== "file:") {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("service-worker.js").catch(() => {});
-  });
+if ("serviceWorker" in navigator) {
+  const isLocalPreview = window.location.protocol === "file:" || ["127.0.0.1", "localhost"].includes(window.location.hostname);
+
+  if (isLocalPreview) {
+    navigator.serviceWorker.getRegistrations?.()
+      .then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
+      .catch(() => {});
+  } else {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js").catch(() => {});
+    });
+  }
 }
 
 let deferredInstallPrompt;

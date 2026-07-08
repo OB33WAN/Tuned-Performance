@@ -28,9 +28,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/tp-favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Tuned Performance">
+    <meta name="apple-mobile-web-app-title" content="Vehicle Mobile Mechanic">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="styles.css?v=43">
     <script type="application/ld+json" data-seo-schema="sitewide">
       {
             "@context": "https://schema.org",
@@ -95,7 +95,37 @@
                               "name": "Feltham and nearby mobile service area",
                               "description": "Core mobile service coverage includes Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Other nearby locations are subject to route confirmation."
                         },
-                        "openingHours": "Mo-Su by appointment",
+                        "openingHoursSpecification": [
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Monday",
+                                          "https://schema.org/Tuesday",
+                                          "https://schema.org/Wednesday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "18:00",
+                                    "closes": "23:30",
+                                    "description": "Out-of-hours mobile call-out service; £50 call-out fee applies."
+                              }
+                        ],
                         "identifier": {
                               "@type": "PropertyValue",
                               "propertyID": "UK company number",
@@ -495,7 +525,7 @@
         <div class="container section-intro">
           <p class="eyebrow">Main price table</p>
           <h2>Mobile Mechanic Guide Prices</h2>
-          <p>Use this page to answer the cost question quickly with clear guide prices, a minimum diagnostic visit and the main next-step routes.</p>
+          <p>Use this page to answer the cost question quickly with clear guide prices, a minimum diagnostic visit and the main next-step routes. Standard hours are Monday to Wednesday and Saturday to Sunday from 10am to 6pm. Thursday and Friday are closed, and Saturday or Sunday bookings after 6pm add a &pound;50 call-out fee.</p>
         </div>
         <div class="container price-table">
           <div class="price-row"><strong>Mobile mechanic repair visit</strong><span>From &pound;50 route</span><span>Best for general repair enquiries, fault checks and jobs that need symptoms or photos reviewed first.</span></div>
@@ -506,6 +536,7 @@
           <div class="price-row"><strong>Trim, mirror cap and accessory fitting</strong><span>&pound;20 to &pound;50 typical labour</span><span>For small trim, mirror caps or straightforward supplied accessory work.</span></div>
           <div class="price-row"><strong>Larger trim jobs or parts sourcing</strong><span>Quote required</span><span>Useful for time-heavy parts, paint prep, sourced accessories or non-standard fitment.</span></div>
           <div class="price-row"><strong>BMW and MINI coding</strong><span>From &pound;40</span><span>BimmerCode-supported feature coding. Availability depends on model, ECU hardware and requested settings.</span></div>
+          <div class="price-row"><strong>Saturday or Sunday out-of-hours call-out</strong><span>+&pound;50</span><span>Applies to Saturday or Sunday bookings from 6pm to 11.30pm when an out-of-hours route is confirmed.</span></div>
           <div class="price-row"><strong>ECU remap enquiry</strong><span>Enquiry-only</span><span>Register vehicle details and request typical Stage 1 gain guidance.</span></div>
         </div>
       </section>
@@ -520,7 +551,7 @@
         <div class="container section-intro">
           <p class="eyebrow">Conversion-focused quote paths</p>
           <h2>Choose a Mobile Mechanic Quote Route</h2>
-          <p>Most enquiries should move toward one of these outcomes: photo quote, diagnostic visit, MOT prep route, direct contact or a local availability slot.</p>
+          <p>Most enquiries should move toward one of these outcomes: photo quote, diagnostic visit, MOT prep route, direct contact or the right standard-hours or out-of-hours slot.</p>
         </div>
         <div class="container content-grid four">
           <article class="detail-card"><h3>General repair route</h3><p>Best for mobile mechanic visits where the repair needed is known but the final route still needs confirming.</p><a href="contact.html">Request repair visit</a></article>
@@ -575,9 +606,10 @@
     </footer>
     <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div>
     <div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div>
-    <script src="script.js?v=30"></script>
+    <script src="script.js?v=35"></script>
   </body>
 </html>
+
 
 
 

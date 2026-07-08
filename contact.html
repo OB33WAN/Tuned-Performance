@@ -28,9 +28,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/tp-favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Tuned Performance">
+    <meta name="apple-mobile-web-app-title" content="Vehicle Mobile Mechanic">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="styles.css?v=43">
     <script type="application/ld+json" data-seo-schema="sitewide">
       {
             "@context": "https://schema.org",
@@ -95,7 +95,37 @@
                               "name": "Feltham and nearby mobile service area",
                               "description": "Core mobile service coverage includes Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Other nearby locations are subject to route confirmation."
                         },
-                        "openingHours": "Mo-Su by appointment",
+                        "openingHoursSpecification": [
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Monday",
+                                          "https://schema.org/Tuesday",
+                                          "https://schema.org/Wednesday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "18:00",
+                                    "closes": "23:30",
+                                    "description": "Out-of-hours mobile call-out service; £50 call-out fee applies."
+                              }
+                        ],
                         "identifier": {
                               "@type": "PropertyValue",
                               "propertyID": "UK company number",
@@ -500,7 +530,7 @@
               <li><span>Vehicle make, model, year or registration.</span></li>
               <li><span>Postcode or area for route planning.</span></li>
               <li><span>Photos for repair or fitment jobs.</span></li>
-              <li><span>Weekday, evening, Saturday or Sunday preference.</span></li>
+              <li><span>Monday to Wednesday, Saturday or Sunday preference. Thursday and Friday are closed, and Saturday and Sunday out-of-hours after 6pm add a &pound;50 call-out fee.</span></li>
             </ol>
           </div>
           <form class="booking-form" action="https://api.web3forms.com/submit" method="POST" data-booking-form data-lead-form>
@@ -516,13 +546,13 @@
             <div class="form-row"><label for="postcode">Postcode or area</label><input id="postcode" name="postcode" type="text" autocomplete="postal-code" required></div>
             <div class="form-row"><label for="vehicle">Vehicle</label><input id="vehicle" name="vehicle" type="text" placeholder="Make, model, year or registration"></div>
             <div class="form-row"><label for="service">Service needed</label><select id="service" name="service"><option>Mobile mechanic repairs and inspections</option><option>Bumper scratches and scuff repair</option><option>Single panel scratch repair and re-spray</option><option>Car and engine diagnostics</option><option>MOT prep and fail-sheet checks</option><option>Trim, mirror cap and accessory fitting</option><option>BMW and MINI coding</option><option>ECU remap enquiry</option><option>Not sure yet</option></select></div>
-            <div class="form-row"><label for="slot">Preferred availability</label><select id="slot" name="slot" data-slot-field><option>Weekday daytime request</option><option>Weekday evening request</option><option>Saturday route request</option><option>Sunday route request</option></select></div>
+            <div class="form-row"><label for="slot">Preferred availability</label><select id="slot" name="slot" data-slot-field><option>Monday to Wednesday daytime (10am to 6pm)</option><option>Saturday daytime (10am to 6pm)</option><option>Sunday daytime (10am to 6pm)</option><option>Saturday out-of-hours (6pm to 11.30pm, +&pound;50 call-out fee)</option><option>Sunday out-of-hours (6pm to 11.30pm, +&pound;50 call-out fee)</option></select></div>
             <div class="form-row form-row-full"><label for="message">What is happening?</label><textarea id="message" name="message" rows="4" placeholder="Add the repair needed, symptoms, warning lights, damage, parts to fit, MOT concerns or coding features."></textarea></div>
             <div class="form-actions form-row-full">
               <button class="btn btn-primary" type="submit">Send email enquiry</button>
               <button class="btn btn-secondary btn-on-light" type="button" data-whatsapp-submit>Send on WhatsApp</button>
             </div>
-            <p class="form-note">Email enquiries go to the business inbox through Web3Forms. Photos can be added once WhatsApp opens.</p>
+            <p class="form-note">Email enquiries go to the business inbox through Web3Forms. Live business hours, closed days and any weekend out-of-hours fee are shown before you send the form. Photos can be added once WhatsApp opens.</p>
             <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -584,9 +614,10 @@
     </footer>
     <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div>
     <div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div>
-    <script src="script.js?v=30"></script>
+    <script src="script.js?v=35"></script>
   </body>
 </html>
+
 
 
 

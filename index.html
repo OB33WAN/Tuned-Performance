@@ -29,9 +29,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/tp-favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Tuned Performance">
+    <meta name="apple-mobile-web-app-title" content="Vehicle Mobile Mechanic">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="styles.css?v=43">
     <script type="application/ld+json" data-seo-schema="sitewide">
       {
             "@context": "https://schema.org",
@@ -96,7 +96,37 @@
                               "name": "Feltham and nearby mobile service area",
                               "description": "Core mobile service coverage includes Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Other nearby locations are subject to route confirmation."
                         },
-                        "openingHours": "Mo-Su by appointment",
+                        "openingHoursSpecification": [
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Monday",
+                                          "https://schema.org/Tuesday",
+                                          "https://schema.org/Wednesday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "18:00",
+                                    "closes": "23:30",
+                                    "description": "Out-of-hours mobile call-out service; £50 call-out fee applies."
+                              }
+                        ],
                         "identifier": {
                               "@type": "PropertyValue",
                               "propertyID": "UK company number",
@@ -471,7 +501,7 @@
                         "name": "Are weekends available?",
                         "acceptedAnswer": {
                               "@type": "Answer",
-                              "text": "Customers can request Saturday or Sunday route options. Final availability depends on job type, route and confirmation."
+                              "text": "Saturday and Sunday daytime slots run from 10am to 6pm. Saturday and Sunday out-of-hours call-outs from 6pm to 11.30pm can also be requested, with a £50 call-out fee."
                         }
                   },
                   {
@@ -526,7 +556,7 @@
       }
     </script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" data-header>
@@ -583,8 +613,8 @@
         <div class="container hero-shell">
           <div class="hero-copy-block">
             <p class="eyebrow">Mobile mechanic Feltham</p>
-            <h1 id="hero-title">Expert car care <span class="hero-title-highlight">at your door</span></h1>
-            <p class="hero-copy">Mobile mechanic services in Feltham and surrounding areas. Quality repairs, diagnostics and maintenance &mdash; without the garage.</p>
+            <h1 id="hero-title">Mobile mechanic in Feltham <span class="hero-title-highlight">at your door</span></h1>
+            <p class="hero-copy">Home and workplace car repairs, diagnostics, MOT support and mobile mechanic visits across Feltham and surrounding areas &mdash; without the garage wait.</p>
             <div class="hero-actions" aria-label="Primary actions">
               <a class="btn btn-primary" href="contact.html"><span class="btn-icon btn-icon--calendar" aria-hidden="true"></span>Book</a>
               <a class="btn btn-secondary" href="https://wa.me/447347388893?text=Hi%20Tuned%20Performance%2C%20I%20would%20like%20a%20quote%20for%20my%20car." target="_blank" rel="noopener"><span class="btn-icon btn-icon--chat" aria-hidden="true"></span>Get a quote</a>
@@ -602,13 +632,13 @@
               </div>
               <div>
                 <img src="assets/icon-benefit-clock.svg" alt="" aria-hidden="true">
-                <strong>Fast response</strong>
-                <span>Same day availability</span>
+                <strong>Weekend slots</strong>
+                <span>Saturday and Sunday routes</span>
               </div>
             </div>
           </div>
-          <figure class="hero-media">
-            <img src="assets/hero-reference-bmw.png" alt="BMW ready for mobile mechanic support" loading="eager">
+          <figure class="hero-media" aria-hidden="true">
+            <img src="assets/hero-reference-bmw.png" alt="" loading="eager">
           </figure>
         </div>
       </section>
@@ -709,8 +739,134 @@
             </div>
             <div class="estimator-inline__actions">
               <a class="btn btn-primary" href="estimator.html">Try the Estimator</a>
+              <a class="btn btn-secondary btn-on-light" href="pricing.html">View pricing</a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section section-light home-coverage-section" id="areas-covered" aria-labelledby="coverage-title">
+        <div class="container home-coverage-layout">
+          <div class="home-panel home-panel--dark">
+            <p class="eyebrow">Areas covered</p>
+            <h2 id="coverage-title">Mobile mechanic coverage around Feltham</h2>
+            <p>Core mobile coverage includes Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Send the postcode, vehicle and job details first so the route can be confirmed properly.</p>
+            <div class="trust-row">
+              <span>Feltham based</span>
+              <span>Home or workplace visits</span>
+              <span>Route confirmation before booking</span>
+            </div>
+            <div class="area-link-grid home-area-grid">
+              <a href="car-services-feltham.html"><strong>Feltham</strong><span>Mobile mechanic Feltham</span></a>
+              <a href="car-services-bedfont.html"><strong>Bedfont</strong><span>Mobile mechanic Bedfont</span></a>
+              <a href="car-services-ashford.html"><strong>Ashford</strong><span>Mobile mechanic Ashford</span></a>
+              <a href="car-services-sunbury.html"><strong>Sunbury</strong><span>Mobile mechanic Sunbury</span></a>
+              <a href="car-services-hounslow.html"><strong>Hounslow</strong><span>Mobile mechanic Hounslow</span></a>
+              <a href="car-services-kingston.html"><strong>Kingston</strong><span>Mobile mechanic Kingston</span></a>
+            </div>
+          </div>
+          <div class="home-panel home-panel--light">
+            <p class="eyebrow">Area checker</p>
+            <h3>Check your town or postcode area</h3>
+            <p>Type your town or postcode area below. If it is not in the core list, send it anyway and the route can still be checked manually.</p>
+            <div class="area-search">
+              <label for="home-area-filter">Town or postcode area</label>
+              <input id="home-area-filter" type="text" placeholder="Feltham, TW13, Hounslow..." data-area-filter>
+              <p data-area-message>Start typing to check the core coverage list.</p>
+            </div>
+            <div class="home-panel__actions">
+              <a class="btn btn-primary" href="areas.html">See all area pages</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light home-proof-section" aria-labelledby="proof-title">
+        <div class="container section-heading section-heading--center">
+          <p class="eyebrow">Reviews and proof</p>
+          <h2 id="proof-title">Check recent jobs and public review routes</h2>
+          <p>Drivers can review the business on Google and Trustpilot, and you can inspect recent jobs before booking.</p>
+        </div>
+        <div class="container content-grid three home-proof-grid">
+          <article class="detail-card review-platform-card">
+            <p class="eyebrow">Google reviews</p>
+            <h3>Leave or check Google feedback</h3>
+            <p>Use the public Google review route to see local feedback and leave an honest review after a completed job.</p>
+            <div class="review-actions">
+              <a class="btn btn-primary" href="https://g.page/r/CZnD7eUE_OmbEBM/review" target="_blank" rel="noopener">Open Google reviews</a>
+            </div>
+          </article>
+          <article class="detail-card review-platform-card">
+            <p class="eyebrow">Trustpilot</p>
+            <h3>Trustpilot review route</h3>
+            <p>Trustpilot is connected for customers who prefer an independent review platform after a real completed booking.</p>
+            <div class="review-actions">
+              <a class="btn btn-secondary btn-on-light" href="https://www.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener">Open Trustpilot</a>
+            </div>
+          </article>
+          <article class="detail-card review-platform-card">
+            <p class="eyebrow">Recent jobs</p>
+            <h3>See real repair and diagnostics work</h3>
+            <p>Before and after case studies, recent fitting work and completed jobs are available so customers can check the standard of work first.</p>
+            <div class="review-actions">
+              <a class="btn btn-secondary btn-on-light" href="recent-jobs.html">View recent jobs</a>
+              <a class="btn btn-secondary btn-on-light" href="gallery.html">Open gallery</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-light home-booking-section" id="quick-book" aria-labelledby="home-booking-title">
+        <div class="container booking-layout home-booking-layout">
+          <div class="home-booking-copy">
+            <p class="eyebrow">Quick booking</p>
+            <h2 id="home-booking-title">Send a booking request from the homepage</h2>
+            <p>Use the form for repairs, diagnostics, MOT prep, coding, trim fitting or scratch repair. Standard hours are Monday to Wednesday and Saturday to Sunday from 10am to 6pm. Thursday and Friday are closed, and Saturday or Sunday bookings after 6pm add a &pound;50 call-out fee.</p>
+            <div class="home-hours-card">
+              <div>
+                <h3>Standard hours</h3>
+                <ul class="hours-list">
+                  <li><span>Monday</span><strong>10am to 6pm</strong></li>
+                  <li><span>Tuesday</span><strong>10am to 6pm</strong></li>
+                  <li><span>Wednesday</span><strong>10am to 6pm</strong></li>
+                  <li><span>Thursday</span><strong>Closed</strong></li>
+                  <li><span>Friday</span><strong>Closed</strong></li>
+                  <li><span>Saturday</span><strong>10am to 6pm</strong></li>
+                  <li><span>Sunday</span><strong>10am to 6pm</strong></li>
+                </ul>
+              </div>
+              <div>
+                <h3>Out-of-hours</h3>
+                <ul class="hours-list">
+                  <li><span>Saturday</span><strong>6pm to 11.30pm</strong></li>
+                  <li><span>Sunday</span><strong>6pm to 11.30pm</strong></li>
+                </ul>
+                <p class="hours-fee">Out-of-hours call-out fee: &pound;50</p>
+              </div>
+            </div>
+          </div>
+          <form class="booking-form home-booking-form" action="https://api.web3forms.com/submit" method="POST" data-booking-form data-lead-form>
+            <input type="hidden" name="access_key" value="4f7ab378-e677-4b67-b382-d548236a7160">
+            <input type="hidden" name="subject" value="New Tuned Performance homepage booking enquiry">
+            <input type="hidden" name="from_name" value="Tuned Performance Website">
+            <input type="hidden" name="redirect" value="https://tunedperformance.co.uk/thank-you.html?source=email">
+            <input type="hidden" name="lead_source" value="Homepage booking form">
+            <input class="botcheck" aria-label="Leave this field empty" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+            <div class="form-row"><label for="home-name">Name</label><input id="home-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="form-row"><label for="home-phone">Phone</label><input id="home-phone" name="phone" type="tel" autocomplete="tel" required></div>
+            <div class="form-row"><label for="home-email">Email</label><input id="home-email" name="email" type="email" autocomplete="email" placeholder="For email replies"></div>
+            <div class="form-row"><label for="home-postcode">Postcode or area</label><input id="home-postcode" name="postcode" type="text" autocomplete="postal-code" required></div>
+            <div class="form-row"><label for="home-vehicle">Vehicle</label><input id="home-vehicle" name="vehicle" type="text" placeholder="Make, model, year or registration"></div>
+            <div class="form-row"><label for="home-service">Service needed</label><select id="home-service" name="service"><option>Mobile mechanic repairs and inspections</option><option>Bumper scratches and scuff repair</option><option>Single panel scratch repair and re-spray</option><option>Car and engine diagnostics</option><option>MOT prep and fail-sheet checks</option><option>Trim, mirror cap and accessory fitting</option><option>BMW and MINI coding</option><option>ECU remap enquiry</option><option>Not sure yet</option></select></div>
+            <div class="form-row"><label for="home-slot">Preferred availability</label><select id="home-slot" name="slot"><option>Monday to Wednesday daytime (10am to 6pm)</option><option>Saturday daytime (10am to 6pm)</option><option>Sunday daytime (10am to 6pm)</option><option>Saturday out-of-hours (6pm to 11.30pm, +&pound;50 call-out fee)</option><option>Sunday out-of-hours (6pm to 11.30pm, +&pound;50 call-out fee)</option></select></div>
+            <div class="form-row form-row-full"><label for="home-message">What is happening?</label><textarea id="home-message" name="message" rows="4" placeholder="Add the fault, repair needed, warning lights, damage, parts to fit, MOT concerns or coding features."></textarea></div>
+            <div class="form-actions form-row-full">
+              <button class="btn btn-primary" type="submit">Send email enquiry</button>
+              <button class="btn btn-secondary btn-on-light" type="button" data-whatsapp-submit>Send on WhatsApp</button>
+            </div>
+            <p class="form-note">For damage or trim work, WhatsApp is best when you need to attach photos immediately. The form also shows the live business-hours status before you send it.</p>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
@@ -759,9 +915,10 @@
 
     <div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div>
 
-    <script src="script.js?v=30"></script>
+    <script src="script.js?v=35"></script>
   </body>
 </html>
+
 
 
 

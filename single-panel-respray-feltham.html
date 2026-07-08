@@ -29,9 +29,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/tp-favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Tuned Performance">
+    <meta name="apple-mobile-web-app-title" content="Vehicle Mobile Mechanic">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="styles.css?v=43">
     <script type="application/ld+json" data-seo-schema="sitewide">
       {
             "@context": "https://schema.org",
@@ -96,7 +96,37 @@
                               "name": "Feltham and nearby mobile service area",
                               "description": "Core mobile service coverage includes Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Other nearby locations are subject to route confirmation."
                         },
-                        "openingHours": "Mo-Su by appointment",
+                        "openingHoursSpecification": [
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Monday",
+                                          "https://schema.org/Tuesday",
+                                          "https://schema.org/Wednesday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "18:00",
+                                    "closes": "23:30",
+                                    "description": "Out-of-hours mobile call-out service; £50 call-out fee applies."
+                              }
+                        ],
                         "identifier": {
                               "@type": "PropertyValue",
                               "propertyID": "UK company number",
@@ -504,7 +534,7 @@
                         "name": "Can I request weekend availability?",
                         "acceptedAnswer": {
                               "@type": "Answer",
-                              "text": "Yes. Saturday or Sunday route options can be requested, subject to service type, route and confirmation."
+                              "text": "Yes. Saturday and Sunday daytime slots run from 10am to 6pm, and Saturday or Sunday out-of-hours call-outs from 6pm to 11.30pm can be requested with a £50 call-out fee."
                         }
                   }
             ]
@@ -563,10 +593,10 @@
     </header>
     <main id="main">
       <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Single Panel Respray Feltham</span></nav><p class="eyebrow">Panel repair Feltham</p><h1>Single panel repair and re-spray enquiries in Feltham</h1><p>Use this page when one panel needs repair, preparation or re-spray guidance before a booking is confirmed.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+447347388893">Call 07347 388893</a><a class="btn btn-secondary" href="https://wa.me/447347388893?text=Hi%20Tuned%20Performance%2C%20I%20would%20like%20a%20quote%20for%20my%20car." target="_blank" rel="noopener">WhatsApp photos for a quote</a></div></div></section>
-      <section class="section section-light"><div class="container split"><div><p class="eyebrow">Mobile mechanic route</p><h2>Designed for drivers searching for panel paint repair locally</h2><p>Single panel repair searches are different from small scratch searches because the price depends on panel size, colour, damage depth and blend risk.</p><p>Send photos before booking so Tuned Performance can confirm if the job is a realistic mobile route or needs a workshop recommendation.</p><div class="trust-row"><span>Feltham based</span><span>Home or workplace visits</span><span>Weekday, evening and weekend requests</span></div></div><img class="feature-image" src="assets/real-small-scratch-repairs.jpg" alt="Car panel scratch requiring repair and paint work" loading="lazy"></div></section>
+      <section class="section section-light"><div class="container split"><div><p class="eyebrow">Mobile mechanic route</p><h2>Designed for drivers searching for panel paint repair locally</h2><p>Single panel repair searches are different from small scratch searches because the price depends on panel size, colour, damage depth and blend risk.</p><p>Send photos before booking so Tuned Performance can confirm if the job is a realistic mobile route or needs a workshop recommendation.</p><div class="trust-row"><span>Feltham based</span><span>Home or workplace visits</span><span>Monday to Wednesday, weekend and out-of-hours requests</span></div></div><img class="feature-image" src="assets/real-small-scratch-repairs.jpg" alt="Car panel scratch requiring repair and paint work" loading="lazy"></div></section>
       <section class="section section-dark"><div class="container section-heading"><p class="eyebrow">Search intent</p><h2>What decides the panel repair route?</h2><p>A useful quote needs the condition and location of the panel, not only a short description.</p></div><div class="container content-grid"><article class="detail-card"><h2>Panel type</h2><p>Doors, wings, bumpers and quarter panels have different access, preparation and finish considerations.</p><a href="single-panel-repair-respray.html">Panel repair service</a></article><article class="detail-card"><h2>Paint finish</h2><p>Metallic, pearl, three-stage and previous repairs may need extra care before a final quote.</p><a href="pricing.html">Pricing guide</a></article><article class="detail-card"><h2>Damage spread</h2><p>Wide scratches, dents or edge damage can change the repair scope quickly.</p><a href="estimator.html">Estimator</a></article></div></section>
       <section class="section section-light"><div class="container content-grid"><article class="detail-card"><h2>Internal links</h2><p>Move between mobile mechanic, pricing, area and contact routes without starting again.</p><a href="services.html">All services</a><a href="pricing.html">Pricing</a><a href="areas.html">Areas covered</a><a href="contact.html">Contact</a></article><article class="detail-card highlight"><h2>What to send</h2><p>Send a wide photo of the full panel, a close-up of the damage, paint code if known, vehicle details, postcode and preferred weekday or weekend timing.</p><a href="contact.html">Send details</a></article><article class="detail-card"><h2>Recent work</h2><p>Use recent jobs and gallery pages to build trust before sending a quote request.</p><a href="recent-jobs.html">Recent jobs</a><a href="gallery.html">Gallery</a></article></div></section>
-      <section class="section section-light"><div class="container section-heading"><p class="eyebrow">FAQ</p><h2>Questions this page answers</h2></div><div class="container faq-list"><details open><summary>Is a single panel repair the same as a bumper scuff repair?</summary><p>No. Single panel repair and re-spray can involve more preparation, paint matching and finish work than a small bumper scuff.</p></details><details><summary>Can you quote from one photo?</summary><p>A close-up helps, but a full-panel photo is also needed to understand the repair size and panel shape.</p></details><details><summary>Can I request weekend availability?</summary><p>Yes. Saturday or Sunday route options can be requested, subject to service type, route and confirmation.</p></details></div></section>
+      <section class="section section-light"><div class="container section-heading"><p class="eyebrow">FAQ</p><h2>Questions this page answers</h2></div><div class="container faq-list"><details open><summary>Is a single panel repair the same as a bumper scuff repair?</summary><p>No. Single panel repair and re-spray can involve more preparation, paint matching and finish work than a small bumper scuff.</p></details><details><summary>Can you quote from one photo?</summary><p>A close-up helps, but a full-panel photo is also needed to understand the repair size and panel shape.</p></details><details><summary>Can I request weekend availability?</summary><p>Yes. Saturday and Sunday daytime slots run from 10am to 6pm, and Saturday or Sunday out-of-hours call-outs from 6pm to 11.30pm can be requested with a £50 call-out fee.</p></details></div></section>
       <section class="conversion-strip"><div class="container"><div><h2>Need single panel repair guidance?</h2><p>Send photos first so the right price route can be confirmed before a booking.</p></div><a class="btn btn-primary" href="contact.html">Request a quote</a></div></section>
     </main>
     <footer class="site-footer">
@@ -604,9 +634,10 @@
         <span>Company No. 17180730</span>
       </div>
     </footer>
-    <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div><div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div><script src="script.js?v=30"></script>
+    <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div><div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div><script src="script.js?v=35"></script>
   </body>
 </html>
+
 
 
 

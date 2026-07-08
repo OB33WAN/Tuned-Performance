@@ -28,9 +28,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/tp-favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Tuned Performance">
+    <meta name="apple-mobile-web-app-title" content="Vehicle Mobile Mechanic">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="styles.css?v=43">
     <script type="application/ld+json" data-seo-schema="sitewide">
       {
             "@context": "https://schema.org",
@@ -95,7 +95,37 @@
                               "name": "Feltham and nearby mobile service area",
                               "description": "Core mobile service coverage includes Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston. Other nearby locations are subject to route confirmation."
                         },
-                        "openingHours": "Mo-Su by appointment",
+                        "openingHoursSpecification": [
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Monday",
+                                          "https://schema.org/Tuesday",
+                                          "https://schema.org/Wednesday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "10:00",
+                                    "closes": "18:00"
+                              },
+                              {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                          "https://schema.org/Saturday",
+                                          "https://schema.org/Sunday"
+                                    ],
+                                    "opens": "18:00",
+                                    "closes": "23:30",
+                                    "description": "Out-of-hours mobile call-out service; £50 call-out fee applies."
+                              }
+                        ],
                         "identifier": {
                               "@type": "PropertyValue",
                               "propertyID": "UK company number",
@@ -572,14 +602,15 @@
             <div class="estimator-step-panel" data-estimator-step="2" aria-labelledby="estimate-step-3-title" hidden>
               <p class="eyebrow">Step 3 of 4</p>
               <h2 id="estimate-step-3-title">Mobile Mechanic Availability and Contact Details</h2>
-              <p>Weekday and weekend preferences are included in the enquiry automatically.</p>
+              <p>This step uses current UK time and recommends the next available booking window automatically. Thursday and Friday are closed, and Saturday and Sunday out-of-hours from 6pm to 11.30pm add a &pound;50 call-out fee.</p>
               <div class="estimator-field-grid">
                 <label>Preferred availability
                   <select name="preferred_availability" data-full-slot>
-                    <option value="weekday">Weekday daytime</option>
-                    <option value="evening">Weekday evening</option>
-                    <option value="saturday">Saturday route</option>
-                    <option value="sunday">Sunday route</option>
+                    <option value="mon-wed-day">Monday to Wednesday daytime (10am to 6pm)</option>
+                    <option value="saturday-day">Saturday daytime (10am to 6pm)</option>
+                    <option value="sunday-day">Sunday daytime (10am to 6pm)</option>
+                    <option value="saturday-ooh">Saturday out-of-hours (6pm to 11.30pm, +£50 call-out fee)</option>
+                    <option value="sunday-ooh">Sunday out-of-hours (6pm to 11.30pm, +£50 call-out fee)</option>
                   </select>
                 </label>
                 <label>How soon do you need it?
@@ -686,9 +717,10 @@
     </footer>
     <div class="mobile-bar" aria-label="Quick contact"><a href="tel:+447347388893">Call</a><a href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a><a href="contact.html">Quote</a></div>
     <div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div>
-    <script src="script.js?v=30"></script>
+    <script src="script.js?v=35"></script>
   </body>
 </html>
+
 
 
 

@@ -1,7 +1,7 @@
 {
-  "name": "Tuned Performance",
-  "short_name": "Tuned",
-  "description": "Mobile mechanic repair visits, car diagnostics, MOT prep checks and photo-led repair quotes around Feltham.",
+  "name": "Vehicle Mobile Mechanic",
+  "short_name": "Vehicle Mobile Mechanic",
+  "description": "Mobile mechanic repair visits, car diagnostics, MOT prep checks and weekend booking support around Feltham.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
