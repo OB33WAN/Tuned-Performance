@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v44";
+const CACHE_NAME = "tuned-performance-pwa-v45";
 
 const CORE_ASSETS = [
   "./",
@@ -148,4 +148,5 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
 

@@ -88,25 +88,25 @@ const trackConversion = (eventName, params = {}) => {
 
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const pageBookingDefaults = {
-  "index.html": "Mobile mechanic repairs and inspections",
-  "services.html": "Mobile mechanic repairs and inspections",
-  "contact.html": "Mobile mechanic repairs and inspections",
-  "pricing.html": "Mobile mechanic repairs and inspections",
-  "estimator.html": "Mobile mechanic repairs and inspections",
-  "areas.html": "Mobile mechanic repairs and inspections",
-  "availability.html": "Mobile mechanic repairs and inspections",
-  "about.html": "Mobile mechanic repairs and inspections",
-  "gallery.html": "Mobile mechanic repairs and inspections",
-  "reviews.html": "Mobile mechanic repairs and inspections",
-  "recent-jobs.html": "Mobile mechanic repairs and inspections",
-  "refer-a-friend.html": "Mobile mechanic repairs and inspections",
-  "faq.html": "Mobile mechanic repairs and inspections",
-  "car-services-feltham.html": "Mobile mechanic repairs and inspections",
-  "car-services-bedfont.html": "Mobile mechanic repairs and inspections",
-  "car-services-ashford.html": "Mobile mechanic repairs and inspections",
-  "car-services-sunbury.html": "Mobile mechanic repairs and inspections",
-  "car-services-hounslow.html": "Mobile mechanic repairs and inspections",
-  "car-services-kingston.html": "Mobile mechanic repairs and inspections",
+  "index.html": "Mobile mechanic repair visit",
+  "services.html": "Mobile mechanic repair visit",
+  "contact.html": "Mobile mechanic repair visit",
+  "pricing.html": "Mobile mechanic repair visit",
+  "estimator.html": "Mobile mechanic repair visit",
+  "areas.html": "Mobile mechanic repair visit",
+  "availability.html": "Mobile mechanic repair visit",
+  "about.html": "Mobile mechanic repair visit",
+  "gallery.html": "Mobile mechanic repair visit",
+  "reviews.html": "Mobile mechanic repair visit",
+  "recent-jobs.html": "Mobile mechanic repair visit",
+  "refer-a-friend.html": "Mobile mechanic repair visit",
+  "faq.html": "Mobile mechanic repair visit",
+  "car-services-feltham.html": "Mobile mechanic repair visit",
+  "car-services-bedfont.html": "Mobile mechanic repair visit",
+  "car-services-ashford.html": "Mobile mechanic repair visit",
+  "car-services-sunbury.html": "Mobile mechanic repair visit",
+  "car-services-hounslow.html": "Mobile mechanic repair visit",
+  "car-services-kingston.html": "Mobile mechanic repair visit",
   "scratch-bumper-repairs.html": "Bumper scratches and scuff repair",
   "bumper-repair-feltham.html": "Bumper scratches and scuff repair",
   "single-panel-repair-respray.html": "Single panel scratch repair and re-spray",
@@ -415,7 +415,7 @@ bookingModal.innerHTML = `
         <div class="form-row">
           <label for="modal-book-service">Service needed</label>
           <select id="modal-book-service" name="service">
-            <option>Mobile mechanic repairs and inspections</option>
+            <option>Mobile mechanic repair visit</option>
             <option>Bumper scratches and scuff repair</option>
             <option>Single panel scratch repair and re-spray</option>
             <option>Car and engine diagnostics</option>
