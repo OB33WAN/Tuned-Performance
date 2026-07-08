@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v31";
+const CACHE_NAME = "tuned-performance-pwa-v35";
 
 const CORE_ASSETS = [
   "./",
@@ -41,7 +41,7 @@ const CORE_ASSETS = [
   "./bmw-mini-coding-guide.html",
   "./terms.html",
   "./trim-fitment.html",
-  "./styles.css?v=31",
+  "./styles.css?v=35",
   "./script.js?v=30",
   "./manifest.webmanifest",
   "./README.MD",
@@ -49,14 +49,31 @@ const CORE_ASSETS = [
   "./llms-full.txt",
   "./robots.txt",
   "./sitemap.xml",
-  "./assets/app-icon-192.png",
-  "./assets/app-icon-512.png",
-  "./assets/apple-touch-icon.png",
-  "./assets/favicon.ico",
-  "./assets/favicon-32.png",
-  "./assets/favicon-16.png",
+  "./assets/tp-app-icon-192.png",
+  "./assets/tp-app-icon-512.png",
+  "./assets/tp-apple-touch-icon.png",
+  "./assets/tp-favicon-32.png",
+  "./assets/tp-favicon-16.png",
   "./assets/area-coverage.png",
+  "./assets/estimator-reference-scratch.png",
+  "./assets/hero-reference-bmw.png",
   "./assets/hero-workshop.png",
+  "./assets/icon-benefit-clock.svg",
+  "./assets/icon-benefit-pin.svg",
+  "./assets/icon-benefit-shield.svg",
+  "./assets/icon-estimator-camera.svg",
+  "./assets/icon-estimator-calc.svg",
+  "./assets/icon-estimator-check.svg",
+  "./assets/icon-service-battery.svg",
+  "./assets/icon-service-brakes.svg",
+  "./assets/icon-service-diagnostics.svg",
+  "./assets/icon-service-maintenance.svg",
+  "./assets/icon-service-mot.svg",
+  "./assets/icon-service-repairs.svg",
+  "./assets/icon-trust-pound.svg",
+  "./assets/icon-trust-shield.svg",
+  "./assets/icon-trust-star.svg",
+  "./assets/icon-trust-truck.svg",
   "./assets/real-bumper-scratch-spot-repairs.jpg",
   "./assets/real-dyno-mapping.jpg",
   "./assets/real-ecu-remapping.jpg",
@@ -76,9 +93,8 @@ const CORE_ASSETS = [
   "./assets/service-repair-photo.jpg",
   "./assets/service-repair.png",
   "./assets/tuned-car-lineup.jpg",
-  "./assets/tuned-performance-logo-cropped.jpg",
-  "./assets/tuned-performance-logo-cropped.png",
-  "./assets/tuned-performance-logo.jpg"
+  "./assets/tp-logo-mark.png",
+  "./assets/tp-logo-wordmark.jpg"
 ];
 
 self.addEventListener("install", (event) => {

@@ -22,17 +22,16 @@
     <meta name="geo.region" content="GB">
     <meta name="coverage" content="105 Swan Road, Feltham TW13 6PE; Feltham, Bedfont, Ashford, Sunbury, Hounslow, Kingston">
     <meta name="keywords" content="mobile mechanic Feltham, car repairs Feltham, mobile car repairs Feltham, car diagnostics Feltham, engine diagnostics Feltham, warning light checks Feltham, MOT prep Feltham, bumper scratch repair Feltham, single panel respray Feltham, home workplace mechanic Feltham">
-    <meta name="theme-color" content="#101214">
+    <meta name="theme-color" content="#0f1115">
     <link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <link rel="icon" href="assets/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/tp-apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/tp-favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/tp-favicon-16.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Tuned Performance">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="styles.css?v=31">
+    <link rel="stylesheet" href="styles.css?v=35">
     <script type="application/ld+json" data-seo-schema="sitewide">
       {
             "@context": "https://schema.org",
@@ -46,7 +45,7 @@
                         "name": "Tuned Performance",
                         "legalName": "Tuned Performance",
                         "url": "https://tunedperformance.co.uk/",
-                        "logo": "https://tunedperformance.co.uk/assets/tuned-performance-logo-cropped.jpg",
+                        "logo": "https://tunedperformance.co.uk/assets/tp-logo-wordmark.jpg",
                         "image": [
                               "https://tunedperformance.co.uk/assets/hero-workshop.png",
                               "https://tunedperformance.co.uk/assets/service-diagnostics-photo.jpg",
@@ -532,13 +531,20 @@
 
     <header class="site-header" data-header>
       <div class="container header-inner">
-        <a class="brand" href="index.html" aria-label="Tuned Performance home">
-          <img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true">
-          <span>
-            <strong>Tuned Performance</strong>
-            <small>Mobile mechanic - Feltham</small>
-          </span>
-        </a>
+        <div class="header-brand-cluster">
+          <a class="brand" href="index.html" aria-label="Tuned Performance home">
+            <img class="brand-wordmark" src="assets/tp-logo-wordmark.jpg" alt="Tuned Performance">
+            <img class="brand-logo" src="assets/tp-logo-mark.png" alt="" aria-hidden="true">
+            <span class="brand-mobile-text">
+              <strong>Tuned Performance</strong>
+              <small>Mobile mechanic - Feltham</small>
+            </span>
+          </a>
+          <div class="header-location" aria-label="Service area">
+            <strong>Feltham &amp; surrounding areas</strong>
+            <small>We come to you</small>
+          </div>
+        </div>
         <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
           <span></span>
           <span></span>
@@ -553,7 +559,7 @@
             <button class="mobile-nav-close" type="button" aria-label="Close menu" data-nav-close><span aria-hidden="true"></span></button>
           </div>
           <div class="mobile-nav-section-title">Main routes</div>
-          <a href="index.html">Home</a><a href="car-services-feltham.html">Mobile Mechanic</a><a href="services.html">Services</a><a href="obd-diagnostics.html">Diagnostics</a><a href="pricing.html">Pricing</a><a href="areas.html">Areas</a><a class="nav-book-link" href="contact.html">Book</a>
+          <a href="index.html">Home</a><a href="services.html">Services</a><a href="areas.html">Areas</a><a href="pricing.html">Pricing</a><a href="reviews.html">Reviews</a><a href="recent-jobs.html">Recent Jobs</a><a href="about.html">About</a><a class="nav-book-link" href="contact.html">Book</a>
           <div class="mobile-nav-section-title">Core service pages</div>
           <a class="mobile-service-link" href="car-services-feltham.html">Mobile mechanic Feltham</a><a class="mobile-service-link" href="scratch-bumper-repairs.html">Bumper scratches and scuff repair</a><a class="mobile-service-link" href="single-panel-repair-respray.html">Car scratch repair and panel respray</a><a class="mobile-service-link" href="obd-diagnostics.html">Car and engine diagnostics</a><a class="mobile-service-link" href="mot-support.html">MOT prep and fail-sheet checks</a>
           <div class="mobile-nav-section-title">Specialist services</div>
@@ -569,462 +575,142 @@
             <a class="mobile-nav-action mobile-nav-action--whatsapp" href="https://wa.me/447347388893" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </nav>
-        <a class="header-cta" href="tel:+447347388893">Call 07347 388893</a>
       </div>
-      <nav class="service-link-nav" aria-label="Direct service navigation" data-service-nav>
-        <div class="container">
-          <span class="service-link-nav__label">Core service pages</span>
-          <a href="car-services-feltham.html">Mobile mechanic Feltham</a><a href="scratch-bumper-repairs.html">Bumper scratches and scuff repair</a><a href="single-panel-repair-respray.html">Car scratch repair and panel respray</a><a href="obd-diagnostics.html">Car and engine diagnostics</a><a href="mot-support.html">MOT prep and fail-sheet checks</a>
-        </div>
-      </nav>
     </header>
 
     <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-bg" role="img" aria-label="Mobile mechanic workshop support background image"></div>
-        <div class="container hero-inner">
-          <p class="eyebrow">Mobile mechanic Feltham</p>
-          <h1 id="hero-title">Mobile Mechanic Feltham for Car Repairs, Diagnostics and MOT Prep</h1>
-          <p class="hero-copy">Book mobile mechanic help for warning lights, everyday car repairs, MOT prep checks, bumper scratches and single panel resprays across Feltham, Bedfont, Ashford, Sunbury, Kingston and Hounslow. Home or workplace visits are available where the job suits a mobile booking.</p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="btn btn-primary" href="tel:+447347388893">Call 07347 388893</a>
-            <a class="btn btn-secondary" href="https://wa.me/447347388893?text=Hi%20Tuned%20Performance%2C%20I%20would%20like%20a%20quote%20for%20my%20car." target="_blank" rel="noopener">WhatsApp photos for a quote</a>
+      <section class="hero hero--split" id="top" aria-labelledby="hero-title">
+        <div class="container hero-shell">
+          <div class="hero-copy-block">
+            <p class="eyebrow">Mobile mechanic Feltham</p>
+            <h1 id="hero-title">Expert car care <span class="hero-title-highlight">at your door</span></h1>
+            <p class="hero-copy">Mobile mechanic services in Feltham and surrounding areas. Quality repairs, diagnostics and maintenance &mdash; without the garage.</p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="btn btn-primary" href="contact.html"><span class="btn-icon btn-icon--calendar" aria-hidden="true"></span>Book</a>
+              <a class="btn btn-secondary" href="https://wa.me/447347388893?text=Hi%20Tuned%20Performance%2C%20I%20would%20like%20a%20quote%20for%20my%20car." target="_blank" rel="noopener"><span class="btn-icon btn-icon--chat" aria-hidden="true"></span>Get a quote</a>
+            </div>
+            <div class="hero-benefits" aria-label="Service highlights">
+              <div>
+                <img src="assets/icon-benefit-pin.svg" alt="" aria-hidden="true">
+                <strong>We come to you</strong>
+                <span>Home or work</span>
+              </div>
+              <div>
+                <img src="assets/icon-benefit-shield.svg" alt="" aria-hidden="true">
+                <strong>Professional &amp; reliable</strong>
+                <span>5-star service</span>
+              </div>
+              <div>
+                <img src="assets/icon-benefit-clock.svg" alt="" aria-hidden="true">
+                <strong>Fast response</strong>
+                <span>Same day availability</span>
+              </div>
+            </div>
           </div>
-          <dl class="hero-stats" aria-label="Service highlights">
-            <div>
-              <dt>From &pound;50</dt>
-              <dd>Repair or diagnostics route</dd>
-            </div>
-            <div>
-              <dt>Home or work</dt>
-              <dd>Visits where suitable</dd>
-            </div>
-            <div>
-              <dt>Weekday + weekend</dt>
-              <dd>Availability requests</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section class="quick-route" aria-label="Quick service routes">
-        <div class="container route-grid">
-          <a href="contact.html" class="route-item">
-            <span>Need a mobile mechanic?</span>
-            <strong>Book a mobile visit</strong>
-          </a>
-          <a href="obd-diagnostics.html" class="route-item">
-            <span>Warning light or fault?</span>
-            <strong>Get diagnostics from &pound;50</strong>
-          </a>
-          <a href="estimator.html" class="route-item">
-            <span>Need a price?</span>
-            <strong>Get a price in 60 seconds</strong>
-          </a>
-        </div>
-      </section>
-
-      <section class="section section-dark tuned-showcase" aria-labelledby="tuned-cars-title">
-        <div class="container tuned-showcase-grid">
-          <div class="tuned-copy">
-            <p class="eyebrow">Home and workplace visits</p>
-            <h2 id="tuned-cars-title">Mobile mechanic help built around fast local call-outs</h2>
-            <p>Send the job, vehicle, postcode and photos once. Tuned Performance then routes the enquiry to the fastest next step: repair visit, diagnostics, MOT prep or a photo-led repair quote.</p>
-            <div class="badge-list" aria-label="Typical vehicle styles">
-              <span>Repairs</span>
-              <span>MOT prep</span>
-              <span>Diagnostics</span>
-              <span>Weekday or weekend</span>
-            </div>
-            <a class="btn btn-primary" href="contact.html">Book a mobile visit</a>
-          </div>
-          <figure class="tuned-media">
-            <img src="assets/service-diagnostics-photo.jpg" alt="Diagnostic equipment being used inside a customer vehicle" loading="lazy">
+          <figure class="hero-media">
+            <img src="assets/hero-reference-bmw.png" alt="BMW ready for mobile mechanic support" loading="eager">
           </figure>
         </div>
       </section>
 
-      <section class="section section-light" id="services" aria-labelledby="services-title">
-        <div class="container section-heading">
-          <p class="eyebrow">Choose the right first step</p>
-          <h2 id="services-title">Most-Booked Mobile Mechanic Routes in Feltham</h2>
-          <p>Lead with the main jobs local drivers actually book first: general repair visits, warning-light checks, MOT prep, bumper scratches and panel paint damage.</p>
+      <section class="section section-light home-service-overview" id="services" aria-labelledby="services-title">
+        <div class="container section-heading section-heading--center">
+          <p class="eyebrow">Mobile mechanic services</p>
+          <h2 id="services-title">Complete car care at your doorstep</h2>
+          <p>Dealer-level diagnostics. Quality repairs. No garage, no hassle.</p>
         </div>
-        <div class="container service-grid">
-          <article class="service-card">
-            <img src="assets/hero-workshop.png" alt="Customer vehicle being reviewed for a mobile mechanic repair visit" loading="lazy">
-            <div class="service-body">
-              <p class="tag">Most requested</p>
-              <h3>Mobile mechanic repair visits</h3>
-              <p>Best for general car repairs, warning-light follow-up, noises, faults and jobs that need the symptoms reviewed before a mobile booking is confirmed.</p>
-              <ul>
-                <li>Inspection or diagnostic route from &pound;50</li>
-                <li>Home or workplace visits where suitable</li>
-                <li>Vehicle, postcode and symptoms reviewed first</li>
-              </ul>
-              <a href="contact.html">Book repair visit</a>
-            </div>
+        <div class="container compact-service-grid">
+          <article class="compact-service-card compact-service-card--diagnostics">
+            <img class="compact-service-card__icon" src="assets/icon-service-diagnostics.svg" alt="" aria-hidden="true">
+            <h3>Diagnostics</h3>
+            <p>Full car and engine diagnostics. Find and fix faults fast.</p>
+            <a href="obd-diagnostics.html">Learn more</a>
           </article>
-
-          <article class="service-card">
-            <img src="assets/service-diagnostics-photo.jpg" alt="OBD diagnostic tablet connected inside a car" loading="lazy">
-            <div class="service-body">
-              <p class="tag">Fast answers</p>
-              <h3>Car and engine diagnostics and fault guidance</h3>
-              <p>Warning lights, scan checks and next-step advice before spending on parts or workshop labour.</p>
-              <ul>
-                <li>Diagnostic visit from &pound;50</li>
-                <li>Fault code guidance in plain English</li>
-                <li>Workshop routing where needed</li>
-              </ul>
-              <a href="obd-diagnostics.html">Book diagnosis</a>
-            </div>
+          <article class="compact-service-card compact-service-card--repairs">
+            <img class="compact-service-card__icon" src="assets/icon-service-repairs.svg" alt="" aria-hidden="true">
+            <h3>Repairs</h3>
+            <p>From minor fixes to major repairs. Done right, at your location.</p>
+            <a href="car-services-feltham.html">Learn more</a>
           </article>
-
-          <article class="service-card">
-            <img src="assets/service-mot-photo.jpg" alt="Car in a professional inspection bay for MOT preparation checks" loading="lazy">
-            <div class="service-body">
-              <p class="tag">Garage route help</p>
-              <h3>MOT prep and fault checks</h3>
-              <p>Route MOT-related checks, collection support and garage guidance when a workshop is the right next step.</p>
-              <ul>
-                <li>MOT route advice before booking</li>
-                <li>Support for inspection-related issues</li>
-                <li>Weekday and weekend requests</li>
-              </ul>
-              <a href="mot-support.html">Request MOT prep checks</a>
-            </div>
+          <article class="compact-service-card compact-service-card--mot">
+            <img class="compact-service-card__icon" src="assets/icon-service-mot.svg" alt="" aria-hidden="true">
+            <h3>MOT Checks</h3>
+            <p>Pre-MOT inspections and advice to help you pass.</p>
+            <a href="mot-support.html">Learn more</a>
           </article>
-
-          <article class="service-card">
-            <img src="assets/real-bumper-scratch-spot-repairs.jpg" alt="Before and after bumper scratch repair on a customer car" loading="lazy">
-            <div class="service-body">
-              <p class="tag">Photo quote route</p>
-              <h3>Bumper scratches and scuff repair</h3>
-              <p>Light bumper scuffs, paint transfer and cosmetic damage that can usually be reviewed from clear photos before you commit.</p>
-              <ul>
-                <li>Bumper spot repairs from &pound;60</li>
-                <li>Close-up and wider bumper photos help most</li>
-                <li>Best for local scuffs and paint marks</li>
-              </ul>
-              <a href="scratch-bumper-repairs.html">Quote bumper repair</a>
-            </div>
+          <article class="compact-service-card compact-service-card--brakes">
+            <img class="compact-service-card__icon" src="assets/icon-service-brakes.svg" alt="" aria-hidden="true">
+            <h3>Brakes</h3>
+            <p>Brake pad and disc replacement. Safe stopping power restored.</p>
+            <a href="car-services-feltham.html">Learn more</a>
           </article>
-
-          <article class="service-card">
-            <img src="assets/service-repair-photo.jpg" alt="Single panel repair and re-spray preparation on a customer vehicle" loading="lazy">
-            <div class="service-body">
-              <p class="tag">Paint damage route</p>
-              <h3>Single panel scratch repair and re-spray</h3>
-              <p>Use this route when one panel needs a clearer paint repair quote, preparation guidance or respray decision before booking.</p>
-              <ul>
-                <li>Single panel repair and re-spray from &pound;100</li>
-                <li>Panel size, colour and paint match affect the quote</li>
-                <li>Full-panel and close-up photos help most</li>
-              </ul>
-              <a href="single-panel-repair-respray.html">Quote panel repair</a>
-            </div>
+          <article class="compact-service-card compact-service-card--battery">
+            <img class="compact-service-card__icon" src="assets/icon-service-battery.svg" alt="" aria-hidden="true">
+            <h3>Batteries</h3>
+            <p>Battery testing and fitting. Reliable starts, every time.</p>
+            <a href="car-services-feltham.html">Learn more</a>
           </article>
-
-          <article class="service-card">
-            <img src="assets/service-fitment-photo.jpg" alt="Replacement trim and specialist accessory parts ready for fitting" loading="lazy">
-            <div class="service-body">
-              <p class="tag">Secondary services</p>
-              <h3>Trim, coding and specialist enquiries</h3>
-              <p>These routes stay available, but most bookings should still start with repairs, diagnostics, MOT prep or clear photo quotes.</p>
-              <ul>
-                <li>Trim replacement and accessory fitting</li>
-                <li>BMW and MINI coding for supported vehicles</li>
-                <li>ECU remap interest captured separately</li>
-              </ul>
-              <a href="services.html">View secondary services</a>
-            </div>
+          <article class="compact-service-card compact-service-card--maintenance">
+            <img class="compact-service-card__icon" src="assets/icon-service-maintenance.svg" alt="" aria-hidden="true">
+            <h3>General Maintenance</h3>
+            <p>Oil changes, filters, bulbs and more. Keep your car healthy.</p>
+            <a href="car-services-feltham.html">Learn more</a>
           </article>
         </div>
       </section>
 
-      <section class="section section-dark" id="pricing" aria-labelledby="pricing-title">
-        <div class="container split">
-          <div>
-            <p class="eyebrow">Quick cost guide</p>
-            <h2 id="pricing-title">Guide Prices for Mobile Mechanic Visits</h2>
-            <p>Use the guide to frame the enquiry, then send photos, postcode and vehicle details so Tuned Performance can confirm the right route.</p>
-            <div class="price-list" aria-label="Starting prices">
-              <div><span>Mobile mechanic repair visit</span><strong>From &pound;50 route</strong></div>
-              <div><span>Car and engine diagnostics</span><strong>From &pound;50</strong></div>
-              <div><span>Bumper scratches and scuff repair</span><strong>From &pound;60</strong></div>
-              <div><span>Single panel scratch repair &amp; re-spray</span><strong>From &pound;100 per panel</strong></div>
-              <div><span>MOT prep and fail-sheet checks</span><strong>Guide quote needed</strong></div>
-            </div>
+      <section class="section section-light trust-strip-section" aria-label="Trust signals">
+        <div class="container trust-strip">
+          <div class="trust-strip__item">
+            <img src="assets/icon-trust-star.svg" alt="" aria-hidden="true">
+            <strong>5-star rated</strong>
+            <span>Trusted by local drivers</span>
           </div>
-          <form class="estimator" data-estimator aria-label="Quick price estimator">
-            <h3>Quick estimate</h3>
-            <label for="estimate-service">Service</label>
-            <select id="estimate-service" data-estimate-service>
-              <option value="mechanic">Mobile mechanic repairs and inspections</option>
-              <option value="bumper">Bumper scratches and scuff repair</option>
-              <option value="panel">Single panel scratch repair &amp; re-spray</option>
-              <option value="diagnostic">Car and engine diagnostics</option>
-              <option value="mot">MOT prep and fail-sheet checks</option>
-              <option value="fitment">Trim, mirror cap and accessory fitting</option>
-              <option value="coding">BMW and MINI coding</option>
-              <option value="remap">ECU remap enquiry</option>
-            </select>
-            <label for="estimate-size">Job size</label>
-            <select id="estimate-size" data-estimate-size>
-              <option value="small">Small or single item</option>
-              <option value="medium">Medium or two items</option>
-              <option value="large">Larger or multi-part job</option>
-            </select>
-            <output class="estimate-result" data-estimate-result for="estimate-service estimate-size">
-              From &pound;50
-            </output>
-            <p>Final price depends on vehicle, access, damage, parts and location.</p>
-            <a class="btn btn-primary" href="estimator.html">Use full estimator</a>
-          </form>
-        </div>
-      </section>
-
-      <section class="section section-dark" id="mechanic-route" aria-labelledby="mechanic-route-title">
-        <div class="container split split-reverse">
-          <img class="feature-image" src="assets/hero-workshop.png" alt="Workshop-style mobile mechanic support image" loading="lazy">
-          <div>
-            <p class="eyebrow">Mobile mechanic route</p>
-            <h2 id="mechanic-route-title">How mobile mechanic bookings are handled</h2>
-            <p>Most jobs start with the vehicle details, postcode, symptoms or photos, then the right route is confirmed before a visit is booked.</p>
-            <ul class="check-list">
-              <li>Warning lights and symptoms are checked before parts are suggested</li>
-              <li>Repair and paint jobs are quoted from clear close-up and wide photos</li>
-              <li>MOT-related jobs are routed honestly if workshop support is needed</li>
-            </ul>
-            <a class="btn btn-secondary btn-on-light" href="availability.html">Check availability</a>
+          <div class="trust-strip__item">
+            <img src="assets/icon-trust-shield.svg" alt="" aria-hidden="true">
+            <strong>Qualified &amp; insured</strong>
+            <span>Work you can trust</span>
+          </div>
+          <div class="trust-strip__item">
+            <img src="assets/icon-trust-truck.svg" alt="" aria-hidden="true">
+            <strong>Mobile service</strong>
+            <span>We come to you</span>
+          </div>
+          <div class="trust-strip__item">
+            <img src="assets/icon-trust-pound.svg" alt="" aria-hidden="true">
+            <strong>Fair pricing</strong>
+            <span>No hidden fees</span>
           </div>
         </div>
       </section>
 
-      <section class="section section-accent" id="availability" aria-labelledby="availability-title">
-        <div class="container section-heading">
-          <p class="eyebrow">Weekday and weekend availability</p>
-          <h2 id="availability-title">Weekday and Weekend Mobile Mechanic Availability</h2>
-          <p>Requests are confirmed around route planning, service type and workshop support where needed.</p>
-        </div>
-        <div class="container availability-grid" data-availability>
-          <button class="availability-card is-active" type="button" data-slot="weekday-day">
-            <span>Weekdays</span>
-            <strong>Daytime request</strong>
-            <small>Good for quote calls, local jobs and flexible appointments.</small>
-          </button>
-          <button class="availability-card" type="button" data-slot="weekday-evening">
-            <span>Weekdays</span>
-            <strong>Evening request</strong>
-            <small>Useful when the car is only available after work.</small>
-          </button>
-          <button class="availability-card" type="button" data-slot="saturday">
-            <span>Weekend</span>
-            <strong>Saturday route</strong>
-            <small>Best for mobile repair and fitment jobs by area.</small>
-          </button>
-          <button class="availability-card" type="button" data-slot="sunday">
-            <span>Weekend</span>
-            <strong>Sunday route</strong>
-            <small>Ideal for car diagnostics, MOT prep checks and smaller mobile jobs.</small>
-          </button>
-        </div>
-        <div class="container availability-note" data-availability-note>
-          Selected preference: Weekday daytime request
-        </div>
-      </section>
-
-      <section class="section section-light" id="areas" aria-labelledby="areas-title">
-        <div class="container split">
-          <div>
-            <p class="eyebrow">Local SEO coverage</p>
-            <h2 id="areas-title">Mobile Mechanic Service Areas Near Feltham</h2>
-            <p>Based at 105 Swan Road, Feltham, TW13 6PE, with core coverage around Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston.</p>
-            <div class="area-search">
-              <label for="area-filter">Check your area</label>
-              <input id="area-filter" type="search" placeholder="Type Feltham, Hounslow, Kingston..." autocomplete="off" data-area-filter>
-              <p data-area-message>Start typing to check the core coverage list.</p>
+      <section class="section section-light" id="pricing" aria-labelledby="pricing-title">
+        <div class="container estimator-showcase">
+          <figure class="estimator-showcase__media">
+            <img src="assets/estimator-reference-scratch.png" alt="Example bumper scratch repair work" loading="lazy">
+          </figure>
+          <div class="estimator-showcase__panel">
+            <p class="eyebrow">Instant estimator</p>
+            <h2 id="pricing-title">Get an instant repair estimate</h2>
+            <p>Upload photos, describe the issue and get a fast, no-obligation price &mdash; right now.</p>
+            <div class="estimator-steps" aria-label="Estimator steps">
+              <div class="estimator-step">
+                <img src="assets/icon-estimator-camera.svg" alt="" aria-hidden="true">
+                <span>Upload photos</span>
+              </div>
+              <div class="estimator-step">
+                <img src="assets/icon-estimator-calc.svg" alt="" aria-hidden="true">
+                <span>Get your estimate</span>
+              </div>
+              <div class="estimator-step">
+                <img src="assets/icon-estimator-check.svg" alt="" aria-hidden="true">
+                <span>Book with confidence</span>
+              </div>
+            </div>
+            <div class="estimator-inline__actions">
+              <a class="btn btn-primary" href="estimator.html">Try the Estimator</a>
             </div>
           </div>
-          <div class="area-map" aria-label="Covered areas">
-            <span>Feltham</span>
-            <span>Bedfont</span>
-            <span>Ashford</span>
-            <span>Sunbury</span>
-            <span>Hounslow</span>
-            <span>Kingston</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-light" aria-labelledby="local-links-title">
-        <div class="container section-heading">
-          <p class="eyebrow">Local trust signals</p>
-          <h2 id="local-links-title">Mobile Mechanic, Car Diagnostics and Repair Links</h2>
-          <p>Fast routes to the highest-conversion pages, plus external resources customers commonly need before sending an enquiry.</p>
-        </div>
-        <div class="container content-grid">
-          <article class="detail-card">
-            <h3>Feltham service page</h3>
-            <p>Local landing page for mobile car repairs, car and engine diagnostics, MOT prep checks and fast quote requests.</p>
-            <a href="car-services-feltham.html">View Feltham services</a>
-          </article>
-          <article class="detail-card">
-            <h3>Services and pricing</h3>
-            <p>Compare the main mobile mechanic, diagnostics, pricing and contact routes before messaging.</p>
-            <a href="services.html">Open services page</a>
-            <a href="pricing.html">View pricing</a>
-          </article>
-          <article class="detail-card">
-            <h3>Reviews</h3>
-            <p>Leave or review Tuned Performance feedback through Google and Trustpilot.</p>
-            <a href="https://g.page/r/CZnD7eUE_OmbEBM/review" target="_blank" rel="noopener">Google review</a>
-            <a href="https://www.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener">Trustpilot profile</a>
-          </article>
-          <article class="detail-card">
-            <h3>MOT resources</h3>
-            <p>External reference links for MOT status checks and history before sending an enquiry.</p>
-            <a href="https://www.gov.uk/check-mot-status" target="_blank" rel="noopener">Check MOT status</a>
-            <a href="https://www.gov.uk/check-mot-history" target="_blank" rel="noopener">Check MOT history</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section-dark" aria-labelledby="popular-searches-title">
-        <div class="container section-heading"><p class="eyebrow">Popular local searches</p><h2 id="popular-searches-title">Popular Mobile Mechanic and Car Repair Searches in Feltham</h2><p>These pages target the repair, diagnostics and local mobile mechanic searches that are more likely to turn into calls, WhatsApp messages and quote requests.</p></div>
-        <div class="container content-grid"><article class="detail-card"><h3>Mobile mechanic Feltham</h3><p>Local quote route for repairs, warning lights, MOT prep and fast booking requests.</p><a href="car-services-feltham.html">Open Feltham page</a></article><article class="detail-card"><h3>Bumper scratch repair Feltham</h3><p>Photo-led bumper scuff and scratch quote route for local drivers.</p><a href="bumper-repair-feltham.html">Open bumper page</a></article><article class="detail-card"><h3>Single panel respray Feltham</h3><p>Single panel repair and re-spray guidance for scratches and paint damage.</p><a href="single-panel-respray-feltham.html">Open panel page</a></article><article class="detail-card"><h3>Car and engine diagnostics Feltham</h3><p>Warning light and fault scan enquiry route before MOT or repair work.</p><a href="mobile-obd-diagnostics-feltham.html">Open diagnostics page</a></article></div>
-      </section>
-
-      <section class="section section-dark" aria-labelledby="journey-title">
-        <div class="container section-heading">
-          <p class="eyebrow">A cleaner booking journey</p>
-          <h2 id="journey-title">Book a Mobile Mechanic in Three Steps</h2>
-        </div>
-        <div class="container journey-grid">
-          <article>
-            <span>01</span>
-            <h3>Send the car and job</h3>
-            <p>Share make, model, postcode, photos and the service you need.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Get scope and guidance</h3>
-            <p>Receive the right next step, starting cost and mobile or workshop route.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Confirm availability</h3>
-            <p>Choose weekday or weekend preference and get your appointment confirmed.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section-light" id="booking" aria-labelledby="booking-title">
-        <div class="container booking-layout">
-          <div>
-            <p class="eyebrow">Book or ask first</p>
-            <h2 id="booking-title">Request a Mobile Mechanic or Car Diagnostics Quote</h2>
-            <p>Use the form to send an email enquiry or build a WhatsApp message with the details Tuned Performance needs to answer quickly.</p>
-            <div class="contact-actions">
-              <a class="btn btn-primary" href="tel:+447347388893">Call now</a>
-              <a class="btn btn-secondary btn-on-light" href="https://wa.me/447347388893" target="_blank" rel="noopener">Open WhatsApp</a>
-            </div>
-          </div>
-          <form class="booking-form" action="https://api.web3forms.com/submit" method="POST" data-booking-form data-lead-form>
-            <input type="hidden" name="access_key" value="4f7ab378-e677-4b67-b382-d548236a7160">
-            <input type="hidden" name="subject" value="New Tuned Performance homepage enquiry">
-            <input type="hidden" name="from_name" value="Tuned Performance Website">
-            <input type="hidden" name="redirect" value="https://tunedperformance.co.uk/thank-you.html?source=email">
-            <input type="hidden" name="lead_source" value="Homepage booking form">
-            <input class="botcheck" aria-label="Leave this field empty" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="form-row">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-            </div>
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="For email replies">
-            </div>
-            <div class="form-row">
-              <label for="postcode">Postcode or area</label>
-              <input id="postcode" name="postcode" type="text" autocomplete="postal-code" required>
-            </div>
-            <div class="form-row">
-              <label for="vehicle">Vehicle</label>
-              <input id="vehicle" name="vehicle" type="text" placeholder="Make, model, year or registration">
-            </div>
-            <div class="form-row">
-              <label for="service">Service needed</label>
-              <select id="service" name="service">
-                <option>Mobile mechanic repairs and inspections</option>
-                <option>Bumper scratches and scuff repair</option>
-                <option>Single panel scratch repair and re-spray</option>
-                <option>Car and engine diagnostics</option>
-                <option>MOT prep and fail-sheet checks</option>
-                <option>Trim, mirror cap and accessory fitting</option>
-                <option>BMW and MINI coding</option>
-                <option>ECU remap enquiry</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="slot">Preferred availability</label>
-              <select id="slot" name="slot" data-slot-field>
-                <option>Weekday daytime request</option>
-                <option>Weekday evening request</option>
-                <option>Saturday route request</option>
-                <option>Sunday route request</option>
-              </select>
-            </div>
-            <div class="form-row form-row-full">
-              <label for="message">What is happening?</label>
-              <textarea id="message" name="message" rows="4" placeholder="Add the repair needed, symptoms, warning lights, damage, parts to fit, MOT concerns or coding features."></textarea>
-            </div>
-            <div class="form-actions form-row-full">
-              <button class="btn btn-primary" type="submit">Send email enquiry</button>
-              <button class="btn btn-secondary btn-on-light" type="button" data-whatsapp-submit>Send on WhatsApp</button>
-            </div>
-            <p class="form-note">Email enquiries go to the business inbox through Web3Forms. Photos can be added once WhatsApp opens.</p>
-            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </section>
-
-      <section class="section section-light faq-section" aria-labelledby="faq-title">
-        <div class="container section-heading">
-          <p class="eyebrow">Questions before booking</p>
-          <h2 id="faq-title">Mobile Mechanic and Car Diagnostics FAQs</h2>
-        </div>
-        <div class="container faq-list" data-faq>
-          <details open>
-            <summary>What should I send for the fastest quote?</summary>
-            <p>Send your vehicle, postcode, service needed, preferred availability and clear photos if the job involves damage or fitment.</p>
-          </details>
-          <details>
-            <summary>Where is Tuned Performance based?</summary>
-            <p>Tuned Performance is based at 105 Swan Road, Feltham, TW13 6PE and handles mobile enquiries across Feltham, Bedfont, Ashford, Sunbury, Hounslow and Kingston.</p>
-          </details>
-          <details>
-            <summary>What if the job needs a workshop?</summary>
-            <p>Tuned Performance can route suitable jobs through trusted Feltham partner garages instead of making you restart the enquiry elsewhere.</p>
-          </details>
-          <details>
-            <summary>Are weekday and weekend bookings available?</summary>
-            <p>You can request weekday daytime, weekday evening, Saturday or Sunday availability. Final windows depend on route, job type and confirmation.</p>
-          </details>
-          <details>
-            <summary>Can you code BMW or MINI hidden features?</summary>
-            <p>Yes. BMW and MINI coding is available for supported BimmerCode-compatible vehicles. Send the model, year and feature list first so compatibility can be checked.</p>
-          </details>
-          <details>
-            <summary>Should I book diagnostics before replacing parts?</summary>
-            <p>If the car has a warning light, starting issue or running fault, diagnostics should usually come before parts ordering. Send the symptoms and any warning light photo first.</p>
-          </details>
         </div>
       </section>
     </main>
@@ -1032,35 +718,37 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a class="brand footer-brand" href="index.html">
-            <img class="brand-logo" src="assets/tuned-performance-logo-cropped.jpg" alt="" aria-hidden="true">
-            <span>
-              <strong>Tuned Performance</strong>
-              <small>Mobile mechanic - Feltham</small>
-            </span>
+          <a class="footer-brand footer-brand--wordmark" href="index.html" aria-label="Tuned Performance home">
+            <img class="footer-brand-wordmark" src="assets/tp-logo-wordmark.jpg" alt="Tuned Performance">
           </a>
-          <p>Mobile mechanic support from 105 Swan Road, Feltham, TW13 6PE for car repairs, warning light diagnostics, MOT prep checks, bumper scratches and single panel resprays. Home or workplace visits are available where the job suits a mobile booking. Company number: 17180730.</p>
+          <p>Mobile mechanic services in Feltham and surrounding areas. Quality work, honest pricing, 5-star service.</p>
+          <div class="footer-socials" aria-label="Social links">
+            <a class="footer-social" href="https://wa.me/447347388893" target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
+            <a class="footer-social" href="tel:+447347388893" aria-label="Call Tuned Performance">P</a>
+            <a class="footer-social" href="https://g.page/r/CZnD7eUE_OmbEBM/review" target="_blank" rel="noopener" aria-label="Google reviews">G</a>
+            <a class="footer-social" href="https://www.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener" aria-label="Trustpilot">T</a>
+          </div>
         </div>
         <div>
-          <h2>Pages</h2>
-          <a href="index.html">Home</a><a href="car-services-feltham.html">Mobile mechanic Feltham</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="estimator.html">Estimator</a><a href="areas.html">Areas covered</a><a href="contact.html">Contact</a>
+          <h2>Services</h2>
+          <a href="obd-diagnostics.html">Diagnostics</a><a href="car-services-feltham.html">Repairs</a><a href="mot-support.html">MOT Checks</a><a href="car-services-feltham.html">Brakes</a><a href="car-services-feltham.html">Batteries</a><a href="car-services-feltham.html">General Maintenance</a>
         </div>
         <div>
-          <h2>Core services</h2>
-          <a href="car-services-feltham.html">Mobile mechanic repair visits</a><a href="mobile-obd-diagnostics-feltham.html">Car diagnostics Feltham</a><a href="bumper-repair-feltham.html">Bumper scratches Feltham</a><a href="single-panel-respray-feltham.html">Car scratch repair Feltham</a><a href="mot-support.html">MOT prep and fail-sheet checks</a>
+          <h2>Quick links</h2>
+          <a href="areas.html">Areas We Cover</a><a href="pricing.html">Pricing</a><a href="reviews.html">Reviews</a><a href="recent-jobs.html">Recent Jobs</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
         </div>
         <div>
-          <h2>Proof and more</h2>
-          <a href="recent-jobs.html">Recent jobs</a><a href="reviews.html">Reviews</a><a href="gallery.html">Gallery</a><a href="bmw-mini-coding-feltham.html">BMW and MINI coding Feltham</a><a href="trim-fitment.html">Trim, mirror cap and accessory fitting</a><a href="refer-a-friend.html">Refer a friend</a>
-          <a href="https://g.page/r/CZnD7eUE_OmbEBM/review" target="_blank" rel="noopener">Google review</a>
-          <a href="https://www.trustpilot.com/review/tunedperformance.co.uk" target="_blank" rel="noopener">Trustpilot</a>
-        </div>
-        <div>
-          <h2>Legal</h2>
-          <a href="privacy-gdpr.html">Privacy and GDPR</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a><a href="cancellation-policy.html">Cancellation</a>
+          <h2>Contact</h2>
+          <a class="footer-contact-link footer-contact-link--address" href="https://www.google.com/maps/search/?api=1&query=105%20Swan%20Road%2C%20Feltham%2C%20TW13%206PE" target="_blank" rel="noopener">105 Swan Road<br>Feltham, TW13 6PE</a>
+          <a class="footer-contact-link footer-contact-link--phone" href="tel:+447347388893">07347 388 893</a>
+          <a class="footer-contact-link footer-contact-link--email" href="mailto:info@tunedperformance.co.uk">info@tunedperformance.co.uk</a>
         </div>
       </div>
-      <div class="container footer-bottom"><span>&copy; 2026 Tuned Performance. All rights reserved.</span><a href="#main">Back to top</a></div>
+      <div class="container footer-bottom">
+        <span>&copy; 2026 Tuned Performance. All rights reserved.</span>
+        <div class="footer-bottom__links"><a href="privacy-gdpr.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="cookies.html">Cookies</a></div>
+        <span>Company No. 17180730</span>
+      </div>
     </footer>
 
     <div class="mobile-bar" aria-label="Quick contact">
@@ -1069,10 +757,12 @@
       <a href="contact.html">Quote</a>
     </div>
 
-    <div class="cookie-banner" data-cookie-banner><p>We use essential session storage for this visit and optional Google Analytics for enquiry measurement. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div>
+    <div class="cookie-banner" data-cookie-banner><p>We use essential session storage and optional Google Analytics. Choose analytics or essential only.</p><div><a class="btn btn-secondary btn-on-light" href="cookies.html">Cookies</a><a class="btn btn-secondary btn-on-light" href="privacy-gdpr.html">Privacy</a><button class="btn btn-secondary btn-on-light" type="button" data-cookie-reject>Essential only</button><button class="btn btn-primary" type="button" data-cookie-accept>Accept analytics</button></div></div>
 
     <script src="script.js?v=30"></script>
   </body>
 </html>
+
+
 
 
