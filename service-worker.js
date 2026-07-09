@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v45";
+const CACHE_NAME = "tuned-performance-pwa-v49";
 
 const CORE_ASSETS = [
   "./",
@@ -41,8 +41,8 @@ const CORE_ASSETS = [
   "./bmw-mini-coding-guide.html",
   "./terms.html",
   "./trim-fitment.html",
-  "./styles.css?v=43",
-  "./script.js?v=35",
+  "./styles.css?v=48",
+  "./script.js?v=36",
   "./manifest.webmanifest",
   "./README.MD",
   "./llms.txt",
@@ -148,5 +148,9 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
+
+
+
 
 
