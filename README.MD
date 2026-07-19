@@ -1,13 +1,13 @@
-# Tuned Performance Website
+﻿# Tuned Performance Website
 
-Static website package for Tuned Performance, a mobile car care business serving Feltham and nearby areas.
+Static website package for Tuned Performance, a vehicle care business serving Feltham and nearby areas.
 
 Business address: 105 Swan Road, Feltham, TW13 6PE. Company number: 17180730.
 
 ## What Is Included
 
 - Conversion-focused homepage with direct call, WhatsApp and quote routes.
-- Individual service pages for repairs, diagnostics, BMW/MINI coding, trim fitment, MOT support and ECU remap enquiries.
+- Individual service pages for servicing, cosmetic repairs, limited OBD diagnostics, BMW/MINI coding and trim fitment.
 - Pricing, estimator, contact, thank-you, reviews, gallery and local area SEO pages.
 - Legal pages for Privacy and GDPR, Cookies, Terms and Cancellation.
 - PWA files: `manifest.webmanifest`, `service-worker.js`, app icons and install support.
@@ -67,8 +67,9 @@ After upload:
 
 ## SEO Expansion
 
-Added high-intent local landing pages for bumper repair, panel re-spray, car and engine diagnostics and BMW/MINI coding in Feltham, plus guide pages for repair photos, MOT warning lights and coding compatibility. Submit the updated sitemap in Google Search Console after deployment.
+Added high-intent local landing pages for bumper repair, panel re-spray, OBD diagnostics and BMW/MINI coding in Feltham. Submit the updated sitemap in Google Search Console after deployment.
 
 ## AI Discovery
 
 The AI discovery layer is designed to make the business easier to classify in AI overviews and LLM-powered search. It is intentionally mobile-mechanic first, with BMW/MINI coding and remap content treated as secondary.
+

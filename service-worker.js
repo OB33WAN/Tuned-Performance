@@ -1,4 +1,4 @@
-const CACHE_NAME = "tuned-performance-pwa-v49";
+const CACHE_NAME = "tuned-performance-pwa-v56";
 
 const CORE_ASSETS = [
   "./",
@@ -16,11 +16,9 @@ const CORE_ASSETS = [
   "./cancellation-policy.html",
   "./cookies.html",
   "./bmw-mini-coding.html",
-  "./ecu-remapping.html",
   "./estimator.html",
   "./faq.html",
   "./gallery.html",
-  "./mot-support.html",
   "./obd-diagnostics.html",
   "./pricing.html",
   "./privacy-gdpr.html",
@@ -37,12 +35,11 @@ const CORE_ASSETS = [
   "./mobile-obd-diagnostics-feltham.html",
   "./bmw-mini-coding-feltham.html",
   "./car-repair-photo-guide.html",
-  "./mot-warning-light-guide.html",
   "./bmw-mini-coding-guide.html",
   "./terms.html",
   "./trim-fitment.html",
-  "./styles.css?v=48",
-  "./script.js?v=36",
+  "./styles.css?v=52",
+  "./script.js?v=38",
   "./manifest.webmanifest",
   "./README.MD",
   "./llms.txt",
@@ -148,6 +145,8 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
+
 
 
 

@@ -88,46 +88,46 @@ const trackConversion = (eventName, params = {}) => {
 
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const pageBookingDefaults = {
-  "index.html": "Mobile mechanic repair visit",
-  "services.html": "Mobile mechanic repair visit",
-  "contact.html": "Mobile mechanic repair visit",
-  "pricing.html": "Mobile mechanic repair visit",
-  "estimator.html": "Mobile mechanic repair visit",
-  "areas.html": "Mobile mechanic repair visit",
-  "availability.html": "Mobile mechanic repair visit",
-  "about.html": "Mobile mechanic repair visit",
-  "gallery.html": "Mobile mechanic repair visit",
-  "reviews.html": "Mobile mechanic repair visit",
-  "recent-jobs.html": "Mobile mechanic repair visit",
-  "refer-a-friend.html": "Mobile mechanic repair visit",
-  "faq.html": "Mobile mechanic repair visit",
-  "car-services-feltham.html": "Mobile mechanic repair visit",
-  "car-services-bedfont.html": "Mobile mechanic repair visit",
-  "car-services-ashford.html": "Mobile mechanic repair visit",
-  "car-services-sunbury.html": "Mobile mechanic repair visit",
-  "car-services-hounslow.html": "Mobile mechanic repair visit",
-  "car-services-kingston.html": "Mobile mechanic repair visit",
-  "scratch-bumper-repairs.html": "Bumper scratches and scuff repair",
-  "bumper-repair-feltham.html": "Bumper scratches and scuff repair",
-  "single-panel-repair-respray.html": "Single panel scratch repair and re-spray",
-  "single-panel-respray-feltham.html": "Single panel scratch repair and re-spray",
-  "obd-diagnostics.html": "Car and engine diagnostics",
-  "mobile-obd-diagnostics-feltham.html": "Car and engine diagnostics",
+  "index.html": "Not sure yet",
+  "services.html": "Not sure yet",
+  "contact.html": "Not sure yet",
+  "pricing.html": "Not sure yet",
+  "estimator.html": "Not sure yet",
+  "areas.html": "Not sure yet",
+  "availability.html": "Not sure yet",
+  "about.html": "Not sure yet",
+  "gallery.html": "Not sure yet",
+  "reviews.html": "Not sure yet",
+  "recent-jobs.html": "Not sure yet",
+  "refer-a-friend.html": "Not sure yet",
+  "faq.html": "Not sure yet",
+  "car-services-feltham.html": "Oil and filter service",
+  "car-services-bedfont.html": "Oil and filter service",
+  "car-services-ashford.html": "Oil and filter service",
+  "car-services-sunbury.html": "Oil and filter service",
+  "car-services-hounslow.html": "Oil and filter service",
+  "car-services-kingston.html": "Oil and filter service",
+  "scratch-bumper-repairs.html": "Bumper scratches or bumper replacement",
+  "bumper-repair-feltham.html": "Bumper scratches or bumper replacement",
+  "single-panel-repair-respray.html": "Single panel repair and re-spray",
+  "single-panel-respray-feltham.html": "Single panel repair and re-spray",
+  "obd-diagnostics.html": "OBD diagnostics and fault code scan",
+  "mobile-obd-diagnostics-feltham.html": "OBD diagnostics and fault code scan",
   "bmw-mini-coding.html": "BMW and MINI coding",
   "bmw-mini-coding-feltham.html": "BMW and MINI coding",
-  "trim-fitment.html": "Trim, mirror cap and accessory fitting",
-  "mot-support.html": "MOT prep and fail-sheet checks",
-  "ecu-remapping.html": "ECU remap enquiry"
+  "trim-fitment.html": "Screen, cluster or trim upgrade",
+  "mot-support.html": "Not sure yet",
+  "ecu-remapping.html": "Not sure yet"
 };
 
 const BUSINESS_HOURS_SUMMARY = "Standard hours are Monday to Wednesday 10am to 6pm and Saturday to Sunday 10am to 6pm. Thursday and Friday are closed.";
-const OUT_OF_HOURS_SUMMARY = "Weekend out-of-hours runs on Saturday and Sunday from 6pm to 11.30pm and adds a £50 call-out fee.";
+const OUT_OF_HOURS_SUMMARY = "Weekend evening appointments run on Saturday and Sunday from 6pm to 11.30pm and add a £50 evening booking fee.";
 const BOOKING_SLOT_OPTIONS = [
   { key: "mon-wed-day", label: "Monday to Wednesday daytime (10am to 6pm)", fee: 0 },
   { key: "saturday-day", label: "Saturday daytime (10am to 6pm)", fee: 0 },
   { key: "sunday-day", label: "Sunday daytime (10am to 6pm)", fee: 0 },
-  { key: "saturday-ooh", label: "Saturday out-of-hours (6pm to 11.30pm, +£50 call-out fee)", fee: 50 },
-  { key: "sunday-ooh", label: "Sunday out-of-hours (6pm to 11.30pm, +£50 call-out fee)", fee: 50 }
+  { key: "saturday-ooh", label: "Saturday evening appointment (6pm to 11.30pm, +£50 evening booking fee)", fee: 50 },
+  { key: "sunday-ooh", label: "Sunday evening appointment (6pm to 11.30pm, +£50 evening booking fee)", fee: 50 }
 ];
 const BOOKING_SLOT_LOOKUP = Object.fromEntries(BOOKING_SLOT_OPTIONS.map((option) => [option.key, option]));
 const BOOKING_SLOT_LABELS = Object.fromEntries(BOOKING_SLOT_OPTIONS.map((option) => [option.key, option.label]));
@@ -255,7 +255,7 @@ const getBusinessHoursState = (now = getLondonNow()) => {
       liveKey = "saturday-ooh";
       recommendedKey = "saturday-ooh";
       statusTone = "out-of-hours";
-      statusText = "Open now for Saturday out-of-hours call-outs (6pm to 11.30pm). A £50 call-out fee applies.";
+      statusText = "Open now for Saturday evening appointment requests (6pm to 11.30pm). A £50 evening booking fee applies.";
     } else {
       recommendedKey = "sunday-day";
       statusText = "Currently closed. The next standard slot is Sunday daytime from 10am to 6pm.";
@@ -273,7 +273,7 @@ const getBusinessHoursState = (now = getLondonNow()) => {
       liveKey = "sunday-ooh";
       recommendedKey = "sunday-ooh";
       statusTone = "out-of-hours";
-      statusText = "Open now for Sunday out-of-hours call-outs (6pm to 11.30pm). A £50 call-out fee applies.";
+      statusText = "Open now for Sunday evening appointment requests (6pm to 11.30pm). A £50 evening booking fee applies.";
     } else {
       recommendedKey = "mon-wed-day";
       statusText = "Currently closed. Monday to Wednesday daytime bookings resume at 10am.";
@@ -370,14 +370,14 @@ bookingModal.innerHTML = `
     </button>
     <div class="booking-modal__layout">
       <aside class="booking-modal__side">
-        <span class="booking-modal__eyebrow">Direct booking</span>
-        <h2 id="booking-modal-title">Book a mobile visit without leaving the page</h2>
+        <span class="booking-modal__eyebrow">Quick booking</span>
+        <h2 id="booking-modal-title">Send a booking enquiry from this page</h2>
         <p id="booking-modal-copy">Send the booking details directly from the menu. Use email for a tracked enquiry or WhatsApp when you want to attach photos straight away.</p>
         <ul class="booking-modal__list">
           <li>Monday to Wednesday daytime plus weekend booking requests</li>
           <li>Thursday and Friday are closed</li>
           <li>Service, vehicle and area details in one step</li>
-          <li>Saturday and Sunday out-of-hours options include a &pound;50 call-out fee</li>
+          <li>Saturday and Sunday evening appointments after 6pm include a &pound;50 evening booking fee</li>
         </ul>
         <div class="booking-modal__actions">
           <a class="btn btn-secondary" href="tel:+447347388893">Call 07347 388893</a>
@@ -415,14 +415,15 @@ bookingModal.innerHTML = `
         <div class="form-row">
           <label for="modal-book-service">Service needed</label>
           <select id="modal-book-service" name="service">
-            <option>Mobile mechanic repair visit</option>
-            <option>Bumper scratches and scuff repair</option>
-            <option>Single panel scratch repair and re-spray</option>
-            <option>Car and engine diagnostics</option>
-            <option>MOT prep and fail-sheet checks</option>
-            <option>Trim, mirror cap and accessory fitting</option>
+            <option>Oil and filter service</option>
+            <option>Spark plugs and ignition coils</option>
+            <option>Brakes, pads and discs</option>
+            <option>Tyres and wheel replacement</option>
+            <option>Bumper scratches or bumper replacement</option>
+            <option>Single panel repair and re-spray</option>
             <option>BMW and MINI coding</option>
-            <option>ECU remap enquiry</option>
+            <option>Screen, cluster or trim upgrade</option>
+            <option>OBD diagnostics and fault code scan</option>
             <option>Not sure yet</option>
           </select>
         </div>
@@ -432,19 +433,19 @@ bookingModal.innerHTML = `
             <option>Monday to Wednesday daytime (10am to 6pm)</option>
             <option>Saturday daytime (10am to 6pm)</option>
             <option>Sunday daytime (10am to 6pm)</option>
-            <option>Saturday out-of-hours (6pm to 11.30pm, +£50 call-out fee)</option>
-            <option>Sunday out-of-hours (6pm to 11.30pm, +£50 call-out fee)</option>
+            <option>Saturday evening appointment (6pm to 11.30pm, +£50 evening booking fee)</option>
+            <option>Sunday evening appointment (6pm to 11.30pm, +£50 evening booking fee)</option>
           </select>
         </div>
         <div class="form-row form-row-full">
           <label for="modal-book-message">What is happening?</label>
-          <textarea id="modal-book-message" name="message" rows="4" placeholder="Add the repair needed, symptoms, warning lights, damage, parts to fit, MOT concerns or coding features."></textarea>
+          <textarea id="modal-book-message" name="message" rows="4" placeholder="Add the oil service, plugs, brakes, wheel change, bumper damage, parts to fit, screen upgrade or coding features needed."></textarea>
         </div>
         <div class="form-actions form-row-full">
           <button class="btn btn-primary" type="submit">Send email enquiry</button>
           <button class="btn btn-secondary btn-on-light" type="button" data-whatsapp-submit>Send on WhatsApp</button>
         </div>
-        <p class="form-note">Email enquiries go through Web3Forms. The form shows live UK business hours and any weekend out-of-hours fee before you send it.</p>
+        <p class="form-note">Email enquiries go through Web3Forms. Use this route for planned servicing, cosmetic work, coding and upgrade bookings.</p>
         <p class="form-status" data-form-status role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -464,14 +465,15 @@ const bookingModalTriggers = [...new Set(document.querySelectorAll(
 let bookingModalRestoreFocus = null;
 
 const estimates = {
-  mechanic: { small: "From &pound;50", medium: "Quote after symptoms or photos", large: "Repair route review needed" },
+  oil: { small: "From &pound;50", medium: "&pound;60-&pound;80 guide", large: "Vehicle and parts review needed" },
+  plugs: { small: "From &pound;50", medium: "&pound;60-&pound;90 guide", large: "Vehicle and parts review needed" },
+  brakes: { small: "From &pound;60", medium: "&pound;90-&pound;160 guide", large: "Vehicle and parts review needed" },
+  wheels: { small: "From &pound;25", medium: "&pound;35-&pound;60 guide", large: "Vehicle and parts review needed" },
   bumper: { small: "From &pound;60", medium: "&pound;90-&pound;160 guide", large: "Photo quote needed" },
   panel: { small: "From &pound;100", medium: "&pound;150-&pound;240 guide", large: "Panel review needed" },
-  diagnostic: { small: "From &pound;50", medium: "&pound;50-&pound;90 guide", large: "Fault route needed" },
-  fitment: { small: "From &pound;20", medium: "&pound;35-&pound;80 guide", large: "Parts review needed" },
-  mot: { small: "Ask for route quote", medium: "Pickup support quote", large: "Workshop route needed" },
+  scan: { small: "From &pound;50", medium: "&pound;50-&pound;90 guide", large: "Vehicle symptoms review needed" },
+  upgrades: { small: "From &pound;30", medium: "&pound;50-&pound;90 guide", large: "Parts review needed" },
   coding: { small: "From &pound;40", medium: "&pound;60-&pound;90 guide", large: "Compatibility check needed" },
-  remap: { small: "Enquiry-only service", medium: "Vehicle-specific guidance", large: "Register interest first" }
 };
 
 const estimator = document.querySelector("[data-estimator]");
@@ -515,7 +517,7 @@ const setBookingModalDefaultService = () => {
 
 const getBookingTriggerSource = (trigger) => {
   if (!(trigger instanceof HTMLElement)) {
-    return "Direct booking modal";
+    return "Quick booking modal";
   }
 
   if (trigger.classList.contains("nav-book-link")) {
@@ -550,7 +552,7 @@ const getBookingTriggerSource = (trigger) => {
     return "Page quote button";
   }
 
-  return "Direct booking modal";
+  return "Quick booking modal";
 };
 
 const closeBookingModal = ({ restoreFocus = true } = {}) => {
@@ -709,7 +711,7 @@ const syncBusinessHourForms = () => {
           ? "is-open"
           : "is-closed"
     );
-    note.textContent = `${businessState.formText} The form uses current UK time and updates automatically. Selected slot: ${selectedLabel}. ${selectedFee ? "This slot includes the £50 out-of-hours call-out fee." : "This slot is within standard hours."}`;
+    note.textContent = `${businessState.formText} The form uses current UK time and updates automatically. Selected slot: ${selectedLabel}. ${selectedFee ? "This slot includes the £50 evening booking fee." : "This slot is within standard hours."}`;
 
     ensureHiddenFormField(form, "business_hours_status").value = businessState.statusText;
     ensureHiddenFormField(form, "business_hours_summary").value = `${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY}`;
@@ -743,7 +745,7 @@ availability?.addEventListener("click", (event) => {
   });
 
   const label = availabilityLabels[card.dataset.slot] || "Availability request";
-  if (availabilityNote) availabilityNote.textContent = `Selected preference: ${label}`;
+  if (availabilityNote) availabilityNote.textContent = `Selected booking window: ${label}`;
   document.querySelectorAll('[data-booking-form] select[name="slot"], [data-estimate-email-form] [data-full-slot], [data-slot-field]').forEach((field) => {
     if (!(field instanceof HTMLSelectElement)) return;
     setBookingSelectValue(field, card.dataset.slot || label);
@@ -762,10 +764,10 @@ availability?.addEventListener("click", (event) => {
 const codingPreview = document.querySelector("[data-coding-preview]");
 const codingResult = document.querySelector("[data-coding-result]");
 const codingLabels = {
-  comfort: "Selected route: Comfort coding. Send the vehicle, model year and the exact convenience features wanted.",
-  lighting: "Selected route: Lighting coding. Send the current light behaviour and the setting you want changed.",
-  display: "Selected route: Display and iDrive coding. Send photos of the current menu or cluster if possible.",
-  compatibility: "Selected route: Compatibility review. Send the registration or model/year plus your full feature wish list."
+  comfort: "Selected coding route: Comfort coding. Send the vehicle, model year and the exact convenience features wanted.",
+  lighting: "Selected coding route: Lighting coding. Send the current light behaviour and the setting you want changed.",
+  display: "Selected coding route: Display and iDrive coding. Send photos of the current menu or cluster if possible.",
+  compatibility: "Selected coding route: Compatibility review. Send the registration or model/year plus your full feature wish list."
 };
 
 codingPreview?.addEventListener("click", (event) => {
@@ -862,7 +864,7 @@ document.querySelectorAll("[data-booking-form]").forEach((bookingForm) => {
       `Vehicle: ${data.get("vehicle") || ""}`,
       `Service: ${data.get("service") || ""}`,
       `Preferred availability: ${slotLabel}`,
-      `Out-of-hours call-out fee: ${outOfHoursText}`,
+      `Evening booking fee: ${outOfHoursText}`,
       `Current booking status: ${businessState.statusText}`,
       `Business hours: ${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY}`,
       `Details: ${data.get("message") || ""}`
@@ -887,7 +889,7 @@ const buildBookingLeadPreview = (bookingForm) => {
     `Vehicle: ${data.get("vehicle") || ""}`,
     `Service: ${data.get("service") || ""}`,
     `Preferred availability: ${slotLabel}`,
-    `Out-of-hours call-out fee: ${outOfHoursText}`,
+    `Evening booking fee: ${outOfHoursText}`,
     `Current booking status: ${businessState.statusText}`,
     `Business hours: ${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY}`,
     `Details: ${data.get("message") || ""}`
@@ -939,53 +941,59 @@ const estimatorWizard = document.querySelector("[data-estimator-wizard]");
 let validateEstimatorAll = null;
 
 const fullEstimateData = {
-  mechanic: {
-    label: "Mobile mechanic repairs and inspections",
-    small: { amount: 50, note: "General repair or inspection route" },
-    medium: { amount: null, note: "Quote after symptoms or photos" },
-    large: { amount: null, note: "Repair route review needed" }
+  oil: {
+    label: "Oil and filter service",
+    small: { amount: 50, note: "Routine oil and filter service" },
+    medium: { amount: 70, note: "Oil service plus extra filters or checks" },
+    large: { amount: null, note: "Vehicle and parts review needed" }
+  },
+  plugs: {
+    label: "Spark plugs and ignition coils",
+    small: { amount: 50, note: "Spark plug or simple ignition service" },
+    medium: { amount: 80, note: "Multiple plugs or ignition coils" },
+    large: { amount: null, note: "Vehicle and parts review needed" }
+  },
+  brakes: {
+    label: "Brakes, pads and discs",
+    small: { amount: 60, note: "Brake inspection or smaller axle job" },
+    medium: { amount: 120, note: "Pads and discs or more involved brake work" },
+    large: { amount: null, note: "Vehicle and parts review needed" }
+  },
+  wheels: {
+    label: "Tyres and wheel replacement",
+    small: { amount: 25, note: "Single wheel change or simple swap" },
+    medium: { amount: 50, note: "Two wheels or more involved change" },
+    large: { amount: null, note: "Vehicle and parts review needed" }
   },
   bumper: {
-    label: "Bumper scratches and scuff repair",
+    label: "Bumper scratches or bumper replacement",
     small: { amount: 60, note: "Small scuff or localised bumper repair" },
     medium: { amount: 120, note: "Medium bumper repair or two affected areas" },
     large: { amount: null, note: "Photo quote needed for larger bumper repair" }
   },
   panel: {
-    label: "Single panel scratch repair and re-spray",
+    label: "Single panel repair and re-spray",
     small: { amount: 100, note: "Single panel starting guide" },
     medium: { amount: 160, note: "More visible or wider panel repair" },
     large: { amount: null, note: "Panel review needed" }
   },
-  diagnostic: {
-    label: "Car and engine diagnostics",
-    small: { amount: 50, note: "Fault scan visit" },
-    medium: { amount: 75, note: "Scan plus extended guidance" },
-    large: { amount: null, note: "Workshop route may be needed" }
+  scan: {
+    label: "OBD diagnostics and fault code scan",
+    small: { amount: 50, note: "Fault code scan and basic next-step guidance" },
+    medium: { amount: 75, note: "Fault code scan plus extended checks" },
+    large: { amount: null, note: "Complex repair diagnosis not included" }
   },
-  fitment: {
-    label: "Trim, mirror cap and accessory fitting",
-    small: { amount: 20, note: "Simple small-item fitment" },
-    medium: { amount: 50, note: "Two items or more involved fitment" },
+  upgrades: {
+    label: "Screen, cluster or trim upgrade",
+    small: { amount: 30, note: "Simple supplied trim or accessory fitment" },
+    medium: { amount: 60, note: "Screen, cluster or multi-part upgrade" },
     large: { amount: null, note: "Parts review needed" }
-  },
-  mot: {
-    label: "MOT prep and fail-sheet checks",
-    small: { amount: null, note: "Route quote needed" },
-    medium: { amount: null, note: "Garage route quote needed" },
-    large: { amount: null, note: "Workshop support quote needed" }
   },
   coding: {
     label: "BMW and MINI coding",
     small: { amount: 40, note: "Supported feature coding session" },
     medium: { amount: 60, note: "Multiple supported coding changes" },
     large: { amount: null, note: "Compatibility review needed first" }
-  },
-  remap: {
-    label: "ECU remap enquiry",
-    small: { amount: null, note: "Enquiry-only service" },
-    medium: { amount: null, note: "Vehicle-specific guidance needed" },
-    large: { amount: null, note: "Register interest first" }
   }
 };
 
@@ -1020,9 +1028,9 @@ const updateFullEstimator = () => {
   const urgency = fullUrgency?.value || "Flexible";
   const details = fullDetails?.value.trim() || "Not provided";
   const guideText = size.amount
-    ? `From \u00a3${size.amount}${outOfHoursFee ? " plus a \u00a350 out-of-hours call-out fee" : ""}`
+    ? `From \u00a3${size.amount}${outOfHoursFee ? " plus a \u00a350 evening booking fee" : ""}`
     : outOfHoursFee
-      ? "Quote required plus a \u00a350 out-of-hours call-out fee"
+      ? "Quote required plus a \u00a350 evening booking fee"
       : "Quote required";
   const amountText = size.amount
     ? `From ${formatPounds(size.amount + outOfHoursFee)}`
@@ -1037,7 +1045,7 @@ const updateFullEstimator = () => {
     ["Job size", size.note],
     ["Guide", guideText],
     ["Availability", slot],
-    ["Out-of-hours fee", outOfHoursFee ? "\u00a350" : "Not applied"],
+    ["Evening booking fee", outOfHoursFee ? "\u00a350" : "Not applied"],
     ["Current booking status", businessState.statusText],
     ["Urgency", urgency],
     ["Area", area],
@@ -1056,7 +1064,7 @@ const updateFullEstimator = () => {
     `Job size: ${size.note}`,
     `Guide: ${guideText}`,
     `Preferred availability: ${slot}`,
-    `Out-of-hours call-out fee: ${outOfHoursFee ? "\u00a350 applied" : "Not applied"}`,
+    `Evening booking fee: ${outOfHoursFee ? "\u00a350 applied" : "Not applied"}`,
     `Current booking status: ${businessState.statusText}`,
     `Business hours: ${BUSINESS_HOURS_SUMMARY} ${OUT_OF_HOURS_SUMMARY}`,
     `Urgency: ${urgency}`,
@@ -1608,7 +1616,7 @@ if (thanksTitle && thanksCopy && thanksPanelTitle && thanksPanelCopy) {
     thanksTitle.textContent = "Thank you, your email enquiry has been sent";
     thanksCopy.textContent = "Your details have been sent to the Tuned Performance inbox through Web3Forms. You will receive a reply as soon as possible.";
     thanksPanelTitle.textContent = "Your enquiry is in the inbox";
-    thanksPanelCopy.textContent = "For repair and fitment jobs, keeping clear photos ready will help confirm the quote faster. For urgent bookings, calling is still the quickest option.";
+    thanksPanelCopy.textContent = "For repair and fitment jobs, keeping clear photos ready will help confirm the quote faster. For time-sensitive bookings, calling is still the quickest option.";
   } else if (source === "referral") {
     thanksTitle.textContent = "Thank you, your referral has been registered";
     thanksCopy.textContent = "The referral details have been sent to the Tuned Performance inbox so they can be matched manually when the friend books.";
@@ -1671,3 +1679,5 @@ window.addEventListener("appinstalled", () => {
   deferredInstallPrompt = null;
   document.querySelector("[data-install-app]")?.remove();
 });
+
+
